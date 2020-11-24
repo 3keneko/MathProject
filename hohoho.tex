@@ -1,0 +1,378 @@
+% Yay, the article for the end of this year, in LaTeX.
+
+\documentclass[a4paper, 12pt]{article}
+
+\newcommand{\ffi}{\Leftrightarrow}
+\newcommand{\imply}{\Rightarrow}
+
+\usepackage{fancyhdr, fancybox}
+\usepackage{amsmath, amssymb}
+\usepackage{changepage, array, placeins, float, verbatim}
+\usepackage{qtree, forest}
+\pagestyle{fancy}
+
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\renewcommand{\sectionmark}[ 1 ]{\markboth{\thesection. #1 }{ }}
+\renewcommand{\subsectionmark}[ 1 ]{\markright{\thesubsection. #1 }}
+
+\renewcommand{\labelenumi}{\alph{enumi}.}
+\renewcommand{\theenumi}{\alph{enumi}.}
+\renewcommand{\labelenumii}{\roman{enumii}.}
+\renewcommand{\theenumii}{\roman{enumii}.}
+
+\rhead[\textbf{}]{\textbf{}}
+\lhead[\textbf{}]{\textbf{}}
+\lfoot[{\bf \thepage}]{{\bf \thepage}}
+\rfoot[{\bf \thepage}]{\textbf{IA PAS DE SOUCIS!}}
+\cfoot[]{}
+
+\numberwithin{equation}{subsection}
+\renewcommand{\headrulewidth}{ 0.15 mm}
+\renewcommand{\footrulewidth}{ 0.15 mm}
+\addtolength{\headwidth}{\marginparsep}
+\addtolength{\headwidth}{\marginparwidth}
+
+\newcolumntype{M}[ 1 ]{>{\centering\arraybackslash}m{#1}}
+\title{IA Pas de Soucis!}
+\author{Un projet de Evrard Maurice,\\ Lejeune Grégory,\\ Lejeune Lucas,\\ Mathieu Louca,\\ Pluvinage Victor\\ et de Ralet Vincent.}
+
+\begin{document}
+\maketitle
+\newpage
+
+\section{Histoire.}
+
+\subsection{C A VOUS.}
+
+\newpage
+
+\section{L'approche logique.}
+\newpage
+\subsection{Les bases de la logique}
+  \subsubsection{Introduction à la logique propositionnelle.}
+     L'importance de la logique propositionnelle est immense en mathématiques et en cryptographie, mais également, comme nous allons le voir, en informatique.\\
+     Voici une fameuse lapalissade, exemple typique d'utilisation d'une phrase ne découlant de rien d'autre que de cette logique:
+  \begin{center}
+    \shadowbox{{\bf ''15 minutes avant sa mort, il était encore en vie.''}\footnotemark} \footnotetext{ https://fr.wikipedia.org/wiki/Lapalissade}
+  \end{center}
+     Évidemment, grâce à notre capacité déductionnelle, nous pouvons tous définir cette phrase comme vraie, c'est ici, une vérité dite ``de  langage''. \\[0.5cm]
+
+  \subsubsection{Un peu de vocabulaire!}
+     La logique propositionnelle possède son propre vocabulaire, il est presque indispensable de connaître son vocabulaire et sa syntaxe afin même de  pouvoir en comprendre les concepts.\\
+     Tout d'abord, un {\bf langage formel} est un ensemble de mots que l'on peut obtenir en utilisant un alphabet\footnote{Cela peut être un alphabet comme abcd...yz tout comme un alphabet composé uniquement de 1 et de 0.}, un langage possède plusieurs {\bf lois}, cet ensemble de lois sera appelé la {\bf syntaxe}, qui définissent les différentes manières grâce auxquelles les éléments de l'alphabet (aussi appelés  les {\bf symboles}) peuvent se placer pour former quelque chose de cohérent au langage.\\ Par exemple, en français, vous n'écririez pas ``Jème lai vwaturres'', mais plutôt, ``j'aime les voitures'', aussi bête que ce petit exemple puisse paraître, il s'agit  là de l'une des nombreuses fois où l'on se plie aux règles d'une grammaire logique. \\
+     Un mot respectant toutes les règles de syntaxe sera alors appelé un {\bf mot bien-formé}. \\
+     {\bf La logique propositionnelle} se compose donc d'un langage formel, et de sémantiques donnant du sens aux mots bien formés, répondant au nom de {\bf propositions}. \\
+     Les propositions logiques sont désignées par des lettres, comme $ A, B, C$..., ou par des lettres indicées comme $ A_2, B_{4}$...
+     Pour relier ces propositions, on utilise des connecteurs, répertoriés dans le tableau ci-dessous. \\
+     \begin{table}[!t]
+       \centering
+       \begin{tabular}{|c|c|c|}
+         %!{\vrule width 0.8mm}>{\bfseries}l|
+         %>{$}<{$}!{\vrule width 0.8mm}}
+         \hline {\bf nom }       & {\bf symbole}     & {\bf autre nom}  \\
+         \hline négation         & $\neg$            & NOT              \\
+         conjonction             & $\land$           & AND              \\
+         disjonction (I)         & $\lor$            & OR               \\
+         disjonction (E)         & $\oplus$          & XOR              \\
+         implication             & $\imply$          & IF..THEN         \\
+         équivalence             & $\ffi$            & IFF              \\
+         \hline
+       \end{tabular}
+    \end{table}
+  En plus de ces connecteurs viennent s'ajouter les deux valeurs logiques à la base de tout, Vrai et Faux.
+    \subsubsection{Pour quelques exemples de plus...}
+        Voici quelques exemples d'énoncés de logique propositionnelle dans un cadre assez éloigné des mathématiques, en espérant que cela fasse sens au lecteur.\\
+        Supposons que $A$ et $B$ soient deux propositions logiques. \\
+        $A$: Je suis boulanger. \\
+        $B$: Je sais faire des gâteaux. \\
+        Nous pouvons ainsi relier ces deux propositions avec les connecteurs vus dans le tableau ci-dessus. \\
+        $\neg A$: Je ne suis pas boulanger. \\
+        $\neg B$: Je ne sais pas faire des gâteaux. \\
+        $A \land B$: Je suis boulanger et je sais faire des gâteaux. \\
+        $A \lor B$: Je suis boulanger ou je sais faire des gâteaux (Les deux propositions peuvent être vraies, tout comme une seule des deux). \\
+        $A \oplus B$: Je suis boulanger ou alors je sais faire des gâteaux. (Une seule de ces deux propositions doit être vraie) \\
+        $A \imply B$: Je suis boulanger, donc je sais faire des gâteaux. \\
+        $A \ffi B$: Je suis boulanger si et seulement si je sais faire des gâteaux. \\
+        ... \\
+    \subsubsection{Quelques tables de vérité.}
+    Après tant d'exemples ``instructifs'', il serait temps de passer aux fameuses {\bf tables de vérité}, ces tables seront d'une importance capitale lors de résolutions de problèmes, les voici donc: \\[15.0cm]
+    \begin{table}[!t]
+      \hspace{1.0cm}
+      \begin{minipage}[c]{0.1\linewidth}
+        \centering
+        \caption{Négation.}
+        \label{neg_table}
+      \begin{tabular}{|c|c|}
+        \hline $A$ & $\neg A$ \\
+        \hline  F  &     V    \\
+                V  &     F    \\
+        \hline
+      \end{tabular}
+    \end{minipage}
+    \hspace{2.0cm}
+    \begin{minipage}[c]{0.22\linewidth}
+      \centering
+      \caption{\\Conjonction.}
+      \label{and_table}
+      \begin{tabular}{|c|c|c|}
+        \hline $A$ & $B$ & $A \land B$ \\
+        \hline  F  &  F  &      F      \\
+                F  &  V  &      F      \\
+                V  &  F  &      F      \\
+                V  &  V  &      V      \\
+        \hline
+      \end{tabular}
+    \end{minipage}
+    \hspace{1.0cm}
+    \begin{minipage}[c]{0.27\linewidth}
+      \centering
+      \caption{\\Disjonction (OR).}
+      \label{or_table}
+    \begin{tabular}{|c|c|c|}
+        \hline $A$ & $B$ & $A \lor B$  \\
+        \hline  F  &  F  &      F      \\
+                F  &  V  &      V      \\
+                V  &  F  &      V      \\
+                V  &  V  &      V      \\
+        \hline
+    \end{tabular}
+  \end{minipage}
+  \\[1.0cm]
+  \begin{minipage}[c]{0.27\linewidth}
+    \centering
+    \caption{\\Disjonction (XOR).}
+    \label{xor_table}
+      \begin{tabular}{|c|c|c|}
+        \hline $A$ & $B$ & $A \oplus B$ \\
+        \hline  F  &  F  &       F      \\
+                F  &  V  &       V      \\
+                V  &  F  &       V      \\
+                V  &  V  &       F      \\
+        \hline
+      \end{tabular}
+    \end{minipage}
+    \hspace{1.0cm}
+    \begin{minipage}[c]{0.22\linewidth}
+      \centering
+      \caption{\\Implication.}
+      \label{imply_table}
+      \begin{tabular}{|c|c|c|}
+        \hline $A$ & $B$ & $A \imply B$ \\
+        \hline  F  &  F  &       V        \\
+                F  &  V  &       V        \\
+                V  &  F  &       F        \\
+                V  &  V  &       V        \\
+        \hline
+      \end{tabular}
+    \end{minipage}
+    \hspace{1.0cm}
+    \begin{minipage}[c]{0.1\linewidth}
+      \centering
+      \caption{Équivalence}
+      \label{iff_table}
+      \begin{tabular}{|c|c|c|}
+        \hline $A$ & $B$ & $A \ffi B$ \\
+        \hline  F  &  F  &      V     \\
+                F  &  V  &      F     \\
+                V  &  F  &      F     \\
+                V  &  V  &      V     \\
+        \hline
+      \end{tabular}
+    \end{minipage}
+  \end{table}
+  Les tables 1 à 4 doivent sans doute paraître logique, je m'attarderai toutefois sur la table 5, en effet les deux phrases $F \imply V$ et $F \imply F$ sont toutes deux vraies.
+  Cela est du au {\bf principe d'explosion}\footnote{https://fr.wikipedia.org/wiki/Principe\_d$\%$27explosion}: Du faux, on peut déduire absolument n'importe quoi! (On verra plus tard que l'on peut noter ceci $A \land \neg A \models B$).\\
+  Pour ce qui est de la table 6, il faut savoir que certains notent $\ffi$ comme étant $\equiv$, cette notation a l'avantage d'accentuer le fait que cette relation n'est autre que la relation d'équivalence.
+  \subsubsection{Résolution de problèmes en logique propositionnelle.}
+  Maintenant que nous avons acquis les bases de la logique propositionnelle,  attaquons nous à quelques problèmes.\\
+  En voici un premier,
+  \begin{center}
+    \Ovalbox{$ \neg (A \land B ) \ffi \neg A \lor \neg B$}
+  \end{center}
+  Pour résoudre ceci, nous allons utiliser une grande table de vérité: \newpage
+  \begin{table}[!t]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+      \hline $A$ & $B$ & $A \land B$ & $\neg (A \land B)$ & $\neg A$ & $\neg B$ & $\neg A \lor \neg B$ & $\neg (A \land B) \ffi \neg A \lor \neg B$ \\
+      \hline  F  &  F  &      F      &          V         &     V    &     V    &          V           &                     V                      \\
+              F  &  V  &      F      &          V         &     V    &     F    &          V           &                     V                      \\
+              V  &  F  &      F      &          V         &     F    &     V    &          V           &                     V                      \\
+              V  &  V  &      V      &          F         &     F    &     F    &          F           &                     V                      \\
+      \hline
+    \end{tabular}
+  \end{table}
+  Ainsi, comme nous pouvons le constater, la dernière ligne est remplie de ``V'', cela veut donc dire que nous venons de prouver la relation $\neg (A \land B) \ffi \neg A \lor \neg B$ , aussi connue sous le nom de ``la loi de DeMorgan'', nous avons prouvé par la même occasion que $\neg (A \land B) \ffi \neg A \lor B$ est {\bf valide}, cela veut dire qu'elle sera toujours vraie, peu-importe les A, et les B.\\[0.5cm]
+  Il existe toutefois une autre manière de faire, il s'agit d'utiliser un arbre, cette méthode requiert moins d'étapes et nous permettra de résoudre certains problèmes de manière plus simple. Toutefois, il y a quelques règles à respecter lors de l'utilisation d'un arbre, ces  règles sont répertoriées dans le tableau ci-dessous. \\
+  \begin{center}
+    \begin{table}[!hbt]
+      \centering
+    \begin{tabular}{|M{2.5cm}|M{2.5cm}|M{2.5cm}|}
+      \hline \begin{forest} [$\neg (\neg \phi)$ [$\phi$]]\end{forest} & \begin{forest} [$\phi \land \psi$ [$\phi$ [$\psi$]]] \end{forest} & \begin{forest} [$\neg (\psi \land \phi)$ [$\neg \psi$] [$\neg \phi$]] \end{forest} \\
+     \hline \begin{forest} [$\phi \lor \psi$ [$\phi$][$\psi$]] \end{forest}& \begin{forest} [$\neg (\phi \lor \psi)$ [$\neg \phi$ [$\neg \phi$]]] \end{forest}  & \begin{forest} [$\phi \imply \psi$ [$\neg \phi$][$\psi$]] \end{forest}\\
+      \hline \begin{forest} [$\neg (\phi \imply \psi)$ [$\phi$ [$\neg \psi$]]] \end{forest}& \begin{forest} [$\phi \ffi \psi$ [$\phi$ [$\psi$]] [$\neg \phi$ [$\neg \psi$]]] \end{forest}& \begin{forest} [$\neg (\phi \imply \psi)$ [$\phi$ [$\neg \psi$]] [$\neg \phi$ [$\psi$]]]\end{forest} \\
+      \hline
+    \end{tabular}
+  \end{table}
+  \end{center}
+  Le but du jeu avec un arbre logique, c'est de terminer chacune des branches de l'arbre par $\bot$ (C'est le symbole utilisé pour les contradictions). Ainsi, avec un arbre, nous commençons par utiliser l'opposé de notre hypothèse de base (ici, l'opposé de $\neg (A \land B) \ffi \neg A \lor \neg B$, c'est $\neg (\neg (A \land B) \ffi \neg A \lor \neg B)$), (en général, une contradiction arrive quand nous nous retrouvons avec $A$ et $\neg A$ sur la même branche.) \\
+  Passons maintenant à la preuve
+  \begin{center}
+  \begin{forest}
+  [$\neg (\neg (A \land B) \ffi \neg A \lor \neg B)$
+    [$\neg(A \land B)$
+    [$\neg (\neg A \lor \neg B)$
+    [$A$
+    [$B$
+    [$\neg A$
+    [$\bot$]]
+    [$\neg B$
+    [$\bot$]]]]]]
+    [$\neg (\neg (A \land B))$
+    [$ \neg A \lor \neg B$
+    [$A \land B$
+    [$A$
+    [$B$
+    [$\neg A$
+    [$\bot$]]
+    [$\neg B$
+    [$\bot$]]]]]]]]
+  \end{forest}
+\end{center}
+Chaque branche de l'arbre fini bien par $\bot$, nous venons donc de prouver la loi de DeMorgan, avec l'aide de notre arbre de démonstration. \\[1.0cm]
+    Ci dessous, le lecteur pourra s'essayer à la démonstrations de certaines lois logiques célèbres, avec l'aide d'un tableau ou avec un arbre. \\[1.0cm]
+  \begin{equation}\neg \neg A \ffi A \end{equation}
+  \begin{equation} A \land \neg A \ffi F \end{equation}
+  \begin{equation} A \lor \neg A \ffi T \end{equation}
+  \begin{equation} A \land F \ffi F \end{equation}
+  \begin{equation} A \lor V \ffi V \end{equation}
+  \begin{equation}
+    \begin{cases}
+      A \lor B \ffi B \lor A \\
+      A \land B \ffi B \land A
+    \end{cases}
+  \end{equation}
+  \begin{equation}
+    \begin{cases}
+      A \land (B \land C) \ffi (A \land B) \land C \\
+      A \lor (B \lor C) \ffi (A \lor B) \lor C
+    \end{cases}
+  \end{equation}
+  \begin{equation}A \land (B \lor C) \ffi (A \land B) \lor (A \land C) \end{equation}
+  \subsection{Les ensembles de propositions.}
+  Les ensembles de propositions, comme leur nom l'indique, sont des ensembles mathématiques, composés de {\bf formules logiques}.
+  Ces formules sont dites soit: \\
+  \begin{itemize}
+  \item {\bf consistantes}, signifiant qu'il est possible d'en tirer du Vrai, par exemple $A \land B$ ou encore $\neg \neg A \imply A$.
+  \item {\bf inconsistances}, signifiant que l'on ne peut en tirer que du Faux, par exemple $A \land \neg A$, ces formules peuvent être notées $\bot$.
+  \item {\bf valides}, signifiant qu'elles ne peuvent être que Vraies, comme $A \lor \neg A$ (principe du tiers-exclus), une formule {\bf valide} est par définition toujours {\bf consistante}, on appelle bien souvent ces formules valides des {\bf tautologies}, ces formules pourront être notées $\top$. \\
+  \item {\bf contingentes}, impliquant que l'on peut tirer de la formule du faux, tout comme du vrai, une {\bf tautologie} ne peut pas être formule contingente,
+  un exemple de formule contingente serait $A \lor B$.
+  \end{itemize}
+
+  Les ensembles aussi ont leur propre terminologie, ainsi, si l'on prend l'ensemble noté $S$, il pourra être qualifié également de {\bf consistant}, si il n'y a pas de contradictions au sein de $S$ et qu'il n'y a aucune formule inconsistante contenue dans $S$, autrement $S$ sera défini comme étant {\bf inconsistant}. \\[0.5cm]
+  Il y a plusieurs manières d'{\bf inférer} quelque chose d'un ensemble logique. \\
+  Une première manière est de prendre les {\bf prémisses} qui nous intéressent, et d'écrire \\[0.5cm]
+    1. {\bf Premisse\_A} \\
+    2. {\bf Premisse\_B} \\
+    \hspace{0.2cm}$\vdots$ \\
+    n. {\bf Premisse\_X} \\
+    \hspace{0.5cm}\line(1, 0){60} \\
+    $\therefore$ {\bf Conclusion} \\[0.5cm]
+  Prenons un ensemble {\bf consistant} $S$ composé des formules $A$ et $A \imply B$. \\
+  On pourrait alors noter $S$ comme étant $S = \{ A, A \imply B \}$ (ce qui est parfaitement équivalent à écrire $S = A \land (A \imply B)$), \\
+  De ceci, nous allons utiliser l'opérateur de la déduction, $\vDash$, ceci nous permettra ainsi écrire $S \vDash A$, littéralement ``De $S$, nous déduisons $A$''. \\Ce principe est encore plus flagrant quand nous utilisons la notation suivante : $A, A \imply B \models A$, où $A, A \imply B$ n'est autre que l'ensemble S, avec une notation légèrement différente. \\[0.5cm]
+
+  Je n'ai pas choisi cet ensemble de manière anodine, car, grâce à celui-ci, nous allons pouvoir utiliser une {\bf règle d'inférence} connue sous le nom du MP (Modus Ponens), le lecteur ne devrait toutefois pas s'inquiéter, un tableau recensant d'autres règles d'inférence sera présenté à la page suivante. \\
+  Une première manière de noter cette règle d'inférence serait de faire usage de la notation que nous avons vue plus haut. \\[0.5cm]
+    1. A (De cet ensemble, nous savons A) \\
+    2. $A \imply B$ (De cet ensemble, nous savons que $A \imply B$) \\
+  \hspace{10cm}\line(1, 0){60} \\
+  $\therefore$ B \\[0.5cm]
+  Une autre manière serait d'utiliser l'opérateur $\vDash$ (celui de la {\bf déduction}), de la manière suivante : $A, A \implies B \vDash B$, nous pourrions même être tentés d'utiliser la {\bf règle d'addition}, disant que si l'on a $S \vDash B$, alors, on peut rajouter la formule B à S. Et ainsi, notre ensemble S de base pourra être réécrit en $S = {A, A \imply B, B}$
+  Et maintenant, comme promis, voici un tableau comprenant toutes les règles d'inférence qui seront bien pratiques pour travailler avec les ensembles logiques.
+  \FloatBarrier
+  \begin{adjustwidth}{300pt}{0pt}
+    \begin{table}[H]
+    \begin{tabular}{|c|M{5.0cm}|p{5.0cm}|}
+      \hline Règle d'inférence & Tautologie & Nom de la règle d'inférence \\
+      \hline $A, B \vDash A \land B$ & $A \land B \imply A \land B$& Loi de combinaison \\
+      \hline $A, B \vDash A$ & $(A \land B) \imply A $& Loi de la simplification \\
+      \hline $A, A \imply B \vDash B$ & $A \land (A \imply B) \imply B $ & Modus Ponens \\
+      \hline $\neg B, A \imply B \vDash \neg A$ & $\neg B \land (A \imply B) \imply \neg A$ & Modus Tollens \\
+      \hline $A \imply B, B \imply C \vDash A \imply C$ & $(A \imply B) \land (B \imply C) \imply (A \imply C)$ & Syllogisme hypothétique \\
+      \hline $A \lor B, \neg A \vDash A$ & $(A \lor B) \land \neg A \imply B$ & Syllogisme disjonctif \\
+      \hline $A \imply B \vDash A \imply (A \land B)$ & $(A \imply B) \imply (A \imply (A \land B)$ & Règle d'absorption \\
+      \hline $A \imply B, C \imply B, A \lor C \vDash B$ & $(A \imply B) \land (C \imply B) \land (A \lor C) \imply B$ & Elimination disjonctive\\
+      \hline $A, \neg A \vDash B$ & $A \land \neg A \imply B$ & Principe d'explosion \\
+      \hline
+    \end{tabular}
+  \end{table}
+\end{adjustwidth}
+\FloatBarrier
+Le lecteur pourra s'exercer à démontrer la validité des tautologies présentées dans le tableau-ci dessus en tant qu'exercice. \\
+\subsubsection{Le besoin d'algorithme, présentation de l'algorithme de Quine.}
+
+Un ensemble de formules, tout comme une formule peut-être inconsistant, cela signifie que notre ensemble est équivalent à F,et comme nous l'avons vu dans le tableau ci-dessus, on peut déduire absolument n'importe quoi d'un ensemble inconsistant.\\
+
+Le problème des tableaux de vérités, c'est qu'ils prennent de la place, et même, beaucoup de place. C'est pour cela qu'est venu la nécessité de créer des algorithmes de résolution d'ensembles de formules, afin de faciliter le travail des logiciens, et ainsi, de réduire le temps de calcul nécessaire à un ordinateur. \\
+
+L'algorithme de Quine se déroule en plusieurs étapes, tout d'abord, nous allons simplifier, si possibles, les formules logiques contenues dans notre ensemble de formules, par exemple, au lieu d'écrire $A \lor V$, nous pourrons écrire simplement $ V $, et ainsi, supprimer ce $V$ de notre ensemble, comme $B, V \models B$, il y a bien d'autres simplifications possibles, nous laisserons au lecteur le soin d'en trouver.\\
+
+Une fois cette première étape passée, il suffit d'utiliser un arbre logique (ou éventuellement une table de vérité) et enfin, nous avons pu prouver des formules logiques avec l'aide de l'agorithme de Quine.
+\subsection{Une logique? Des logiques!}
+Les logiciens, non-contents de la seule logique propositionnelle, ont créée un très grand nombre de logique, j'en liste quelques une ci-dessous.
+\begin{itemize}
+  \item La logique linéaire, créée par un français, elle est basée sur la gestion de ressources, c'est une des nombreuses logiques n'excluant pas le tiers exclus, en effet, en logique linéaire, $A \lor \neg A \nvDash V$, cela est simplement du au fait que nous ``utilisons'' la ressource A une fois, elle n'existe donc plus réellement, et donc $\neg A$ n'existe pas comme A est devenu indéterminé.
+  \item La logique floue, dans laquelle une proposition est vraie selon un certain degré de probabilité.
+  \item La logique de premier ordre, ou logique des prédicats, cette logique sera abordée dans le chapître sur Prolog.
+  \item La logique booléenne, elle est basée sur les portes logiques, les circuits logiques, et les ensembles.
+  \item La logique combinatoire, logique inventée pour formaliser la notion de fonction, et pour limiter le nombre d'opérateurs nécessaires pour définir le calcul des prédicats.
+  \item La logique modale, ayant recours à des opérateurs comme ``il est nécessaire que'' ou ``il est possible que''.
+  \item Et bien d'autres...
+\end{itemize}
+\subsection{Introduction à Prolog et à la logique des Prédicats.}
+
+\subsection{Room for later.}
+
+\newpage
+\section{L'approche heuristique.}
+\subsection{P = NP?}
+\subsection{Approche exacte vs Approche heuristique.}
+\subsection{Promenons-nous dans les bois.}
+\subsection{Les bases de Lisp.}
+\subsection{Room for later.}
+
+\newpage
+\section{Le Machine Learning.}
+\subsection{Définition du Machine Learning}
+Le Machine Learning, ou Apprentissage Automatique, est un type d'intelligence artificielle qui avec les données à analyser et sur lesquelles s'entraîner permet aux ordinateurs d’apprendre par expérience sans avoir été explicitement programmé à cet effet ou par intervention humaine. Cela consiste en algorithmes d’apprentissage qui améliorent leur performance à exécuter des tâches au fil du temps grâce à de l’expérience.\\[1.0cm]
+\subsection{Les Maths dans le Machine Leanring.}
+\begin{enumerate}
+  \item De nombreux data scientists (chargés de la gestion, de l’analyse et de l’exploitation des données au sein d’une entreprise) considèrent le machine Learning comme un apprentissage statistique.
+  \item Matrice et algèbre matricielle, exemple :
+        \begin{enumerate}
+          \item Les suggestions d’amis sur Facebook
+          \item Recommandation de vidéo sur Facebook
+          \item $\cdots$
+        \end{enumerate}
+  \item Fonction, variable, équation et graphique, ...
+\end{enumerate}
+
+\subsection{Les résaux de neurones}
+Une couche de neurones d’entrées, plusieurs couches cachées, une couche de sortie suivie d’une fonction d’activation.
+Chaque neurone possède une valeur obtenue par une fonction de combinaison étant la somme des valeurs des neurones de la couche précédente, chacune multipliée par un poids spécifique
+$ z = x_1 \cdot p_1 + x_2 \cdot p_2 + \cdots + x_n \cdot p_n $ \\
+Une fois la (ou les) valeur de la couche de sortie obtenue, on applique à celle-ci une fonction d’activation qui transforme la valeur en fonction d’un seuil. Si en dessous du seuil, inactif (0/-1), aux environs du seuil, phase de transition, et au-dessus du seuil, actif (1/$>$1). Le type de fonction varie d’un cas à l’autre, mais les plus récurrentes sont la fonction sigmoïde $ \frac{1}{1 + e^{-x}}$ la fonction tangente hyperbolique $ \frac{2} {1 + e^{-2x}} -1 $
+ou encore la fonction ReLU $\begin{cases} 0 & x < 0 \\ x & x >= 0 \end{cases}$ \\
+Durant l’apprentissage, les poids sont des valeurs prises au hasard. Il faut donc les ajuster pour fournir une réponse qui se rapproche au mieux de la réalité. Comme on entraîne notre réseau, on connaît la vraie valeur finale. On va donc appliquer une fonction de coût afin de calculer le gradient d’erreur entre la valeur réelle et la valeur prédite $ \frac{1}{2}(y_r - y_p)^2 $, et ainsi mettre à jour les poids par rétropropagation (! il y a des maths plus compliquées derrière). A chaque nouvelles données injectées lors de l’apprentissage, le réseau est plus performant.
+
+\subsection{Intro au langage Python}
+\begin{enumerate}
+  \item Créé par Guido van Rossum au Stichting Mathematisch Centrum en Hollande.
+  \item Python est le successeur d’un langage de programmation nommé “ABC”
+  \item Le nom du langage vient de la série Monty Python’s flying Circus dont Guido Van Rossum était fan. Cependant l’image du serpent paraissait plus évidente pour tout le monde, il a donc décidé d’utiliser celle-ci comme symbole du langage.
+  \item La première version de Python paraissait en 1991
+  \item C’est un langage de programmation open source, c’est à dire gratuit et libre d’utilisation
+\end{enumerate}
+\end{document}
