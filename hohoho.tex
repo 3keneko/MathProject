@@ -5,13 +5,70 @@
 \newcommand{\ffi}{\Leftrightarrow}
 \newcommand{\imply}{\Rightarrow}
 
+
+\usepackage[french]{babel}
+\usepackage{listings}
 \usepackage{fancyhdr, fancybox}
 \usepackage{amsmath, amssymb}
-\usepackage{changepage, array, placeins, float, verbatim}
+\usepackage{xcolor, changepage, array, placeins, float, verbatim}
 \usepackage{qtree, forest}
+\usepackage[utf8]{inputenc}
+\usepackage{listingsutf8}
 \pagestyle{fancy}
 
+\definecolor{codecomments}{HTML}{FFA700}
+\definecolor{codenumbers}{HTML}{D62D20}
+\definecolor{codestrings}{HTML}{008744}
+% \definecolor{backcolour}{HTML}{F7F7F7}
+\definecolor{keycolor}{HTML}{3B5998}%{0057E7}
+\definecolor{backcolour}{HTML}{FFFFFF}
 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codecomments},
+    keywordstyle=\color{keycolor},
+    numberstyle=\tiny\color{codenumbers},
+    stringstyle=\color{codestrings},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbersep=5pt,
+    showspaces=false,
+    xleftmargin=\parindent,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    rulecolor=\color{black},
+    frame=L
+  }
+
+\lstset{
+    style=mystyle,
+    morecomment=[s][\color{codenumbers}]{@}{\ },
+    extendedchars=true,
+    literate={é}{{\'e}}1 {à}{{\`a}}1 {ê}{{\^e}}1
+    {0}{{{\color{codenumbers}0}}}1
+    {1}{{{\color{codenumbers}1}}}1
+    {2}{{{\color{codenumbers}2}}}1
+    {3}{{{\color{codenumbers}3}}}1
+    {4}{{{\color{codenumbers}4}}}1
+    {5}{{{\color{codenumbers}5}}}1
+    {6}{{{\color{codenumbers}6}}}1
+    {7}{{{\color{codenumbers}7}}}1
+    {8}{{{\color{codenumbers}8}}}1
+    {9}{{{\color{codenumbers}9}}}1
+    {1-}{{{\color{codenumbers}1-}}}2
+    {1+}{{{\color{codenumbers}1+}}}2
+    {remove-if}{{{\color{keycolor}remove-if}}}8
+    {if}{{{\color{keycolor}if}}}2
+    {True}{{{\color{teal}True}}}4
+    {False}{{{\color{teal}False}}}4
+    {await}{{{\color{keycolor}await}}}5
+    {\ as\ }{{{\color{keycolor}as}}}4
+    {async\ }{{{\color{keycolor}async}}}5
+  }
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
 \renewcommand{\sectionmark}[ 1 ]{\markboth{\thesection. #1 }{ }}
 \renewcommand{\subsectionmark}[ 1 ]{\markright{\thesubsection. #1 }}
@@ -331,18 +388,139 @@ Les logiciens, non-contents de la seule logique propositionnelle, ont créée un
   \item La logique modale, ayant recours à des opérateurs comme ``il est nécessaire que'' ou ``il est possible que''.
   \item Et bien d'autres...
 \end{itemize}
+\vfill
 \subsection{Introduction à Prolog et à la logique des Prédicats.}
+Dans cette nouvelle sous-section, nous allons nous intéresser à la logique des prédicats, connue également sous le nom de logique de premier ordre. \\
+Tout d'abord, en logique des prédicats, nous aurons besoin de deux nouveaux {\bf quantificateurs}. \\
+Ceux-ci sont le quantificateur {\bf universel}, noté $\forall$ [lisez ``pour tout''], et le quantificateur {\bf existentiel}, noté $\exists$ [lisez ``il existe'']. \\
+A ces deux quantificateurs viennent s'ajouter:
+\begin{itemize}
+  \item Des {\bf connecteurs logiques}, qui ont été discutés dans la section précédente.
+  \item Des {\bf constantes}, celles-ci représentent un événement, une personne ou un objet en particulier, nous noterons ces constantes avec une majuscule comme première lettre et un nombre à la fin, par exemple ``Turing\_1'' ou encore ``Chaise\_2''.
+  \item Des {\bf variables}, celles-ci représentent un concept général ou un ensemble, par exemple, l'ensemble des mathématiciens, ou encore l'ensemble des chaises dans le monde. Nous noterons ces variables en minuscules, par exemple ``mathématiciens'' ou encore ``chaise''.
+  \item Des {\bf prédicats}, ceux-ci nous permettent d'établir des liens entre nos différentes variables et constantes, nous noterons nos prédicats avec une majuscule en première lettre, par exemple ``{\bf Mortel}(x)'' ou encore ``{\bf Humain}(x)''.
+  \item Des {\bf fonctions}, qui ont pour but de retourner une valeur, pouvant-être autre chose que vrai ou faux. Nous noterons celles-ci en toutes minuscules.
+\end{itemize}
+\subsubsection{Exemples.}
+Pour se faire une bonne idée, voici quelques phrases françaises ``traduites'' en logique des prédicats. \\[0.5cm]
+1. Tout les mathématiciens sont cools. \\
+=$>$ $\forall$x ({\bf Mathématicien}(x) $\imply$ {\bf Cool}(x)). \\[0.2cm]
+2. Alan Turing et Alonzo Church sont des mathématiciens. \\
+=$>$ {\bf Mathématicien}(Turing\_1) $\land$ {\bf Mathématicien}(Church\_1). \\[0.2cm]
+3. Il y a des chats qui ne sont pas noirs. \\
+=$>$ $\exists$x ({\bf Chat}(x) $\land$ $\neg${\bf Noir}(x)). \\[0.2cm]
 
-\subsection{Room for later.}
+\subsubsection{Qu'est-ce que PROLOG?}
+Cette petite introduction passée, concentrons-nous maintenant sur le coeur du sujet: PROLOG! \\
 
+Prolog a été inventé en 1972 par les informaticiens français Alain Colmerauer et Philippe Roussel. \\
+C'est un langage de programmation {\bf logique} et son nom est un acronyme pour PROgrammation LOGique. \\
+Prolog a été très utilisé en Europe et au Japon dans le domaine de l'Intelligence Artificielle, tout en étant basé sur la logique propositionnelle dont nous avons posé les bases juste au dessus. \\
+Il existe de nombreuses distributions de PROLOG\footnote{https://en.wikipedia.org/wiki/Comparison\_of\_Prolog\_implementations}, nous utiliserons ici SWI-PROLOG, avant tout pour son côté open-source et gratuit.
+\subsubsection{Introduction à la syntaxe de Prolog}
+En Prolog, contrairement aux règles que nous avions établies en logique des prédicats, les constantes (ici appelés Atomes) doivent commencer par une minuscule. Les variables commencent par une majucule. A cela viennent s'ajouter les listes, dénotées par des []. \\
+
+\underline{{\bf Faits et Règles.}} \\[0.2cm]
+En PROLOG, un fait s'écrit simplement \\[0.2cm]
+
+Un fait n'a pas de ``corps'', et tiendra toujours. Dans ce cas-ci, cela veut dire que Turing est un mathématicien, quoiqu'il arrive ce {\bf fait} ne changera pas. \\
+
+Maintenant, si nous essayons de reformuler l'exemple n°1 de notre dernière section, ``tout les mathématiciens sont cools'' en Prolog, cela donne ceci : \\[0.2cm]
+
+On remarque tout de suite que cela est plutôt facile à lire, de plus, si nous ouvrons notre interprète Prolog, voilà ce que nous obtenons: \\[0.2cm]
+
+Tout cela est très bien, mais, si j'essaye de demander à prolog si alonzo\_church est cool, que se passe-t-il? \\[0.2cm]
+Pas grand chose comme nous le constatons, PROLOG préfère éviter de faire la moindre assomption, et répondra ``Faux'' dès qu'il ne sait pas. \\
+
+Ensuite, Prolog nous permet de faire de l'arithmétique, regardons un peu cela, avec une fonction dont le seul rôle est d'additionner deux nombres: \\[0.2cm]
+Ouvrons maintenant l'interprète et regardons la magie opérer: \\[0.2cm]
+
+Mais, si pour une obscure raison, je décidais de vouloir avoir B, juste en entrant A et C, comment faire? Regardons d'abord comment notre première version réagirait à cela: \\[0.2cm]
+
+Heureusement pour nous, Prolog possède un module basé sur la logique par contraintes, pour l'utiliser, il suffit d'ajouter\footnote{https://www.swi-prolog.org/man/clpfd.html} \\[0.2cm]
+
+au dessus de votre fichier Prolog, maintenant, modifions légèrement notre prédicat \\[0.2cm]
+Et voilà! Essayons là maintenant avec notre interprète: \\[0.2cm]
+
+\subsubsection{Mon arbre familial, avec Prolog!}
+
+% L'exemple sera mis juste après.
 \newpage
-\section{L'approche heuristique.}
-\subsection{P = NP?}
-\subsection{Approche exacte vs Approche heuristique.}
-\subsection{Promenons-nous dans les bois.}
-\subsection{Les bases de Lisp.}
-\subsection{Room for later.}
+\section{L'approche algorithmique.}
+\subsection{Un algorithme c'est quoi?}
+\framebox{Un algorithme est une suite d'instructions permettant de résoudre un problème.}
+Il faut savoir que nous utilisons des algorithmes bien plus souvent que ce que l'on pourrait croire. Par exemple, quand vous préparez un gâteau pour célébrer une quelconque occasion, vous aurez besoin d'une recette. Cette recette n'est autre que l'algorithme aidant à la préparation du gâteau, chaque étape de la recette n'étant qu'une instruction faisant partie de l'algorithme. \\
+Un des tout premiers exempless d'algorithmes est ``l'agorithme d'Euclide'', celui-ci permettait de trouver le PGCD de deux nombres. \\
+Voici comment celui-ci fonctionne: \\[0.2cm]
+\begin{itemize}
+  \item Tout d'abord, nous prenons deux nombres a et b.
+  \item Si b = 0 alors, nous retournons a comme étant le pgcd.
+  \item Sinon, nous écrivons que {\bf pgcd}(a, b) = {\bf pgcd}(b, a {\bf mod} b)\\[0.2cm]
+\end{itemize}
+Et en voici sa traduction en Common Lisp, le langage de programmation que nous utiliserons dans cette partie du dossier.
+\lstinputlisting[language=Lisp]{gcd.lisp}
 
+\subsubsection{La complexité des algorithmes}
+Evidemment, tout les algorithmes ne se valent pas, certains sont bien plus lents que d'autres, et ce, pour une seule et même tâche.\\
+Pour juger de la {\bf complexité} d'un algorithme, nous utilisons la notation de Landau (dite du ``Big-O'' en anglais). \\
+Cette notation a pour but d'estimer l'évolution du nombre d'opérations qui seront effectuées par l'algorithme au cours du temps. Car au plus l'algorithme effectue d'opérations, au plus il sera couteux en temps, ce qui n'est pas pour nous arranger. \\
+Pour montrer l'importance d'avoir des algorithmes performants, nous avons implémentés en Lisp deux algorithmes de tris différents: \\[0.2cm]
+\begin{itemize}
+  \item Le {\bf tri à bulles} de complexité {\bf $O(n^{2})$}
+  \item Le {\bf tri par fusion} de complexité {\bf $O(n\log{n})$}
+\end{itemize}
+Le {\bf tri à bulles} fonctionne de la manière suivante:
+\begin{itemize}
+  \item Prendre les deux premiers éléments de la liste.
+  \item Si le premier est plus grand que le second, les échanger, sinon, les laisser en place.
+  \item Faire de même jusqu'à la fin de la liste.
+  \item Une fois arrivé à la fin de la liste, reprendre à partir du début de la liste.
+  \item Continuer ce procédé jusqu'à ce que la liste soit parfaitement rangée.
+\end{itemize}
+Il est implémenté de la manière suivante en Common Lisp:
+\lstinputlisting[language=Lisp]{bubble_sort.lisp}
+Le {\bf tri par fusion} marche de manière assez différente:
+\begin{itemize}
+  \item Si le tableau n'a qu'un seul élément, il est considéré comme déjà trié.
+  \item Si il a plus d'un élément, séparer le tableau en deux parties à peu près égales.
+  \item Trier les deux parties ainsi séparées.
+  \item Fusionner les deux tableaux triés en un seul tableau trié. \\[0.2cm]
+\end{itemize}
+La fonction merge étant prédéfinie en common Lisp, nous implémenterons notre tri par fusion ainsi.
+\lstinputlisting[language=Lisp]{merge_sort.lisp}
+Passons maintenant aux {\bf tests de performances}. \\
+Afin de mesurer le temps pris par chacun de mes deux algorithmes, j'ai utilisé ``time'', une macro bien pratique pour ce genre de tests. J'utilise le compilateur SBCL pour faire mes tests.
+\begin{table}[!hbt]
+  \begin{tabular}{|c|c|c|}
+    \hline {\bf Nombre d'éléments à triers.} & {\bf Temps Tri à Bulles.} & {\bf Temps Tri par fusion.} \\
+    \hline 10 & 0.0000008 secondes & 0.000016 secondes \\
+    100 & 0.000089 secondes & 0.000140 secondes \\
+    1000 & 0.007863 secondes & 0.001188 secondes \\
+    10,000 & 0.318904 secondes & 0.012558 secondes \\
+    100,000 & 31.164620 secondes & 0.090092 secondes \\
+    \hline
+  \end{tabular}
+\end{table}
+Voici le petit tableau montrant les résultats de la dernière expérience, je n'ai malheureusement pas pu essayer pour 1,000,000 d'éléments, le tri à bulles prenant trop de temps. \\
+Comme nous pouvons le constater, la complexité d'un algorithme ne mesure pas le temps exact que l'algorithme prendra afin de trier une certaine liste, il s'agit simplement d'un indicateur, montrant comment évoluera le nombre de comparaisons au cours du temps, cet indicateur devenant extrêmement siginificatif quand n devient très grand. \\[0.5cm]
+\subsection{Présentation de structures de données de base}
+Pour produire une intelligence artificielle efficace, il nous faut de bons algorithmes, mais il nous faut également les structures de données adéquates. \\
+Tout d'abord, qu'est-ce qu'une structure de données ?
+\subsubsection{Promenons-nous dans les bois.}
+\subsection{Qu'est-ce que Lisp?}
+\subsubsection{Les bases de Lisp.}
+\subsubsection{Programme Lisp pour résoudre parfaitement le jeu de Nim.}
+\subsection{Le pathfinding.}
+\subsubsection{Présentation du problème.}
+\subsubsection{L'algorithme de Dijkstra.}
+\subsubsection{Le besoin d'heuristiques.}
+\subsubsection{Dijkstra avec de l'heuristique: A*!}
+
+\subsection{Des programmes de jeux!}
+\subsubsection{L'agorithme Minimax.}
+\subsubsection{$\alpha\beta$-élagage.}
+\subsubsection{Du dynamisme bon sang!}
+\subsection{Un programme de jeu.}
 \newpage
 \section{Le Machine Learning.}
 \subsection{Définition du Machine Learning}
