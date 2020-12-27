@@ -48,7 +48,12 @@
     style=mystyle,
     morecomment=[s][\color{codenumbers}]{@}{\ },
     extendedchars=true,
-    literate={é}{{\'e}}1 {à}{{\`a}}1 {ê}{{\^e}}1 {è}{{\`e}}1 {î}{{\^i}}1
+    literate={é}{{\'e}}1
+    {â}{{\^a}}1
+    {à}{{\`a}}1
+    {ê}{{\^e}}1
+    {è}{{\`e}}1
+    {î}{{\^i}}1
     {0}{{{\color{codenumbers}0}}}1
     {1}{{{\color{codenumbers}1}}}1
     {2}{{{\color{codenumbers}2}}}1
@@ -537,7 +542,7 @@ Ainsi, nous pouvons représenter une liste simplement chaînée de la manière s
 % TODO: INSÉRER IMAGE LISTE SIMPLEMENT CHAINÉE.
 En Lisp, une liste simplement chaînée peut être crée de la manière suivante. \\[0.2cm]
 \begin{lstlisting}[language=Lisp]
-  (defparameter *my-linked-list* '(1 2 3 4 5))
+(defparameter *my-linked-list* '(1 2 3 4 5))
 \end{lstlisting}
 Ainsi, si nous reprenions le dessin que nous avions utilisé ci-dessus,
 *my-linked-list* ressemblera donc à ceci: \\[0.5cm]
@@ -546,22 +551,22 @@ Ainsi, si nous reprenions le dessin que nous avions utilisé ci-dessus,
 
 D'ailleurs, pour pouvoir travailler avec des listes chaînées, deux opérateurs bien pratiques s'offrent à nous: ``car'' et ``cdr''. \\[0.2cm]
 \begin{lstlisting}[language=LISP]
-  CL-USER> (car *my-linked-list*)
-  1
-  CL-USER> (cdr *my-linked-list*)
-  (2 3 4 5)
+CL-USER> (car *my-linked-list*)
+1
+CL-USER> (cdr *my-linked-list*)
+(2 3 4 5)
 \end{lstlisting}
 Nous pouvons également chaîner nos opérateurs ``car'' et ``cdr'', afin de nous assurer un contrôle total sur notre liste simplement chaînée.
 \begin{lstlisting}[language=LISP]
-  CL-USER> (car (cdr *my-linked-list*))
-  2
-  CL-USER> (cadr *my-linked-list*) ; Il existe aussi une manière abrégée.
-  2
+CL-USER> (car (cdr *my-linked-list*))
+2
+CL-USER> (cadr *my-linked-list*) ; Il existe aussi une manière abrégée.
+2
 \end{lstlisting}
 Il existe également la fonction ``nth'', permettant de récupérer le n-ième élément d'une liste chaînée. (Il ne faut pas oublier que l'indexing marche comme pour les tableaux, et commence à 0.)
 \begin{lstlisting}[language=LISP]
-  CL-USER> (nth 2 *my-linked-list*)
-  3
+CL-USER> (nth 2 *my-linked-list*)
+3
 \end{lstlisting}
 
 \subsubsection{Les tableaux.}
@@ -608,11 +613,77 @@ Et maintenant, comparons leurs temps respectifs sur des listes de tailles diffé
     \hline 100 &  0.000089 secondes &  0.002111 secondes \\
     \hline 1000 & 0.007863 secondes &  0.750918 secondes \\
     \hline 10000 & 0.318904 secondes & 888.190640 secondes \\
-    \hline 100000 &  31.164620 & >1000 secondes \\
+    \hline 100000 &  31.164620 secondes & $>$1000 secondes \\
     \hline
   \end{tabular}
 \end{table}
+La différence de performance entre nos deux implémentations du même algorithme est énorme, et pourtant, nous n'avons pas changé l'algorithme en lui-même! J'espère que notre petite expérience montre bien au lecteur l'importance d'un choix de structure de données adéquat.
+\subsubsection{Les tables de hachages.}
+Une table de hachage (ou un dictionnaire en python) est une des structures de données les plus utiles en ce qui concerne l'optimisation d'algorithmes. \\
+Son utilisation est simple; avec une table de hachage, nous relions des clés avec des valeurs. \\ Ainsi, si dans une table de hachage, je relie le mot ``bonjour'' avec le mot ``hello'', mon mot ``bonjour'' sera considéré comme étant la clé, et le mot ``hello'' comme étant la valeur. \\
+En Lisp, pour créer une telle table de hachage, il faut faire: \\
+\begin{lstlisting}[language=Lisp]
+CL-USER> (defparameter *my-dict* (make-hash-table))
+*MY-DICT*
+CL-USER> (setf (gethash 'bonjour *my-dict*) 'hello)
+HELLO
+CL-USER> (gethash 'bonjour *my-dict*)
+HELLO
+\end{lstlisting}
+Ce procédé étant toutefois un peu fastidieux, nous utiliserons ici la bibliothèque lisp connue sous le nom de serapeum. \\
+\begin{lstlisting}[language=Lisp]
+CL-USER> (ql:quickload :serapeum) ;; Ici, nous déclarons la bibliothèque.
+To load "serapeum":
+  Load 1 ASDF system:
+    serapeum
+; Loading "serapeum"
+.
+Switching to the BALLAND2006 optimizer
 
+(:SERAPEUM)
+CL-USER> (defparameter *my-dict* (serapeum:dict 'bonjour 'hello))
+*MY-DICT*
+CL-USER> (gethash 'bonjour *my-dict*)
+HELLO
+\end{lstlisting}
+Pour montrer un cas pratique d'utilisation de tables de hachages, nous allons créer un mini-programme qui permet de convertir des phrases en morse. \\
+Ce programme se fait en deux parties, tout d'abord, nous définissons une table de hachage qui nous remet la traduction morse de chaque lettre et de chaque chiffre. \\
+\begin{lstlisting}[language=Lisp]
+(ql:quickload :serapeum)
+
+(defparameter *latin->morse*
+  (serapeum:dict #\a "._" #\b "_..." #\c "_._." #\d "_.."
+                 #\e "." #\f ".._." #\g "__." #\h "...."
+                 #\i ".." #\j ".___" #\k "_._" #\l "._.."
+                 #\m "__" #\n "_." #\o "___" #\p ".__."
+                 #\q "__._" #\r "._." #\s "..." #\t "_"
+                 #\u ".._" #\v "..._" #\w ".__" #\x "_.._"
+                 #\y "_.__" #\z "__.." #\1 ".____" #\2 "..___"
+                 #\3 "...__" #\4 "...._" #\5 "....." #\6 "_...."
+                 #\7 "__..." #\8 "___.." #\9 "____." #\0 "_____"
+                 #\SPACE " "))
+\end{lstlisting}
+Voici notre dictionnaire! Ne soyez pas surpris par les ``\#\'', c'est ainsi que nous définissons des charactères en common lisp. \\
+Maintenant, la deuxième partie consistera simplement à créer une fonction chargée de transformer nos phrases vers du morse. \\
+\begin{lstlisting}[language=Lisp]
+(defun convert-to-morse (sentence)
+  "Cette fonction s'occupe de convertir
+nos phrases vers du code Morse, grâce au dictionnaire
+créé ci-dessus!"
+  (let ((converted-list
+          (loop for letter across sentence
+                collect (gethash letter *latin->morse*))))
+  (format nil "~{~A~}" converted-list)))
+\end{lstlisting}
+Il ne nous reste plus qu'à tester.
+\begin{lstlisting}[language=Lisp]
+CL-USER> (convert-to-morse "ceci est une phrase")
+"_._.._._... ...._ ..__.. .__......_.._...."
+\end{lstlisting}
+Et voilà comment notre programme marche! \\
+Petite parenthèse au niveau de la complexité de notre fonction ``convert to morse''. Tout d'abord, il faut savoir que pour chercher une valeur avec une clé dans un dictionnaire, la complexité temporelle est de O(1)! Peu importe la taille du dictionnaire, cela prendra toujours aussi peu de temps de chercher une clef dedans, c'est la raison pour laquelle ceux-ci sont très utilisé de nos jours.
+Pour les lecteurs intéressés, nous conseillons fortement de vous renseigner sur la fonction SHA, c'est grâce à cette fonction de hachage que les dictionnaires marchent aussi bien. \\
+Ainsi, pour en revenir à notre programme, nous appliquons une opération de complexité O(1) sur chaque élément de notre liste, soit, n fois. On peut donc en déduire que notre fonction ``convert-to-morse'' est donc de complexité O(n), car nous appliquons n fois une opération de complexité O(1). \\
 \subsubsection{Promenons-nous dans les bois.}
 \subsection{Qu'est-ce que Lisp?}
 \subsubsection{Les bases de Lisp.}
