@@ -48,7 +48,7 @@
     style=mystyle,
     morecomment=[s][\color{codenumbers}]{@}{\ },
     extendedchars=true,
-    literate={é}{{\'e}}1 {à}{{\`a}}1 {ê}{{\^e}}1
+    literate={é}{{\'e}}1 {à}{{\`a}}1 {ê}{{\^e}}1 {è}{{\`e}}1
     {0}{{{\color{codenumbers}0}}}1
     {1}{{{\color{codenumbers}1}}}1
     {2}{{{\color{codenumbers}2}}}1
@@ -447,10 +447,13 @@ Et voilà! Essayons là maintenant avec notre interprète: \\[0.2cm]
 % L'exemple sera mis juste après.
 \newpage
 \section{L'approche algorithmique.}
-\subsection{Un algorithme c'est quoi?}
-\framebox{Un algorithme est une suite d'instructions permettant de résoudre un problème.}
-Il faut savoir que nous utilisons des algorithmes bien plus souvent que ce que l'on pourrait croire. Par exemple, quand vous préparez un gâteau pour célébrer une quelconque occasion, vous aurez besoin d'une recette. Cette recette n'est autre que l'algorithme aidant à la préparation du gâteau, chaque étape de la recette n'étant qu'une instruction faisant partie de l'algorithme. \\
-Un des tout premiers exempless d'algorithmes est ``l'agorithme d'Euclide'', celui-ci permettait de trouver le PGCD de deux nombres. \\
+\subsection{Qu'est-ce qu'un algorithme?}
+\begin{center}
+  \framebox{Un algorithme est une suite d'instructions permettant de résoudre un problème.}
+\end{center}
+
+Il faut savoir que nous utilisons des algorithmes bien plus souvent que ce que l'on pourrait croire. Par exemple, quand vous préparez un gâteau pour célébrer une quelconque occasion, vous aurez besoin d'une recette. Cette recette n'est autre que l'algorithme aidant à la préparation du gâteau, chaque étape de la recette n'étant qu'une instruction faisant partie de l'algorithme. \\[0.2cm]
+Un des tout premiers exemples d'algorithmes est ``l'agorithme d'Euclide'', celui-ci permettait de trouver le PGCD de deux nombres. \\
 Voici comment celui-ci fonctionne: \\[0.2cm]
 \begin{itemize}
   \item Tout d'abord, nous prenons deux nombres a et b.
@@ -463,11 +466,11 @@ Et en voici sa traduction en Common Lisp, le langage de programmation que nous u
 \subsubsection{La complexité des algorithmes}
 Evidemment, tout les algorithmes ne se valent pas, certains sont bien plus lents que d'autres, et ce, pour une seule et même tâche.\\
 Pour juger de la {\bf complexité} d'un algorithme, nous utilisons la notation de Landau (dite du ``Big-O'' en anglais). \\
-Cette notation a pour but d'estimer l'évolution du nombre d'opérations qui seront effectuées par l'algorithme au cours du temps. Car au plus l'algorithme effectue d'opérations, au plus il sera couteux en temps, ce qui n'est pas pour nous arranger. \\
+Cette notation a pour but d'estimer l'évolution du nombre d'opérations qui seront effectuées par l'algorithme au cours du temps. Car au plus l'algorithme effectue d'opérations, au plus il sera couteux en temps, ce qui n'est pas pour nous arranger. \\[0.5cm]
 Pour montrer l'importance d'avoir des algorithmes performants, nous avons implémentés en Lisp deux algorithmes de tris différents: \\[0.2cm]
 \begin{itemize}
   \item Le {\bf tri à bulles} de complexité {\bf $O(n^{2})$}
-  \item Le {\bf tri par fusion} de complexité {\bf $O(n\log{n})$}
+  \item Le {\bf tri par fusion} de complexité {\bf $O(n\log{n})$}\\
 \end{itemize}
 Le {\bf tri à bulles} fonctionne de la manière suivante:
 \begin{itemize}
@@ -475,9 +478,9 @@ Le {\bf tri à bulles} fonctionne de la manière suivante:
   \item Si le premier est plus grand que le second, les échanger, sinon, les laisser en place.
   \item Faire de même jusqu'à la fin de la liste.
   \item Une fois arrivé à la fin de la liste, reprendre à partir du début de la liste.
-  \item Continuer ce procédé jusqu'à ce que la liste soit parfaitement rangée.
+  \item Continuer ce procédé jusqu'à ce que la liste soit parfaitement rangée.\\[0.2cm]
 \end{itemize}
-Il est implémenté de la manière suivante en Common Lisp:
+Il est implémenté de la manière suivante en Common Lisp: \\[0.2cm]
 \lstinputlisting[language=Lisp]{bubble_sort.lisp}
 Le {\bf tri par fusion} marche de manière assez différente:
 \begin{itemize}
@@ -489,8 +492,9 @@ Le {\bf tri par fusion} marche de manière assez différente:
 La fonction merge étant prédéfinie en common Lisp, nous implémenterons notre tri par fusion ainsi.
 \lstinputlisting[language=Lisp]{merge_sort.lisp}
 Passons maintenant aux {\bf tests de performances}. \\
-Afin de mesurer le temps pris par chacun de mes deux algorithmes, j'ai utilisé ``time'', une macro bien pratique pour ce genre de tests. J'utilise le compilateur SBCL pour faire mes tests.
-\begin{table}[!hbt]
+Afin de mesurer le temps pris par chacun de mes deux algorithmes, j'ai utilisé ``time'', une macro bien pratique pour ce genre de tests. J'utilise le compilateur SBCL pour faire mes tests. \\
+Sans plus attendre, voici le tableau montrant les résultats de notre petite expérience.
+\begin{table}[H]
   \begin{tabular}{|c|c|c|}
     \hline {\bf Nombre d'éléments à triers.} & {\bf Temps Tri à Bulles.} & {\bf Temps Tri par fusion.} \\
     \hline 10 & 0.0000008 secondes & 0.000016 secondes \\
@@ -500,12 +504,78 @@ Afin de mesurer le temps pris par chacun de mes deux algorithmes, j'ai utilisé 
     100,000 & 31.164620 secondes & 0.090092 secondes \\
     \hline
   \end{tabular}
-\end{table}
-Voici le petit tableau montrant les résultats de la dernière expérience, je n'ai malheureusement pas pu essayer pour 1,000,000 d'éléments, le tri à bulles prenant trop de temps. \\
-Comme nous pouvons le constater, la complexité d'un algorithme ne mesure pas le temps exact que l'algorithme prendra afin de trier une certaine liste, il s'agit simplement d'un indicateur, montrant comment évoluera le nombre de comparaisons au cours du temps, cet indicateur devenant extrêmement siginificatif quand n devient très grand. \\[0.5cm]
+\end{table} \smallskip
+Pour des raisons pratiques, je n'ai pas pu obtenir les résultats du Tri à Bulles pour le million d'éléments. \\
+Comme nous pouvons le constater sur le tableau précédent, la complexité d'un algorithme (estimé par le Big-O) ne mesure pas le temps exact que l'algorithme prendra afin de trier une certaine liste, il s'agit simplement d'un indicateur, montrant comment évoluera le nombre de comparaisons au cours du temps, cet indicateur devenant extrêmement siginificatif quand n devient très grand. \\[0.5cm]
 \subsection{Présentation de structures de données de base}
 Pour produire une intelligence artificielle efficace, il nous faut de bons algorithmes, mais il nous faut également les structures de données adéquates. \\
-Tout d'abord, qu'est-ce qu'une structure de données ?
+Tout d'abord, qu'est-ce qu'une structure de données?
+D'après Wikipedia\footnote{https://fr.wikipedia.org/wiki/Structure\_de\_donn\%C3\%A9es}, une structure de données est une manière d'organiser les données, pour les traiter plus facilement. \\
+On conclut donc que le choix judicieux d'une structure de données est indispensable à l'optimisation de la performance de notre IA.
+
+Je présente ici trois structures de données de base.
+\begin{enumerate}
+  \item Les listes simplement chaînées.
+  \item Les tableaux (ou arrays en anglais.)
+  \item Les tables de hachages (ou les dictionnaires.) \\[0.2cm]
+\end{enumerate}
+
+\subsubsection{Les listes simplement chaînées.}
+Une {\bf liste simplement chaînée} est une structure de données pouvant contenir plusieurs éléments. Chaque élément appartenant à la liste chaînée contient deux choses:
+\begin{enumerate}
+  \item La valeur de l'élément.
+  \item Un pointeur pointant vers l'élément suivant. \\[0.2cm]
+\end{enumerate}
+
+Ainsi, nous pouvons représenter une liste simplement chaînée de la manière suivante \\[0.5cm]
+
+% TODO: INSÉRER IMAGE LISTE SIMPLEMENT CHAINÉE.
+En Lisp, une liste simplement chaînée peut être crée de la manière suivante. \\[0.2cm]
+\begin{lstlisting}[language=Lisp]
+  (defparameter *my-linked-list* '(1 2 3 4 5))
+\end{lstlisting}
+Ainsi, si nous reprenions le dessin que nous avions utilisé ci-dessus,
+*my-linked-list* ressemblera donc à ceci: \\[0.5cm]
+
+% TODO: INSERER IMAGE *MY-LINKED-LIST*
+
+D'ailleurs, pour pouvoir travailler avec des listes chaînées, deux opérateurs bien pratiques s'offrent à nous: ``car'' et ``cdr''. \\[0.2cm]
+\begin{lstlisting}[language=LISP]
+  CL-USER> (car *my-linked-list*)
+  1
+  CL-USER> (cdr *my-linked-list*)
+  (2 3 4 5)
+\end{lstlisting}
+Nous pouvons également chaîner nos opérateurs ``car'' et ``cdr'', afin de nous assurer un contrôle total sur notre liste simplement chaînée.
+\begin{lstlisting}[language=LISP]
+  CL-USER> (car (cdr *my-linked-list*))
+  2
+  CL-USER> (cadr *my-linked-list*) ; Il existe aussi une manière abrégée.
+  2
+\end{lstlisting}
+Il existe également la fonction ``nth'', permettant de récupérer le n-ième élément d'une liste chaînée. (Il ne faut pas oublier que l'indexing marche comme pour les tableaux, et commence à 0.)
+\begin{lstlisting}[language=LISP]
+  CL-USER> (nth 2 *my-linked-list*)
+  3
+\end{lstlisting}
+
+\subsubsection{Les tableaux.}
+Le tableau est une structure extrêmement importante en programmation,
+celle-ci nous permet de stocker un nombre fixe de données, et nous permet d'accéder à ces données de manière rapide. Chaque élément du tableau se retrouve collé en mémoire aux éléments qui lui sont adjacent, ainsi, pas besoin de traverser chaque élément du tableau lorsque l'on désire accéder au n-ième élément du tableau. \\[0.2cm]
+Voici comment créer un tableau en Lisp:
+\begin{lstlisting}[language=Lisp]
+  CL-USER> (defparameter *my-array* #(1 2 3 4 5))
+\end{lstlisting}
+Il existe également une manière alternative:
+\begin{lstlisting}[language=Lisp]
+  CL-USER> (defparameter *my-array* (make-array 5 :initial-contents '(1 2 3 4 5)))
+\end{lstlisting}
+Pour récupérer le n-ième élément d'un tableau, il nous suffit de faire:
+\begin{lstlisting}[language=Lisp]
+  CL-USER> (aref *my-array* 2)
+  3
+\end{lstlisting}
+\subsubsection{Tableaux vs Listes simplement chaînées.}
 \subsubsection{Promenons-nous dans les bois.}
 \subsection{Qu'est-ce que Lisp?}
 \subsubsection{Les bases de Lisp.}
