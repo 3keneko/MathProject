@@ -1,0 +1,7 @@
+(defun binary-search (l-bound u-bound &optional (tries 0))
+  (let ((guess (floor (+ l-bound u-bound) 2)))
+    (format t "~&~D?~&" guess)
+    (case (read)
+      (plus-haut (binary-search guess u-bound (1+ tries)))
+      (plus-bas  (binary-search l-bound guess (1+ tries)))
+      (t         (format t "Ton nombre a été trouvé en ~D essais" tries)))))
