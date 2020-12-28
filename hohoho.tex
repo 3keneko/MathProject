@@ -1,4 +1,4 @@
-% Yay, the article for the end of this year, in LaTeX.
+% Yay, the article for the end of this year, in LaTeX.
 
 \documentclass[a4paper, 12pt]{article}
 
@@ -683,8 +683,45 @@ CL-USER> (convert-to-morse "ceci est une phrase")
 Et voilà comment notre programme marche! \\
 Petite parenthèse au niveau de la complexité de notre fonction ``convert to morse''. Tout d'abord, il faut savoir que pour chercher une valeur avec une clé dans un dictionnaire, la complexité temporelle est de O(1)! Peu importe la taille du dictionnaire, cela prendra toujours aussi peu de temps de chercher une clef dedans, c'est la raison pour laquelle ceux-ci sont très utilisé de nos jours.
 Pour les lecteurs intéressés, nous conseillons fortement de vous renseigner sur la fonction SHA, c'est grâce à cette fonction de hachage que les dictionnaires marchent aussi bien. \\
-Ainsi, pour en revenir à notre programme, nous appliquons une opération de complexité O(1) sur chaque élément de notre liste, soit, n fois. On peut donc en déduire que notre fonction ``convert-to-morse'' est donc de complexité O(n), car nous appliquons n fois une opération de complexité O(1). \\
+Ainsi, pour en revenir à notre programme, nous appliquons une opération de complexité O(1) sur chaque élément de notre liste, soit, n fois. On peut donc en déduire que notre fonction ``convert-to-morse'' est donc de complexité O(n), car nous appliquons n fois une opération de complexité O(1). \\[0.2cm]
 \subsubsection{Promenons-nous dans les bois.}
+Pour comprendre l'intérêt des arbres dichotomiques en programmation, intéressons nous à un petit problème assez simple. \\
+Imaginez que je pense à un nombre, compris entre 1 et 1000, et que vous deviez deviner ce nombre avec le moins d'essais possibles, à la même manière que dans le jeu du ``Juste Prix'', je vous dirai si votre essai est trop grand, ou trop petit. \\
+La première stratégie évidente, serait de commencer par 1, puis ensuite, si mon nombre n'est pas 1, essayer avec 2, puis ensuite, essayer avec 3, et ceci, jusqu'à ce que vous trouviez le nombre auquel je pense. \\
+Cette première stratégie pourrait faire penser à la manière à laquelle il faut chercher un élément dans une liste simplement chaînée, en effet, si je pense au nombre 629, il va falloir passer par les 628-ièmes éléments se trouvant avant. Dans ce cas-ci, comme pour lire un élément dans une liste simplement chaînée, nous dirons que la complexité de cet algorithme sera de O(n). \\
+Une deuxième manière de faire serait de faire ce que l'on appelle une recherche dite ``par dichotomie''. Tout d'abord, prenons un nombre au milieu entre 1 et 1000, ici, ce sera 500, si je dis ``au dessus'', alors, il suffira de prendre le milieu entre 500 et 1000, ici, ce sera 750, désormais, si je dis ``en dessous'', il faudra alors faire $\frac{500 + 750}{2} = 625$, ainsi, en appliquant cet algorithme jusqu'au bout, vous trouverez le nombre auquel je pense en utilisant un algorithme de complexité O(log n)! \\ Ainsi, vous trouverez grâce à cette technique le nombre auquel je pense en maximum $\log_{2}{n}$ essais (où n est le nombre maximum, qui est ici 1000). \\
+J'espère que cette petite explication aura pu expliquer au lecteur le fonctionnement d'une recherche par dichotomie. Maintenant, pour ce qui est de l'implémentation d'une telle recherche en Lisp: \\
+\lstinputlisting[language=Lisp]{dichotomia.lisp}
+Plus qu'à la tester!
+\begin{lstlisting}[language=Lisp]
+[1] CL-USER> (binary-search 1 1000)
+500?
+plus-haut
+750?
+plus-bas
+625?
+plus-haut
+687?
+plus-bas
+656?
+plus-bas
+640?
+plus-bas
+632?
+plus-bas
+628?
+plus-haut
+630?
+plus-bas
+629?
+oui
+Ton nombre a été trouvé en 9 essais
+\end{lstlisting}
+
+Cette petite introduction à la recherche par dichtomie servait surtout à donner une intuition au lecteur de l'importance des arbres binaires. \\
+Ceux-ci fonctionnent d'une manière similaire à notre recherche dichotomique. \\
+Sur un arbre binaire, chaque noeud est soit relié à rien (ou ``nil''), soit relié à sa ``gauche'' à un noeud contenant une valeur plus petite que celle de son noeud parent, soit relié à sa ``droite'' à un noeud contenant une valeur plus grande que celle de son noeud parent. Nous pouvons donc représenter un arbre binaire ainsi: \\[0.2cm]
+
 \subsection{Qu'est-ce que Lisp?}
 \subsubsection{Les bases de Lisp.}
 \subsubsection{Programme Lisp pour résoudre parfaitement le jeu de Nim.}
@@ -694,7 +731,7 @@ Ainsi, pour en revenir à notre programme, nous appliquons une opération de com
 \subsubsection{Le besoin d'heuristiques.}
 \subsubsection{Dijkstra avec de l'heuristique: A*!}
 
-\subsection{Des programmes de jeux!}
+\subsection{Des programmes et des jeux!}
 \subsubsection{L'agorithme Minimax.}
 \subsubsection{$\alpha\beta$-élagage.}
 \subsubsection{Du dynamisme bon sang!}
