@@ -11,13 +11,14 @@
     (loop for heap in heaps
           for heap-number from 1
           while unchanged
-          when (> 0 heap)
-            do (let ((number-of-matches-c (1+ (random heap))))
+          when (< 0 heap)
+            do (let ((number-of-matches-c
+                       (1+ (random heap))))
                 (format t "L'ordinateur a décidé de prendre ~D alumettes du tas n°~D~%"
                         number-of-matches-c heap-number)
                 (decf (nth (1- heap-number) heaps) number-of-matches-c)
-                (setf unchanged nil))))
-    heaps)
+                (setf unchanged nil)))
+    heaps))
 
 (defun winningp (num index heaps)
   (let ((safe-copy (copy-list heaps)))
