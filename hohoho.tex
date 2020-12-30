@@ -804,18 +804,20 @@ Le but de l'ordinateur sera donc de toujours se trouver en position de sécurit�
 Le twist que nous avons apporté est le fait que le joueur peut décider des tas avec lesquels ils va jouer, et ainsi, mettre directement l'ordinateur en position de défaite, notre IA devra donc se montrer capable de jouer des coups, même en perdant. \\
 \lstinputlisting[language=Lisp, linerange={1-2}]{Nim/nim-game-player.lisp}
 Ici, je ne fais que définir une variable globale *heaps*, celle-ci représentera les tas disponibles au travers de mon programme. \\
-\lstinputlisting[language=Lisp, linerange={4-10}, linerange={27-32}, linerange={61-67}]{Nim/nim-game-player.lisp}
+\lstinputlisting[language=Lisp, linerange={4-10, 27-32, 61-67}]{Nim/nim-game-player.lisp}
 Ces deuc fonctions seront dites des ``fonction d'aide'', elles auront surtout pour utilité de ne pas devoir surcharger les fonctions principales. \\
 Le lecteur attentif remarquera que je termine le nom de ces fonctions par un ``p'', cela est dû au fait que ces fonctions sont des {\bf prédicats}, elles ne peuvent retourner que ``t'' ou ``nil'' (``vrai'' ou ``faux''), ceci n'étant également qu'une convention, si le lecteur désire écrire des prédicats sans laisser de ``p'' au bout, SBCL ne lui trouvera rien à redire.\\
 Aussi, on peut remarquer dans les deux premières fonctions l'utilisation de ``reduce'', il s'agit d'une fonction destinée aux {\bf catamorphismes}, cela veut dire qu'elles permettent de passer d'une structure de données comme une liste, ou un arbre, vers un scalaire, comme un entier ou encore un flottant. \\
 Egalement, j'utilise \#', ce symbole nous permet d'expliciter que nous utilisons une fonction, et pas une variable.\\
-\lstinputlisting[language=Lisp, linerange={12-26}, linerange={34-48}]{Nim/nim-game-player.lisp}
+\lstinputlisting[language=Lisp, linerange={12-26, 34-48}]{Nim/nim-game-player.lisp}
 Nous voici enfin au cœur du programme. Avec nos fonctions ``play-winning-move'' et ``play-random-legal-move'' sont nos deux fonctions où est contenue notre joueur, les commentaires explicitant déjà leurs actions, je me concentrerai surtout sur l'implémentation. \\ Comme nous le remarquons, j'utilise {\bf let} et {\bf loop}, {\bf let} me permet de déclarer des variables dites ``locales'', cela me permet d'avoir un code propre, où chaque chose reste à sa place. \\ {\bf loop} est une macro, qui permet d'itérer, ou de répéter un nombre certain de fois une même action, je l'utilise ici en raison de la lisibilité de celle-ci, certains préfèrent la macro ``do'', je trouve cette dernière illisible, mais j'encourage le lecteur  se renseigner sur cette dernière si le coeur le lui en dit.\\
 \lstinputlisting[language=Lisp, linerange={50-60}]{Nim/nim-game-player.lisp}
 Je ne ferai remarquer ici que l'utilisation de la macro {\bf cond}, une autre manière d'écrire des conditions en Lisp.
 \lstinputlisting[language=Lisp, linerange={69-95}]{Nim/nim-game-player.lisp}
 Cette très longue fonction fait office d'interface utilisateur. Nous avons déjà fait remarqué au lecteur en commentaires l'utilisation de la récursion. \\
 Egalement, nous signalons {\bf progn}, une fonction bien pratique pour définir des blocs de code.
+\lstinputlisting[language=Lisp]{Nim/nim-game-player.lisp}
+Nous finissons enfin notre programme avec cette fonction nim-game-repl, permettant de commencer une partie entre humain et ordinateur.
 \subsection{Le pathfinding.}
 \subsubsection{Présentation du problème.}
 \subsubsection{L'algorithme de Dijkstra.}
