@@ -18,9 +18,9 @@ fils(philippe1, paola, albert2).
 fils(laurent, paola, albert2).
 fils(gabriel, mathile, philippe1).
 fils(emmanuel, mathilde, philippe1).
-fils(amadeo, astrid, lorenz).
+fils(amedeo, astrid, lorenz).
 fils(joachim, astrid, lorenz).
-fils(maximilian, elisabetta_rosboch, amadeo).
+fils(maximilian, elisabetta_rosboch, amedeo).
 fils(nicolas, claire, laurent).
 fils(aymeric, claire, laurent).
 
@@ -41,11 +41,11 @@ fille(marie_christine_de_belgique, lilian_baels, leopold3).
 fille(maria_esmeralda_de_belgique, lilian_baels, leopold3).
 fille(astrid, paola, albert2).
 fille(elisabeth, mathilde, philippe1).
-fille(eleonore, mathilde, philippe).
+fille(eleonore, mathilde, philippe1).
 fille(maria_laura, astrid, lorenz).
 fille(luisa, astrid, lorenz).
 fille(laetitia, astrid, lorenz).
-fille(anna_astrid, elisabetta_rosboch, amadeo).
+fille(anna_astrid, elisabetta_rosboch, amedeo).
 fille(louise, claire, laurent).
 
 % Maintenant, réflechissons à quelques lois.
