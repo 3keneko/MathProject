@@ -96,10 +96,14 @@
 \addtolength{\headwidth}{\marginparwidth}
 
 \newcolumntype{M}[ 1 ]{>{\centering\arraybackslash}m{#1}}
+
 \title{IA Pas de Soucis!}
-\author{Un projet de Evrard Maurice,\\ Lejeune Grégory,\\ Lejeune Lucas,\\ Mathieu Louca,\\ Pluvinage Victor\\ et de Ralet Vincent.}
+\author{Avec une assistance minimale de Evrard Maurice,\\ Lejeune Grégory,\\ Mathieu Louca,\\ Pluvinage Victor\\ et de Ralet Vincent.}
 
 \begin{document}
+\begin{center}
+  {\Huge {\bf Un projet de LEJEUNE Lucas}}
+\end{center}
 \maketitle
 \newpage
 
@@ -770,7 +774,7 @@ Il faut ensuite réfléchir à ce qu'il faudra mettre au sein de notre fonction.
 La récursion est un processus en 3 étapes. \\
 \begin{enumerate}
   \item Trouver la valeur de f(0) (ou de n'importe quel cas de base.)
-  \item Supposer que cette fonction remettra un nombre correct pour f(n - 1).
+  \item Supposer que cette fonction remettra un nombre correct pour f(n-1).
   \item Trouver la valeur de f(n) en fonction de f(n-1).
 \end{enumerate}
 L'exemple ici est assez simple, et est souvent donné en introduction à la récursion. Voici donc une définition formelle de notre fonction factorielle. \\
@@ -789,7 +793,32 @@ Un autre exemple d'algorithme utilisant la récursion serait l'algorithme ``quic
 
 Si le lecteur en sent l'envie, nous l'encourageons à essayer de coder la fonction récursive d'Ackermann, ou encore la McCarthy 91. \\
 \subsubsection{Programme Lisp pour résoudre parfaitement le jeu de Nim.}
-\lstinputlisting[language=Lisp]{Nim/nim-game-player.lisp}
+Afin que le lecteur se fasse une idée de comment utiliser dans des cas plus concrets, nous allons vous présenter une intelligence artificielle, assez basique, gagnant au jeu de Nim à plusieurs tas. (Aussi connu sous le nom de jeu de Marienbad.), dans ce jeu, plusieurs alumettes sont disposées sur plusieurs piles, le but du jeu est de récolter la dernière alumette. \\
+L'intelligence gagnant à ce genre de jeux est assez basique, en effet, le jeu de Nim à plusieurs tas est un jeu résolu parfaitement. \\
+La stratégie gagnante pour ce jeu est simple, nous définissons une position gagnante une position où la``nim-somme'' (qui est en réalité l'opérateur ``xor'' ou $\oplus$ appliqué à la représentation binaire de notre tas) est différent de 0, et à l'inverse, une position perdante est une position où la ``nim-somme'' appliquée aux tas est égale à 0. \\
+Un exemple de position perdante serait la position où les alumettes seraient réparties sur 4 tas avec 1 alumette sur le premier tas, 3 sur le deuxième, 5 sur le 3ième, et 7 sur le dernier. \\
+$$1 \oplus 3 \oplus 5 \oplus 7 = 0$$
+Pour se le prouver, on peut utiliser notre interprète Lisp et faire
+\begin{lstlisting}[language=Lisp]
+CL-USER> (logxor 1 3 5 7)
+0
+\end{lstlisting}
+Le but de l'ordinateur sera donc de toujours se trouver en position de sécurité, et de toujours mettre le joueur en position perdante. \\
+Le twist que nous avons apporté est le fait que le joueur peut décider des tas avec lesquels ils va jouer, et ainsi, mettre directement l'ordinateur en position de défaite, notre IA devra donc se montrer capable de jouer des coups, même en perdant. \\
+\lstinputlisting[language=Lisp, linerange={1-2}]{Nim/nim-game-player.lisp}
+Ici, je ne fais que définir une variable globale *heaps*, celle-ci représentera les tas disponibles au travers de mon programme. \\
+\lstinputlisting[language=Lisp, linerange={4-10}, linerange={27-32}, linerange={61-67}]{Nim/nim-game-player.lisp}
+Ces deuc fonctions seront dites des ``fonction d'aide'', elles auront surtout pour utilité de ne pas devoir surcharger les fonctions principales. \\
+Le lecteur attentif remarquera que je termine le nom de ces fonctions par un ``p'', cela est dû au fait que ces fonctions sont des {\bf prédicats}, elles ne peuvent retourner que ``t'' ou ``nil'' (``vrai'' ou ``faux''), ceci n'étant également qu'une convention, si le lecteur désire écrire des prédicats sans laisser de ``p'' au bout, SBCL ne lui trouvera rien à redire.\\
+Aussi, on peut remarquer dans les deux premières fonctions l'utilisation de ``reduce'', il s'agit d'une fonction destinée aux {\bf catamorphismes}, cela veut dire qu'elles permettent de passer d'une structure de données comme une liste, ou un arbre, vers un scalaire, comme un entier ou encore un flottant. \\
+Egalement, j'utilise \#', ce symbole nous permet d'expliciter que nous utilisons une fonction, et pas une variable.\\
+\lstinputlisting[language=Lisp, linerange={12-26}, linerange={34-48}]{Nim/nim-game-player.lisp}
+Nous voici enfin au cœur du programme. Avec nos fonctions ``play-winning-move'' et ``play-random-legal-move'' sont nos deux fonctions où est contenue notre joueur, les commentaires explicitant déjà leurs actions, je me concentrerai surtout sur l'implémentation. \\ Comme nous le remarquons, j'utilise {\bf let} et {\bf loop}, {\bf let} me permet de déclarer des variables dites ``locales'', cela me permet d'avoir un code propre, où chaque chose reste à sa place. \\ {\bf loop} est une macro, qui permet d'itérer, ou de répéter un nombre certain de fois une même action, je l'utilise ici en raison de la lisibilité de celle-ci, certains préfèrent la macro ``do'', je trouve cette dernière illisible, mais j'encourage le lecteur  se renseigner sur cette dernière si le coeur le lui en dit.\\
+\lstinputlisting[language=Lisp, linerange={50-60}]{Nim/nim-game-player.lisp}
+Je ne ferai remarquer ici que l'utilisation de la macro {\bf cond}, une autre manière d'écrire des conditions en Lisp.
+\lstinputlisting[language=Lisp, linerange={69-95}]{Nim/nim-game-player.lisp}
+Cette très longue fonction fait office d'interface utilisateur. Nous avons déjà fait remarqué au lecteur en commentaires l'utilisation de la récursion. \\
+Egalement, nous signalons {\bf progn}, une fonction bien pratique pour définir des blocs de code.
 \subsection{Le pathfinding.}
 \subsubsection{Présentation du problème.}
 \subsubsection{L'algorithme de Dijkstra.}
