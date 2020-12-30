@@ -430,7 +430,7 @@ En PROLOG, un fait s'écrit simplement \\[0.2cm]
 
 Un fait n'a pas de ``corps'', et tiendra toujours. Dans ce cas-ci, cela veut dire que Turing est un mathématicien, quoiqu'il arrive ce {\bf fait} ne changera pas. \\
 
-Maintenant, si nous essayons de reformuler l'exemple n°1 de notre dernière section, ``tout les mathématiciens sont cools'' en Prolog, cela donne ceci : \\[0.2cm]
+Maintenant, si nous essayons de reformuler l'exemple n°1 de notre dernière section, ``tous les mathématiciens sont cools'' en Prolog, cela donne ceci : \\[0.2cm]
 
 On remarque tout de suite que cela est plutôt facile à lire, de plus, si nous ouvrons notre interprète Prolog, voilà ce que nous obtenons: \\[0.2cm]
 
@@ -448,7 +448,7 @@ au dessus de votre fichier Prolog, maintenant, modifions légèrement notre pré
 Et voilà! Essayons là maintenant avec notre interprète: \\[0.2cm]
 
 \subsubsection{Mon arbre familial, avec Prolog!}
-
+\lstinputlisting[language=Prolog]{genealogia.prolog}
 % L'exemple sera mis juste après.
 \newpage
 \section{L'approche algorithmique.}
@@ -733,7 +733,63 @@ Aujourd'hui, le dialecte Lisp le plus utilisé reste {\bf Clojure}, toutefois, i
   \item {\bf Common Lisp} est le dialecte que nous utiliserons ici, ce dialecte a toujours eu la réputation d'être plus orienté vers les applications pratiques, et n'a jamais reçu de grandes faveurs académiques. Common Lisp a toutefois le mérite d'avoir été standardisé, de bénéficier d'un système orienté-objet connu sous le nom de CLOS.
 \end{itemize}
 \subsubsection{Les bases de Lisp.}
+Tout d'abord, pour commencer notre aventure avec Lisp, ouvrons donc notre REPL (cela peut-être SBCL, Clisp, ou encore CCL), et additionnons deux nombres. \\
+\begin{lstlisting}[language=Lisp]
+CL-USER> (+ 3 5)
+8
+\end{lstlisting}
+Cela peut sembler bien étrange pour le non-inité, et pourtant, tout cela est parfaitement logique. \\
+En fait, lorsque l'on désire appeler une fonction (comme par exemple ici ``+''), la syntaxe sera toujours ``({\bf fonction} {\bf arguments})''. Prenons quelques autres exemples avec quelques opérations arithmétiques. \\
+\begin{lstlisting}[language=Lisp]
+CL-USER> (- 2 1)
+1
+CL-USER> (* 3 4 2)
+24
+CL-USER> (/ 5 6)
+5/6
+CL-USER> (/ 5 6.0)
+0.8333333
+\end{lstlisting}
+Comme on peut le voir, la logique reste la même pour tout les opérateurs, aussi, cette syntaxe nous permet également de mettre à ces opérateurs autant d'arguments que l'on le souhaite, (l'exemple est donné ci-dessus avec l'opérateur de multiplication.). \\
+Egalement, l'opération de division ne remet pas directement un nombre à virgule, mais plutôt un Ratio, si l'on ne lui donne pour argument uniquement des nombres entiers. \\
+Pour déclarer une variable en Lisp, plusieurs choix s'offrent à nous, je présenterai uniquement ici ``defparameter''.
+\begin{lstlisting}[language=Lisp]
+CL-USER> (defparameter *test* 'bonjour)
+*TEST*
+CL-USER> *test*
+BONJOUR
+\end{lstlisting}
+J'en profite pour attirer l'attention sur l'utilisation de ``*'' autour du nom de la variable. Ceux-ci sont appelés les ``cache-oreilles'', il ne s'agit ici que d'une convention, il est tout à fait acceptable de ne pas utiliser de caches-oreilles lors ed la définition d'une variable globale. \\[0.2cm]
+Maintenant, j'utiliserai la fin de cette petite introduction comme prétexte pour présenter ``la récursion''. \\
+Pour montrer un exemple de fonction récursive, je présenterai ici la fonction factorielle, fonction récursive par excellence. \\
+Tout d'abord, pour déclarer une fonction, nous utiliserons le mot-clé {\bf defun}.
+\begin{lstlisting}[language=Lisp]
+CL-USER> (defun factorial (x) ...)
+\end{lstlisting}
+Il faut ensuite réfléchir à ce qu'il faudra mettre au sein de notre fonction. \\
+La récursion est un processus en 3 étapes. \\
+\begin{enumerate}
+  \item Trouver la valeur de f(0) (ou de n'importe quel cas de base.)
+  \item Supposer que cette fonction remettra un nombre correct pour f(n - 1).
+  \item Trouver la valeur de f(n) en fonction de f(n-1).
+\end{enumerate}
+L'exemple ici est assez simple, et est souvent donné en introduction à la récursion. Voici donc une définition formelle de notre fonction factorielle. \\
+$$\begin{cases}0! = 1 \\ n! = n \cdot (n - 1)! \end{cases}$$
+Ainsi, uniquement grâce à cette simple définition, nous allons pouvoir coder cette fonction en Common Lisp \\
+\begin{lstlisting}[language=Lisp]
+CL-USER> (defun factorial (x)
+                   (if (= x 0)
+                       1
+                      (* x (factorial (- x 1)))))
+FACTORIAL
+\end{lstlisting}
+On constate directement la simplicité et l'élégance avec laquelle cette fonction peut-être ainsi programmée. D'autres fonctions peuvent-être codée de manière récursive, l'exemple de l'algorithme de tri par fusion, ou encore l'agorithme d'Euclide pour calculer le pgcd sont deux exemples de fonctions récursives dont j'ai pu montrer l'implémentation ci-dessus. \\
+Un autre exemple d'algorithme utilisant la récursion serait l'algorithme ``quick-sort'' dit du ``tri-rapide'', en voici son implémentation \\
+\lstinputlisting[language=Lisp]{quick_sort.lisp}
+
+Si le lecteur en sent l'envie, nous l'encourageons à essayer de coder la fonction récursive d'Ackermann, ou encore la McCarthy 91. \\
 \subsubsection{Programme Lisp pour résoudre parfaitement le jeu de Nim.}
+\lstinputlisting[language=Lisp]{Nim/nim-game-player.lisp}
 \subsection{Le pathfinding.}
 \subsubsection{Présentation du problème.}
 \subsubsection{L'algorithme de Dijkstra.}
