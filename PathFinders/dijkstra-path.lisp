@@ -1,7 +1,12 @@
 (require :cl-csv)
+(require :serapeum)
 
 (defstruct city
-  name longitude latitude)
+  name longitude latitude visited cost heuristic prob-cost)
+
+(defmacro make-random-path (x arr size)
+  `(loop for _ below ,x
+         collect (aref ,arr (random ,size))))
 
 (defparameter *belgian-cities*
   (make-array 2787 :initial-contents
@@ -12,7 +17,11 @@
                        (city-latitude (read-from-string (fourth lat))))
                    (make-city :name city-name
                               :longitude city-longitude
-                              :latitude city-latitude)))
+                              :latitude city-latitude
+                              :visited nil
+                              :cost -1
+                              :heuristic 0
+                              :prob-cost 0)))
                (cdr (cl-csv:read-csv #P"belgian-cities-geocoded/belgian-cities-geocoded.csv")))))
 
 
@@ -32,9 +41,43 @@ https://stackoverflow.com/questions/27928/calculate-distance-between-two-latitud
       (* earth-radius
          (* 2 (atan (sqrt a) (sqrt (- 1 a)))))))
 
-(defun get-reachable (city)
+(defun path-cost (path)
+  (reduce #'+
+          (mapcar #'get-distance (butlast path) (cdr path))))
+
+(defun neighbors (city)
   (remove-if
    (lambda (other-city)
      (< 20 (get-distance other-city city)))
    *belgian-cities*))
 
+(defun shortest-a*-path (start goal)
+  (let ((closed-list nil)
+        (priority-queue (serapeum:make-heap
+                          :key (lambda (c)
+                                 (- 0 (+ (city-heuristic c)
+                                         (city-cost c)))))))
+    (serapeum:heap-insert priority-queue start)
+    (loop when (serapeum:heap-maximum priority-queue)
+          do (let ((new-city (serapeum:heap-extract-maximum priority-queue)))
+               (if (equal new-city goal)
+                   (return (reverse (cons new-city closed-list)))
+                   (progn (format t "~A" new-city)
+                   (loop for neighbor across (map 'vector (lambda (c)
+                                                   (setf (city-heuristic c)
+                                                         (get-distance c goal))
+                                                   (setf (city-prob-cost c)
+                                                         (+ (get-distance c new-city)
+                                                            (city-cost new-city)))
+                                                   c)
+                                                  (neighbors new-city))
+                         when (and (not (member neighbor closed-list))
+                                   (not (eql -1 (city-cost neighbor)))
+                                   (< (city-prob-cost neighbor)
+                                      (city-cost neighbor)))
+                           do (progn
+                                (format t "~A~%" neighbor)
+                                (setf (city-cost neighbor) (city-prob-cost neighbor))
+                                (serapeum:heap-insert priority-queue neighbor))
+                         finally (setf closed-list (cons new-city closed-list)))))))
+    (format t "Il faudrait penser à augmenter la taille de la recherche.")))
