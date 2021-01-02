@@ -67,7 +67,7 @@
     {1-}{{{\color{codenumbers}1-}}}2
     {1+}{{{\color{codenumbers}1+}}}2
     {remove-if}{{{\color{keycolor}remove-if}}}8
-    {if}{{{\color{keycolor}if}}}2
+    {if\ }{{{\color{keycolor}if}}}2
     {True}{{{\color{teal}True}}}4
     {False}{{{\color{teal}False}}}4
     {await}{{{\color{keycolor}await}}}5
@@ -305,7 +305,7 @@ Pour résoudre ceci, nous allons utiliser une grande table de vérité: \newpage
       \hline \begin{forest} [$\neg (\neg \phi)$ [$\phi$]]                                      \end{forest} &
        \begin{forest} [$\phi \land \psi$ [$\phi$ [$\psi$]]]                                    \end{forest} &
        \begin{forest} [$\neg (\psi \land \phi)$ [$\neg \psi$] [$\neg \phi$]]                   \end{forest} \\
-      \hline \begin{forest} [$\phi \lor \psi$ [$\phi$][$\psi$]]                                \end{forest} &
+      \hline \begin{forest} [$\phi \lor \psi$ [$\psi$][$\phi$]]                                \end{forest} &
        \begin{forest} [$\neg (\phi \lor \psi)$ [$\neg \phi$ [$\neg \phi$]]]                    \end{forest} &
        \begin{forest} [$\phi \imply \psi$ [$\neg \phi$][$\psi$]]                               \end{forest} \\
       \hline \begin{forest} [$\neg (\phi \imply \psi)$ [$\phi$ [$\neg \psi$]]]                 \end{forest} &
@@ -464,27 +464,64 @@ Il existe de nombreuses distributions de PROLOG\footnote{https://en.wikipedia.or
 En Prolog, contrairement aux règles que nous avions établies en logique des prédicats, les constantes (ici appelés Atomes) doivent commencer par une minuscule. Les variables commencent par une majucule. A cela viennent s'ajouter les listes, dénotées par des []. \\
 
 \underline{{\bf Faits et Règles.}} \\[0.2cm]
-En PROLOG, un fait s'écrit simplement \\[0.2cm]
-
+En PROLOG, un fait s'écrit simplement \
+\begin{lstlisting}[language=Prolog]
+mathematicien(turing).
+\end{lstlisting}
 Un fait n'a pas de ``corps'', et tiendra toujours. Dans ce cas-ci, cela veut dire que Turing est un mathématicien, quoiqu'il arrive ce {\bf fait} ne changera pas. \\
-
 Maintenant, si nous essayons de reformuler l'exemple n°1 de notre dernière section, ``tous les mathématiciens sont cools'' en Prolog, cela donne ceci : \\[0.2cm]
-
-On remarque tout de suite que cela est plutôt facile à lire, de plus, si nous ouvrons notre interprète Prolog, voilà ce que nous obtenons: \\[0.2cm]
-
-Tout cela est très bien, mais, si j'essaye de demander à prolog si alonzo\_church est cool, que se passe-t-il? \\[0.2cm]
+\begin{lstlisting}[language=Prolog]
+cool(X) :-
+    mathematicien(X).
+\end{lstlisting}
+On remarque tout de suite que cela est plutôt facile à lire, de plus, si nous ouvrons notre interprète Prolog, voilà ce que nous obtenons: \\
+\begin{lstlisting}[language=Prolog]
+?- cool(turing).
+true.
+\end{lstlisting}
+Tout cela est très bien, mais, si j'essaye de demander à prolog si alonzo\_church est cool, que se passe-t-il? \\
+\begin{lstlisting}[language=Prolog]
+?- cool(alonzo_church).
+false.
+\end{lstlisting}
 Pas grand chose comme nous le constatons, PROLOG préfère éviter de faire la moindre assomption, et répondra ``Faux'' dès qu'il ne sait pas. \\
 
-Ensuite, Prolog nous permet de faire de l'arithmétique, regardons un peu cela, avec une fonction dont le seul rôle est d'additionner deux nombres: \\[0.2cm]
-Ouvrons maintenant l'interprète et regardons la magie opérer: \\[0.2cm]
-
-Mais, si pour une obscure raison, je décidais de vouloir avoir B, juste en entrant A et C, comment faire? Regardons d'abord comment notre première version réagirait à cela: \\[0.2cm]
-
-Heureusement pour nous, Prolog possède un module basé sur la logique par contraintes, pour l'utiliser, il suffit d'ajouter\footnote{https://www.swi-prolog.org/man/clpfd.html} \\[0.2cm]
-
-au dessus de votre fichier Prolog, maintenant, modifions légèrement notre prédicat \\[0.2cm]
-Et voilà! Essayons là maintenant avec notre interprète: \\[0.2cm]
-
+Ensuite, Prolog nous permet de faire de l'arithmétique, regardons un peu cela, avec une fonction dont le seul rôle est d'additionner deux nombres: \\
+\begin{lstlisting}[language=Prolog]
+ajouter(A, B, C) :-
+    C is A + B.
+\end{lstlisting}
+Ouvrons maintenant l'interprète et regardons la magie opérer: \\
+\begin{lstlisting}[language=Prolog]
+?- ajouter(3, 4, Res).
+Res = 7.
+\end{lstlisting}
+Mais, si pour une obscure raison, je décidais de vouloir avoir B, juste en entrant A et C, comment faire? Regardons d'abord comment notre première version réagirait à cela: \\
+\begin{lstlisting}[language=Prolog]
+?- ajouter(3, B, 7).
+ERROR: Arguments are not sufficiently instantiated
+ERROR: In:
+ERROR:    [9] 7 is 3+_9722
+ERROR:    [7] <user>
+ERROR:
+ERROR: Note: some frames are missing due to last-call optimization.
+ERROR: Re-run your program in debug mode (:- debug.) to get more detail.
+\end{lstlisting}
+Heureusement pour nous, Prolog possède un module basé sur la logique par contraintes, pour l'utiliser, il suffit d'ajouter\footnote{https://www.swi-prolog.org/man/clpfd.html}
+\begin{lstlisting}[language=Prolog]
+:- use_module(library(clpfd)).
+\end{lstlisting}
+au dessus de votre fichier Prolog, maintenant, modifions légèrement notre prédicat: \\
+\begin{lstlisting}[language=Prolog]
+ajouter_clp(A, B, C) :-
+    C #= A + B.
+\end{lstlisting}
+Et voilà! Essayons là maintenant avec notre interprète: \\
+\begin{lstlisting}[language=Prolog]
+?- ajouter_clp(3, B, 7).
+B = 4.
+\end{lstlisting}
+De la vraie magie!
 \subsubsection{Mon arbre familial, avec Prolog!}
 \lstinputlisting[language=Prolog]{genealogia.prolog}
 % L'exemple sera mis juste après.
