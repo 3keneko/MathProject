@@ -11,7 +11,7 @@
 
 (defun play-random-legal-move (heaps)
   "Si l'adversaire est en position gagnante, nous prendrons un nombre au hasard
-d'alumettes sur le premier tas à disposition."
+d'allumettes sur le premier tas à disposition."
   (let ((unchanged t))
     (loop for heap in heaps
           for heap-number from 1
@@ -19,7 +19,7 @@ d'alumettes sur le premier tas à disposition."
           when (< 0 heap)
             do (let ((number-of-matches-c
                        (1+ (random heap))))
-                (format t "L'ordinateur a décidé de prendre ~D alumettes du tas ~D~%"
+                (format t "L'ordinateur a décidé de prendre ~D allumettes du tas ~D~%"
                         number-of-matches-c heap-number)
                 (decf (nth (1- heap-number) heaps) number-of-matches-c)
                 (setf unchanged nil)))
@@ -41,7 +41,7 @@ coup disponible."
           do (loop for num from 0 to heap
                   when (winningp num i heaps)
                     do (progn
-                          (format t "L'ordinateur a décidé de prendre ~D alumettes du tas ~D~%"
+                          (format t "L'ordinateur a décidé de prendre ~D allumettes du tas ~D~%"
                                   num (1+ i))
                           (decf (nth i heaps) num)
                           (setf unchanged nil)))))
@@ -60,7 +60,7 @@ coup disponible."
     (t (play-winning-move heaps))))
 
 (defun heap-print (heaps)
-  (format t "~&~{TAS ~D: ~D alumettes.~%~}"
+  (format t "~&~{TAS ~D: ~D allumettes.~%~}"
           (loop for number from 1 to (length *heaps*)
                 for heap in heaps
                 collect number
@@ -70,7 +70,7 @@ coup disponible."
   "Cette fonction récursive est la fonction que le joueur voit lorsqu'il joue."
   (when (emptiedp *heaps*)
     (format t "Pas de chance, l'ordinateur a gagné.~%A une prochaine fois peut-être."))
-  (format t "C'est votre tour, de quel tas désirez vous retirer des alumettes? ")
+  (format t "C'est votre tour, de quel tas désirez vous retirer des allumettes? ")
   (heap-print *heaps*)
   (princ 'PLAYER> )
   (let ((player-heap-choice (read)))
@@ -81,7 +81,7 @@ coup disponible."
                ;; si le joueur tente une mauvaise entrée.
              (heaps-repl))
       (progn
-        (format t "Combien d'alumettes désirez-vous retirer de ce tas?~%")
+        (format t "Combien d'allumettes désirez-vous retirer de ce tas?~%")
         (princ 'PLAYER>)
         (let ((player-heap-choice (1- player-heap-choice))
               (number-of-matches (read)))
