@@ -1,4 +1,4 @@
-% Yay, the article for the end of this year, in LaTeX.
+% Yay, the article for the end of this year, in LaTeX.
 
 \documentclass[a4paper, 12pt]{article}
 
@@ -103,7 +103,7 @@
 \begin{document}
 \maketitle
 \newpage
-
+\tableofcontents
 \newpage
 \section{Histoire.}
 \subsection{Origines.}
@@ -469,34 +469,34 @@ En PROLOG, un fait s'écrit simplement \
 mathematicien(turing).
 \end{lstlisting}
 Un fait n'a pas de ``corps'', et tiendra toujours. Dans ce cas-ci, cela veut dire que Turing est un mathématicien, quoiqu'il arrive ce {\bf fait} ne changera pas. \\
-Maintenant, si nous essayons de reformuler l'exemple n°1 de notre dernière section, ``tous les mathématiciens sont cools'' en Prolog, cela donne ceci : \\[0.2cm]
+Maintenant, si nous essayons de reformuler l'exemple n°1 de notre dernière section, ``tous les mathématiciens sont cools'' en Prolog, cela donne ceci :
 \begin{lstlisting}[language=Prolog]
 cool(X) :-
     mathematicien(X).
 \end{lstlisting}
-On remarque tout de suite que cela est plutôt facile à lire, de plus, si nous ouvrons notre interprète Prolog, voilà ce que nous obtenons: \\
+On remarque tout de suite que cela est plutôt facile à lire, de plus, si nous ouvrons notre interprète Prolog, voilà ce que nous obtenons:
 \begin{lstlisting}[language=Prolog]
 ?- cool(turing).
 true.
 \end{lstlisting}
-Tout cela est très bien, mais, si j'essaye de demander à prolog si alonzo\_church est cool, que se passe-t-il? \\
+Tout cela est très bien, mais, si j'essaye de demander à prolog si alonzo\_church est cool, que se passe-t-il?
 \begin{lstlisting}[language=Prolog]
 ?- cool(alonzo_church).
 false.
 \end{lstlisting}
-Pas grand chose comme nous le constatons, PROLOG préfère éviter de faire la moindre assomption, et répondra ``Faux'' dès qu'il ne sait pas. \\
+Pas grand chose comme nous le constatons, PROLOG préfère éviter de faire la moindre assomption, et répondra ``Faux'' dès qu'il ne sait pas.
 
-Ensuite, Prolog nous permet de faire de l'arithmétique, regardons un peu cela, avec une fonction dont le seul rôle est d'additionner deux nombres: \\
+Ensuite, Prolog nous permet de faire de l'arithmétique, regardons un peu cela, avec une fonction dont le seul rôle est d'additionner deux nombres:
 \begin{lstlisting}[language=Prolog]
 ajouter(A, B, C) :-
     C is A + B.
 \end{lstlisting}
-Ouvrons maintenant l'interprète et regardons la magie opérer: \\
+Ouvrons maintenant l'interprète et regardons la magie opérer:
 \begin{lstlisting}[language=Prolog]
 ?- ajouter(3, 4, Res).
 Res = 7.
 \end{lstlisting}
-Mais, si pour une obscure raison, je décidais de vouloir avoir B, juste en entrant A et C, comment faire? Regardons d'abord comment notre première version réagirait à cela: \\
+Mais, si pour une obscure raison, je décidais de vouloir avoir B, juste en entrant A et C, comment faire? Regardons d'abord comment notre première version réagirait à cela:
 \begin{lstlisting}[language=Prolog]
 ?- ajouter(3, B, 7).
 ERROR: Arguments are not sufficiently instantiated
@@ -511,12 +511,12 @@ Heureusement pour nous, Prolog possède un module basé sur la logique par contr
 \begin{lstlisting}[language=Prolog]
 :- use_module(library(clpfd)).
 \end{lstlisting}
-au dessus de votre fichier Prolog, maintenant, modifions légèrement notre prédicat: \\
+au dessus de votre fichier Prolog, maintenant, modifions légèrement notre prédicat:
 \begin{lstlisting}[language=Prolog]
 ajouter_clp(A, B, C) :-
     C #= A + B.
 \end{lstlisting}
-Et voilà! Essayons là maintenant avec notre interprète: \\
+Et voilà! Essayons là maintenant avec notre interprète:
 \begin{lstlisting}[language=Prolog]
 ?- ajouter_clp(3, B, 7).
 B = 4.
@@ -675,13 +675,14 @@ Pour en conclure avec ces deux structures de données, je me propose de faire un
 Comme on le constate sur ce tableau, les arrays ont un réel avantage lorsque nous désirons uniquement lire un élément de notre structure de données, toutefois, si nous désirons modifier la structure de données en elle-même, alors, tout devient plus problématique, et cela, car notre tableau devra retrouver un autre emplacement libre pour s'y mettre en mémoire. \\
 La liste chaînée quant à elle, n'a pas besoin de se repositionner entièrement lorsqu'on lui ajoute ou qu'on lui retire un élément, il lui suffit plutôt de rajouter un pointeur vers le nouvel élément, ce qui se fait en temps constant (O(1)), peu importe la taille de la liste. Toutefois, la liste chaînée a pour inconvénient d'être en croissance linéaire lors de la recherche d'un élément dans la liste, en effet, lors de la recherche d'un élément dans une liste chaînée, le programme devra d'abord passer par tout les éléments se trouvant avant celui que l'on cherche. \\
 Pour démontrer l'importance d'utiliser la bonne structure au bon endroit, nous allons reprendre notre bon tri à bulles. \\
-Pour ceux qui en avaient oublié l'implémentation sur les tableaux, la voici:
+Pour ceux qui avaient oublié l'implémentation sur les tableaux, la voici:
 \lstinputlisting[language=Lisp]{bubble_sort.lisp}
 Le lecteur attentif remarquera l'utilisation dans ce code de ``make-array'' et de ``aref'', tout deux synonymes de l'utilisation d'un tableau. Maintenant, transformons cette implémentation en une implémentation utilisant des listes simplement chaînées. \\
 Et maintenant, voici le même algorithme, mais, sur les listes simplement chaînées cette fois-ci.
 \lstinputlisting[language=Lisp]{bad_bubble_sort.lisp}
 Et maintenant, comparons leurs temps respectifs sur des listes de tailles différentes avec l'aide d'un nouveau tableau, (mon mode opératoire reste le même, j'utilise SBCL, et la macro time, pour créer une liste contenant des nombres aléatoires, j'utilise toujours ma macro random-sample.)
 \begin{table}[H]
+  \centering
   \begin{tabular}{|c|c|c|}
     \hline & Tri à bulles (Tableaux) & Tri à bulles (SLL) \\
     \hline 10 &  0.0000008 secondes &  0.000009 secondes \\
@@ -694,7 +695,7 @@ Et maintenant, comparons leurs temps respectifs sur des listes de tailles diffé
 \end{table}
 La différence de performance entre nos deux implémentations du même algorithme est énorme, et pourtant, nous n'avons pas changé l'algorithme en lui-même! J'espère que notre petite expérience montre bien au lecteur l'importance d'un choix de structure de données adéquat.
 \subsubsection{Les tables de hachages.}
-Une table de hachage (ou un dictionnaire en python) est une des structures de données les plus utiles en ce qui concerne l'optimisation d'algorithmes. \\
+Une table de hachage (ou un dictionnaire en python) est une structure de données des plus utiles en ce qui concerne l'optimisation d'algorithmes. \\
 Son utilisation est simple; avec une table de hachage, nous relions des clés avec des valeurs. \\ Ainsi, si dans une table de hachage, je relie le mot ``bonjour'' avec le mot ``hello'', mon mot ``bonjour'' sera considéré comme étant la clé, et le mot ``hello'' comme étant la valeur. \\
 En Lisp, pour créer une telle table de hachage, il faut faire: \\
 \begin{lstlisting}[language=Lisp]
@@ -739,7 +740,7 @@ Ce programme se fait en deux parties, tout d'abord, nous définissons une table 
                  #\SPACE " "))
 \end{lstlisting}
 Voici notre dictionnaire! Ne soyez pas surpris par les ``\#\'', c'est ainsi que nous définissons des charactères en common lisp. \\
-Maintenant, la deuxième partie consistera simplement à créer une fonction chargée de transformer nos phrases vers du morse. \\
+Maintenant, la deuxième partie consistera simplement à créer une fonction chargée de transformer nos phrases en morse. \\
 \begin{lstlisting}[language=Lisp]
 (defun convert-to-morse (sentence)
   "Cette fonction s'occupe de convertir
@@ -864,10 +865,10 @@ Un autre exemple d'algorithme utilisant la récursion serait l'algorithme ``quic
 
 Si le lecteur en sent l'envie, nous l'encourageons à essayer de coder la fonction récursive d'Ackermann, ou encore la McCarthy 91. \\
 \subsubsection{Programme Lisp pour résoudre parfaitement le jeu de Nim.}
-Afin que le lecteur se fasse une idée de comment utiliser dans des cas plus concrets, nous allons vous présenter une intelligence artificielle, assez basique, gagnant au jeu de Nim à plusieurs tas. (Aussi connu sous le nom de jeu de Marienbad.), dans ce jeu, plusieurs alumettes sont disposées sur plusieurs piles, le but du jeu est de récolter la dernière alumette. \\
+Afin que le lecteur se fasse une idée de comment utiliser dans des cas plus concrets, nous allons vous présenter une intelligence artificielle, assez basique, gagnant au jeu de Nim à plusieurs tas. (Aussi connu sous le nom de jeu de Marienbad.), dans ce jeu, plusieurs allumettes sont disposées sur plusieurs piles, le but du jeu est de récolter la dernière allumette. \\
 L'intelligence gagnant à ce genre de jeux est assez basique, en effet, le jeu de Nim à plusieurs tas est un jeu résolu parfaitement. \\
 La stratégie gagnante pour ce jeu est simple, nous définissons une position gagnante une position où la``nim-somme'' (qui est en réalité l'opérateur ``xor'' ou $\oplus$ appliqué à la représentation binaire de notre tas) est différent de 0, et à l'inverse, une position perdante est une position où la ``nim-somme'' appliquée aux tas est égale à 0. \\
-Un exemple de position perdante serait la position où les alumettes seraient réparties sur 4 tas avec 1 alumette sur le premier tas, 3 sur le deuxième, 5 sur le 3ième, et 7 sur le dernier. \\
+Un exemple de position perdante serait la position où les allumettes seraient réparties sur 4 tas avec 1 allumette sur le premier tas, 3 sur le deuxième, 5 sur le 3ième, et 7 sur le dernier. \\
 $$1 \oplus 3 \oplus 5 \oplus 7 = 0$$
 Pour se le prouver, on peut utiliser notre interprète Lisp et faire
 \begin{lstlisting}[language=Lisp]
@@ -879,12 +880,12 @@ Le twist que nous avons apporté est le fait que le joueur peut décider des tas
 \lstinputlisting[language=Lisp, linerange={1-2}]{Nim/nim-game-player.lisp}
 Ici, je ne fais que définir une variable globale *heaps*, celle-ci représentera les tas disponibles au travers de mon programme. \\
 \lstinputlisting[language=Lisp, linerange={4-10, 27-32, 61-67}]{Nim/nim-game-player.lisp}
-Ces deuc fonctions seront dites des ``fonction d'aide'', elles auront surtout pour utilité de ne pas devoir surcharger les fonctions principales. \\
+Ces deux fonctions seront dites des ``fonctions d'aide'', elles auront surtout pour utilité de ne pas avoir à surcharger les fonctions principales. \\
 Le lecteur attentif remarquera que je termine le nom de ces fonctions par un ``p'', cela est dû au fait que ces fonctions sont des {\bf prédicats}, elles ne peuvent retourner que ``t'' ou ``nil'' (``vrai'' ou ``faux''), ceci n'étant également qu'une convention, si le lecteur désire écrire des prédicats sans laisser de ``p'' au bout, SBCL ne lui trouvera rien à redire.\\
 Aussi, on peut remarquer dans les deux premières fonctions l'utilisation de ``reduce'', il s'agit d'une fonction destinée aux {\bf catamorphismes}, cela veut dire qu'elles permettent de passer d'une structure de données comme une liste, ou un arbre, vers un scalaire, comme un entier ou encore un flottant. \\
 Egalement, j'utilise \#', ce symbole nous permet d'expliciter que nous utilisons une fonction, et pas une variable.\\
 \lstinputlisting[language=Lisp, linerange={12-26, 34-48}]{Nim/nim-game-player.lisp}
-Nous voici enfin au cœur du programme. Avec nos fonctions ``play-winning-move'' et ``play-random-legal-move'' sont nos deux fonctions où est contenue notre joueur, les commentaires explicitant déjà leurs actions, je me concentrerai surtout sur l'implémentation. \\ Comme nous le remarquons, j'utilise {\bf let} et {\bf loop}, {\bf let} me permet de déclarer des variables dites ``locales'', cela me permet d'avoir un code propre, où chaque chose reste à sa place. \\ {\bf loop} est une macro, qui permet d'itérer, ou de répéter un nombre certain de fois une même action, je l'utilise ici en raison de la lisibilité de celle-ci, certains préfèrent la macro ``do'', je trouve cette dernière illisible, mais j'encourage le lecteur  se renseigner sur cette dernière si le coeur le lui en dit.\\
+Nous voici enfin au cœur du programme. Avec nos fonctions ``play-winning-move'' et ``play-random-legal-move'' qui sont nos deux fonctions où est contenu notre joueur, les commentaires explicitant déjà leurs actions, je me concentrerai surtout sur l'implémentation. \\ Comme nous le remarquons, j'utilise {\bf let} et {\bf loop}, {\bf let} me permet de déclarer des variables dites ``locales'', cela me permet d'avoir un code propre, où chaque chose reste à sa place. \\ {\bf loop} est une macro, qui permet d'itérer, ou de répéter un nombre certain de fois une même action, je l'utilise ici en raison de la lisibilité de celle-ci, certains préfèrent la macro ``do'', je trouve cette dernière illisible, mais j'encourage le lecteur  se renseigner sur cette dernière si le coeur le lui en dit.\\
 \lstinputlisting[language=Lisp, linerange={50-60}]{Nim/nim-game-player.lisp}
 Je ne ferai remarquer ici que l'utilisation de la macro {\bf cond}, une autre manière d'écrire des conditions en Lisp.
 \lstinputlisting[language=Lisp, linerange={69-95}]{Nim/nim-game-player.lisp}
