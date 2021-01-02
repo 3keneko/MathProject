@@ -104,3 +104,13 @@ cousin_p(Cous1, Cousin) :-
 cousin(Cous1, Cousin) :-
     cousin_m(Cous1, Cousin) ;
     cousin_p(Cous1, Cousin).
+
+descendant(Parent, Descendant) :-
+    parents(Parent, _, Descendant) ;
+    parents(_, Parent, Descendant).
+
+descendant(Parent, Descendant) :-
+    parents(X, Y, Descendant),
+    (   descendant(Parent, X)
+    ;   descendant(Parent, Y)
+    ).
