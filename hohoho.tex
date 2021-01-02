@@ -304,7 +304,7 @@ Pour résoudre ceci, nous allons utiliser une grande table de vérité: \newpage
     \begin{tabular}{|M{2.5cm}|M{2.5cm}|M{2.5cm}|}
       \hline \begin{forest} [$\neg (\neg \phi)$ [$\phi$]]                                      \end{forest} &
        \begin{forest} [$\phi \land \psi$ [$\phi$ [$\psi$]]]                                    \end{forest} &
-       \begin{forest} [$\neg (\psi \land \phi)$ [$\neg \psi$] [$\neg \phi$]]                   \end{forest} \\
+       \begin{forest} [$\neg (\psi \land \phi)$ [$\psi \neg$] [$\neg \phi$]]                   \end{forest} \\
       \hline \begin{forest} [$\phi \lor \psi$ [$\phi$][$\psi$]]                                \end{forest} &
        \begin{forest} [$\neg (\phi \lor \psi)$ [$\neg \phi$ [$\neg \phi$]]]                    \end{forest} &
        \begin{forest} [$\phi \imply \psi$ [$\neg \phi$][$\psi$]]                               \end{forest} \\
@@ -410,14 +410,14 @@ Chaque branche de l'arbre fini bien par $\bot$, nous venons donc de prouver la l
   \end{table}
 \end{adjustwidth}
 \FloatBarrier
-Le lecteur pourra s'exercer à démontrer la validité des tautologies présentées dans le tableau-ci dessus en tant qu'exercice. \\
+Le lecteur pourra s'exercer à démontrer la validité des tautologies présentées dans le tableau-ci. \\
 \subsubsection{Le besoin d'algorithme, présentation de l'algorithme de Quine.}
 
 Un ensemble de formules, tout comme une formule peut-être inconsistant, cela signifie que notre ensemble est équivalent à F,et comme nous l'avons vu dans le tableau ci-dessus, on peut déduire absolument n'importe quoi d'un ensemble inconsistant.\\
 
 Le problème des tableaux de vérités, c'est qu'ils prennent de la place, et même, beaucoup de place. C'est pour cela qu'est venu la nécessité de créer des algorithmes de résolution d'ensembles de formules, afin de faciliter le travail des logiciens, et ainsi, de réduire le temps de calcul nécessaire à un ordinateur. \\
 
-L'algorithme de Quine se déroule en plusieurs étapes, tout d'abord, nous allons simplifier, si possibles, les formules logiques contenues dans notre ensemble de formules, par exemple, au lieu d'écrire $A \lor V$, nous pourrons écrire simplement $ V $, et ainsi, supprimer ce $V$ de notre ensemble, comme $B, V \models B$, il y a bien d'autres simplifications possibles, nous laisserons au lecteur le soin d'en trouver.\\
+L'algorithme de Quine se déroule en plusieurs étapes, tout d'abord, nous allons simplifier, si possible, les formules logiques contenues dans notre ensemble de formules, par exemple, au lieu d'écrire $A \lor V$, nous pourrons écrire simplement $ V $, et ainsi, supprimer ce $V$ de notre ensemble, comme $B, V \models B$, il y a bien d'autres simplifications possibles, nous laisserons au lecteur le soin d'en trouver.\\
 
 Une fois cette première étape passée, il suffit d'utiliser un arbre logique (ou éventuellement une table de vérité) et enfin, nous avons pu prouver des formules logiques avec l'aide de l'agorithme de Quine.
 \subsection{Une logique? Des logiques!}
