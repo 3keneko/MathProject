@@ -43,8 +43,15 @@ https://stackoverflow.com/questions/27928/calculate-distance-between-two-latitud
 (defun neighbors (city)
   (remove-if
    (lambda (other-city)
-     (< 20 (get-distance other-city city)))
-   *belgian-cities*))
+     (or (< 20 (get-distance other-city city))
+         (equal other-city city)))
+     *belgian-cities*))
+
+;; (defun in-reach (city1 city2)
+;;   (> 20 (get-distance city1 city2)))
+
+;;(defun deconstruct-path (the-list)
+;;  ...)
 
 (defun shortest-a*-path (start goal)
   (let ((closed-list nil)

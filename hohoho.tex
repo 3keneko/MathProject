@@ -98,33 +98,53 @@
 \newcolumntype{M}[ 1 ]{>{\centering\arraybackslash}m{#1}}
 
 \title{IA Pas de Soucis!}
-\author{Avec une assistance minimale de Evrard Maurice,\\ Mathieu Louca,\\ Pluvinage Victor\\ et de Ralet Vincent.}
+\author{Un projet de Evrard Maurice,\\ Lejeune Grégory,\\ Lejeune Lucas \\ Mathieu Louca,\\ Pluvinage Victor\\ et de Ralet Vincent.}
 
 \begin{document}
-\begin{center}
-  {\Huge {\bf Un projet de LEJEUNE Productions}}
-\end{center}
 \maketitle
 \newpage
 
 \section{Histoire.}
-\subsection{Origines.}
-\begin{enumerate}
-  \item 1949 dans une publication de Warren Weaver\footnote{Warren Weaver, mathématicien américain, considéré comme la 1ère personne à proposer l’utilisation d’ordinateur électronique pour la traduction grâce à des techniques statistiques} par rapport à la traduction automatique des langues.
-  \item 1950 dans un article d’Alan Turing\footnote{Alan Turing: Histoire dit de lui qu’il a dechiffrer un code secret des machines Enigma utilisé par les allemands à l’aide Bletchley Park(un château rempli de mathématicien) qui aurait permis de raccourcir la seconde guerre mondiale de 2 ans} qui définit si une machine est consciente ou non.
-\end{enumerate}
-\subsection{Officialisation de l’IA comme véritable domaine scientifique.}
-\begin{enumerate}
-  \item 1956 lors d’une conférence aux USA qui permettra à celle-ci d’atteindre des université prestigieuse comme stanford, etc
-\end{enumerate}
-\subsection{Suite de l'IA.}
-\begin{enumerate}
-  \item 1974 arrive le “Al Winter”. Réduction du budget des académies car elles ne font pas aboutir leur projet sur quelque chose de concret
-  \item Année 80, Gouvernements financent de nouveau les académies car IA atteint une valeur d’un milliard de dollars, a ce moment, un système expert était un ordinateur capable de se comporter comme un humain (dans un domaine précis)
-  \item la loi de Moore (évolution de la puissance de calcul des ordinateurs ainsi que de leurs complexités), entre 1990 et 2000, On trouve le data mining (composante des technologies)
-  \item 1997: Deep blue (superintelligence spécialisé dans le jeu d’échecs)
-\end{enumerate}
+
 \section{L'approche logique.}
+\subsection{Les bases de la logique}
+\subsection{Origines.}
+Avant les premières découvertes scientifiques concernant l'intelligence, elle est déjà notemment imaginée dans des oeuvres de fiction dans lesquelles des des artisans seraient capables de mettre au point des êtres artificiels dotés d'une intelligence. Certains de ces êtres artificiels verront le jour sous la forme d'automates (Ex: Automates de Vaucanson, 18e siècle).\\
+
+L'intelligence artificielle comme nous la connaissons aujourd'hui a d'abord été présentée par des philosphes de l'ère classique, Leibniz par exemple. Ils avançaient que la pensée humaine était un raisonnement mécanique explicable par les mathématiques. Ils n'ont cependant jamais tenté de créer une intelligence artificielle.\\
+
+Entre les années 1930 et 1950 de nombreux progrès sont faits en neurologie, on comprend que le cerveau est un réseau de neurones qui envoient un signal électrique binaire (c.f. Théorie de l'information de Claude Shannon). La théorie du calcul d'Alan Turing montre que toute forme de calculpeut être représentée numériquement. Additionés au travail de Norbert Wiener sur la cybernétique, ces progrès poussent la communauté scientifique à croire en la possibilité de construire un cerveau artificiel.
+\subsection{Arrivée des premiers ordinateurs.}
+Les premiers ordinateurs modernes feront leur apparition durant la seconde guerre mondiale poussés par la quête d'informations protégées par des codes sur les stratégies des différents camps.
+\subsubsection{Premières concrétisations d'intelligences artificielles:}
+\begin{enumerate}
+  \item En 1949, Warren Weaver met au point un protocole qui vise à utiliser l'intelligence artificielle pour traduire automatiquement différents langages.
+  \item En 1950, Alan Turing publie un article dans lequel il imaginera le célèbre \textit{Test de Turing} qui vise à définir ce qui est ou non une machine intelligente. Pour se faire, la machine doit pouvoir converser avec un humain sans que ce dernier se rende compte de sa vraie nature. Il sera réussi pour la première fois dans les années 60 par ELIZA, une IA simulant un psychothérapeute. Elle se contentait en réalité de reformuler les affirmations du "patient" en questions.
+  \item En 1955, Allen Newell accompagné de Herbert Simon de de Cliff Shaw crée le \textit{Théoricien logique}, un programme capable de démontrer 38 des 52 premiers théorèmes des \textit{Principia Mathematica} de Russell et Whitehead, et a même trouvé des démonstrations inédites et élégantes.
+\end{enumerate}
+\subsection{Officialisation.}
+En 1956 la conférence de Dartmouth réunit tout les plus grand scientifiques travaillant alors sur le sujet de l'intelligence artificielle. Elle est le vrai point de départ de l'intelligence artificielle moderne étant donné que c'est à ce moment qu'elle a défini ses objectifs et qu'elle devient officiellement une discipline scientifique.
+\subsection{L'âge d'or (1956-1974).}
+La conférence de Dartmouth marque le début de l'âge d'or de l'IA. En effet, entre 1956 et 1974 l'IA va voir un grand nombre de découvertes qui pousseront les investissements, ce qui entrainera un cercle vertueux. Cett période sera donc marquée par un optimisme presque excessif concernant les "futurs" progrès de L'IA.\\
+
+La méthode alors utilisée par la grande majorité des programmes consiste à avancer pas à pas en faisant des essais-erreurs. Cette méthode montrera toutefois ses limites face aux \textit{explosions combinatoires} (problèmes dont le nombre de chemins possibles vers une solution est astronomique).
+\subsection{L'hiver de l'IA (1974-1980).}
+L'année 1974 marque le début de la période creuse de l'histoire de l'intelligence artificielle. Cela est du au retour à la réalité des chercheurs en IA qui se retrouvaient face à des impasses, limités par le niveau technologique de l'époque. Cette baisse de vitesses dans les découvertes accompagnée de nombreuses critiques concernant les recherches menées jusqu'alors provoquera la déception et le retrait de nombreux investisseurs optimistes.\\
+
+Cette période marque malgré tout l'introduction de la logique dans l'IA, notemment par l'invention du langage de programmation Prolog
+\subsection{Le retour en force (1980-1987).}
+Cette période voit apparaitre un nouveau genre de programmes d'IA appelé "Systèmes experts", ces programmes ont pour particularités d'être limités à de domaines très restreints. En effet, ils utilisent un ensemble de règles logiques qui prennent sources dans les connaissances des experts humains de son domaine. Cette limite volontaire imposée à ces programmes les rendent plus facile à ocncevoir et à améliorer une fois déployés. Ces programmes sont les premiers à réellement se rendre utiles pour la société.\\
+
+Le gouvernement japonais va permettre à l'IA de se relancer économiquement en investissant 850 millions de Dollars dans le but de développer des programmes de communication (Traduction, interprétation d'images,...). Le Royaume)Uni lance un projet similaire qu'il finance à hauteur de 350 millions de livres.
+\subsection{Le nouvel hiver (1987-1993).}
+L'engouement qu'avait réussi à créer l'IA au début des années 80 grâce aux systèmes experts a en fait créé une bulle économique qui a fini par exploser à leur fin.\\
+Cette période marquera tout de même l'appartition d'une nouvelle approche de l'IA, une approche dans laquelle les intelligences artifielles devraient avoir conscience de "leur corps" et de l'environnement qui les entoure.
+\subsection{Depuis 1993.}
+Grâce à un niveau technologique et donc une puissance de calcul qui augmente de manière exponentielle (c.f. Loi de Moore), de nombreux objectifs de l'IA. Les investissements n'affluent toujours pas car on ne s'est pas encore approché du tout du rêve des années 60, c'est à dire une IA aussi intelligente qu'un humain.\\
+
+Depuis 1993 l'IA continue de faire ses preuves aux travers de nombreux exploits, on peut noter la victoire historique de l'IA Deep Blue aux échecs contre le champion du monde en titre des échecs Garry Kasparov. On peut aussi parler des nombreux robots antropomorphes comme le Asimo de Honda ou les robots militaires de Boston Dynamics dont les capacités ne cessent d'impressioner le grand public. Mais au delà de ces prouesses l'intelligence artificielle a aujourd'hui surtout gagné une place proéiminente dans notre quotidien: applis de traduction, publicités ciblées, GPS, recommandations d'amis sur les réseaux sociaux, ... .
+\newpage
+\section{L'Approche Logique.}
 \subsection{Les bases de la logique}
   \subsubsection{Introduction à la logique propositionnelle.}
      L'importance de la logique propositionnelle est immense en mathématiques et en cryptographie, mais également, comme nous allons le voir, en informatique.\\
@@ -141,7 +161,7 @@
      {\bf La logique propositionnelle} se compose donc d'un langage formel, et de sémantiques donnant du sens aux mots bien formés, répondant au nom de {\bf propositions}. \\
      Les propositions logiques sont désignées par des lettres, comme $ A, B, C$..., ou par des lettres indicées comme $ A_2, B_{4}$...
      Pour relier ces propositions, on utilise des connecteurs, répertoriés dans le tableau ci-dessous. \\
-     \begin{table}[!t]
+     \begin{table}[H]
        \centering
        \begin{tabular}{|c|c|c|}
          %!{\vrule width 0.8mm}>{\bfseries}l|
@@ -172,8 +192,8 @@
         $A \ffi B$: Je suis boulanger si et seulement si je sais faire des gâteaux. \\
         ... \\
     \subsubsection{Quelques tables de vérité.}
-    Après tant d'exemples ``instructifs'', il serait temps de passer aux fameuses {\bf tables de vérité}, ces tables seront d'une importance capitale lors de résolutions de problèmes, les voici donc: \\[15.0cm]
-    \begin{table}[!t]
+    Après tant d'exemples ``instructifs'', il serait temps de passer aux fameuses {\bf tables de vérité}, ces tables seront d'une importance capitale lors de résolutions de problèmes, les voici donc: \
+    \begin{table}[H]
       \hspace{1.0cm}
       \begin{minipage}[c]{0.1\linewidth}
         \centering
@@ -266,7 +286,7 @@
   \begin{center}
     \Ovalbox{$ \neg (A \land B ) \ffi \neg A \lor \neg B$}
   \end{center}
-  Pour résoudre ceci, nous allons utiliser une grande table de vérité: \newpage
+Pour résoudre ceci, nous allons utiliser une grande table de vérité: \newpage
   \begin{table}[!t]
     \centering
     \begin{tabular}{|c|c|c|c|c|c|c|c|}
@@ -829,14 +849,14 @@ Je ne ferai remarquer ici que l'utilisation de la macro {\bf cond}, une autre ma
 \lstinputlisting[language=Lisp, linerange={69-95}]{Nim/nim-game-player.lisp}
 Cette très longue fonction fait office d'interface utilisateur. Nous avons déjà fait remarqué au lecteur en commentaires l'utilisation de la récursion. \\
 Egalement, nous signalons {\bf progn}, une fonction bien pratique pour définir des blocs de code.
-\lstinputlisting[language=Lisp]{Nim/nim-game-player.lisp}
+\lstinputlisting[language=Lisp, linerange={98-108}]{Nim/nim-game-player.lisp}
 Nous finissons enfin notre programme avec cette fonction nim-game-repl, permettant de commencer une partie entre humain et ordinateur.
 \subsection{Le pathfinding.}
 \subsubsection{Présentation du problème.}
 \subsubsection{L'algorithme de Dijkstra.}
 \subsubsection{Le besoin d'heuristiques.}
 \subsubsection{Dijkstra avec de l'heuristique: A*!}
-
+\lstinputlisting[language=Lisp]{PathFinders/dijkstra-path.lisp}
 \subsection{Des programmes et des jeux!}
 \subsubsection{L'agorithme Minimax.}
 \subsubsection{$\alpha\beta$-élagage.}
