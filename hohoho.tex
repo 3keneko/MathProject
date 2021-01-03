@@ -907,19 +907,9 @@ Nous finissons enfin notre programme avec cette fonction nim-game-repl, permetta
 \newpage
 \section{Le Machine Learning.}
 \subsection{Définition du Machine Learning}
-Le Machine Learning, ou Apprentissage Automatique, est un type d'intelligence artificielle qui avec les données à analyser et sur lesquelles s'entraîner permet aux ordinateurs d’apprendre par expérience sans avoir été explicitement programmé à cet effet ou par intervention humaine. Cela consiste en algorithmes d’apprentissage qui améliorent leur performance à exécuter des tâches au fil du temps grâce à de l’expérience.\\[1.0cm]
+Le Machine Learning, ou Apprentissage Automatique, est un type d'intelligence artificielle qui avec les données à analyser et sur lesquelles s'entraîner permet aux ordinateurs d’apprendre par expérience sans avoir été explicitement programmé à cet effet ou par intervention humaine. Cela consiste en algorithmes d’apprentissage qui améliorent leur performance à exécuter des tâches au fil du temps grâce à de l’expérience.\\Le machine learning est présent dans la vie de tous les jours. Par exemple, nos boîtes mail sont équipées d'algorithmes capables d’apprendre avec le temps. Prenons les spams, leurs émetteurs sont capables de s'adapter, de changer leur manière d’agir, il est donc impératif que l’algorithme de défense contre les spams change lui aussi. Dans les e-mails, le machine learning se cache aussi derrière les réponses automatiques, en 2018, 6,7 milliards des mails envoyés étaient des réponses automatiques. On peut aussi trouver des IA dans les réseaux sociaux (reconnaissance faciale entre amis Facebook,...), blocage automatique des cartes de crédit volées, et bien d'autres.\\[1.0cm]
 \subsection{Les Maths dans le Machine Leanring.}
-\begin{enumerate}
-  \item De nombreux data scientists (chargés de la gestion, de l’analyse et de l’exploitation des données au sein d’une entreprise) considèrent le machine Learning comme un apprentissage statistique.
-  \item Matrice et algèbre matricielle, exemple :
-        \begin{enumerate}
-          \item Les suggestions d’amis sur Facebook
-          \item Recommandation de vidéo sur Facebook
-          \item $\cdots$
-        \end{enumerate}
-  \item Fonction, variable, équation et graphique, ...
-\end{enumerate}
-
+De nombreux data scientists (chargés de la gestion, de l’analyse et de l’exploitation des données au sein d’une entreprise) considèrent le machine learning comme un apprentissage statistique car celui-ci s’appuie sur des algorithmes (principalement statistique) permettant à une machine d'apprendre grâce à des échantillons ou bases d’apprentissages.\\Dans le machine learning, il y a en grande partie des maths qui permettent à la machine de fonctionner, on retrouve surtout des algorithmes et des statistiques. D’ailleurs, de nombreux Data scientists considèrent que le machine learning n’est qu’un apprentissage statistique. De plus, ce qu’on appelle machine learning est pour certains la rencontre des statistiques avec la puissance de calcul disponible aujourd’hui (mémoire, processeurs, cartes graphiques).\\On retrouve aussi les fonctions, les variables, les équations, les graphiques, et d’autres outils mathématiques de ce genre dans le machine learning.  Pour les fonctions, elles sont utiles à l’analyse des séries temporelles(suite de valeurs numériques représentant l’évolution d’une quantité spécifique au cours du temps).\\[1.0cm]
 \subsection{Les résaux de neurones}
 Une couche de neurones d’entrées, plusieurs couches cachées, une couche de sortie suivie d’une fonction d’activation.
 Chaque neurone possède une valeur obtenue par une fonction de combinaison étant la somme des valeurs des neurones de la couche précédente, chacune multipliée par un poids spécifique
@@ -929,38 +919,71 @@ ou encore la fonction ReLU $\begin{cases} 0 & x < 0 \\ x & x >= 0 \end{cases}$ \
 Durant l’apprentissage, les poids sont des valeurs prises au hasard. Il faut donc les ajuster pour fournir une réponse qui se rapproche au mieux de la réalité. Comme on entraîne notre réseau, on connaît la vraie valeur finale. On va donc appliquer une fonction de coût afin de calculer le gradient d’erreur entre la valeur réelle et la valeur prédite $ \frac{1}{2}(y_r - y_p)^2 $, et ainsi mettre à jour les poids par rétropropagation (! il y a des maths plus compliquées derrière). A chaque nouvelles données injectées lors de l’apprentissage, le réseau est plus performant.
 
 \subsection{Intro au langage Python}
-\begin{enumerate}
-  \item Créé par Guido van Rossum au Stichting Mathematisch Centrum en Hollande.
-  \item Python est le successeur d’un langage de programmation nommé “ABC”
-  \item Le nom du langage vient de la série Monty Python’s flying Circus dont Guido Van Rossum était fan. Cependant l’image du serpent paraissait plus évidente pour tout le monde, il a donc décidé d’utiliser celle-ci comme symbole du langage.
-  \item La première version de Python paraissait en 1991
-  \item C’est un langage de programmation open source, c’est à dire gratuit et libre d’utilisation
-  \item Python au fil des années a été mis à jour beaucoup de fois et est passé d’une version 1.5 en 1999 jusqu’à 3.9 cette année (2020), nous nous intéresserons surtout aux différences entre python 2 et python 3 qui ont été les plus marquantes.
-      \begin{enumerate}
-          \item \underline{{\bf Python2: }}
-              \begin{itemize}
-                \item version plus facile que python 1 mais contenant plus d’erreurs.
-                      \begin{enumerate}
-                        \item erreur de syntaxe, manque de ‘:’, manque d’une lettre, etc (erreur d’analyse de code)
-                        \item Nouvelles exceptions, comme ZeroDivisionError(division par zéro), ValueError(valeur incorrecte), Etc.
-                      \end{enumerate}
-                \item  Pas difficile à reconvertir vers python 3 mais ce n’est pas fiable
-                \item La programmation est plus complexe sur python 2
-                \item Le support de la version 2 de python a été abandonné cette année, en 2020.
-                \item etc (opposition des tirets de python 3)
-              \end{itemize}
-        \item \underline{{\bf Python3:}}
-              \begin{itemize}
-                \item syntaxe plus simple et facilement compréhensible.
-                \item  stockage unicode (échange de texte dans différentes langues).
-                \item La valeur des variables utilisées ne change jamais.
-                \item Certaines fonctions on été remplacé par d’autres (python3; range(), python2; xrange()) range ou xrange servent toutes les 2 a créer une liste et aussi des itérations (répétitions).
-                \item Création de bibliothèques qui ne peuvent pas être créées avec python2.
-                      \begin{itemize}
-                        \item Python3 est aujourd’hui la version la plus conseillée surtout pour ceux désirant de commencer la programmation
-                      \end{itemize}
-              \end{itemize}
-      \end{enumerate}
-\end{enumerate}
+Python est un langage de programmation créé par Guido van Rossum dont la première version est parue en 1991 mais est exposé au grand public au Stichting Mathematisch Centrum en 1994 (fondation du centre mathématique), en Hollande. Ce langage est dit open source, c'est-à-dire qu’il est gratuit et libre d’utilisation.\\Ce langage est le successeur de quelques langages de programmation comme ABC,  C, PERL et bien d’autres. Python est un langage à typage fort, cela veut dire qu’il n’y a pas de conversion automatique entre deux types distincts. Ainsi, il n’est pas possible en python d’écrire.\\\begin{lstlisting}[language=Python]
+[CODE]
+>>> 3 + ‘3’
+[/CODE] 
+\end{lstlisting}\\sous peine de recevoir une erreur.\\ C’est aussi un langage dynamique, c’est-à-dire que les variables ne sont pas attachées à leur type, ainsi, il est possible d’écrire \\\begin{lstlisting}[language=Python]
+[CODE]
+>>> a = 3
+>>> a = “foo”
+[/CODE]
+\end{lstlisting}\\Enfin le typage de python est dit implicite, il ne faut pas obligatoirement préciser le type de variable, bien qu’il soit possible de déclarer le type des variables depuis la version 3.5.\\\begin{lstlisting}[language=Python]
+[CODE] 
+>>> a = “foo”
+>>> a: str= “bar”
+[/CODE] 
 
+\end{lstlisting}\\Sont ainsi deux manières tout à fait correctes de déclarer une variable en python.\\ Le nom du langage vient de la série Monty Python’s flying Circus dont Guido Van Rossum était fan. Mais l’image du serpent paraissant plus évidente pour tout le monde, il a décidé d'utiliser celle-ci comme symbole du langage.\\ Le langage python a été mis à jour de nombreuses fois et est passé d’une version 1.5 en 1999 jusqu’à 3.9 en 2020, nous nous intéresserons surtout aux versions python 2 et python 3 qui ont été ls plus marquantes.
+\subsubsection{Python 2:}
+Par exemple, des erreurs de syntaxe, des manques de ‘:’, des manques d’une lettre, et d'autres, toutes des erreurs d’analyse de code. Nous pouvons aussi trouver des exceptions qui, quand utilisées dans notre programme, nous permettent de contrer les erreurs pouvant être écrite par la suite comme les ‘ZeroDivisionError’ ou en français, erreur de division par zéro, mais aussi les ‘ValueError’ qui nous annonce une valeur incorrecte et encore bien d’autres.\\	Il existe des moyens de convertir du code de python 2 vers python 3 mais ce n’est pas très fiable et de toute façon, ce n’est plus trop utile non plus car de plus en plus de développeurs conseillent python 3 pour sa facilité d’utilisation, de plus le support de la version 2 a été abandonné en 2020.
+\subsubsection{Python 3:}
+Comme expliqué ci-dessus, Python 3 est plus simple d’utilisation que Python 2 ,la syntaxe y est plus simple et plus facilement compréhensible. Prenons un exemple simple avec le print, pour Python 2, il n’y a pas l’utilisation de la parenthèse, juste des guillemets. Ainsi, quand en Python 2 il faut écrire:\\\begin{lstlisting}[language=Python]
+[CODE] 
+>>> print "Hello World!"
+Hello World!
+[\CODE] 
+\end{lstlisting}\\
+\textbf{EN PYTHON 3, IL FAUDRA ÉCRIRE CELA}\\\begin{lstlisting}[language=Python]
+
+[CODE]
+>>> print (“Hello World!”)
+Hello World!
+[/CODE]
+\end{lstlisting}\\Le stockage est dit unicode, c'est-à-dire que l’échange de texte est fait dans différentes langues, la langue la plus utilisée y est bien sûr l’anglais. Dans Python 3, la valeur des variables utilisées ne change jamais, si vous prenez x=3, la valeur reste x=3.\\ Certaines fonctions utilisées dans python 2 comme xrange() on été remplacées dans python 3 par range(), tout 2 servent à créer une liste et aussi des itérations(répétitions). Certaines bibliothèques(ensemble logiciel de modules) de python 3 ne peuvent pas être créées avec Python 2.\\
+\begin{enumerate}
+    \item \textbf{Python 2:}\\\begin{lstlisting}[language=Python]
+    [CODE]
+    >>> print "Hello World!"
+    Hello World!
+    >>> print 7/3
+    2
+    >>> a = "éèçà"
+    >>> a
+    '\xc3\xa9\xc3\xa8\xc3\xa7\xc3\xa0'
+    
+    >>> i = 4
+    >>> my_list = [i for i in xrange(5, 1, -1)]
+    >>> my_list
+    [5, 4, 3, 2]
+    >>> i
+    2
+    [/CODE]
+    \end{lstlisting}\\\item \textbf{Python 3:}\\\begin{lstlisting}[language=Python]
+    [CODE]
+    >>> print (“Hello World!”)
+    Hello World!
+    >>>print (7/3)
+    2.3333333333333335
+    >>>a = “éèçà”
+    >>> a 
+    'éèçà'
+    >>> i=4
+    >>> my_list = [i for i in range(5,1,-1)]
+    >>> my_list
+    [5, 4, 3, 2]
+    >>> i
+    4
+    [ /CODE]
+    \end{lstlisting}
 \end{document}
