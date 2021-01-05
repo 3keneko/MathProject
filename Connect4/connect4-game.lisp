@@ -31,7 +31,7 @@
           (map 'list #'car board)))
 
 (defun play (i color board)
-  (flet ((push-until (lat token)
+  (labels ((push-until (lat token)
            (when (every #'null lat)
              (setf (sixth lat) token)
              lat)
@@ -40,6 +40,51 @@
              (t (cons (car lat)
                       (push-until (cdr lat) token))))))
     (push-until (aref board i) color)))
+
+(defun maximum (lat)
+  (reduce (lambda (a b)
+            (if (> a b)
+                a
+                b))
+          lat))
+
+(defun max-number-of-vertical-connections (color board)
+  (labels ((number-in-vertical (column color buffer)
+             (cond
+               ((null column) buffer)
+               ((not (car lat)) (number-in-vertical (cdr column) 0))
+               ((eq (car lat) color)
+                (number-in-vertical (cdr column) (1+ buffer)))
+               (t buffer))))
+    (maximum (map 'list #'number-in-vertical board))))
+
+(defun max-subseq (color seq)
+  (let ((maxi 0)
+        (temp 0))
+    (loop for token across seq
+          if (eq color token)
+            do (progn
+                 (incf temp)
+                 (setf maxi (max temp maxi)))
+          else
+            do (setf temp 0))
+    maxi))
+
+(defun max-number-of-horizontal-connections (board)
+  (labels ((row-finder (the-board acc)
+             (loop for row from 0 to 5
+                   collect (map 'list #'car the-board) into rows
+                   do (setf the-board (map 'vector #'cdr the-board))
+                   finally (return rows))))
+    (maximum (mapcar #'max-subseq (row-finder board)))))
+
+
+(defun max-number-of-diagonal-connections (board)
+  ...)
+
+(defun winningp (board) 
+  (or (> (max-number-of-connections 'yellow board) 3)
+      (> (max-number-of-connections 'red    board) 3)))
 
 (defun play-repl ()
   (loop while (and (not (winningp *board*))
