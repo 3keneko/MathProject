@@ -13,6 +13,9 @@
     `(loop for ,i from 1 to ,x
           collect ,i)))
 
+(defmacro get-pos (column row board)
+  `(nth ,row ,(aref column board)))
+
 (defun show-board (board)
   (let ((row nil))
         (loop for i from 1 to 5
@@ -70,16 +73,46 @@
             do (setf temp 0))
     maxi))
 
-(defun max-number-of-horizontal-connections (board)
+(defun max-number-of-horizontal-connections (board color)
   (labels ((row-finder (the-board acc)
              (loop for row from 0 to 5
                    collect (map 'list #'car the-board) into rows
                    do (setf the-board (map 'vector #'cdr the-board))
                    finally (return rows))))
-    (maximum (mapcar #'max-subseq (row-finder board)))))
+    (maximum (mapcar (lambda (row)
+                       (max-subseq color row))
+                     (row-finder board)))))
 
+(defun max-number-of-nw-diagonal-connections (board)
+  (labels ((nw-descent (board column row)
+             (let ((acc nil))
+                (loop while (and (/= (1- column) -1)
+                                 (/= (1+    row)  6))
+                      do (progn
+                          (setf acc (cons (get-pos column row board)))
+                          (decf column)
+                          (incf row)))
+                  acc))
+           (fetch-from-column (board column row)
+             (let ((tracker 0)
+                   (base-column column)
+                   (acc   nil))
+               (loop while (< tracker 6)
+                     if (or (< (1-    row) 0)
+                            (> (1+ column) 6))
+                       do (progn
+                            (setf acc
+                              (cons (nw-descent board column row) acc))
+                            (decf tracker)
+                            (setf row tracker column base-column))
+                     else do (progn
+                               (decf row)
+                               (incf column)))
+               acc)))))
 
-(defun max-number-of-diagonal-connections (board)
+                            
+             
+(defun max-number-of-ne-diagonal-connections (board)
   ...)
 
 (defun winningp (board) 
