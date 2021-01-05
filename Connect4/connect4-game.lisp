@@ -52,7 +52,7 @@
           lat))
 
 (defun max-number-of-vertical-connections (color board)
-  (labels ((number-in-vertical (column colour &optional buffer)
+  (labels ((number-in-vertical (column colour &optional (buffer 0))
              (cond
                ((null column) buffer)
                ((not (car column)) (number-in-vertical (cdr column) 0))
@@ -76,7 +76,7 @@
     maxi))
 
 (defun max-number-of-horizontal-connections (color board)
-  (labels ((row-finder (the-board &optional acc)
+  (labels ((row-finder (the-board)
              (loop for row from 0 to 5
                    collect (map 'list #'car the-board) into rows
                    do (setf the-board (map 'vector #'cdr the-board))
@@ -86,16 +86,17 @@
                      (row-finder board)))))
 
 (defun max-number-of-nw-diagonal-connections (color board)
-  (labels ((nw-descent (board column row)
+  (labels ((nw-descent (v-board column row)
              (let ((acc nil))
                 (loop while (and (/= (1- column) -1)
                                  (/= (1+    row)  6))
                       do (progn
-                          (setf acc (cons (get-pos column row board) acc))
+                           (setf acc (cons (get-pos column row v-board)
+                                           acc))
                           (decf column)
                           (incf row)))
                   acc))
-           (fetch-from-column (board column row)
+           (fetch-from-column (v-board column row)
              (let ((tracker 0)
                    (base-column column)
                    (acc nil))
@@ -104,7 +105,7 @@
                             (> (1+ column) 6))
                        do (progn
                             (setf acc
-                              (cons (nw-descent board column row) acc))
+                              (cons (nw-descent v-board column row) acc))
                             (decf tracker)
                             (setf row tracker column base-column))
                      else do (progn
@@ -147,7 +148,7 @@
    (max-number-of-vertical-connections color board)
    (max-number-of-horizontal-connections color board)
    (max-number-of-ne-diagonal-connections color board)
-   (max-number-of-nw-daigonal-connections color board)))
+   (max-number-of-nw-diagonal-connections color board)))
 
 (defun winningp (board) 
   (or (> (max-number-of-connections 'yellow board) 3)
