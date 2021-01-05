@@ -96,7 +96,7 @@
            (fetch-from-column (board column row)
              (let ((tracker 0)
                    (base-column column)
-                   (acc   nil))
+                   (acc nil))
                (loop while (< tracker 6)
                      if (or (< (1-    row) 0)
                             (> (1+ column) 6))
@@ -107,13 +107,37 @@
                             (setf row tracker column base-column))
                      else do (progn
                                (decf row)
-                               (incf column)))
-               acc)))))
-
-                            
+                               (incf column))))
+               acc))
+  (maximum (fetch-from-column board 3 0))))
              
 (defun max-number-of-ne-diagonal-connections (board)
-  ...)
+  (labels ((no-descent (board column row)
+             (let ((acc nil))
+               (loop while (and (/= (1+ column) 7)
+                                (/= (1+    row) 6))
+                     do (progn
+                          (setf acc (cons (get-pos column row board)))
+                          (incf column)
+                          (incf row)))
+               acc))
+           (fetch-from (board column row)
+             (let ((tracker 0)
+                   (base-column column)
+                   (acc nil))
+               (loop while (< tracker 6)
+                     if (or (< (1- row) 0)
+                            (< (1- column) 0))
+                       do (progn
+                            (setf acc
+                                  (cons (no-descent board column row) acc))
+                            (decf tracker)
+                            (setf row tracker column base-column))
+                     else do (progn
+                               (decf row)
+                               (decf column)))
+               acc)))
+    (maximum (fetch-from board 3 0))))
 
 (defun winningp (board) 
   (or (> (max-number-of-connections 'yellow board) 3)
