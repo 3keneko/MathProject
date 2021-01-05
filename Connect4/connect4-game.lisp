@@ -66,7 +66,7 @@
 (defun max-subseq (color seq)
   (let ((maxi 0)
         (temp 0))
-    (loop for token across seq
+    (loop for token in seq
           if (eq color token)
             do (progn
                  (incf temp)
@@ -86,12 +86,12 @@
                      (row-finder board)))))
 
 (defun max-number-of-nw-diagonal-connections (color board)
-  (labels ((nw-descent (v-board column row)
+  (labels ((nw-descent (h-board column row)
              (let ((acc nil))
                 (loop while (and (/= (1- column) -1)
                                  (/= (1+    row)  6))
                       do (progn
-                           (setf acc (cons (get-pos column row v-board)
+                           (setf acc (cons (get-pos column row h-board)
                                            acc))
                           (decf column)
                           (incf row)))
@@ -115,12 +115,12 @@
   (max-subseq color (fetch-from-column board 3 0))))
              
 (defun max-number-of-ne-diagonal-connections (color board)
-  (labels ((no-descent (v-board column row)
+  (labels ((no-descent (h-board column row)
              (let ((acc nil))
                (loop while (and (/= (1+ column) 7)
                                 (/= (1+    row) 6))
                      do (progn
-                          (setf acc (cons (get-pos column row v-board)
+                          (setf acc (cons (get-pos column row h-board)
                                           acc))
                           (incf column)
                           (incf row)))
