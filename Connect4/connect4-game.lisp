@@ -18,7 +18,7 @@
 
 (defun show-board (board)
   (let ((row nil))
-        (loop for i from 1 to 5
+        (loop for i from 1 to 6
             do (progn
                     (setf row (map 'list #'car board))
                     (format t "~{~A ~}|~D~%" (mapcar #'playerify row) i)
@@ -35,15 +35,12 @@
 
 (defun play (i color board)
   (labels ((push-until (lat token)
-           (when (every #'null lat)
-             (setf (sixth lat) token)
-             lat)
-           (cond
-             ((cadr lat) (cons token (cdr lat)))
-             (t (cons (car lat)
+             (cond
+               ((eq 1 (length lat)) `(,token))
+               ((cadr lat) (cons token (cdr lat)))
+               (t (cons (car lat)
                       (push-until (cdr lat) token))))))
-    (setf (aref board i)
-          (push-until (aref board i) color))
+    (setf (aref board i) (push-until (aref board i) color))
     board))
 
 (defun maximum (lat)
@@ -57,9 +54,9 @@
   (labels ((number-in-vertical (column colour &optional (buffer 0))
              (cond
                ((null column) buffer)
-               ((not (car column)) (number-in-vertical (cdr column) 0))
+               ((not (car column)) (number-in-vertical (cdr column) colour 0))
                ((eq (car column) colour)
-                (number-in-vertical (cdr column) (1+ buffer)))
+                (number-in-vertical (cdr column) colour (1+ buffer)))
                (t buffer))))
     (maximum (map 'list (lambda (column)
                           (number-in-vertical column color))
