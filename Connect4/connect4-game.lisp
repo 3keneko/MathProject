@@ -21,13 +21,14 @@
         (loop for i from 1 to 6
             do (progn
                     (setf row (map 'list #'car board))
-                    (format t "~{~A ~}|~D~%" (mapcar #'playerify row) i)
+                    (format t "~{~A ~}|~D~%"
+                            (mapcar #'playerify row) i)
                     (setf board (map 'vector #'cdr board)))
             finally (format t "~{~D ~}~%"
                             (count-to 7)))))
 
 (defun fullp (i board)
-  (car (aref board (1- i))))
+  (car (aref board i)))
 
 (defun tiedp (board)
   (notany #'null
@@ -144,7 +145,7 @@
       (> (max-number-of-connections 'red    board) 3)))
 
 (defun play-repl ()
-  (loop when (and (not (winningp *board*))
+  (loop while (and (not (winningp *board*))
                    (not (tiedp *board*)))
         do (progn
              (format t "Au tour du joueur 1!~%~A~%Dans quelle colonne souhaitez-vous jouer? "
