@@ -21,13 +21,13 @@
         (loop for i from 1 to 5
             do (progn
                     (setf row (map 'list #'car board))
-                    (format t "~{~A ~}|~D~%" row i)
+                    (format t "~{~A ~}|~D~%" (mapcar #'playerify row) i)
                     (setf board (map 'vector #'cdr board)))
             finally (format t "~{~D ~}~%"
                             (count-to 7)))))
 
 (defun fullp (i board)
-  (not (car (aref board i))))
+  (car (aref board (1- i))))
 
 (defun tiedp (board)
   (notany #'null
@@ -42,7 +42,9 @@
              ((cadr lat) (cons token (cdr lat)))
              (t (cons (car lat)
                       (push-until (cdr lat) token))))))
-    (push-until (aref board i) color)))
+    (setf (aref board i)
+          (push-until (aref board i) color))
+    board))
 
 (defun maximum (lat)
   (reduce (lambda (a b)
@@ -145,10 +147,11 @@
       (> (max-number-of-connections 'red    board) 3)))
 
 (defun play-repl ()
-  (loop while (and (not (winningp *board*))
+  (loop when (and (not (winningp *board*))
                    (not (tiedp *board*)))
         do (progn
-             (format t "A votre tour!~%Dans quelle colonne souhaitez-vous jouer? ")
+             (format t "Au tour du joueur 1!~%~A~%Dans quelle colonne souhaitez-vous jouer? "
+                     (show-board *board*))
              (let* ((column (read))
                     (i (1- column)))
                (cond
@@ -160,7 +163,8 @@
                   (play-repl))
                  (t (setf *board* (play i 'yellow *board*))))))
         do (progn
-             (format t "A votre tour!~%Dans quelle colonne souhaitez-vous jouer? ")
+             (format t "Au tour du joueur 2!~%~A~%Dans quelle colonne souhaitez-vous jouer? "
+                     (show-board *board*))
              (let* ((column (read))
                     (i (1- column)))
                (cond
