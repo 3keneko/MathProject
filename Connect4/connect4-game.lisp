@@ -85,16 +85,55 @@
                        (max-subseq color row))
                      (row-finder board)))))
 
+(defparameter *top-right-corner* '((3 . 0) (4 . 0) (5 . 0)
+                                   (6 . 0) (6 . 1) (6 . 2)))
+
+(defparameter *top-left-corner* '((3 . 0) (2 . 0) (1 . 0)
+                                  (0 . 0) (0 . 1) (0 . 2)))
+
+(defun make-left-diagonal (the-case
+                &optional (max-row 5))
+  (let ((column (car the-case))
+        (row    (cdr the-case)))
+    (loop for c from column downto 0
+          for r from row to max-row
+          collect (cons c r))))
+
+(defun max-in-l-diagonal (color board)
+  (let* ((diagonals (mapcar #'make-left *top-right-corner*))
+         (diag-values (mapcar
+                       (lambda (diags)
+                         (mapcar
+                          (lambda (coords)
+                            (let ((column (car coords))
+                                  (row    (cdr coords)))
+                              (nth row (aref board color))))))
+                       diagonals)))
+    (maximum (mapcar
+              (lambda (diagonal)
+                (max-subseq color diagonal))
+              diag-values))))
+
+(defun make-right-diagonal (the-case
+                            &optional
+                              (max-row 5)
+                              (max-column 6))
+  (let ((column (car the-case))
+        (row    (cdr the-case)))
+    (loop for c from column to max-column
+          for r from row to max-row
+          column (cons c r))))
+
 (defun max-number-of-nw-diagonal-connections (color board)
-  (labels ((nw-descent (h-board column row)
+  (labels ((nw-descent (v-board column row)
              (let ((acc nil))
-                (loop while (and (/= (1- column) -1)
-                                 (/= (1+    row)  6))
+                (loop while (and (< (1- column) -1)
+                                 (> (1+    row)  6))
                       do (progn
-                           (setf acc (cons (get-pos column row h-board)
-                                           acc))
-                          (decf column)
-                          (incf row)))
+                           (decf column)
+                           (incf row)
+                           (setf acc (cons (nth row (aref v-board column))
+                                           acc))))
                   acc))
            (fetch-from-column (v-board column row)
              (let ((tracker 0)
@@ -104,10 +143,10 @@
                      if (or (< (1-    row) 0)
                             (> (1+ column) 6))
                        do (progn
-                            (setf acc
-                              (cons (nw-descent v-board column row) acc))
+                            (setf acc (cons (nw-descent v-board column row) acc))
                             (decf tracker)
-                            (setf row tracker column base-column))
+                            (setf row tracker column base-column)
+                            (return nil))
                      else do (progn
                                (decf row)
                                (incf column)))
@@ -115,15 +154,15 @@
   (max-subseq color (fetch-from-column board 3 0))))
              
 (defun max-number-of-ne-diagonal-connections (color board)
-  (labels ((no-descent (h-board column row)
+  (labels ((no-descent (v-board column row)
              (let ((acc nil))
-               (loop while (and (/= (1+ column) 7)
-                                (/= (1+    row) 6))
+               (loop while (and (< (1+ column) 7)
+                                (< (1+    row) 6))
                      do (progn
-                          (setf acc (cons (get-pos column row h-board)
-                                          acc))
                           (incf column)
-                          (incf row)))
+                          (incf row)
+                          (setf acc (cons (nth column (aref v-board row))
+                                               acc))))
                acc))
            (fetch-from (v-board column row)
              (let ((tracker 0)
@@ -133,8 +172,7 @@
                      if (or (< (1- row) 0)
                             (< (1- column) 0))
                        do (progn
-                            (setf acc
-                                  (cons (no-descent v-board column row) acc))
+                            (setf acc (cons (no-descent v-board column row) acc))
                             (decf tracker)
                             (setf row tracker column base-column))
                      else do (progn
@@ -145,8 +183,8 @@
 
 (defun max-number-of-connections (color board)
   (max
-   (max-number-of-vertical-connections color board)
-   (max-number-of-horizontal-connections color board)
+   (max-number-of-vertical-connections    color board)
+   (max-number-of-horizontal-connections  color board)
    (max-number-of-ne-diagonal-connections color board)
    (max-number-of-nw-diagonal-connections color board)))
 
@@ -180,5 +218,5 @@
                  ((fullp i *board*)
                   (format t "Cette colonne est déjà remplie!~%")
                   (play-repl))
-                 (t (setf *board* (play i 'yellow *board*))))))))
+                 (t (setf *board* (play i 'red *board*))))))))
              ;;;(setf *board* (computer-turn 'red *board*)))))
