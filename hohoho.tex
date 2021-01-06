@@ -576,7 +576,7 @@ Afin de mesurer le temps pris par chacun de mes deux algorithmes, j'ai utilisé 
 \begin{lstlisting}[language=Lisp]
 ;;; Ma macro random-sample bien pratique.
 (defmacro random-sample (x)
-   (loop for _ below ,x collect (random 1000)))
+   `(loop for _ below ,x collect (random 1000)))
 \end{lstlisting}
 Sans plus attendre, voici le tableau montrant les résultats de notre petite expérience.
 \begin{table}[H]
@@ -904,6 +904,7 @@ Nous finissons enfin notre programme avec cette fonction nim-game-repl, permetta
 \subsubsection{$\alpha\beta$-élagage.}
 \subsubsection{Du dynamisme bon sang!}
 \subsection{Un programme de jeu.}
+\lstinputlisting[language=Lisp]{Connect4/connect4-game.lisp}
 \newpage
 \section{Le Machine Learning.}
 \subsection{Définition du Machine Learning}
