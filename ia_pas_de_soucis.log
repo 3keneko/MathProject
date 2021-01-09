@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.9.18)  9 JAN 2021 22:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.9.18)  9 JAN 2021 22:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -923,18 +923,18 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 104
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./ia_pas_de_soucis.toc)
-\tf@toc=\write6
-\openout6 = `ia_pas_de_soucis.toc'.
-
-
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./ia_pas_de_soucis.toc
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
 Make it at least 14.49998pt.
 We now make it that large for the rest of the document.
 This may cause the page layout to be inconsistent, however.
 
-[2]
+[2])
+\tf@toc=\write6
+\openout6 = `ia_pas_de_soucis.toc'.
+
+ [3]
 Underfull \hbox (badness 10000) in paragraph at lines 110--111
 
  []
@@ -944,7 +944,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 112--113
 
  []
 
-[3]
+[4]
 Underfull \hbox (badness 10000) in paragraph at lines 126--127
 
  []
@@ -959,7 +959,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 134--135
 
  []
 
-[4]
+[5]
 Overfull \hbox (15.32645pt too wide) in paragraph at lines 136--137
 []\OT1/cmr/m/n/12 Le gou-ver-ne-ment ja-po-nais va per-mettre ^^Ra l'IA de se r
 e-lan-cer ^^Seconomiquement
@@ -982,7 +982,7 @@ Overfull \hbox (4.04314pt too wide) in paragraph at lines 148--150
  en math^^Sematiques
  []
 
-[5]
+[6]
 Underfull \hbox (badness 10000) in paragraph at lines 153--154
 
  []
@@ -992,7 +992,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--176
 
  []
 
-[6]
+[7]
 Underfull \hbox (badness 10000) in paragraph at lines 179--192
 
  []
@@ -1047,7 +1047,7 @@ Overfull \hbox (53.94444pt too wide) in paragraph at lines 268--276
  [][] 
  []
 
-[7] [8]
+[8] [9]
 Overfull \hbox (5.59143pt too wide) in paragraph at lines 290--298
  [][] 
  []
@@ -1057,12 +1057,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 299--301
 
  []
 
-[9]
+[10]
 Underfull \hbox (badness 10000) in paragraph at lines 342--344
 
  []
 
-[10]
+[11]
 Underfull \hbox (badness 10000) in paragraph at lines 363--365
 
  []
@@ -1083,12 +1083,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 373--385
 
  []
 
-[11]
+[12]
 Overfull \hbox (72.0701pt too wide) in paragraph at lines 397--410
 [][] 
  []
 
-[12]
+[13]
 Overfull \hbox (8.35143pt too wide) in paragraph at lines 413--414
 []\OT1/cmr/m/n/12 Le lec-teur pourra s'exer-cer ^^Ra d^^Semontrer la va-li-dit^
 ^Se des tau-to-lo-gies pr^^Sesent^^Sees
@@ -1120,13 +1120,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 420--421
 
  []
 
-[13]
+[14]
 Overfull \hbox (24.6566pt too wide) in paragraph at lines 441--442
 []\OT1/cmr/m/n/12 Des \OT1/cmr/bx/n/12 connec-teurs lo-giques\OT1/cmr/m/n/12 , 
 qui ont ^^Set^^Se dis-cut^^Ses dans la sec-tion pr^^Sec^^Sedente. 
  []
 
-[14]
+[15]
 Underfull \hbox (badness 10000) in paragraph at lines 448--455
 
  []
@@ -1142,7 +1142,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 457--458
 
  []
 
-[15]
+[16]
 Underfull \hbox (badness 10000) in paragraph at lines 464--465
 
  []
@@ -1152,8 +1152,8 @@ File: lstlang1.sty 2019/09/10 1.8c listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
 File: lstlang2.sty 2019/09/10 1.8c listings language file
-) [16]
-(./PrologExamples/genealogia.prolog [17] [18] [19]) [20]
+) [17]
+(./PrologExamples/genealogia.prolog [18] [19] [20]) [21]
 Overfull \hbox (28.69432pt too wide) in paragraph at lines 532--533
  [] 
  []
@@ -1179,7 +1179,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 547--551
 
  []
 
-[21]
+[22]
 Underfull \hbox (badness 10000) in paragraph at lines 553--554
 
  []
@@ -1199,7 +1199,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 570--571
 
  []
 
-(./Sorts/merge_sort.lisp [22])
+(./Sorts/merge_sort.lisp [23])
 Underfull \hbox (badness 10000) in paragraph at lines 574--576
 
  []
@@ -1214,7 +1214,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 593--595
 
  []
 
-[23]
+[24]
 Underfull \hbox (badness 10000) in paragraph at lines 605--606
 
  []
@@ -1250,7 +1250,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 627--628
 
  []
 
-[24] [25] (./Sorts/bubble_sort.lisp) (./Sorts/bad_bubble_sort.lisp [26])
+[25] [26] (./Sorts/bubble_sort.lisp) (./Sorts/bad_bubble_sort.lisp [27])
 Underfull \hbox (badness 10000) in paragraph at lines 698--701
 
  []
@@ -1266,7 +1266,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 709--710
 
  []
 
-[27]
+[28]
 Underfull \hbox (badness 10000) in paragraph at lines 725--727
 
  []
@@ -1276,7 +1276,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 742--744
 
  []
 
-[28]
+[29]
 Underfull \hbox (badness 10000) in paragraph at lines 759--763
 
  []
@@ -1286,7 +1286,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 764--770
 
  []
 
-[29] (./LispBasics/dichotomia.lisp) [30]
+[30] (./LispBasics/dichotomia.lisp) [31]
 Underfull \hbox (badness 10000) in paragraph at lines 797--800
 
  []
@@ -1301,7 +1301,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 817--819
 
  []
 
-[31]
+[32]
 Overfull \hbox (12.17068pt too wide) in paragraph at lines 829--832
 \OT1/cmr/m/n/12 Pour d^^Seclarer une va-riable en Lisp, plu-sieurs choix s'offr
 ent ^^Ra nous, je pr^^Sesenterai
@@ -1312,7 +1312,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 845--847
 
  []
 
-[32]
+[33]
 Underfull \hbox (badness 10000) in paragraph at lines 852--853
 
  []
@@ -1343,7 +1343,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 868--872
 
  []
 
-[33]
+[34]
 Underfull \hbox (badness 10000) in paragraph at lines 878--880
 
  []
@@ -1353,12 +1353,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 881--882
 
  []
 
-(./Nim/nim-game-player.lisp [34])
+(./Nim/nim-game-player.lisp [35])
 Underfull \hbox (badness 10000) in paragraph at lines 883--887
 
  []
 
-(./Nim/nim-game-player.lisp [35])
+(./Nim/nim-game-player.lisp [36])
 Overfull \hbox (3.88202pt too wide) in paragraph at lines 888--889
 \OT1/cmr/m/n/12 move'' et ``play-random-legal-move'' qui sont nos deux fonc-tio
 ns o^^Ru est contenu
@@ -1369,9 +1369,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 888--889
 
  []
 
-(./Nim/nim-game-player.lisp) (./Nim/nim-game-player.lisp [36])
-(./Nim/nim-game-player.lisp [37]) (./PathFinders/dijkstra-path.lisp [38]
-[39] [40]) (./Connect4/connect4-game.lisp [41] [42] [43] [44]) [45]
+(./Nim/nim-game-player.lisp) (./Nim/nim-game-player.lisp [37])
+(./Nim/nim-game-player.lisp [38]) (./PathFinders/dijkstra-path.lisp [39]
+[40] [41]) (./Connect4/connect4-game.lisp [42] [43] [44] [45]) [46]
 Underfull \hbox (badness 10000) in paragraph at lines 911--912
 
  []
@@ -1381,7 +1381,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 913--914
 
  []
 
-[46] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+[47] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/09/10 1.8c listings language file
 )
 Overfull \hbox (8.25142pt too wide) in paragraph at lines 923--924
@@ -1399,7 +1399,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 927--929
 
  []
 
-[47]
+[48]
 Underfull \hbox (badness 10000) in paragraph at lines 933--934
 
  []
@@ -1409,7 +1409,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 945--946
 
  []
 
-[48]
+[49]
 Underfull \hbox (badness 10000) in paragraph at lines 951--952
 
  []
@@ -1419,7 +1419,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 956--958
 
  []
 
-[49] (./ia_pas_de_soucis.aux)
+[50] (./ia_pas_de_soucis.aux)
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
@@ -1427,7 +1427,7 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Here is how much of TeX's memory you used:
  31432 strings out of 481239
  675689 string characters out of 5920377
- 1467764 words of memory out of 5000000
+ 1467812 words of memory out of 5000000
  46224 multiletter control sequences out of 15000+600000
  543068 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1451,10 +1451,10 @@ type1/public/amsfonts/latxfont/lcirclew.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/
 cm-super/sfrm1200.pfb>
-Output written on ia_pas_de_soucis.pdf (49 pages, 335958 bytes).
+Output written on ia_pas_de_soucis.pdf (50 pages, 338358 bytes).
 PDF statistics:
- 244 PDF objects out of 1000 (max. 8388607)
- 172 compressed objects within 2 object streams
+ 247 PDF objects out of 1000 (max. 8388607)
+ 174 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
