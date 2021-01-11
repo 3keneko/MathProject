@@ -148,7 +148,7 @@
   (loop while (and (not (winningp *board*))
                    (not (tiedp *board*)))
         do (progn
-             (if (winningp *board*)
+             (when (winningp *board*)
                  (return "Le joueur 2 a gagné."))
              (format t "Au tour du joueur 1!~%~A~%Dans quelle colonne souhaitez-vous jouer? "
                      (show-board *board*))
@@ -163,7 +163,7 @@
                   (play-repl))
                  (t (setf *board* (play i 'yellow *board*))))))
         do (progn
-             (if (winningp *board*)
+             (when (winningp *board*)
                  (return "Le joueur 1 a gagné."))
              (format t "Au tour du joueur 2!~%~A~%Dans quelle colonne souhaitez-vous jouer? "
                      (show-board *board*))
