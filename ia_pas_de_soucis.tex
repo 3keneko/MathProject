@@ -814,7 +814,7 @@ Tout d'abord, pour commencer notre aventure avec Lisp, ouvrons donc notre REPL (
 CL-USER> (+ 3 5)
 8
 \end{lstlisting}
-Cela peut sembler bien étrange pour le non-inité, et pourtant, tout cela est parfaitement logique. \\
+Cela peut sembler bien étrange pour le non-initié, et pourtant, tout cela est parfaitement logique. \\
 En fait, lorsque l'on désire appeler une fonction (comme par exemple ici ``+''), la syntaxe sera toujours ``({\bf fonction} {\bf arguments})''. Prenons quelques autres exemples avec quelques opérations arithmétiques. \\
 \begin{lstlisting}[language=Lisp]
 CL-USER> (- 2 1)
@@ -859,7 +859,7 @@ CL-USER> (defun factorial (x)
                       (* x (factorial (- x 1)))))
 FACTORIAL
 \end{lstlisting}
-On constate directement la simplicité et l'élégance avec laquelle cette fonction peut-être ainsi programmée. D'autres fonctions peuvent-être codée de manière récursive, l'exemple de l'algorithme de tri par fusion, ou encore l'agorithme d'Euclide pour calculer le pgcd sont deux exemples de fonctions récursives dont j'ai pu montrer l'implémentation ci-dessus. \\
+On constate directement la simplicité et l'élégance avec laquelle cette fonction peut être ainsi programmée. D'autres fonctions peuvent-être codée de manière récursive, l'exemple de l'algorithme de tri par fusion, ou encore l'agorithme d'Euclide pour calculer le pgcd sont deux exemples de fonctions récursives dont j'ai pu montrer l'implémentation ci-dessus. \\
 Un autre exemple d'algorithme utilisant la récursion serait l'algorithme ``quick-sort'' dit du ``tri-rapide'', en voici son implémentation \\
 \lstinputlisting[language=Lisp]{Sorts/quick_sort.lisp}
 
