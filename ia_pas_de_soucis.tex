@@ -865,7 +865,7 @@ Un autre exemple d'algorithme utilisant la récursion serait l'algorithme ``quic
 
 Si le lecteur en sent l'envie, nous l'encourageons à essayer de coder la fonction récursive d'Ackermann, ou encore la McCarthy 91. \\
 \subsubsection{Programme Lisp pour résoudre parfaitement le jeu de Nim.}
-Afin que le lecteur se fasse une idée de comment utiliser dans des cas plus concrets, nous allons vous présenter une intelligence artificielle, assez basique, gagnant au jeu de Nim à plusieurs tas. (Aussi connu sous le nom de jeu de Marienbad.), dans ce jeu, plusieurs allumettes sont disposées sur plusieurs piles, le but du jeu est de récolter la dernière allumette. \\
+Afin que le lecteur se fasse une idée de comment utiliser Lisp dans des cas plus concrets, nous allons vous présenter une intelligence artificielle, assez basique, gagnant au jeu de Nim à plusieurs tas. (Aussi connu sous le nom de jeu de Marienbad.), dans ce jeu, plusieurs allumettes sont disposées sur plusieurs piles, le but du jeu est de récolter la dernière allumette. \\
 L'intelligence gagnant à ce genre de jeux est assez basique, en effet, le jeu de Nim à plusieurs tas est un jeu résolu parfaitement. \\
 La stratégie gagnante pour ce jeu est simple, nous définissons une position gagnante une position où la``nim-somme'' (qui est en réalité l'opérateur ``xor'' ou $\oplus$ appliqué à la représentation binaire de notre tas) est différent de 0, et à l'inverse, une position perdante est une position où la ``nim-somme'' appliquée aux tas est égale à 0. \\
 Un exemple de position perdante serait la position où les allumettes seraient réparties sur 4 tas avec 1 allumette sur le premier tas, 3 sur le deuxième, 5 sur le 3ième, et 7 sur le dernier. \\
