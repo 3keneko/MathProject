@@ -7,7 +7,7 @@
 
 
 \usepackage[french]{babel}
-\usepackage{listings}
+\usepackage{listings, hyperref}
 \usepackage{fancyhdr, fancybox}
 \usepackage{amsmath, amssymb}
 \usepackage{xcolor, changepage, array, placeins, float, verbatim}
@@ -23,6 +23,12 @@
 \definecolor{keycolor}{HTML}{3B5998}%{0057E7}
 \definecolor{backcolour}{HTML}{FFFFFF}
 
+\hypersetup{
+  colorlinks=true,
+  linkcolor=cyan,
+  filecolor=red,
+  urlcolor=blue,
+}
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolour},
     commentstyle=\color{codecomments},
@@ -86,7 +92,7 @@
 \rhead[\textbf{}]{\textbf{}}
 \lhead[\textbf{}]{\textbf{}}
 \lfoot[{\bf \thepage}]{{\bf \thepage}}
-\rfoot[{\bf \thepage}]{\textbf{Avec l'aide de YOUSRA-SOPHIE Gayes}}
+\rfoot[{\bf \thepage}]{\textbf{IA PAS DE SOUCIS}}
 \cfoot[]{}
 
 \numberwithin{equation}{subsection}
@@ -797,7 +803,15 @@ Ton nombre a été trouvé en 9 essais
 Cette petite introduction à la recherche par dichotomie servait surtout à donner une intuition au lecteur de l'importance des arbres binaires. \\
 Ceux-ci fonctionnent d'une manière similaire à notre recherche dichotomique. \\
 Sur un arbre binaire, chaque noeud est soit relié à rien (ou ``nil''), soit relié à sa ``gauche'' à un noeud contenant une valeur plus petite que celle de son noeud parent, soit relié à sa ``droite'' à un noeud contenant une valeur plus grande que celle de son noeud parent. Nous pouvons donc représenter un arbre binaire ainsi: \\[0.2cm]
-
+en lisp, pour définir un arbre binaire, nous ferons simplement: \\[0.2cm]
+\begin{lstlisting}[language=Lisp]
+(defparameter *my-tree* '(10 (5 3 7) (15 (12 nil 14) (17 nil 20))))
+\end{lstlisting}
+Nous faisons ci-dessous une petite apartée pour parler de tas. \\
+Un tas n'est autre qu'une forme séciale d'arbre où les valeurs sont ordonnées selon une certaine fonction ``clef''. \\
+L'avantage du tas est avant tout que la complexité de la fonction pour récupérer l'élément au sommet du tas n'est autre que $O(1)$! \\
+Un tas d'avère donc extrêmement pratique lorsque nous désirons garder des valeurs ordonnées, sans avoir à retrier la structure de donnée à chaque nouvel ajout de données. \\
+Nous verrons comment utiliser les tas en Lisp dans la partie sur l'implémentation de l'algoithme A*.
 \subsection{Qu'est-ce que Lisp?}
 Lisp est une famille de langages de programmation fonctionnels, inventés en 1958 par John McCarthy (l'homme ayant inventé le terme ``intelligence artificielle''). \\
 Ceux-ci sont reconnaissables facilement grâce au très grand nombre de parenthèses présentes dans chacun des dialectes de Lisp. \\
@@ -894,8 +908,13 @@ Egalement, nous signalons {\bf progn}, une fonction bien pratique pour définir 
 \lstinputlisting[language=Lisp, linerange={98-108}]{Nim/nim-game-player.lisp}
 Nous finissons enfin notre programme avec cette fonction nim-game-repl, permettant de commencer une partie entre humain et ordinateur.
 \subsection{Le pathfinding.}
+Le ``pathfinding'' (ou la ``recherche de chemin'' en français) est un ensemble de problèmes dans le domaine de l'intelligence artificielle où l'objectif est de trouver le chemin optimal entre deux points dans un graphe. \\
 \subsubsection{Présentation du problème.}
+Ici, le problème que nous allons essayer de résoudre est de trouver le chemin optimal entre deux villes belges. \\
+Les villes belges que nous utilisons ici sont répertoriées dans le document CSV présent à l'adresse suivante: \url{https://github.com/spatie/belgian-cities-geocoded},
+comme vous le constatez, ce fichier fait plus de 2500 éléments, il va donc falloir être judicieux dans le choix des structures de données, et des algorithmes utilisés afin d'espérer avoir une implémentation un minimum correcte. \\[0.2cm]
 \subsubsection{L'algorithme de Dijkstra.}
+Cet algorithme de recherche, inventé par Edsger Dijkstra dans les années 50 marche de la manière suivante: \\[0.5cm]
 \subsubsection{Le besoin d'heuristiques.}
 \subsubsection{Dijkstra avec de l'heuristique: A*!}
 \lstinputlisting[language=Lisp]{PathFinders/dijkstra-path.lisp}
