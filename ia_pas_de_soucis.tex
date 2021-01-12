@@ -523,7 +523,7 @@ B = 4.
 \end{lstlisting}
 De la vraie magie!
 \subsubsection{Mon arbre familial, avec Prolog!}
-\lstinputlisting[language=Prolog]{genealogia.prolog}
+\lstinputlisting[language=Prolog]{PrologExamples/genealogia.prolog}
 % L'exemple sera mis juste après.
 \newpage
 \section{L'approche algorithmique.}
@@ -541,7 +541,7 @@ Voici comment celui-ci fonctionne: \\[0.2cm]
   \item Sinon, nous écrivons que {\bf pgcd}(a, b) = {\bf pgcd}(b, a {\bf mod} b)\\[0.2cm]
 \end{itemize}
 Et en voici sa traduction en Common Lisp, le langage de programmation que nous utiliserons dans cette partie du dossier.
-\lstinputlisting[language=Lisp]{gcd.lisp}
+\lstinputlisting[language=Lisp]{LispBasics/gcd.lisp}
 
 \subsubsection{La complexité des algorithmes}
 Evidemment, tout les algorithmes ne se valent pas, certains sont bien plus lents que d'autres, et ce, pour une seule et même tâche.\\
@@ -561,7 +561,7 @@ Le {\bf tri à bulles} fonctionne de la manière suivante:
   \item Continuer ce procédé jusqu'à ce que la liste soit parfaitement rangée.\\[0.2cm]
 \end{itemize}
 Il est implémenté de la manière suivante en Common Lisp: \\[0.2cm]
-\lstinputlisting[language=Lisp]{bubble_sort.lisp}
+\lstinputlisting[language=Lisp]{Sorts/bubble_sort.lisp}
 Le {\bf tri par fusion} marche de manière assez différente:
 \begin{itemize}
   \item Si le tableau n'a qu'un seul élément, il est considéré comme déjà trié.
@@ -570,13 +570,13 @@ Le {\bf tri par fusion} marche de manière assez différente:
   \item Fusionner les deux tableaux triés en un seul tableau trié. \\[0.2cm]
 \end{itemize}
 La fonction merge étant prédéfinie en common Lisp, nous implémenterons notre tri par fusion ainsi.
-\lstinputlisting[language=Lisp]{merge_sort.lisp}
+\lstinputlisting[language=Lisp]{Sorts/merge_sort.lisp}
 Passons maintenant aux {\bf tests de performances}. \\
 Afin de mesurer le temps pris par chacun de mes deux algorithmes, j'ai utilisé ``time'', une macro bien pratique pour ce genre de tests. J'utilise le compilateur SBCL pour faire mes tests. En plus de cela, dans un soucis de facilité, j'utilise la macro random-sample, créée par mes soins, me permettant de créer une liste contenant des nombres aléatoires, de taille fixée. \\
 \begin{lstlisting}[language=Lisp]
 ;;; Ma macro random-sample bien pratique.
 (defmacro random-sample (x)
-   (loop for _ below ,x collect (random 1000)))
+   `(loop for _ below ,x collect (random 1000)))
 \end{lstlisting}
 Sans plus attendre, voici le tableau montrant les résultats de notre petite expérience.
 \begin{table}[H]
@@ -676,10 +676,10 @@ Comme on le constate sur ce tableau, les arrays ont un réel avantage lorsque no
 La liste chaînée quant à elle, n'a pas besoin de se repositionner entièrement lorsqu'on lui ajoute ou qu'on lui retire un élément, il lui suffit plutôt de rajouter un pointeur vers le nouvel élément, ce qui se fait en temps constant (O(1)), peu importe la taille de la liste. Toutefois, la liste chaînée a pour inconvénient d'être en croissance linéaire lors de la recherche d'un élément dans la liste, en effet, lors de la recherche d'un élément dans une liste chaînée, le programme devra d'abord passer par tout les éléments se trouvant avant celui que l'on cherche. \\
 Pour démontrer l'importance d'utiliser la bonne structure au bon endroit, nous allons reprendre notre bon tri à bulles. \\
 Pour ceux qui avaient oublié l'implémentation sur les tableaux, la voici:
-\lstinputlisting[language=Lisp]{bubble_sort.lisp}
+\lstinputlisting[language=Lisp]{Sorts/bubble_sort.lisp}
 Le lecteur attentif remarquera l'utilisation dans ce code de ``make-array'' et de ``aref'', tout deux synonymes de l'utilisation d'un tableau. Maintenant, transformons cette implémentation en une implémentation utilisant des listes simplement chaînées. \\
 Et maintenant, voici le même algorithme, mais, sur les listes simplement chaînées cette fois-ci.
-\lstinputlisting[language=Lisp]{bad_bubble_sort.lisp}
+\lstinputlisting[language=Lisp]{Sorts/bad_bubble_sort.lisp}
 Et maintenant, comparons leurs temps respectifs sur des listes de tailles différentes avec l'aide d'un nouveau tableau, (mon mode opératoire reste le même, j'utilise SBCL, et la macro time, pour créer une liste contenant des nombres aléatoires, j'utilise toujours ma macro random-sample.)
 \begin{table}[H]
   \centering
@@ -767,7 +767,7 @@ La première stratégie évidente, serait de commencer par 1, puis ensuite, si m
 Cette première stratégie pourrait faire penser à la manière à laquelle il faut chercher un élément dans une liste simplement chaînée, en effet, si je pense au nombre 629, il va falloir passer par les 628-ièmes éléments se trouvant avant. Dans ce cas-ci, comme pour lire un élément dans une liste simplement chaînée, nous dirons que la complexité de cet algorithme sera de O(n). \\
 Une deuxième manière de faire serait de faire ce que l'on appelle une recherche dite ``par dichotomie''. Tout d'abord, prenons un nombre au milieu entre 1 et 1000, ici, ce sera 500, si je dis ``au dessus'', alors, il suffira de prendre le milieu entre 500 et 1000, ici, ce sera 750, désormais, si je dis ``en dessous'', il faudra alors faire $\frac{500 + 750}{2} = 625$, ainsi, en appliquant cet algorithme jusqu'au bout, vous trouverez le nombre auquel je pense en utilisant un algorithme de complexité O(log n)! \\ Ainsi, vous trouverez grâce à cette technique le nombre auquel je pense en maximum $\log_{2}{n}$ essais (où n est le nombre maximum, qui est ici 1000). \\
 J'espère que cette petite explication aura pu expliquer au lecteur le fonctionnement d'une recherche par dichotomie. Maintenant, pour ce qui est de l'implémentation d'une telle recherche en Lisp: \\
-\lstinputlisting[language=Lisp]{dichotomia.lisp}
+\lstinputlisting[language=Lisp]{LispBasics/dichotomia.lisp}
 Plus qu'à la tester!
 \begin{lstlisting}[language=Lisp]
 [1] CL-USER> (binary-search 1 1000)
@@ -814,7 +814,7 @@ Tout d'abord, pour commencer notre aventure avec Lisp, ouvrons donc notre REPL (
 CL-USER> (+ 3 5)
 8
 \end{lstlisting}
-Cela peut sembler bien étrange pour le non-inité, et pourtant, tout cela est parfaitement logique. \\
+Cela peut sembler bien étrange pour le non-initié, et pourtant, tout cela est parfaitement logique. \\
 En fait, lorsque l'on désire appeler une fonction (comme par exemple ici ``+''), la syntaxe sera toujours ``({\bf fonction} {\bf arguments})''. Prenons quelques autres exemples avec quelques opérations arithmétiques. \\
 \begin{lstlisting}[language=Lisp]
 CL-USER> (- 2 1)
@@ -859,9 +859,9 @@ CL-USER> (defun factorial (x)
                       (* x (factorial (- x 1)))))
 FACTORIAL
 \end{lstlisting}
-On constate directement la simplicité et l'élégance avec laquelle cette fonction peut-être ainsi programmée. D'autres fonctions peuvent-être codée de manière récursive, l'exemple de l'algorithme de tri par fusion, ou encore l'agorithme d'Euclide pour calculer le pgcd sont deux exemples de fonctions récursives dont j'ai pu montrer l'implémentation ci-dessus. \\
+On constate directement la simplicité et l'élégance avec laquelle cette fonction peut être ainsi programmée. D'autres fonctions peuvent-être codée de manière récursive, l'exemple de l'algorithme de tri par fusion, ou encore l'agorithme d'Euclide pour calculer le pgcd sont deux exemples de fonctions récursives dont j'ai pu montrer l'implémentation ci-dessus. \\
 Un autre exemple d'algorithme utilisant la récursion serait l'algorithme ``quick-sort'' dit du ``tri-rapide'', en voici son implémentation \\
-\lstinputlisting[language=Lisp]{quick_sort.lisp}
+\lstinputlisting[language=Lisp]{Sorts/quick_sort.lisp}
 
 Si le lecteur en sent l'envie, nous l'encourageons à essayer de coder la fonction récursive d'Ackermann, ou encore la McCarthy 91. \\
 \subsubsection{Programme Lisp pour résoudre parfaitement le jeu de Nim.}
@@ -904,63 +904,90 @@ Nous finissons enfin notre programme avec cette fonction nim-game-repl, permetta
 \subsubsection{$\alpha\beta$-élagage.}
 \subsubsection{Du dynamisme bon sang!}
 \subsection{Un programme de jeu.}
+\lstinputlisting[language=Lisp]{Connect4/connect4-game.lisp}
 \newpage
 \section{Le Machine Learning.}
 \subsection{Définition du Machine Learning}
-Le Machine Learning, ou Apprentissage Automatique, est un type d'intelligence artificielle qui avec les données à analyser et sur lesquelles s'entraîner permet aux ordinateurs d’apprendre par expérience sans avoir été explicitement programmé à cet effet ou par intervention humaine. Cela consiste en algorithmes d’apprentissage qui améliorent leur performance à exécuter des tâches au fil du temps grâce à de l’expérience.\\[1.0cm]
+Le Machine Learning, ou Apprentissage Automatique, est un type d'intelligence artificielle qui avec les données à analyser et sur lesquelles s'entraîner permet aux ordinateurs d’apprendre par expérience sans avoir été explicitement programmé à cet effet ou par intervention humaine. Cela consiste en algorithmes d’apprentissage qui améliorent leur performance à exécuter des tâches au fil du temps grâce à de l’expérience.\\Le machine learning est présent dans la vie de tous les jours. Par exemple, nos boîtes mail sont équipées d'algorithmes capables d’apprendre avec le temps. Prenons les spams, leurs émetteurs sont capables de s'adapter, de changer leur manière d’agir, il est donc impératif que l’algorithme de défense contre les spams change lui aussi. Dans les e-mails, le machine learning se cache aussi derrière les réponses automatiques, en 2018, 6,7 milliards des mails envoyés étaient des réponses automatiques. On peut aussi trouver des IA dans les réseaux sociaux (reconnaissance faciale entre amis Facebook,...), blocage automatique des cartes de crédit volées, et bien d'autres.\\[1.0cm]
 \subsection{Les Maths dans le Machine Leanring.}
-\begin{enumerate}
-  \item De nombreux data scientists (chargés de la gestion, de l’analyse et de l’exploitation des données au sein d’une entreprise) considèrent le machine Learning comme un apprentissage statistique.
-  \item Matrice et algèbre matricielle, exemple :
-        \begin{enumerate}
-          \item Les suggestions d’amis sur Facebook
-          \item Recommandation de vidéo sur Facebook
-          \item $\cdots$
-        \end{enumerate}
-  \item Fonction, variable, équation et graphique, ...
-\end{enumerate}
-
+De nombreux data scientists (chargés de la gestion, de l’analyse et de l’exploitation des données au sein d’une entreprise) considèrent le machine learning comme un apprentissage statistique car celui-ci s’appuie sur des algorithmes (principalement statistique) permettant à une machine d'apprendre grâce à des échantillons ou bases d’apprentissages.\\Dans le machine learning, il y a en grande partie des maths qui permettent à la machine de fonctionner, on retrouve surtout des algorithmes et des statistiques. D’ailleurs, de nombreux Data scientists considèrent que le machine learning n’est qu’un apprentissage statistique. De plus, ce qu’on appelle machine learning est pour certains la rencontre des statistiques avec la puissance de calcul disponible aujourd’hui (mémoire, processeurs, cartes graphiques).\\On retrouve aussi les fonctions, les variables, les équations, les graphiques, et d’autres outils mathématiques de ce genre dans le machine learning.  Pour les fonctions, elles sont utiles à l’analyse des séries temporelles(suite de valeurs numériques représentant l’évolution d’une quantité spécifique au cours du temps).\\[1.0cm]
 \subsection{Les résaux de neurones}
 Une couche de neurones d’entrées, plusieurs couches cachées, une couche de sortie suivie d’une fonction d’activation.
 Chaque neurone possède une valeur obtenue par une fonction de combinaison étant la somme des valeurs des neurones de la couche précédente, chacune multipliée par un poids spécifique
 $ z = x_1 \cdot p_1 + x_2 \cdot p_2 + \cdots + x_n \cdot p_n $ \\
-Une fois la (ou les) valeur de la couche de sortie obtenue, on applique à celle-ci une fonction d’activation qui transforme la valeur en fonction d’un seuil. Si en dessous du seuil, inactif (0/-1), aux environs du seuil, phase de transition, et au-dessus du seuil, actif (1/$>$1). Le type de fonction varie d’un cas à l’autre, mais les plus récurrentes sont la fonction sigmoïde $ \frac{1}{1 + e^{-x}}$ la fonction tangente hyperbolique $ \frac{2} {1 + e^{-2x}} -1 $
-ou encore la fonction ReLU $\begin{cases} 0 & x < 0 \\ x & x >= 0 \end{cases}$ \\
+Une fois la (ou les) valeur de la couche de sortie obtenue, on applique à celle-ci une fonction d’activation qui transforme la valeur en fonction d’un seuil. Si en dessous du seuil, inactif (0/-1), aux environs du seuil, phase de transition, et au-dessus du seuil, actif (1/$>$1). Le type de fonction varie d’un cas à l’autre, mais les plus récurrentes sont la fonction sigmoïde $ \frac{1}{1 + e^{-x}} $ la fonction tangente hyperbolique $ \frac{2} {1 + e^{-2x}} -1 $
+ou encore la fonction ReLU $ \begin{cases} 0 & x < 0 \\ x & x >= 0 \end{cases} $ \\
 Durant l’apprentissage, les poids sont des valeurs prises au hasard. Il faut donc les ajuster pour fournir une réponse qui se rapproche au mieux de la réalité. Comme on entraîne notre réseau, on connaît la vraie valeur finale. On va donc appliquer une fonction de coût afin de calculer le gradient d’erreur entre la valeur réelle et la valeur prédite $ \frac{1}{2}(y_r - y_p)^2 $, et ainsi mettre à jour les poids par rétropropagation (! il y a des maths plus compliquées derrière). A chaque nouvelles données injectées lors de l’apprentissage, le réseau est plus performant.
 
 \subsection{Intro au langage Python}
-\begin{enumerate}
-  \item Créé par Guido van Rossum au Stichting Mathematisch Centrum en Hollande.
-  \item Python est le successeur d’un langage de programmation nommé “ABC”
-  \item Le nom du langage vient de la série Monty Python’s flying Circus dont Guido Van Rossum était fan. Cependant l’image du serpent paraissait plus évidente pour tout le monde, il a donc décidé d’utiliser celle-ci comme symbole du langage.
-  \item La première version de Python paraissait en 1991
-  \item C’est un langage de programmation open source, c’est à dire gratuit et libre d’utilisation
-  \item Python au fil des années a été mis à jour beaucoup de fois et est passé d’une version 1.5 en 1999 jusqu’à 3.9 cette année (2020), nous nous intéresserons surtout aux différences entre python 2 et python 3 qui ont été les plus marquantes.
-      \begin{enumerate}
-          \item \underline{{\bf Python2: }}
-              \begin{itemize}
-                \item version plus facile que python 1 mais contenant plus d’erreurs.
-                      \begin{enumerate}
-                        \item erreur de syntaxe, manque de ‘:’, manque d’une lettre, etc (erreur d’analyse de code)
-                        \item Nouvelles exceptions, comme ZeroDivisionError(division par zéro), ValueError(valeur incorrecte), Etc.
-                      \end{enumerate}
-                \item  Pas difficile à reconvertir vers python 3 mais ce n’est pas fiable
-                \item La programmation est plus complexe sur python 2
-                \item Le support de la version 2 de python a été abandonné cette année, en 2020.
-                \item etc (opposition des tirets de python 3)
-              \end{itemize}
-        \item \underline{{\bf Python3:}}
-              \begin{itemize}
-                \item syntaxe plus simple et facilement compréhensible.
-                \item  stockage unicode (échange de texte dans différentes langues).
-                \item La valeur des variables utilisées ne change jamais.
-                \item Certaines fonctions on été remplacé par d’autres (python3; range(), python2; xrange()) range ou xrange servent toutes les 2 a créer une liste et aussi des itérations (répétitions).
-                \item Création de bibliothèques qui ne peuvent pas être créées avec python2.
-                      \begin{itemize}
-                        \item Python3 est aujourd’hui la version la plus conseillée surtout pour ceux désirant de commencer la programmation
-                      \end{itemize}
-              \end{itemize}
-      \end{enumerate}
-\end{enumerate}
+Python est un langage de programmation créé par Guido van Rossum dont la première version est parue en 1991 mais est exposé au grand public au Stichting Mathematisch Centrum en 1994 (fondation du centre mathématique), en Hollande. Ce langage est dit open source, c'est-à-dire qu’il est gratuit et libre d’utilisation.\\Ce langage est le successeur de quelques langages de programmation comme ABC,  C, PERL et bien d’autres. Python est un langage à typage fort, cela veut dire qu’il n’y a pas de conversion automatique entre deux types distincts. Ainsi, il n’est pas possible en python d’écrire.\\
+\begin{lstlisting}[language=Python]
+>>> 3 + '3'
+\end{lstlisting}
+sous peine de recevoir une erreur.\\
+C’est aussi un langage dynamique, c’est-à-dire que les variables ne sont pas attachées à leur type, ainsi, il est possible d’écrire \\
+\begin{lstlisting}[language=Python]
+>>> a = 3
+>>> a = "foo"
+\end{lstlisting}
+Enfin le typage de python est dit implicite, il ne faut pas obligatoirement préciser le type de variable, bien qu’il soit possible de déclarer le type des variables depuis la version 3.5.\\
+\begin{lstlisting}[language=Python]
+>>> a = "foo"
+>>> a: str= "bar"
+\end{lstlisting}
+Sont ainsi deux manières tout à fait correctes de déclarer une variable en python.\\
+Le nom du langage vient de la série Monty Python’s flying Circus dont Guido Van Rossum était fan. Mais l’image du serpent paraissant plus évidente pour tout le monde, il a décidé d'utiliser celle-ci comme symbole du langage.\\
+Le langage python a été mis à jour de nombreuses fois et est passé d’une version 1.5 en 1999 jusqu’à 3.9 en 2020, nous nous intéresserons surtout aux versions python 2 et python 3 qui ont été ls plus marquantes.
+\subsubsection{Python 2:}
+Par exemple, des erreurs de syntaxe, des manques de ‘:’, des manques d’une lettre, et d'autres, toutes des erreurs d’analyse de code. Nous pouvons aussi trouver des exceptions qui, quand utilisées dans notre programme, nous permettent de contrer les erreurs pouvant être écrite par la suite comme les ‘ZeroDivisionError’ ou en français, erreur de division par zéro, mais aussi les ‘ValueError’ qui nous annonce une valeur incorrecte et encore bien d’autres.\\
+Il existe des moyens de convertir du code de python 2 vers python 3 mais ce n’est pas très fiable et de toute façon, ce n’est plus trop utile non plus car de plus en plus de développeurs conseillent python 3 pour sa facilité d’utilisation, de plus le support de la version 2 a été abandonné en 2020.
+\subsubsection{Python 3:}
+Comme expliqué ci-dessus, Python 3 est plus simple d’utilisation que Python 2 ,la syntaxe y est plus simple et plus facilement compréhensible. Prenons un exemple simple avec le print, pour Python 2, il n’y a pas l’utilisation de la parenthèse, juste des guillemets. Ainsi, quand en Python 2 il faut écrire:\\
+\begin{lstlisting}[language=Python]
+>>> print "Hello World!"
+Hello World!
+\end{lstlisting}
 
+\textbf{EN PYTHON 3, IL FAUDRA ÉCRIRE CELA}\\
+\begin{lstlisting}[language=Python]
+>>> print ("Hello World!")
+Hello World!
+\end{lstlisting}
+Le stockage est dit unicode, c'est-à-dire que l’échange de texte est fait dans différentes langues, la langue la plus utilisée y est bien sûr l’anglais. Dans Python 3, la valeur des variables utilisées ne change jamais, si vous prenez x=3, la valeur reste x=3.\\
+Certaines fonctions utilisées dans python 2 comme xrange() on été remplacées dans python 3 par range(), tout 2 servent à créer une liste et aussi des itérations(répétitions). Certaines bibliothèques(ensemble logiciel de modules) de python 3 ne peuvent pas être créées avec Python 2.\\
+\begin{enumerate}
+  \item \textbf{Python 2:}
+\begin{lstlisting}[language=Python]
+>>> print "Hello World"
+Hello World!
+>>> print 7/3
+2
+>>> a = "éèà"
+>>> a
+'\xc3\xa9\xc3\xa9\xc3\xa0'
+
+>>> i = 4
+>>> my_list = [i for i in xrange(5, 1, -1)]
+>>> my_list
+[5, 4, 3, 2]
+>>> i
+2
+\end{lstlisting}
+  \item \textbf{Python 3:}
+\begin{lstlisting}[language=Python]
+>>> print ("Hello World!")
+Hello World!
+>>>print (7/3)
+2.3333333333333335
+>>> a = "ééà"
+>>> a
+'éèà'
+>>> i=4
+>>> my_list = [i for i in range(5,1,-1)]
+>>> my_list
+[5, 4, 3, 2]
+>>> i
+4
+\end{lstlisting}
+\end{enumerate}
 \end{document}
