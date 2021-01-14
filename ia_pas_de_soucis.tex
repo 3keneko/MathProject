@@ -876,7 +876,6 @@ FACTORIAL
 On constate directement la simplicité et l'élégance avec laquelle cette fonction peut être ainsi programmée. D'autres fonctions peuvent-être codée de manière récursive, l'exemple de l'algorithme de tri par fusion, ou encore l'agorithme d'Euclide pour calculer le pgcd sont deux exemples de fonctions récursives dont j'ai pu montrer l'implémentation ci-dessus. \\
 Un autre exemple d'algorithme utilisant la récursion serait l'algorithme ``quick-sort'' dit du ``tri-rapide'', en voici son implémentation \\
 \lstinputlisting[language=Lisp]{Sorts/quick_sort.lisp}
-
 Si le lecteur en sent l'envie, nous l'encourageons à essayer de coder la fonction récursive d'Ackermann, ou encore la McCarthy 91. \\
 \subsubsection{Programme Lisp pour résoudre parfaitement le jeu de Nim.}
 Afin que le lecteur se fasse une idée de comment utiliser Lisp dans des cas plus concrets, nous allons vous présenter une intelligence artificielle, assez basique, gagnant au jeu de Nim à plusieurs tas. (Aussi connu sous le nom de jeu de Marienbad.), dans ce jeu, plusieurs allumettes sont disposées sur plusieurs piles, le but du jeu est de récolter la dernière allumette. \\
@@ -916,6 +915,7 @@ comme vous le constatez, ce fichier fait plus de 2500 éléments, il va donc fal
 \subsubsection{L'algorithme de Dijkstra.}
 Cet algorithme de recherche, inventé par Edsger Dijkstra dans les années 50 marche de la manière suivante: \\[0.5cm]
 \subsubsection{Le besoin d'heuristiques.}
+Dijkstra a l'avantage d'être un algorithme donnant toujours la solution optimale, ainsi, peu importe le labyrinthe au travers
 \subsubsection{Dijkstra avec de l'heuristique: A*!}
 \lstinputlisting[language=Lisp]{PathFinders/dijkstra-path.lisp}
 \subsection{Des programmes et des jeux!}
