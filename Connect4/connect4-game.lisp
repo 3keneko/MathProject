@@ -1,22 +1,28 @@
 (defparameter *board*
   (make-array 7 :initial-element
-              (make-list 6 :initial-element nil)))
+              (make-list 6 :initial-element nil))
+  "Le plateau de puissance 4 en lui-même.")
 
 (defun playerify (board-case)
+  "Permet d'afficher proprememnt chaque case."
   (case board-case
     (yellow 'o)
     (red    'x)
     (t      '+))) 
 
 (defmacro count-to (x)
+  "Une macro similaire à iota de la bibliothèque alexandria."
   (let ((i (gensym)))
     `(loop for ,i from 1 to ,x
           collect ,i)))
 
 (defmacro get-pos (column row board)
+  "Retourne l'état de la case se trouvant à un certain
+endroit sur le plateau."
   `(nth ,row ,(aref board column)))
 
 (defun show-board (board)
+  "Permet d'afficher le plateau."
   (let ((row nil))
         (loop for i from 1 to 6
             do (progn
@@ -28,13 +34,16 @@
                             (count-to 7)))))
 
 (defun fullp (i board)
+  "Vérifie si une colonne est vide."
   (car (aref board i)))
 
 (defun tiedp (board)
+  "Vérifie si la position est nulle."
   (notany #'null
           (map 'list #'car board)))
 
 (defun play (i color board)
+  "Fonction permettant de jouer un jeton sur le plateau."
   (labels ((push-until (lat token)
              (cond
                ((eq 1 (length lat)) `(,token))
@@ -45,6 +54,7 @@
     board))
 
 (defun maximum (lat)
+  "Donne le nombre maximum dans une liste simplement chaînée."
   (reduce (lambda (a b)
             (if (> a b)
                 a
@@ -52,6 +62,7 @@
           lat))
 
 (defun max-number-of-vertical-connections (color board)
+  "Donne le nombre maximal de connection verticale."
   (labels ((number-in-vertical (column colour &optional (buffer 0))
              (cond
                ((null column) buffer)
@@ -64,6 +75,8 @@
                   board))))
 
 (defun max-subseq (color seq)
+  "Donne le nombre maximal d'élément se ressemblant dans une liste. 
+e.g => (max-subseq 'red '(red red yellow red red red yellow yellow)) == 2"
   (let ((maxi 0)
         (temp 0))
     (loop for token in seq
@@ -76,6 +89,7 @@
     maxi))
 
 (defun max-number-of-horizontal-connections (color board)
+  "Donne le nombre maximal de connections horizontales."
   (labels ((row-finder (the-board)
              (loop for row from 0 to 5
                    collect (map 'list #'car the-board) into rows
@@ -87,7 +101,9 @@
 
 
 (defun make-left-diagonal (the-case
-                &optional (max-row 5))
+                           &optional (max-row 5))
+  "Donne les diagonales allant d'en haut à gauche,
+jusqu'à en bas à droite."
   (let ((column (car the-case))
         (row    (cdr the-case)))
     (loop for c from column downto 0
@@ -98,6 +114,8 @@
                             &optional
                               (max-row 5)
                               (max-column 6))
+  "Donne les diagonales allant d'en bas à gauche,
+jusqu'en bas à droite."
   (let ((column (car the-case))
         (row    (cdr the-case)))
     (loop for c from column to max-column
@@ -105,11 +123,16 @@
           collect (cons c r))))
 
 (defparameter *top-right-corner* '((3 . 0) (4 . 0) (5 . 0)
-                                   (6 . 0) (6 . 1) (6 . 2)))
+                                   (6 . 0) (6 . 1) (6 . 2))
+  "Coordonnées des points se trouvant en haut à droite.")
 
 (defparameter *top-left-corner* '((3 . 0) (2 . 0) (1 . 0)
-                                  (0 . 0) (0 . 1) (0 . 2)))
+                                  (0 . 0) (0 . 1) (0 . 2))
+  "Coordonnées des points se trouvant en haut à gauche.")
 
+;; Cette macro permet d'écrire les fonctions
+;; vérifiant le nombre de connections diagonales
+;; de manière bien plus simple et concise.
 (defmacro max-in-some-diagonal
     (function-name color board helping-function starting-corner)
   `(defun ,function-name (,color ,board)
@@ -128,23 +151,30 @@
                           (max-subseq ,color diagonal))
                  diag-values)))))
 
+;;; Définition des fonctions
+;;; max-number-of-left-diagonal-connections et
+;;; max-number-of-right-diagonal-connections.
 (max-in-some-diagonal max-number-of-left-diagonal-connections
                       color board  make-left-diagonal *top-right-corner*)
 (max-in-some-diagonal max-number-of-right-diagonal-connections
                       color board make-right-diagonal *top-left-corner*)
 
 (defun max-number-of-connections (color board)
+  "Donne le nombre maximal de connections sur le plateau."
   (max
    (max-number-of-vertical-connections       color board)
    (max-number-of-horizontal-connections     color board)
    (max-number-of-left-diagonal-connections  color board)
    (max-number-of-right-diagonal-connections color board)))
 
-(defun winningp (board) 
+(defun winningp (board)
+  "Si le nombre maximal de connection sur le plateau est supérieur
+à trois, un joueur a gagné."
   (or (> (max-number-of-connections 'yellow board) 3)
       (> (max-number-of-connections 'red    board) 3)))
 
 (defun play-repl ()
+  "L'interface utilisateur, permettant de jouer contre un autre joueur."
   (loop while (and (not (winningp *board*))
                    (not (tiedp *board*)))
         do (progn
