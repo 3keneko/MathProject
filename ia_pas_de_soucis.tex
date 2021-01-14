@@ -915,8 +915,16 @@ comme vous le constatez, ce fichier fait plus de 2500 éléments, il va donc fal
 \subsubsection{L'algorithme de Dijkstra.}
 Cet algorithme de recherche, inventé par Edsger Dijkstra dans les années 50 marche de la manière suivante: \\[0.5cm]
 \subsubsection{Le besoin d'heuristiques.}
-Dijkstra a l'avantage d'être un algorithme donnant toujours la solution optimale, ainsi, peu importe le labyrinthe au travers
+Dijkstra a l'avantage d'être un algorithme donnant toujours la solution optimale, ainsi, peu importe le graph dans lequel nous appliquons notre algorithme de Dijkstra, le chemin trouvé entre deux points de notre graph sera toujours le plus optimal. \\
+En contrepartie, cet algorithme a pour défaut de bien souvent visiter un nombre assez important de noeuds sur notre graph, ceci ayant pour conséquence de baisser la performance de notre algorithme. \\
+Fort heureusement, des mathématiciens ont trouvé la solution à ce problème: {\bf Créer une heuristique!} \\
+Une heuristique est un outil nous permettant de prendre des décisions, de faire des choix. Une heurisitque intéressante dans le cadre de notre problème avec un algorithme de Dijkstra, serait de privilégier uniquement certains noeuds nous rapprochant de la solution finale. \\
+Il faut toutefois faire attention dans le choix de notre heuristique,
+une mauvaise heuristique pourrait nous faire retirer trop de noeuds d'une solution potentielle, et ainsi, produire des solutions non-optimales. \\
 \subsubsection{Dijkstra avec de l'heuristique: A*!}
+L'algorithme A* est un algorithme de Dijkstra avec une heuristique intéressante. \\
+Ainsi, pour chaque noeud de notre graph, nous allons y rajouter un ``coût'' heuristique. Celle qui sera choisie ici sera la distance euclidienne entre le noeud du graph et l'objectif final.  \\
+Afin d'illustrer nos propos, nous avons ci-dessous implémenté l'algorithme A*.
 \lstinputlisting[language=Lisp]{PathFinders/dijkstra-path.lisp}
 \subsection{Des programmes et des jeux!}
 \subsubsection{L'agorithme Minimax.}
