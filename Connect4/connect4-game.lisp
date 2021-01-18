@@ -183,6 +183,28 @@ jusqu'en bas à droite."
       (reduce #'+ (mapcar #'eval-num (list vert hori
                                            l-di r-di))))))
 
+(defun play-if-possible (i color board)
+  (if (fullp i board)
+      nil
+      (play i color board)))
+
+(defun minimax (board depth color)
+  (let ((copy-board (copy-seq board)))
+    (cond
+        ((null copy-board) nil)
+        ((or (eql depth 0) (winningp copy-board) (tiedp copy-board))
+        (evaluation color copy-board))
+        ((eql color 'yellow)
+        (loop for i from 0 to 6
+            for new-board = (play i 'yellow copy-board)
+            maximize (minimax new-board (1- depth) 'red) into value
+            finally (return value)))
+        ((eql color 'red)
+        (loop for i from 0 to 6
+            for new-board = (play i 'red copy-board)
+            minimize (minimax new-board (1- depth) 'yellow) into value
+            finally (return value))))))
+
 (defun play-repl ()
   "L'interface utilisateur, permettant de jouer contre un autre joueur."
   (loop while (and (not (winningp *board*))
