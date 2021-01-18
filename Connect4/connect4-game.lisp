@@ -61,7 +61,7 @@ endroit sur le plateau."
                 b))
           lat))
 
-(defun max-number-of-vertical-connections (color board)
+(defun vertical-connections (color board)
   "Donne le nombre maximal de connection verticale."
   (labels ((number-in-vertical (column colour &optional (buffer 0))
              (cond
@@ -88,7 +88,7 @@ e.g => (max-subseq 'red '(red red yellow red red red yellow yellow)) == 2"
             do (setf temp 0))
     maxi))
 
-(defun max-number-of-horizontal-connections (color board)
+(defun horizontal-connections (color board)
   "Donne le nombre maximal de connections horizontales."
   (labels ((row-finder (the-board)
              (loop for row from 0 to 5
@@ -152,26 +152,36 @@ jusqu'en bas à droite."
                  diag-values)))))
 
 ;;; Définition des fonctions
-;;; max-number-of-left-diagonal-connections et
-;;; max-number-of-right-diagonal-connections.
-(max-in-some-diagonal max-number-of-left-diagonal-connections
+;;; left-diagonal-connections et
+;;; right-diagonal-connections.
+(max-in-some-diagonal left-diagonal-connections
                       color board  make-left-diagonal *top-right-corner*)
-(max-in-some-diagonal max-number-of-right-diagonal-connections
+(max-in-some-diagonal right-diagonal-connections
                       color board make-right-diagonal *top-left-corner*)
 
-(defun max-number-of-connections (color board)
+(defun connections (color board)
   "Donne le nombre maximal de connections sur le plateau."
   (max
-   (max-number-of-vertical-connections       color board)
-   (max-number-of-horizontal-connections     color board)
-   (max-number-of-left-diagonal-connections  color board)
-   (max-number-of-right-diagonal-connections color board)))
+   (vertical-connections       color board)
+   (horizontal-connections     color board)
+   (left-diagonal-connections  color board)
+   (right-diagonal-connections color board)))
 
 (defun winningp (board)
   "Si le nombre maximal de connection sur le plateau est supérieur
 à trois, un joueur a gagné."
-  (or (> (max-number-of-connections 'yellow board) 3)
-      (> (max-number-of-connections 'red    board) 3)))
+  (or (> (connections 'yellow board) 3)
+      (> (connections 'red    board) 3)))
+
+(defun evaluation (color board)
+  (flet ((eval-num (a)
+           (case a (0 0) (1 1) (2 4) (3 9) (4 500) (t 500))))
+    (let ((vert (vertical-connections       color board))
+          (hori (horizontal-connections     color board))
+          (l-di (left-diagonal-connections  color board))
+          (r-di (right-diagonal-connections color board)))
+      (reduce #'+ (mapcar #'eval-num (list vert hori
+                                           l-di r-di))))))
 
 (defun play-repl ()
   "L'interface utilisateur, permettant de jouer contre un autre joueur."
@@ -191,7 +201,7 @@ jusqu'en bas à droite."
                  ((fullp i *board*)
                   (format t "Cette colonne est déjà remplie!~%")
                   (play-repl))
-                 (t (setf *board* (play i 'yellow *board*))))))
+                 (t  (setf *board* (play i 'yellow *board*))(format t "Eval to: ~D~%" (evaluation 'yellow *board*))))))
         do (progn
              (when (winningp *board*)
                  (return "Le joueur 1 a gagné."))
@@ -206,5 +216,8 @@ jusqu'en bas à droite."
                  ((fullp i *board*)
                   (format t "Cette colonne est déjà remplie!~%")
                   (play-repl))
-                 (t (setf *board* (play i 'red *board*))))))))
+                 (t (setf *board* (play i 'red *board*))
+                    (format t "Eval to: ~D~%"
+                            (evaluation 'red *board*))))))))
+
              ;;;(setf *board* (computer-turn 'red *board*)))))
