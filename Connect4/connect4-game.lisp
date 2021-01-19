@@ -188,22 +188,51 @@ jusqu'en bas à droite."
       nil
       (play i color board)))
 
-(defun minimax (board depth color)
-  (let ((copy-board (copy-seq board)))
+(defstruct move ()
+  column-choice eval-state)
+
+(defun cmp-with-abs (a b)
+  (case a
+    (abs-min nil)
+    (abs-max   t)
+    (t    (< a b))))
+
+(defun max-move (mov1 mov2)
+  (if (cmp-with-abs (move-eval-state mov1) (move-eval-state mov2))
+      mov1
+      mov2))
+
+(defun min-move (mov1 mov2)
+  (if (cmp-with-abs (move-eval-state mov1) (move-eval-state mov2))
+      mov2
+      mov1))
+
+(defun minimax (board depth color &optional (last-move -1))
+  (let ((c-board (copy-seq board))
+        (curr (evaluation color board)))
     (cond
-        ((null copy-board) nil)
-        ((or (eql depth 0) (winningp copy-board) (tiedp copy-board))
-        (evaluation color copy-board))
-        ((eql color 'yellow)
-        (loop for i from 0 to 6
-            for new-board = (play i 'yellow copy-board)
-            maximize (minimax new-board (1- depth) 'red) into value
-            finally (return value)))
-        ((eql color 'red)
-        (loop for i from 0 to 6
-            for new-board = (play i 'red copy-board)
-            minimize (minimax new-board (1- depth) 'yellow) into value
-            finally (return value))))))
+      ((or (eql depth 0) (winningp c-board) (tiedp c-board))
+       (make-move :column-choice last-move
+                  :eval-state curr))
+      ((eql color 'yellow)
+       (let ((best-move (make-move :column-choice -1
+                                   :eval-state 'abs-min)))
+         (loop for i from 0 to 6
+               for new-board = (play i 'yellow c-board)
+               do (setf best-move
+                        (max-move best-move
+                                  (minimax new-board
+                                           (1- depth)
+                                           'red i))))))
+       (t (let ((best-move (make-move :column-choice -1
+                                      :eval-state 'abs-max)))
+          (loop for i from 0 to 6
+                for new-board = (play i 'red c-board)
+                do (setf best-move
+                         (min-move best-move
+                                   (minimax new-board
+                                            (1- depth)
+                                            'red i)))))))))
 
 (defun play-repl ()
   "L'interface utilisateur, permettant de jouer contre un autre joueur."
