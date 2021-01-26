@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.9.18)  26 JAN 2021 20:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.9.18)  26 JAN 2021 20:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1338,23 +1338,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 555--558
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 562--563
-
- []
-
-[22]
-Overfull \hbox (28.69432pt too wide) in paragraph at lines 567--568
+[22] [23] [24]
+Overfull \hbox (28.69432pt too wide) in paragraph at lines 632--633
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 570--573
+Underfull \hbox (badness 10000) in paragraph at lines 635--638
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 576--577
+Underfull \hbox (badness 10000) in paragraph at lines 641--642
 
  []
 
@@ -1365,327 +1360,327 @@ File: lstlang1.sty 2019/09/10 1.8c listings language file
 File: lstlang2.sty 2019/09/10 1.8c listings language file
 )
 (./LispBasics/gcd.lisp)
-Underfull \hbox (badness 10000) in paragraph at lines 582--586
-
- []
-
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 588--589
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 596--597
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 598--599
-
- []
-
-(./Sorts/bubble_sort.lisp)
-Underfull \hbox (badness 10000) in paragraph at lines 605--606
-
- []
-
-(./Sorts/merge_sort.lisp [24])
-Underfull \hbox (badness 10000) in paragraph at lines 609--611
-
- []
-
-
-Overfull \hbox (56.43199pt too wide) in paragraph at lines 618--627
-[][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 628--630
+Underfull \hbox (badness 10000) in paragraph at lines 647--651
 
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 640--641
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 647--648
-
- []
-
-
-Overfull \hbox (2.37779pt too wide) in paragraph at lines 650--651
-[]\OT1/cmr/m/n/12 Ainsi, nous pou-vons repr^^Sesenter une liste sim-ple-ment ch
-a^^^Pn^^See de la mani^^Rere
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 650--651
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 653--654
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 657--659
+Underfull \hbox (badness 10000) in paragraph at lines 661--662
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 662--663
+Underfull \hbox (badness 10000) in paragraph at lines 663--664
 
  []
 
-[26] [27] (./Sorts/bubble_sort.lisp) (./Sorts/bad_bubble_sort.lisp [28])
-Underfull \hbox (badness 10000) in paragraph at lines 733--736
+(./Sorts/bubble_sort.lisp)
+Underfull \hbox (badness 10000) in paragraph at lines 670--671
+
+ []
+
+(./Sorts/merge_sort.lisp [26])
+Underfull \hbox (badness 10000) in paragraph at lines 674--676
 
  []
 
 
-Overfull \hbox (6.88608pt too wide) in paragraph at lines 744--745
+Overfull \hbox (56.43199pt too wide) in paragraph at lines 683--692
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 693--695
+
+ []
+
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 705--706
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 712--713
+
+ []
+
+
+Overfull \hbox (2.37779pt too wide) in paragraph at lines 715--716
+[]\OT1/cmr/m/n/12 Ainsi, nous pou-vons repr^^Sesenter une liste sim-ple-ment ch
+a^^^Pn^^See de la mani^^Rere
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 715--716
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 718--719
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 722--724
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 727--728
+
+ []
+
+[28] [29] (./Sorts/bubble_sort.lisp) (./Sorts/bad_bubble_sort.lisp [30])
+Underfull \hbox (badness 10000) in paragraph at lines 798--801
+
+ []
+
+
+Overfull \hbox (6.88608pt too wide) in paragraph at lines 809--810
 \OT1/cmr/m/n/12 Ce proc^^Sed^^Se ^^Setant tou-te-fois un peu fas-ti-dieux, nous
  uti-li-se-rons ici la bi-blioth^^Reque
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 744--745
+Underfull \hbox (badness 10000) in paragraph at lines 809--810
 
  []
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 760--762
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 777--779
-
- []
-
-[30]
-Underfull \hbox (badness 10000) in paragraph at lines 794--798
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 825--827
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 799--805
+Underfull \hbox (badness 10000) in paragraph at lines 842--844
 
  []
 
-[31] (./LispBasics/dichotomia.lisp) [32]
-Underfull \hbox (badness 10000) in paragraph at lines 832--836
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 859--863
 
  []
 
 
-Overfull \hbox (13.11249pt too wide) in paragraph at lines 839--844
+Underfull \hbox (badness 10000) in paragraph at lines 864--870
+
+ []
+
+[33] (./LispBasics/dichotomia.lisp) [34]
+Underfull \hbox (badness 10000) in paragraph at lines 897--901
+
+ []
+
+
+Overfull \hbox (13.11249pt too wide) in paragraph at lines 904--909
 \OT1/cmr/m/n/12 Nous ver-rons com-ment uti-li-ser les tas en Lisp dans la par-t
 ie sur l'impl^^Sementation
  []
 
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 855--856
+[35]
+Underfull \hbox (badness 10000) in paragraph at lines 920--921
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 860--862
+Underfull \hbox (badness 10000) in paragraph at lines 925--927
 
  []
 
 
-Overfull \hbox (12.17068pt too wide) in paragraph at lines 872--875
+Overfull \hbox (12.17068pt too wide) in paragraph at lines 937--940
 \OT1/cmr/m/n/12 Pour d^^Seclarer une va-riable en Lisp, plu-sieurs choix s'offr
 ent ^^Ra nous, je pr^^Sesenterai
  []
 
-[34]
-Underfull \hbox (badness 10000) in paragraph at lines 888--890
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 953--955
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 895--896
+Underfull \hbox (badness 10000) in paragraph at lines 960--961
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 896--898
+Underfull \hbox (badness 10000) in paragraph at lines 961--963
 
  []
 
 
-Overfull \hbox (5.77089pt too wide) in paragraph at lines 905--907
+Overfull \hbox (5.77089pt too wide) in paragraph at lines 970--972
 \OT1/cmr/m/n/12 Un autre exemple d'al-go-rithme uti-li-sant la r^^Secursion se-
 rait l'al-go-rithme ``quick-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 905--907
+Underfull \hbox (badness 10000) in paragraph at lines 970--972
 
  []
 
-(./Sorts/quick_sort.lisp [35])
-Underfull \hbox (badness 10000) in paragraph at lines 908--909
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 910--914
+(./Sorts/quick_sort.lisp [37])
+Underfull \hbox (badness 10000) in paragraph at lines 973--974
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 920--922
+Underfull \hbox (badness 10000) in paragraph at lines 975--979
 
  []
 
-[36] (./Nim/nim-game-player.lisp)
-Underfull \hbox (badness 10000) in paragraph at lines 923--924
+
+Underfull \hbox (badness 10000) in paragraph at lines 985--987
+
+ []
+
+[38] (./Nim/nim-game-player.lisp)
+Underfull \hbox (badness 10000) in paragraph at lines 988--989
 
  []
 
 (./Nim/nim-game-player.lisp)
-Underfull \hbox (badness 10000) in paragraph at lines 925--929
+Underfull \hbox (badness 10000) in paragraph at lines 990--994
 
  []
 
-(./Nim/nim-game-player.lisp [37])
-Overfull \hbox (3.88202pt too wide) in paragraph at lines 930--931
+(./Nim/nim-game-player.lisp [39])
+Overfull \hbox (3.88202pt too wide) in paragraph at lines 995--996
 \OT1/cmr/m/n/12 move'' et ``play-random-legal-move'' qui sont nos deux fonc-tio
 ns o^^Ru est contenu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 930--931
+Underfull \hbox (badness 10000) in paragraph at lines 995--996
 
  []
 
-[38] (./Nim/nim-game-player.lisp) (./Nim/nim-game-player.lisp [39])
+[40] (./Nim/nim-game-player.lisp) (./Nim/nim-game-player.lisp [41])
 (./Nim/nim-game-player.lisp)
-Underfull \hbox (badness 10000) in paragraph at lines 939--940
+Underfull \hbox (badness 10000) in paragraph at lines 1004--1005
 
  []
 
 
-Overfull \hbox (61.04002pt too wide) in paragraph at lines 941--944
+Overfull \hbox (61.04002pt too wide) in paragraph at lines 1006--1009
 \OT1/cmr/m/n/12 pr^^Sesent ^^Ra l'adresse sui-vante : [][]$\OT1/cmtt/m/n/12 htt
 ps : / / github . com / spatie / belgian-[]cities-[]geocoded$[][]\OT1/cmr/m/n/1
 2 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 941--944
+Underfull \hbox (badness 10000) in paragraph at lines 1006--1009
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 945--946
+Underfull \hbox (badness 10000) in paragraph at lines 1010--1011
 
  []
 
-[40]
-Overfull \hbox (9.82355pt too wide) in paragraph at lines 947--953
+[42]
+Overfull \hbox (9.82355pt too wide) in paragraph at lines 1012--1018
 \OT1/cmr/m/n/12 nombre as-sez im-por-tant de noeuds sur notre graph, ceci ayant
  pour cons^^Sequence
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 947--953
+Underfull \hbox (badness 10000) in paragraph at lines 1012--1018
 
  []
 
 
-Overfull \hbox (29.72343pt too wide) in paragraph at lines 954--957
+Overfull \hbox (29.72343pt too wide) in paragraph at lines 1019--1022
 []\OT1/cmr/m/n/12 L'algorithme A* est un al-go-rithme de Dijks-tra avec une heu
 -ris-tique int^^Seressante. 
  []
 
-(./PathFinders/dijkstra-path.lisp [41] [42] [43])
+(./PathFinders/dijkstra-path.lisp [43] [44] [45])
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 960.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\alpha' on input line 960.
+(hyperref)                removing `math shift' on input line 1025.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\beta' on input line 960.
+(hyperref)                removing `\alpha' on input line 1025.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 960.
+(hyperref)                removing `\beta' on input line 1025.
 
-(./Connect4/connect4-game.lisp [44] [45] [46] [47] [48] [49] [50]) [51]
-Underfull \hbox (badness 10000) in paragraph at lines 967--968
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1025.
+
+(./Connect4/connect4-game.lisp [46] [47] [48] [49] [50] [51] [52]) [53]
+Underfull \hbox (badness 10000) in paragraph at lines 1032--1033
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 969--970
+Underfull \hbox (badness 10000) in paragraph at lines 1034--1035
 
  []
 
-[52] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+[54] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/09/10 1.8c listings language file
 )
-Overfull \hbox (8.25142pt too wide) in paragraph at lines 979--980
+Overfull \hbox (8.25142pt too wide) in paragraph at lines 1044--1045
 \OT1/cmr/m/n/12 Stich-ting Ma-the-ma-tisch Cen-trum en 1994 (fon-da-tion du cen
 tre math^^Sematique),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 979--980
+Underfull \hbox (badness 10000) in paragraph at lines 1044--1045
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 983--985
+Underfull \hbox (badness 10000) in paragraph at lines 1048--1050
 
  []
 
-[53]
-Underfull \hbox (badness 10000) in paragraph at lines 989--990
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1001--1002
-
- []
-
-[54]
-Underfull \hbox (badness 10000) in paragraph at lines 1007--1008
+[55]
+Underfull \hbox (badness 10000) in paragraph at lines 1054--1055
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1012--1014
+Underfull \hbox (badness 10000) in paragraph at lines 1066--1067
 
  []
 
-[55] (./PythonIsh/greg_example.py) [56]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1051.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1051.
+[56]
+Underfull \hbox (badness 10000) in paragraph at lines 1072--1073
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1079
+
+ []
+
+[57] (./PythonIsh/greg_example.py) [58]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1116.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1116.
  (./ia_pas_de_soucis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1051.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1051.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1116.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1116.
 
 Package rerunfilecheck Info: File `ia_pas_de_soucis.out' has not changed.
 (rerunfilecheck)             Checksum: 81CAD93C93A5090CB04930F5E6D49035;4566.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1051.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1116.
  ) 
 Here is how much of TeX's memory you used:
- 36260 strings out of 481239
- 751428 string characters out of 5920377
- 1526030 words of memory out of 5000000
- 49867 multiletter control sequences out of 15000+600000
+ 36369 strings out of 481239
+ 753042 string characters out of 5920377
+ 1526031 words of memory out of 5000000
+ 49912 multiletter control sequences out of 15000+600000
  543068 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  173i,18n,188p,1619b,2602s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1709,10 +1704,10 @@ public/amsfonts/latxfont/lcirclew.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-sup
 er/sfrm1200.pfb>
-Output written on ia_pas_de_soucis.pdf (56 pages, 398014 bytes).
+Output written on ia_pas_de_soucis.pdf (58 pages, 403547 bytes).
 PDF statistics:
- 1822 PDF objects out of 2073 (max. 8388607)
- 1726 compressed objects within 18 object streams
- 1083 named destinations out of 1200 (max. 500000)
+ 1905 PDF objects out of 2073 (max. 8388607)
+ 1806 compressed objects within 19 object streams
+ 1147 named destinations out of 1200 (max. 500000)
  453 words of extra memory for PDF output out of 10000 (max. 10000000)
 

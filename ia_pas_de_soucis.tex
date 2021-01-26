@@ -560,6 +560,71 @@ Ainsi, si nous appliquions la méthode du canard plastique\footnote{https://fr.w
   \item Si D est descendant de P et que D n'est pas un enfant de P, alors, un des parents de D est descendant de P.
 \end{enumerate}
 Cela peut paraître assez bizarre pour le lecteur de prime abord, mais c'est à force d'habitude et de travail que l'aisance avec l'écriture de prédicats récursifs se fera ressentir.\\
+Maintenant, passons au test de nos différents prédicats!
+\begin{lstlisting}
+?- parents(X, Y, philippe1).
+X = paola,
+Y = albert2.
+
+?- grands_parents(X, Y, philippe1).
+X = astrid_de_suede,
+Y = leopold3.
+
+?- frere(X, philippe1).
+X = laurent ;
+false.
+
+?- soeur(X, philippe1).
+X = astrid ;
+false.
+
+?- fos(X, philippe1).
+X = laurent ;
+X = astrid ;
+false.
+
+?- oncle(X, philippe1).
+X = baudoin1 ;
+false.
+
+?- tante(X, philippe1).
+X = josephine_charlotte ;
+false.
+
+?- cousin(philippe1, X).
+false.
+
+?- cousin(albert1, X).
+X = louise_de_belgique ;
+X = stephanie_de_belgique ;
+X = clementine_de_belgique ;
+X = leopold_de_belgique ;
+X = lucien_durrieux ;
+X = philippe_durrieux ;
+false.
+
+?- descendants(albert2, X).
+Correct to: "descendant(albert2,X)"? yes
+X = astrid ;
+X = philippe1 ;
+X = laurent ;
+X = elisabeth ;
+X = eleonore ;
+X = maria_laura ;
+X = luisa ;
+X = laetitia ;
+X = anna_astrid ;
+X = louise ;
+X = gabriel ;
+X = emmanuel ;
+X = amedeo ;
+X = joachim ;
+X = maximilian ;
+X = nicolas ;
+X = aymeric ;
+false.
+\end{lstlisting}
+Il est intéressant de noter lors des tests la puissance de l'interprète prolog, permettant même de suggérer des noms corrigés en cas de fautes de frappes!
 \newpage
 \section{L'approche algorithmique.}
 \subsection{Qu'est-ce qu'un algorithme?}
