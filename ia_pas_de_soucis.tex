@@ -550,8 +550,16 @@ Ici, ``fos'' signifie ``frère ou soeur'', nous laisserons au lecteur le soin de
 \lstinputlisting[language=Prolog, linerange={72-83}]{PrologExamples/genealogia.prolog}
 Les prédicats ``tante'' et ``oncle'' ne sont pas non plus biens compliqués à comprendre.
 \lstinputlisting[language=Prolog, linerange={90-106}]{PrologExamples/genealogia.prolog}
-Le prédicat cousin fut un peu plus fastidieux à écrire. Afin d'y parvenir, nous avons séparé ce prédicat en trois parties, dont deux ``prédicats d'aide''. Tout d'abord, nous vérifions si les deux enfants sont cousins du côté maternel via le prédicat ``cousin\_m'', nous faisons de même, du côté paternel cette fois-ci, avec l'aide du prédicat ``cousin\_p''
-\newpage
+Le prédicat cousin fut un peu plus fastidieux à écrire. Afin d'y parvenir, nous avons séparé ce prédicat en trois parties, dont deux ``prédicats d'aide''. Tout d'abord, nous vérifions si les deux enfants sont cousins du côté maternel via le prédicat ``cousin\_m'', nous faisons de même, du côté paternel cette fois-ci, avec l'aide du prédicat ``cousin\_p'', par après, nous utilisons le prédicat cousin, qui nous signale si les deux enfants sont cousins du côté paternel, ou du côté maternel.
+\lstinputlisting[language=Prolog, linerange={108-116}]{PrologExamples/geanologia.prolog}
+Ce prédicat est un prédicat récursif, comme nous le constatons, ``descendant'' est appelé à l'intérieur de sa propre définition. \\ Comment cela marche? \\
+Nous verrons la réponse à cette question lors du prochain chapître sur l'approche algorithmique. \\
+Ainsi, si nous appliquions la méthode du canard plastique\footnote{https://fr.wikipedia.org/wiki/M\%C3\%A9thode\_du\_canard\_en\_plastique}, voici comment nous devrions lire ce prédicat: \\
+\begin{enumerate}
+  \item Si P est père ou mère de D, D est descendant de P.
+  \item Si D est descendant de P et que D n'est pas un enfant de P, alors, un des parents de D est descendant de P.
+\end{enumerate}
+Cela peut paraître assez bizarre pour le lecteur de prime abord, mais c'est à force d'habitude et de travail que l'aisance avec l'écriture de prédicats récursifs se fera ressentir.\\
 \section{L'approche algorithmique.}
 \subsection{Qu'est-ce qu'un algorithme?}
 \begin{center}
