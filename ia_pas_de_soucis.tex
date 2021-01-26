@@ -73,7 +73,6 @@
     {1-}{{{\color{codenumbers}1-}}}2
     {1+}{{{\color{codenumbers}1+}}}2
     {remove-if}{{{\color{keycolor}remove-if}}}8
-    {if\ }{{{\color{keycolor}if}}}3
     {True}{{{\color{teal}True}}}4
     {False}{{{\color{teal}False}}}4
     {await}{{{\color{keycolor}await}}}5
@@ -529,8 +528,29 @@ B = 4.
 \end{lstlisting}
 De la vraie magie!
 \subsubsection{Mon arbre familial, avec Prolog!}
-\lstinputlisting[language=Prolog]{PrologExamples/genealogia.prolog}
-% L'exemple sera mis juste après.
+Pour montrer la puissance de Prolog, ce chapître présente un petit exemple d'arbre familial (un exercice très classique pour apprendre Prolog), ici, l'arbre représenté est celui de notre famille royale belge\footnote{https://fr.wikipedia.org/wiki/Arbre\_g\%C3\%A9n\%C3\%A9alogique\_de\_la\_famille\_royale\_belge}
+Le programme se sépare en deux étapes.
+1. L'écriture des faits simple.
+2. L'écriture des prédicats, afin de faire de l'inférence sur les liens familiaux.
+Voici pour l'écriture des faits:
+\lstinputlisting[language=Prolog, linerange={1-50}]{PrologExamples/genealogia.prolog}
+Jusque là, rien de transcendant, toutefois, il est important de noter la simplicité et l'expressivité que nous offre Prolog. Ainsi, graĉe à celle-ci, il est possible pour un lecteur ne connaissant pas ce langage d'en lire un programme, et de comprendre ce qu'il s'y passe sans trop de soucis, ceci est un des plus gros points forts de Prolog. \\
+Passons maintenant à l'écriture de notre premier prédicat:
+\lstinputlisting[language=Prolog, linerange={51-54}]{PrologExamples/genealogia.prolog}
+Ici, ``;'' représente l'opérateur de disjonction, nous pouvons lire le prédicat ci-dessus ainsi:
+\begin{center}
+  {\bf X et Y seront parents de Z si Z est fille de X et de Y ou Z est fils de X et de Y.}
+\end{center}
+Les différents prédicats seront testés à la fin.
+\lstinputlisting[language=Prolog, linerange={56-60}]{PrologExamples/genealogia.prolog}
+Nous noterons ici l'apparition de ``,'', il s'agit simplement de l'opérateur de conjonction (ou le ``et''). La syntaxe choisie pour les clauses est dictée selon cet article: \\
+{\bf http://www.covingtoninnovations.com/mc/plcoding.pdf}
+\lstinputlisting[language=Prolog, linerange={62-70, 85-88}]{PrologExamples/genealogia.prolog}
+Ici, ``fos'' signifie ``frère ou soeur'', nous laisserons au lecteur le soin de trouver le fonctionnement des différents prédicats.
+\lstinputlisting[language=Prolog, linerange={72-83}]{PrologExamples/genealogia.prolog}
+Les prédicats ``tante'' et ``oncle'' ne sont pas non plus biens compliqués à comprendre.
+\lstinputlisting[language=Prolog, linerange={90-106}]{PrologExamples/genealogia.prolog}
+Le prédicat cousin fut un peu plus fastidieux à écrire. Afin d'y parvenir, nous avons séparé ce prédicat en trois parties, dont deux ``prédicats d'aide''. Tout d'abord, nous vérifions si les deux enfants sont cousins du côté maternel via le prédicat ``cousin\_m'', nous faisons de même, du côté paternel cette fois-ci, avec l'aide du prédicat ``cousin\_p''
 \newpage
 \section{L'approche algorithmique.}
 \subsection{Qu'est-ce qu'un algorithme?}
