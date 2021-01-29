@@ -44,14 +44,16 @@ endroit sur le plateau."
 
 (defun play (i color board)
   "Fonction permettant de jouer un jeton sur le plateau."
-  (labels ((push-until (lat token)
-             (cond
-               ((eq 1 (length lat)) `(,token))
-               ((cadr lat) (cons token (cdr lat)))
-               (t (cons (car lat)
-                      (push-until (cdr lat) token))))))
-    (setf (aref board i) (push-until (aref board i) color))
-    board))
+  (let ((c-board (copy-seq board)))
+    (labels ((push-until (lat token)
+                (cond
+                ((eq 1 (length lat)) `(,token))
+                ((cadr lat) (cons token (cdr lat)))
+                (t (cons (car lat)
+                        (push-until (cdr lat) token))))))
+        (setf (aref c-board i) (push-until (aref c-board i) color))
+    c-board)))
+
 
 (defun maximum (lat)
   "Donne le nombre maximum dans une liste simplement chaînée."
@@ -188,8 +190,7 @@ jusqu'en bas à droite."
       nil
       (play i color board)))
 
-(defstruct move ()
-  column-choice eval-state)
+(defstruct move column-choice eval-state)
 
 (defun cmp-with-abs (a b)
   (case a
@@ -207,7 +208,15 @@ jusqu'en bas à droite."
       mov2
       mov1))
 
-(defun minimax (board depth color &optional (last-move -1))
+(defmacro defmemo (fun-name args &body body)
+  (let ((big-hash (gensym)))
+    `(let ((,big-hash (make-hash-table)))
+  (defun ,fun-name ,args
+    (if (gethash ,(car args) ,big-hash)
+        (gethash ,(car args) ,big-hash)
+        (setf (gethash ,(car args) ,big-hash) ,@body))))))
+
+(defmemo minimax (board depth color &optional (last-move -1))
   (let ((c-board (copy-seq board))
         (curr (evaluation color board)))
     (cond
@@ -223,16 +232,19 @@ jusqu'en bas à droite."
                         (max-move best-move
                                   (minimax new-board
                                            (1- depth)
-                                           'red i))))))
-       (t (let ((best-move (make-move :column-choice -1
-                                      :eval-state 'abs-max)))
+                                           'red i))))
+         best-move))
+      (t
+       (let ((best-move (make-move :column-choice -1
+                                   :eval-state 'abs-max)))
           (loop for i from 0 to 6
                 for new-board = (play i 'red c-board)
                 do (setf best-move
                          (min-move best-move
                                    (minimax new-board
                                             (1- depth)
-                                            'red i)))))))))
+                                            'yellow i))))
+        best-move)))))
 
 (defun play-repl ()
   "L'interface utilisateur, permettant de jouer contre un autre joueur."
@@ -270,5 +282,4 @@ jusqu'en bas à droite."
                  (t (setf *board* (play i 'red *board*))
                     (format t "Eval to: ~D~%"
                             (evaluation 'red *board*))))))))
-
              ;;;(setf *board* (computer-turn 'red *board*)))))
