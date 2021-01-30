@@ -896,7 +896,6 @@ Celui-ci sera représenté ainsi: \\
 % TODO INSERER IMAGE *MY-TREE* HERE.
 
 \subsubsection{Les tas}
-
 Nous faisons ci-dessous une petite apartée pour parler de tas. \\
 Un tas n'est autre qu'une forme séciale d'arbre où les valeurs sont ordonnées selon une certaine fonction ``clef''. \\
 L'avantage du tas est avant tout que la complexité de la fonction pour récupérer l'élément au sommet du tas n'est autre que $O(1)$! \\
@@ -1003,7 +1002,61 @@ Ici, le problème que nous allons essayer de résoudre est de trouver le chemin 
 Les villes belges que nous utilisons ici sont répertoriées dans le document CSV présent à l'adresse suivante: \url{https://github.com/spatie/belgian-cities-geocoded},
 comme vous le constatez, ce fichier fait plus de 2500 éléments, il va donc falloir être judicieux dans le choix des structures de données, et des algorithmes utilisés afin d'espérer avoir une implémentation un minimum correcte. \\[0.2cm]
 \subsubsection{L'algorithme de Dijkstra.}
-Cet algorithme de recherche, inventé par Edsger Dijkstra dans les années 50 marche de la manière suivante: \\[0.5cm]
+Cet algorithme de recherche, inventé par Edsger Dijkstra dans les années 50, marche de la manière suivante: \\
+Tout d'abord, pour représenter l'espace dans lequel notre algortihme doit chercher, nous utiliserons un graph avec des poids, en voici un exemple: \\
+\begin{figure}[!hbt]
+  \centering
+  \includegraphics[width=8.0cm]{imgs/numbered_graph.png}
+  \caption{Graph avec poids.}
+\end{figure}
+Ainsi, imaginons que nous cherchons le chemin optimal entre la ville A et la ville G. Nous allons entreprendre les recherches avec l'aide de l'algorithme de Dijkstra.
+Cet algorithme se déroule en plusieurs parties, tout d'abord listons l'ensemble des villes joignables directement depuis notre première ville. \\
+Dans notre graph ci-dessus, les villes B et C sont directement accessible via A.\\
+Voici les chemins marqués sur le graph:
+\begin{figure}[!hbt]
+  \centering
+  \includegraphics[width=8.0cm]{imgs/second_search.png}
+\end{figure}
+Ainsi, nous pouvons créer une file des priorités, reprenant les villes visitées et les triant en fonction du coût nécessaire pour y accéder (cette file des priorités sera implémentée avec l'aide d'un tas). \\
+\begin{itemize}
+  \item Pour B, ce coût sera de 7.
+  \item Pour H, ce coût sera de 8.
+\end{itemize}
+Il faut donc visiter en priorité la ville B! \\
+A partir de B, nous pouvons visiter les villes D et C, voici les chemins empruntés:
+\begin{figure}[!hbt]
+  \centering
+  \includegraphics[width=8.0cm]{imgs/third_search.png}
+\end{figure}
+Nous pouvons désormais mettre à jour notre liste des priorités en retirant B, et en y rajoutant: \\
+\begin{itemize}
+  \item C avec un coût de 7 + 10 = 17
+  \item D avec un coût de 7 + 6 = 13
+\end{itemize}
+Notre liste des priorités sera ainsi composée dans l'ordre de H, puis de D, puis de C. \\
+Il faudra donc visiter la ville H! \\
+De H, nous pouvons visiter les villes I, J et K, voici encore une fois le graph des villes visitées:
+\begin{figure}[!hbt]
+  \centering
+  \includegraphics[width=8.0cm]{imgs/fourth_search.png}
+\end{figure}
+Nous rajoutons ainsi à notre liste des priorités ces villes avec les coûts associés: \\
+\begin{itemize}
+  \item I avec un coût de 8 + 5 = 13
+  \item J avec un coût de 8 + 2 = 10
+  \item K avec un coût de 8 + 10 = 18
+\end{itemize}
+Il faudra donc visiter en priorité J! \\
+Il faut ainsi répéter les étapes de cet algorithme, jusqu'à obtenir la solution finale: le chemin optimal! \\
+Le lecteur pourra s'essayer à trouver le chemin optimal entre A et G, en appliqant scrupuleusement l'algorithme de Dijkstra, le graph montrant le chemin optimal sera présenté à la page suivante.
+Toutefois, on remarque vite un problème avec cet algorithme: toutes les villes ont du être visitées afin de pouvoir résoudre correctement notre problème! \\
+Cela ne peut pas sembler être bien grave sur un si petit exemple, mais, quand il s'agit d'effectuer cet algorithme sur toutes les villes belges, il devient clair que nous avons une perte en performances.\\
+Il va donc falloir ruser, et utiliser une heuristique afin d'avoir de meilleurs temps, et espérer pouvoir appliquer notre algorithme raisonnablement sur l'ensemble des villes belges. \\
+Ces methodes d'heuristique seront justement discutées dans le prochain chapître à leur sujet.
+\begin{figure}[!hbt]
+  \includegraphics[width=8.0cm]{imgs/solved.png}
+  \caption{Le chemin optimal!}
+\end{figure}
 \subsubsection{Le besoin d'heuristiques.}
 Dijkstra a l'avantage d'être un algorithme donnant toujours la solution optimale, ainsi, peu importe le graph dans lequel nous appliquons notre algorithme de Dijkstra, le chemin trouvé entre deux points de notre graph sera toujours le plus optimal. \\
 En contrepartie, cet algorithme a pour défaut de bien souvent visiter un nombre assez important de noeuds sur notre graph, ceci ayant pour conséquence de baisser la performance de notre algorithme. \\
