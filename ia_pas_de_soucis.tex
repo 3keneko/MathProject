@@ -625,7 +625,7 @@ Il est intéressant de noter lors des tests la puissance de l'interprète prolog
 \end{center}
 
 Il faut savoir que nous utilisons des algorithmes bien plus souvent que ce que l'on pourrait croire. Par exemple, quand vous préparez un gâteau pour célébrer une quelconque occasion, vous aurez besoin d'une recette. Cette recette n'est autre que l'algorithme aidant à la préparation du gâteau, chaque étape de la recette n'étant qu'une instruction faisant partie de l'algorithme. \\[0.2cm]
-Un des tout premiers exemples d'algorithmes est ``l'agorithme d'Euclide'', celui-ci permettait de trouver le PGCD de deux nombres. \\
+Un des tout premiers exemples d'algorithmes est ``l'agorithme d'Euclide'', celui-ci permettait de trouver le PGCD de deux nombres.\\
 Voici comment celui-ci fonctionne: \\[0.2cm]
 \begin{itemize}
   \item Tout d'abord, nous prenons deux nombres a et b.
@@ -715,7 +715,6 @@ Ainsi, si nous reprenions le dessin que nous avions utilisé ci-dessus,
 *my-linked-list* ressemblera donc à ceci: \\[0.5cm]
 
 % TODO: INSERER IMAGE *MY-LINKED-LIST*
-
 D'ailleurs, pour pouvoir travailler avec des listes chaînées, deux opérateurs bien pratiques s'offrent à nous: ``car'' et ``cdr''. \\[0.2cm]
 \begin{lstlisting}[language=LISP]
 CL-USER> (car *my-linked-list*)
@@ -893,6 +892,11 @@ en lisp, pour définir un arbre binaire, nous ferons simplement: \\[0.2cm]
 \begin{lstlisting}[language=Lisp]
 (defparameter *my-tree* '(10 (5 3 7) (15 (12 nil 14) (17 nil 20))))
 \end{lstlisting}
+Celui-ci sera représenté ainsi: \\
+% TODO INSERER IMAGE *MY-TREE* HERE.
+
+\subsubsection{Les tas}
+
 Nous faisons ci-dessous une petite apartée pour parler de tas. \\
 Un tas n'est autre qu'une forme séciale d'arbre où les valeurs sont ordonnées selon une certaine fonction ``clef''. \\
 L'avantage du tas est avant tout que la complexité de la fonction pour récupérer l'élément au sommet du tas n'est autre que $O(1)$! \\
