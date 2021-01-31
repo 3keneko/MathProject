@@ -79,6 +79,7 @@
     {\ as\ }{{{\color{keycolor}as}}}4
     {async\ }{{{\color{keycolor}async}}}5
   }
+
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
 \renewcommand{\sectionmark}[ 1 ]{\markboth{\thesection. #1 }{ }}
 \renewcommand{\subsectionmark}[ 1 ]{\markright{\thesubsection. #1 }}
@@ -94,6 +95,9 @@
 \rfoot[{\bf \thepage}]{\textbf{IA PAS DE SOUCIS}}
 \cfoot[]{}
 
+\newcommand{\pather}[1]{
+  \lstinputlisting[language=Lisp, linerange={#1}]{PathFinders/dijkstra-path.lisp}
+}
 \numberwithin{equation}{subsection}
 \renewcommand{\headrulewidth}{ 0.15 mm}
 \renewcommand{\footrulewidth}{ 0.15 mm}
@@ -1112,7 +1116,36 @@ une mauvaise heuristique pourrait nous faire retirer trop de noeuds d'une soluti
 L'algorithme A* est un algorithme de Dijkstra avec une heuristique intéressante. \\
 Ainsi, pour chaque noeud de notre graph, nous allons y rajouter un ``coût'' heuristique. Celle qui sera choisie ici sera la distance euclidienne entre le noeud du graph et l'objectif final. \\
 Afin d'illustrer nos propos, nous avons ci-dessous implémenté l'algorithme A*.
-\lstinputlisting[language=Lisp]{PathFinders/dijkstra-path.lisp}
+\pather{1-2}
+Tout d'abord, voici les deux librairies que nous utiliserons ici seront ``cl-csv'', similaire à pandas de python, cette librairie permet de traîter les fichiers csv (comma-separated values). \\
+La seconde est serapeum, cette bibliothèque, au même titre que alexandria, permet d'étendre Common Lisp, afin d'en faire un outil bien pratique, nous nous servons de serapeum avant tout pour pouvoir utiliser les tas que cette librairie nous offre.
+\pather{7-25}
+Ici, nous reprenons simplement les données du CSV de belgian-cities-geocoded et les entrepose dans un très grand tableaun, ici *belgian-cities*. Le lien du CSV est donné dans le doc-string accompagnant le paramètre global.
+\pather{4-5}
+{\bf defstruct} permet de créer des structures Common Lisp, il est possible de voir celles-ci comme les namedtuples de la bibliothèque collections de python.
+\pather{28-53}
+Ces deux fonctions permettent de calculer la distance entre deux villes en fonction de leur latitude et de leur longitude. La formule permettant de faire cela s'appelle ``formule de Haversine''\footnote{https://fr.wikipedia.org/wiki/Formule\_de\_haversine}.
+\pather{55-62}
+Cette fonction prend une ville en argument, et retourne chacune des villes se trouvant à un rayon de 20km de celle-ci. \\
+On peut remarquer l'utilisation d'un {\bf remove-if}, cette fonction d'ordre supérieur filtre tous les éléments d'une structure de données ne respectant pas un certain prédicat.
+\pather{64-69}
+Comme expliqué dans le docstring, cette fonction a pour objectif d'affecter une priorité à chaque élément du tas, en fonction du coût heuristique et du coût réel. \\
+Il est intéressant de noter que pour réaliser un algorithme wA*, la seule modification à faire au programme est de modifier {\bf heuristic-comp} en
+\begin{lstlisting}[language=Lisp]
+(defun weighted-heuristic (city weight)
+   (- 0 (+ (* weight (city-heuristic city))
+            (city-cost city))))
+\end{lstlisting}
+Passons aux trois prochaines fonctions:
+\pather{71-85}
+Celles-ci n'ont malheureusement pas grand chose de très intéressant,
+elles ont été crées afin de limiter la taille du programme, et de rendre le code propre, \\
+Il est toutefois intéressant de s'intéresser à for-it-over, qui est une macro anaphorique, cela veut dire que celle-ci se permet de garder le résultat des calculs effectués à l'intérieur dans une variable, passant celle-ci au reste du programme. \\
+Les macros anaphoriques sont toutefois à double-tranchant, bien qu'elles puissent faire gagner un programme en élégance, elles ont le don de faire en sorte que le lecteur s'y perde, et ne comprenne pas d'où proviennent les variables ``it'' se promenant librement dans le programme sans avoir été déclarées explicitement.
+\pather{89-130}
+Et enfin, voici l'algorithme A* en lui même! \\
+Remarquons l'utilisation assez forte de ``loop'', donnant un style assez impératif à cette implémentation. \\
+Il s'agti d'ailleurs d'un avantage de Lisp, le langage est multi-paradigme, et permet de coder de la manière à laquelle l'utilisateur le souhaite! \\
 \subsection{Des programmes et des jeux!}
 \subsubsection{L'agorithme Minimax.}
 \subsubsection{$\alpha\beta$-élagage.}
