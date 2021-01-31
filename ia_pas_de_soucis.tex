@@ -966,6 +966,41 @@ On constate directement la simplicité et l'élégance avec laquelle cette fonct
 Un autre exemple d'algorithme utilisant la récursion serait l'algorithme ``quick-sort'' dit du ``tri-rapide'', en voici son implémentation \\
 \lstinputlisting[language=Lisp]{Sorts/quick_sort.lisp}
 Si le lecteur en sent l'envie, nous l'encourageons à essayer de coder la fonction récursive d'Ackermann, ou encore la McCarthy 91. \\
+\subsubsection{Métaprogrammons!}
+Cette petite partie a pour objectif de montrer en quoi Lisp est si bon: {\bf La métaprogrammation}!
+La métaprogrammation, c'est l'art de faire des programmes qui manipulent le code du programme même!\\
+Passons directement aux exemples:\\
+En Common Lisp, il est possible de créer des variables locales avec l'aide du mot-clé {\bf let}. Par exemple, si je désire créer non-récursivement la fonction: \\
+$$f(n) = \sum_{i=0}^{n}i$$
+Je devrai faire: \\
+\lstinputlisting[language=Lisp, linerange={1-5}]{LispBasics/sum.lisp}
+Toutefois, certains ne trouvent pas très esthétique le fait de devoir empiler des parenthèses à chaque fois qu'un très petit {\bf let} est appelé. \\
+Pour remédier à cela, il est possible de modifier la manière à laquelle notre code Lisp est lu! \\
+Ainsi, en créant la macro: \\
+\lstinputlisting[language=Lisp, linerange={7-9}]{LispBasics/sum.lisp}
+Il devient possible de modifier notre fonction de base: \\
+\lstinputlisting[language=Lisp, linerange={11-15}]{LispBasics/sum.lisp}
+Tout de suite, le code devient (pour certains) plus agréable à lire.\\
+En réalité, notre nouvelle fonction est exactement la même que l'ancienne! La macro que nous avions créée se fait remplacer par le préprocesseur.
+\begin{lstlisting}[language=Lisp]
+CL-USER> (macroexpand '(let-in buffer 10 (+ buffer 5)))
+(LET ((BUFFER 10))
+  (+ BUFFER 5))
+\end{lstlisting}
+Le code ci-dessus illustre la manière à laquelle le préprocesseur évalue notre macro.\\
+Un autre example de macro sont les Reader Macros, celle-ci ont pour objectif de complètement modifier la syntaxe même de Common Lisp. \\
+Un exemple de Reader Macro, serait par exemple une pour créer des lambdas de manière plus simple:\\
+Sans plus attendre, voici la macro: \\
+\lstinputlisting[language=Lisp]{LispBasics/reader.lisp}
+Et voici comment elle s'utilise: \\
+\begin{lstlisting}
+CL-USER> (mapcar <1+ (* 2 _)> '(1 2 3 4))
+(3 5 7 9)
+CL-USER> (macroexpand '<1+ (* 2 _)>)
+#'(LAMBDA (_) (1+ (* 2 _)))
+T
+\end{lstlisting}
+Le lecteur intéressé pour s'essayer au fonctionnement des macros anaphoriques, qui ne sont pas présentées dans cette introduction.\\
 \subsubsection{Programme Lisp pour résoudre parfaitement le jeu de Nim.}
 Afin que le lecteur se fasse une idée de comment utiliser Lisp dans des cas plus concrets, nous allons vous présenter une intelligence artificielle, assez basique, gagnant au jeu de Nim à plusieurs tas. (Aussi connu sous le nom de jeu de Marienbad.), dans ce jeu, plusieurs allumettes sont disposées sur plusieurs piles, le but du jeu est de récolter la dernière allumette. \\
 L'intelligence gagnant à ce genre de jeux est assez basique, en effet, le jeu de Nim à plusieurs tas est un jeu résolu parfaitement. \\
@@ -1054,19 +1089,20 @@ Cela ne peut pas sembler être bien grave sur un si petit exemple, mais, quand i
 Il va donc falloir ruser, et utiliser une heuristique afin d'avoir de meilleurs temps, et espérer pouvoir appliquer notre algorithme raisonnablement sur l'ensemble des villes belges. \\
 Ces methodes d'heuristique seront justement discutées dans le prochain chapître à leur sujet.
 \begin{figure}[!hbt]
+  \centering
   \includegraphics[width=8.0cm]{imgs/solved.png}
   \caption{Le chemin optimal!}
 \end{figure}
 \subsubsection{Le besoin d'heuristiques.}
 Dijkstra a l'avantage d'être un algorithme donnant toujours la solution optimale, ainsi, peu importe le graph dans lequel nous appliquons notre algorithme de Dijkstra, le chemin trouvé entre deux points de notre graph sera toujours le plus optimal. \\
 En contrepartie, cet algorithme a pour défaut de bien souvent visiter un nombre assez important de noeuds sur notre graph, ceci ayant pour conséquence de baisser la performance de notre algorithme. \\
-Fort heureusement, des mathématiciens ont trouvé la solution à ce problème: {\bf Créer une heuristique!} \\
+Fort heureusement, des mathématiciens ont trouvé une solution afin de remédier à ce problème: {\bf Créer une heuristique!} \\
 Une heuristique est un outil nous permettant de prendre des décisions, de faire des choix. Une heurisitque intéressante dans le cadre de notre problème avec un algorithme de Dijkstra, serait de privilégier uniquement certains noeuds nous rapprochant de la solution finale. \\
 Il faut toutefois faire attention dans le choix de notre heuristique,
-une mauvaise heuristique pourrait nous faire retirer trop de noeuds d'une solution potentielle, et ainsi, produire des solutions non-optimales. \\
+une mauvaise heuristique pourrait nous faire retirer trop de noeuds d'une solution potentielle, et ainsi, produire des solutions sous-optimales. \\
 \subsubsection{Dijkstra avec de l'heuristique: A*!}
 L'algorithme A* est un algorithme de Dijkstra avec une heuristique intéressante. \\
-Ainsi, pour chaque noeud de notre graph, nous allons y rajouter un ``coût'' heuristique. Celle qui sera choisie ici sera la distance euclidienne entre le noeud du graph et l'objectif final.  \\
+Ainsi, pour chaque noeud de notre graph, nous allons y rajouter un ``coût'' heuristique. Celle qui sera choisie ici sera la distance euclidienne entre le noeud du graph et l'objectif final. \\
 Afin d'illustrer nos propos, nous avons ci-dessous implémenté l'algorithme A*.
 \lstinputlisting[language=Lisp]{PathFinders/dijkstra-path.lisp}
 \subsection{Des programmes et des jeux!}
