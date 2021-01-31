@@ -30,27 +30,29 @@
 \contentsline {subsection}{\numberline {3.2}Présentation de structures de données de base}{26}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Les listes simplement chaînées.}{27}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}Les tableaux.}{28}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Tableaux vs Listes simplement chaînées.}{28}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.3}Tableaux vs Listes simplement chaînées.}{29}{subsubsection.3.2.3}%
 \contentsline {subsubsection}{\numberline {3.2.4}Les tables de hachages.}{30}{subsubsection.3.2.4}%
-\contentsline {subsubsection}{\numberline {3.2.5}Promenons-nous dans les bois.}{32}{subsubsection.3.2.5}%
-\contentsline {subsection}{\numberline {3.3}Qu'est-ce que Lisp?}{34}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.2.5}Promenons-nous dans les bois.}{33}{subsubsection.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.6}Les tas}{35}{subsubsection.3.2.6}%
+\contentsline {subsection}{\numberline {3.3}Qu'est-ce que Lisp?}{35}{subsection.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.1}Les bases de Lisp.}{35}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Programme Lisp pour résoudre parfaitement le jeu de Nim.}{37}{subsubsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.4}Le pathfinding.}{41}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Présentation du problème.}{41}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}L'algorithme de Dijkstra.}{42}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Le besoin d'heuristiques.}{42}{subsubsection.3.4.3}%
-\contentsline {subsubsection}{\numberline {3.4.4}Dijkstra avec de l'heuristique: A*!}{42}{subsubsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.5}Des programmes et des jeux!}{45}{subsection.3.5}%
-\contentsline {subsubsection}{\numberline {3.5.1}L'agorithme Minimax.}{45}{subsubsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.2}$\alpha \beta $-élagage.}{45}{subsubsection.3.5.2}%
-\contentsline {subsubsection}{\numberline {3.5.3}Du dynamisme bon sang!}{45}{subsubsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.6}Un programme de jeu.}{45}{subsection.3.6}%
-\contentsline {section}{\numberline {4}Le Machine Learning.}{53}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Définition du Machine Learning}{53}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Les Maths dans le Machine Leanring.}{53}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Les résaux de neurones}{54}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Intro au langage Python}{54}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}Python 2:}{55}{subsubsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.2}Python 3:}{55}{subsubsection.4.4.2}%
-\contentsline {subsubsection}{\numberline {4.4.3}Un programme d'exemple avec le second degré!}{57}{subsubsection.4.4.3}%
+\contentsline {subsubsection}{\numberline {3.3.2}Métaprogrammons!}{38}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Programme Lisp pour résoudre parfaitement le jeu de Nim.}{39}{subsubsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.4}Le pathfinding.}{43}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Présentation du problème.}{44}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}L'algorithme de Dijkstra.}{44}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Le besoin d'heuristiques.}{48}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}Dijkstra avec de l'heuristique: A*!}{48}{subsubsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.5}Des programmes et des jeux!}{51}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}L'agorithme Minimax.}{51}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}$\alpha \beta $-élagage.}{51}{subsubsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.3}Du dynamisme bon sang!}{51}{subsubsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.6}Un programme de jeu.}{51}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Le Machine Learning.}{59}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Définition du Machine Learning}{59}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Les Maths dans le Machine Leanring.}{59}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Les résaux de neurones}{60}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Intro au langage Python}{60}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Python 2:}{61}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Python 3:}{61}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Un programme d'exemple avec le second degré!}{63}{subsubsection.4.4.3}%

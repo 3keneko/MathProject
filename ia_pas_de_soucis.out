@@ -32,24 +32,26 @@
 \BOOKMARK [3][-]{subsubsection.3.2.3}{Tableaux vs Listes simplement cha\356n\351es.}{subsection.3.2}% 32
 \BOOKMARK [3][-]{subsubsection.3.2.4}{Les tables de hachages.}{subsection.3.2}% 33
 \BOOKMARK [3][-]{subsubsection.3.2.5}{Promenons-nous dans les bois.}{subsection.3.2}% 34
-\BOOKMARK [2][-]{subsection.3.3}{Qu'est-ce que Lisp?}{section.3}% 35
-\BOOKMARK [3][-]{subsubsection.3.3.1}{Les bases de Lisp.}{subsection.3.3}% 36
-\BOOKMARK [3][-]{subsubsection.3.3.2}{Programme Lisp pour r\351soudre parfaitement le jeu de Nim.}{subsection.3.3}% 37
-\BOOKMARK [2][-]{subsection.3.4}{Le pathfinding.}{section.3}% 38
-\BOOKMARK [3][-]{subsubsection.3.4.1}{Pr\351sentation du probl\350me.}{subsection.3.4}% 39
-\BOOKMARK [3][-]{subsubsection.3.4.2}{L'algorithme de Dijkstra.}{subsection.3.4}% 40
-\BOOKMARK [3][-]{subsubsection.3.4.3}{Le besoin d'heuristiques.}{subsection.3.4}% 41
-\BOOKMARK [3][-]{subsubsection.3.4.4}{Dijkstra avec de l'heuristique: A*!}{subsection.3.4}% 42
-\BOOKMARK [2][-]{subsection.3.5}{Des programmes et des jeux!}{section.3}% 43
-\BOOKMARK [3][-]{subsubsection.3.5.1}{L'agorithme Minimax.}{subsection.3.5}% 44
-\BOOKMARK [3][-]{subsubsection.3.5.2}{-\351lagage.}{subsection.3.5}% 45
-\BOOKMARK [3][-]{subsubsection.3.5.3}{Du dynamisme bon sang!}{subsection.3.5}% 46
-\BOOKMARK [2][-]{subsection.3.6}{Un programme de jeu.}{section.3}% 47
-\BOOKMARK [1][-]{section.4}{Le Machine Learning.}{}% 48
-\BOOKMARK [2][-]{subsection.4.1}{D\351finition du Machine Learning}{section.4}% 49
-\BOOKMARK [2][-]{subsection.4.2}{Les Maths dans le Machine Leanring.}{section.4}% 50
-\BOOKMARK [2][-]{subsection.4.3}{Les r\351saux de neurones}{section.4}% 51
-\BOOKMARK [2][-]{subsection.4.4}{Intro au langage Python}{section.4}% 52
-\BOOKMARK [3][-]{subsubsection.4.4.1}{Python 2:}{subsection.4.4}% 53
-\BOOKMARK [3][-]{subsubsection.4.4.2}{Python 3:}{subsection.4.4}% 54
-\BOOKMARK [3][-]{subsubsection.4.4.3}{Un programme d'exemple avec le second degr\351!}{subsection.4.4}% 55
+\BOOKMARK [3][-]{subsubsection.3.2.6}{Les tas}{subsection.3.2}% 35
+\BOOKMARK [2][-]{subsection.3.3}{Qu'est-ce que Lisp?}{section.3}% 36
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Les bases de Lisp.}{subsection.3.3}% 37
+\BOOKMARK [3][-]{subsubsection.3.3.2}{M\351taprogrammons!}{subsection.3.3}% 38
+\BOOKMARK [3][-]{subsubsection.3.3.3}{Programme Lisp pour r\351soudre parfaitement le jeu de Nim.}{subsection.3.3}% 39
+\BOOKMARK [2][-]{subsection.3.4}{Le pathfinding.}{section.3}% 40
+\BOOKMARK [3][-]{subsubsection.3.4.1}{Pr\351sentation du probl\350me.}{subsection.3.4}% 41
+\BOOKMARK [3][-]{subsubsection.3.4.2}{L'algorithme de Dijkstra.}{subsection.3.4}% 42
+\BOOKMARK [3][-]{subsubsection.3.4.3}{Le besoin d'heuristiques.}{subsection.3.4}% 43
+\BOOKMARK [3][-]{subsubsection.3.4.4}{Dijkstra avec de l'heuristique: A*!}{subsection.3.4}% 44
+\BOOKMARK [2][-]{subsection.3.5}{Des programmes et des jeux!}{section.3}% 45
+\BOOKMARK [3][-]{subsubsection.3.5.1}{L'agorithme Minimax.}{subsection.3.5}% 46
+\BOOKMARK [3][-]{subsubsection.3.5.2}{-\351lagage.}{subsection.3.5}% 47
+\BOOKMARK [3][-]{subsubsection.3.5.3}{Du dynamisme bon sang!}{subsection.3.5}% 48
+\BOOKMARK [2][-]{subsection.3.6}{Un programme de jeu.}{section.3}% 49
+\BOOKMARK [1][-]{section.4}{Le Machine Learning.}{}% 50
+\BOOKMARK [2][-]{subsection.4.1}{D\351finition du Machine Learning}{section.4}% 51
+\BOOKMARK [2][-]{subsection.4.2}{Les Maths dans le Machine Leanring.}{section.4}% 52
+\BOOKMARK [2][-]{subsection.4.3}{Les r\351saux de neurones}{section.4}% 53
+\BOOKMARK [2][-]{subsection.4.4}{Intro au langage Python}{section.4}% 54
+\BOOKMARK [3][-]{subsubsection.4.4.1}{Python 2:}{subsection.4.4}% 55
+\BOOKMARK [3][-]{subsubsection.4.4.2}{Python 3:}{subsection.4.4}% 56
+\BOOKMARK [3][-]{subsubsection.4.4.3}{Un programme d'exemple avec le second degr\351!}{subsection.4.4}% 57

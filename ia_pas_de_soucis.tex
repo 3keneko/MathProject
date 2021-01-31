@@ -896,7 +896,7 @@ Ceux-ci fonctionnent d'une manière similaire à notre recherche dichotomique. \
 Sur un arbre binaire, chaque noeud est soit relié à rien (ou ``nil''), soit relié à sa ``gauche'' à un noeud contenant une valeur plus petite que celle de son noeud parent, soit relié à sa ``droite'' à un noeud contenant une valeur plus grande que celle de son noeud parent. Nous pouvons donc représenter un arbre binaire ainsi: \\[0.2cm]
 en lisp, pour définir un arbre binaire, nous ferons simplement:
 \begin{lstlisting}[language=Lisp]
-(defparameter *my-tree* '(10 (5 3 7) (15 (12 nil 14) (17 nil 20))))
+(defparameter *my-tree* '(10 (5 3 7) (15 (12 nil 14) (18 nil 20))))
 \end{lstlisting}
 Celui-ci sera représenté ainsi: \\
 \begin{figure}[H]
