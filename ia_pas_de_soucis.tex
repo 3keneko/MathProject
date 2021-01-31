@@ -894,13 +894,15 @@ Ton nombre a été trouvé en 9 essais
 Cette petite introduction à la recherche par dichotomie servait surtout à donner une intuition au lecteur de l'importance des arbres binaires. \\
 Ceux-ci fonctionnent d'une manière similaire à notre recherche dichotomique. \\
 Sur un arbre binaire, chaque noeud est soit relié à rien (ou ``nil''), soit relié à sa ``gauche'' à un noeud contenant une valeur plus petite que celle de son noeud parent, soit relié à sa ``droite'' à un noeud contenant une valeur plus grande que celle de son noeud parent. Nous pouvons donc représenter un arbre binaire ainsi: \\[0.2cm]
-en lisp, pour définir un arbre binaire, nous ferons simplement: \\[0.2cm]
+en lisp, pour définir un arbre binaire, nous ferons simplement:
 \begin{lstlisting}[language=Lisp]
 (defparameter *my-tree* '(10 (5 3 7) (15 (12 nil 14) (17 nil 20))))
 \end{lstlisting}
 Celui-ci sera représenté ainsi: \\
-% TODO INSERER IMAGE *MY-TREE* HERE.
-
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=8.0cm, height=5.5cm]{imgs/tree.png}
+\end{figure}
 \subsubsection{Les tas}
 Nous faisons ci-dessous une petite apartée pour parler de tas. \\
 Un tas n'est autre qu'une forme séciale d'arbre où les valeurs sont ordonnées selon une certaine fonction ``clef''. \\
@@ -1079,7 +1081,7 @@ Il faudra donc visiter la ville H! \\
 De H, nous pouvons visiter les villes I, J et K, voici encore une fois le graph des villes visitées: \\
 \begin{figure}[H]
   \centering
-  \includegraphics[width=8.0cm]{imgs/fourth_search.png}
+  \includegraphics[width=8.0cm, height=6.0cm]{imgs/fourth_search.png}
 \end{figure}
 Nous rajoutons ainsi à notre liste des priorités ces villes avec les coûts associés: \\
 \begin{itemize}
