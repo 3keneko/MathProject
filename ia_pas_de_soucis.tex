@@ -1147,8 +1147,33 @@ Et enfin, voici l'algorithme A* en lui même! \\
 Remarquons l'utilisation assez forte de ``loop'', donnant un style assez impératif à cette implémentation. \\
 Il s'agti d'ailleurs d'un avantage de Lisp, le langage est multi-paradigme, et permet de coder de la manière à laquelle l'utilisateur le souhaite! \\
 \subsection{Des programmes et des jeux!}
+Dès les débuts de l'intelligence artificielle, une envie de battre des humains avec des ordinateurs à des jeux de sociétés s'est fait sentir. \\Un exemple historique de cela est la défaite de Kasparov face à Deep Blue d'IBM.\\
+Le but de ce chapître est de présenter comment un ordi peu gagner contre un humain à un jeu de société, et quelles stratégies doivent être appliquées.\\
+Nous implémenterons une IA capable de battre un humain à puissance 4.\\
 \subsubsection{L'agorithme Minimax.}
+Tout d'abord, à la base de cette section se trouve l'algorithme minimax. Pour comprendre celui-ci, nous allons jouer à un jeu!\\
+Prenons comme plateau l'arbre suivant:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=8.0cm]{imgs/minimax_start.png}
+\end{figure}
+Le but du jeu est simple: \\
+A chaque case bleue sur laquelle nous nous trouvons, vous avez le droit de déplacer le joueur où vous le voulez, dès que nous sommes sur une case rouge, c'est à mon tour de déplacer le joueur!\\
+Votre but est d'attérir sur la case la plus grosse possible, le mien est de vous faire attérir sur la case détenant la plus petite valeur possible.\\
+Comme première stratégie, vous pourriez être alléché par le 9, et vous déplacer directement vers la case rouge permettant d'y accéder. \\Le défaut de cette stratégie est que si vous désiriez appliquer cette stratégie, alors, je déplacerai simplement le joueur vers le 1, et vous vous retrouveriez avec le pire résultat possible.\\
+Il va donc falloir innover.\\
+La stratégie du minimax consiste à dire que je jouerai à chaque fois le coup le plus minimisant, et ainsi, il est possible de remplacer chacun de mes choix par la valeur de la case la plus petite qui me serait accessible depuis la case où nous nous trouvons.\\
+Ainsi, nous pourrions représenter notre plateau ainsi:\\
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=8.0cm]{imgs/minimax.png}
+\end{figure}
+De cela, il devient très clair que le meilleur score que vous puissiez espérer avoir est 4.\\
+Ainsi, c'est par une alternance de cycle où l'on minimise les scores, et de cycles où on les maximise que se déroule le minimax (en effet, si je devais prédire votre coup, je dirai que vous iriez toujours vers là où la case est la plus haute.)\\
+Le défaut du minimax est quand le nombre de positions dans la partie devient énorme. C'est le cas du puissance 4, ou encore du jeu d'échecs, il faut donc pouvoir construire des heuristiques ou alors poussez l'optimisation jusqu'au bout.\\Le reste de ce chapître présente quelques méthodes d'optimisations de l'algorithme minimax.\\
 \subsubsection{$\alpha\beta$-élagage.}
+L'alpha-bêta élagage est une technique d'optimisation inventée par nul autre que John MacCarthy (l'inventeur du Lisp, en personne!).\\
+
 \subsubsection{Du dynamisme bon sang!}
 \subsection{Un programme de jeu.}
 \lstinputlisting[language=Lisp]{Connect4/connect4-game.lisp}
