@@ -1173,8 +1173,17 @@ Ainsi, c'est par une alternance de cycle où l'on minimise les scores, et de cyc
 Le défaut du minimax est quand le nombre de positions dans la partie devient énorme. C'est le cas du puissance 4, ou encore du jeu d'échecs, il faut donc pouvoir construire des heuristiques ou alors poussez l'optimisation jusqu'au bout.\\Le reste de ce chapître présente quelques méthodes d'optimisations de l'algorithme minimax.\\
 \subsubsection{$\alpha\beta$-élagage.}
 L'alpha-bêta élagage est une technique d'optimisation inventée par nul autre que John MacCarthy (l'inventeur du Lisp, en personne!).\\
-
+Nous ne rentrerons pas dans les détails du fonctionnement de l'$\alpha\beta$-élagage. En clair, celui-ci permet de réduire grandement le nombre de recherches à faire dans l'arbre de décision sur lequel nous appliquons notre algorithme minimax.\\
+En effet, il n'est pas nécessaire de visiter les positions où l'évaluation n'est pas assez favorable.\\
+L'arbre de jeu étant tellement énorme, il est extrêmement pratique de ne pas avoir à tout visiter.
 \subsubsection{Du dynamisme bon sang!}
+Le principe de la programmation fondateur dynamique est assez simple: Il est plus facile de mémoriser que de calculer.\\
+La programmation dynamique se base sur le principe du Divide and Conquer (ou ``diviser pour mieux régner'' en français). Il faut tout d'abord répartir le problème en plusieurs petites tâches plus simples à résoudre, par la suite, nous stockons les résultats intermédiaires, et grâce à ces résultats stockés, nous pouvons arriver à une solution finale plus rapidement que si nous devions à chaque fois tout recalculer à partir de 0.\\
+Nous utiliserons une stratégie s'appelant la {\bf mémoization} afin d'optimiser notre algorithme du Minimax.\\
+La {\bf mémoization} est une stratégie typique en programmation fonctionnelle.\\
+Le principe est simple: Chaque fois que nous appelons une fonction, nous stockons le résultat associé à la valeur entrée dans une table de hachage, dès que nous rappelons la fonction, nous vérifions si le paramètre de celle-ci se trouve dans notre table de hachage.\\
+Si c'est le cas, nous retournons directement la valeur associée à la clé, n'oublions pas que cette opération est de complexité O(1), ce qui explique l'intérêt de stocker le résultat plutôt que d'avoir à le recalculer entièrement.\\
+Nous utilisons cette stratégie dans notre puissance 4 avant tout car il est possible d'atteindre une même position, à partir de suites de coups différentes, il est donc intéressant de ne pas avoir à réévaluer la position inutilement.\\
 \subsection{Un programme de jeu.}
 \lstinputlisting[language=Lisp]{Connect4/connect4-game.lisp}
 \newpage
