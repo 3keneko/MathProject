@@ -176,14 +176,21 @@ jusqu'en bas à droite."
       (> (connections 'red    board) 3)))
 
 (defun evaluation (color board)
+  (let ((oppos (case color (red 'yellow) (t 'red))))
   (flet ((eval-num (a)
-           (case a (0 0) (1 1) (2 4) (3 9) (4 500) (t 500))))
+           (case a (0 0) (1 1) (2 4) (3 9) (4 10000) (t 10000))))
     (let ((vert (vertical-connections       color board))
           (hori (horizontal-connections     color board))
           (l-di (left-diagonal-connections  color board))
-          (r-di (right-diagonal-connections color board)))
-      (reduce #'+ (mapcar #'eval-num (list vert hori
-                                           l-di r-di))))))
+          (r-di (right-diagonal-connections color board))
+          (vero (vertical-connections       oppos board))
+          (horo (horizontal-connections     oppos board))
+          (l-do (left-diagonal-connections  oppos board))
+          (r-do (right-diagonal-connections oppos board)))
+      (- (reduce #'+ (mapcar #'eval-num (list vert hori
+                                              l-di r-di)))
+         (reduce #'+ (mapcar #'eval-num (list vero horo
+                                              l-do r-do))))))))
 
 (defun play-if-possible (i color board)
   (if (fullp i board)
@@ -199,83 +206,88 @@ jusqu'en bas à droite."
 
 (defun min-move (mov1 mov2)
   (if (< (move-eval-state mov1) (move-eval-state mov2))
-      mov2
-      mov1))
+      mov1
+      mov2))
 
 (defmacro defmemo (fun-name args &body body)
   (let ((big-hash (gensym)))
-    `(let ((,big-hash (make-hash-table)))
+    `(let ((,big-hash (make-hash-table :test #'equal)))
   (defun ,fun-name ,args
     (if (gethash ,(car args) ,big-hash)
         (gethash ,(car args) ,big-hash)
         (setf (gethash ,(car args) ,big-hash) ,@body))))))
 
-(defmemo minimax (board depth color &optional (last-move -1) (alpha -1) (beta 0))
+(defmemo minimax (board depth color
+                        &optional (last-move -1)
+                        (alpha 0) (beta 1))
   (let ((c-board (copy-seq board))
         (curr (evaluation color board)))
     (cond
       ((or (eql depth 0) (winningp c-board) (tiedp c-board))
        (make-move :column-choice last-move
                   :eval-state curr))
-      ((eql color 'yellow)
-       (let ((best-move (make-move :column-choice -1
+      ((eql color 'red)
+       (let ((best-move (make-move :column-choice 0
                                    :eval-state most-negative-fixnum)))
          (loop for i from 0 to 6
-               for new-board = (play i 'yellow c-board)
+               for new-board = (play i 'red c-board)
                do (setf best-move
                         (max-move best-move
                                   (minimax new-board
                                            (1- depth)
-                                           'red i
+                                           'yellow i
                                            alpha
-                                           beta))))
+                                           beta)))
+               when (>= alpha (move-eval-state best-move))
+                 do (return best-move)
+               do (setf beta (min beta (move-eval-state best-move))))
          best-move))
       (t
-       (let ((best-move (make-move :column-choice -1
+       (let ((best-move (make-move :column-choice 0
                                    :eval-state most-positive-fixnum)))
           (loop for i from 0 to 6
-                for new-board = (play i 'red c-board)
+                for new-board = (play i 'yellow c-board)
                 do (setf best-move
                          (min-move best-move
                                    (minimax new-board
                                             (1- depth)
-                                            'yellow i))))
-        best-move)))))
+                                            'red i
+                                            alpha beta)))
+                if (>= (move-eval-state best-move) beta)
+                  do (return best-move)
+                do (setf alpha (max alpha (move-eval-state best-move))))
+            best-move)))))
 
-(defun play-repl ()
+(defmacro player-repl (board player-turn context-name)
+  (let ((other-player (if (eql player-turn 2) 1 2))
+        (color (if (eql player-turn 1) 'yellow 'red)))
+    `(progn
+        (when (winningp ,board)
+          (return (format nil "Le joueur ~D a gagné." ,other-player)))
+        (format t "Au tour du joueur ~D!~%~A~%Dans quelle colonne souhaitez vous jouer? " 
+                ,player-turn (show-board ,board))
+        (let* ((column (read))
+               (i (1- column)))
+          (cond
+            ((not (<= 1 column 7))
+                  (format t "Veuillez jouer un numéro de colonne correct!~%")
+                  (,context-name))
+             ((fullp i ,board)
+              (format t "Cette colonne est déjà remplie!~%")
+              (,context-name))
+             (t (setf ,board (play i ',color ,board))))))))
+
+(defun play-against-player ()
   "L'interface utilisateur, permettant de jouer contre un autre joueur."
-  (loop while (and (not (winningp *board*))
-                   (not (tiedp *board*)))
-        do (progn
-             (when (winningp *board*)
-                 (return "Le joueur 2 a gagné."))
-             (format t "Au tour du joueur 1!~%~A~%Dans quelle colonne souhaitez-vous jouer? "
-                     (show-board *board*))
-             (let* ((column (read))
-                    (i (1- column)))
-               (cond
-                 ((not (<= 1 column 7))
-                  (format t "Veuillez jouer un numéro de colonne correct!~%")
-                  (play-repl))
-                 ((fullp i *board*)
-                  (format t "Cette colonne est déjà remplie!~%")
-                  (play-repl))
-                 (t  (setf *board* (play i 'yellow *board*))(format t "Eval to: ~D~%" (evaluation 'yellow *board*))))))
-        do (progn
-             (when (winningp *board*)
-                 (return "Le joueur 1 a gagné."))
-             (format t "Au tour du joueur 2!~%~A~%Dans quelle colonne souhaitez-vous jouer? "
-                     (show-board *board*))
-             (let* ((column (read))
-                    (i (1- column)))
-               (cond
-                 ((not (<= 1 column 7))
-                  (format t "Veuillez jouer un numéro de colonne correct!~%")
-                  (play-repl))
-                 ((fullp i *board*)
-                  (format t "Cette colonne est déjà remplie!~%")
-                  (play-repl))
-                 (t (setf *board* (play i 'red *board*))
-                    (format t "Eval to: ~D~%"
-                            (evaluation 'red *board*))))))))
-             ;;;(setf *board* (computer-turn 'red *board*)))))
+  (loop while (not (or (winningp *board*)
+                       (tiedp *board*)))
+        do (player-repl *board* 1 play-against-player)
+        do (player-repl *board* 2 play-against-player)))
+
+(defun play-against-computer ()
+  (loop while (not (or (winningp *board*)
+                       (tiedp *board*)))
+        do (player-repl *board* 1 play-against-computer)
+        if (winningp *board*)
+          do (return "Vous avez gagné!")
+        else do (setf *board* (play (move-column-choice (minimax *board* 7 'red)) 'red *board*))))
