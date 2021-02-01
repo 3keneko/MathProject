@@ -37,6 +37,11 @@ endroit sur le plateau."
   "Vérifie si une colonne est vide."
   (car (aref board i)))
 
+(defun get-legal (board)
+  (loop for i from 0 to 6
+        if (not (fullp i board))
+          collect i))
+
 (defun tiedp (board)
   "Vérifie si la position est nulle."
   (notany #'null
@@ -219,7 +224,7 @@ jusqu'en bas à droite."
 
 (defmemo minimax (board depth color
                         &optional (last-move -1)
-                        (alpha 0) (beta 1))
+                        (alpha most-negative-fixnum) (beta most-positive-fixnum))
   (let ((c-board (copy-seq board))
         (curr (evaluation color board)))
     (cond
@@ -229,34 +234,29 @@ jusqu'en bas à droite."
       ((eql color 'red)
        (let ((best-move (make-move :column-choice 0
                                    :eval-state most-negative-fixnum)))
-         (loop for i from 0 to 6
+         (loop for i in (get-legal *board*)
                for new-board = (play i 'red c-board)
-               do (setf best-move
+               do (progn
+                    (setf best-move
                         (max-move best-move
-                                  (minimax new-board
-                                           (1- depth)
-                                           'yellow i
-                                           alpha
-                                           beta)))
-               when (>= alpha (move-eval-state best-move))
-                 do (return best-move)
-               do (setf beta (min beta (move-eval-state best-move))))
+                                  (minimax new-board (1- depth) 'yellow i alpha beta)))
+                    (setf alpha (max alpha (move-eval-state best-move)))
+                    (when (>= alpha beta)
+                        (return))))
          best-move))
       (t
        (let ((best-move (make-move :column-choice 0
                                    :eval-state most-positive-fixnum)))
-          (loop for i from 0 to 6
+          (loop for i in (get-legal *board*)
                 for new-board = (play i 'yellow c-board)
-                do (setf best-move
-                         (min-move best-move
-                                   (minimax new-board
-                                            (1- depth)
-                                            'red i
-                                            alpha beta)))
-                if (>= (move-eval-state best-move) beta)
-                  do (return best-move)
-                do (setf alpha (max alpha (move-eval-state best-move))))
-            best-move)))))
+                do (progn
+                     (setf best-move
+                           (min-move best-move
+                                     (minimax new-board (1- depth) 'red i alpha beta)))
+                     (setf beta (min beta (move-eval-state best-move)))
+                     (if (<= beta alpha)
+                         (return))))
+         best-move)))))
 
 (defmacro player-repl (board player-turn context-name)
   (let ((other-player (if (eql player-turn 2) 1 2))
