@@ -192,19 +192,13 @@ jusqu'en bas à droite."
 
 (defstruct move column-choice eval-state)
 
-(defun cmp-with-abs (a b)
-  (case a
-    (abs-min nil)
-    (abs-max   t)
-    (t    (< a b))))
-
 (defun max-move (mov1 mov2)
-  (if (cmp-with-abs (move-eval-state mov1) (move-eval-state mov2))
+  (if (> (move-eval-state mov1) (move-eval-state mov2))
       mov1
       mov2))
 
 (defun min-move (mov1 mov2)
-  (if (cmp-with-abs (move-eval-state mov1) (move-eval-state mov2))
+  (if (< (move-eval-state mov1) (move-eval-state mov2))
       mov2
       mov1))
 
@@ -216,7 +210,7 @@ jusqu'en bas à droite."
         (gethash ,(car args) ,big-hash)
         (setf (gethash ,(car args) ,big-hash) ,@body))))))
 
-(defmemo minimax (board depth color &optional (last-move -1))
+(defmemo minimax (board depth color &optional (last-move -1) (alpha -1) (beta 0))
   (let ((c-board (copy-seq board))
         (curr (evaluation color board)))
     (cond
@@ -225,18 +219,20 @@ jusqu'en bas à droite."
                   :eval-state curr))
       ((eql color 'yellow)
        (let ((best-move (make-move :column-choice -1
-                                   :eval-state 'abs-min)))
+                                   :eval-state most-negative-fixnum)))
          (loop for i from 0 to 6
                for new-board = (play i 'yellow c-board)
                do (setf best-move
                         (max-move best-move
                                   (minimax new-board
                                            (1- depth)
-                                           'red i))))
+                                           'red i
+                                           alpha
+                                           beta))))
          best-move))
       (t
        (let ((best-move (make-move :column-choice -1
-                                   :eval-state 'abs-max)))
+                                   :eval-state most-positive-fixnum)))
           (loop for i from 0 to 6
                 for new-board = (play i 'red c-board)
                 do (setf best-move
