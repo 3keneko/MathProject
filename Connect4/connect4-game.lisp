@@ -221,30 +221,30 @@ jusqu'en bas à droite."
         (gethash ,(car args) ,big-hash)
         (setf (gethash ,(car args) ,big-hash) ,@body))))))
 
-
+;; STATE PASSING-U.
 (defmemo minimax (board depth maximizing
-                &optional (last-move -1))
-                  ;(alpha -inf)
-                  ;(beta  +inf))
-  ;; (declare (ignore alpha beta))
+                &optional (last-move -1) (alpha -inf) (beta  +inf))
   (cond
     ((or (tiedp board) (eql depth 0) (winningp board))
         (make-move :column-choice last-move
                    :eval-state (evaluation board)))
     (t (let ((best-score (* -inf maximizing))
-          (best-move -1))
+             (best-move -1))
      (loop for choice from 0 to 6
            for new-state = (play choice (max-to-color maximizing)
                                 (copy-seq board))
            for state = (minimax new-state (1- depth)
-                                (* -1 maximizing) choice)
+                                (* -1 maximizing) choice alpha beta)
            when (or (and (> (move-eval-state state) best-score)
                          (eql maximizing 1))
                     (and (< (move-eval-state state) best-score)
                          (eql maximizing -1)))
              do (progn
                     (setf best-score (move-eval-state state))
-                    (setf best-move  (move-column-choice state))))
+                    (setf best-move  (move-column-choice state))
+                    (cond ((>= best-score alpha) (setf alpha best-score))
+                          ((<= best-score beta)  (setf beta  best-score))))
+          when (>= alpha beta) do (return))
     (make-move :column-choice best-move
                :eval-state best-score)))))
 
@@ -292,6 +292,7 @@ jusqu'en bas à droite."
                          (return))))
          best-move)))))
 |#
+
 (defmacro player-repl (board player-turn context-name)
   (let ((other-player (if (eql player-turn 2) 1 2))
         (color (if (eql player-turn 1) 'yellow 'red)))
@@ -321,7 +322,7 @@ jusqu'en bas à droite."
 (defun play-against-computer ()
   (loop while (not (or (winningp *board*)
                        (tiedp *board*)))
-        do (setf *board* (play (move-column-choice (minimax *board* 6 1)) 'red *board*))
+        do (setf *board* (play (move-column-choice (minimax *board* 1 1)) 'red *board*))
         do (player-repl *board* 1 play-against-computer)
         if (winningp *board*)
           do (return "Vous avez gagné!")))
