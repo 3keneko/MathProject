@@ -229,7 +229,7 @@ jusqu'en bas à droite."
         (make-move :column-choice last-move
                    :eval-state (evaluation board)))
     (t (let ((best-score (* -inf maximizing))
-             (best-move -1))
+             (best-move -1))) 
      (loop for choice from 0 to 6
            for new-state = (play choice (max-to-color maximizing)
                                 (copy-seq board))
@@ -244,10 +244,27 @@ jusqu'en bas à droite."
                     (setf best-move  (move-column-choice state))
                     (cond ((>= best-score alpha) (setf alpha best-score))
                           ((<= best-score beta)  (setf beta  best-score))))
-          when (>= alpha beta) do (return))
+           when (>= alpha beta) do (return)))
+    (format t "~A~%" (make-move :column-choice best-move :eval-state best-score))
     (make-move :column-choice best-move
-               :eval-state best-score)))))
+               :eval-state best-score)))
 
+(defun trace-decision-tree (board depth maximizing &optional (last-move -1) (dec-tree nil))
+  (cond
+    ((or (tiedp board) (eql depth 0) (winningp board))
+     (make-move :column-choice last-move
+                :eval-state (evaluation board)))
+    (t (let ((best-score (* -inf maximizing))
+             (best-move -1))
+         (loop for choice from 0 to 6
+               for new-state = (play choice (max-to-color maximizing)
+                                     (copy-seq board))
+               for state = (trace-decision-tree new-state (1- depth)
+                                            (* -1 maximizing) choice
+                                            (cons state dec-tree))
+               do (format t "~A~%" state)
+               finally (return dec-tree))))))
+    
 #|
 (defun minimax (board depth color
                         &optional (last-move -1)
@@ -322,7 +339,7 @@ jusqu'en bas à droite."
 (defun play-against-computer ()
   (loop while (not (or (winningp *board*)
                        (tiedp *board*)))
-        do (setf *board* (play (move-column-choice (minimax *board* 1 1)) 'red *board*))
+        do (setf *board* (play (move-column-choice (minimax *board* 4 1)) 'red *board*))
         do (player-repl *board* 1 play-against-computer)
         if (winningp *board*)
           do (return "Vous avez gagné!")))
