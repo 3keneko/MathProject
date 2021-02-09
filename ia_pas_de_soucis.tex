@@ -1286,4 +1286,25 @@ Elle permet de créer et de manipuler des tableaux à une ou plusieurs dimension
 L'avantage du tableau dans NumPy est qu’il est beaucoup plus performant, prenant moins de place: un tableau à une dimension ressemblera par exemple à une liste Python mais prendra moins de place que celle-ci. \\
 Il est par conséquence plus rapide mais il est aussi beaucoup plus précis et pratique permettant d’éviter des taches inutiles grâce à la grande variété de méthode que la bibliothèque NumPy offre.
 \subsubsection{Création d'un tableau}
+Pour créer un tableau, plusieurs façons peuvent être utilisées. \\
+Une façon assez classique est d’utiliser la fonction array avec laquelle, il est possible de créer un tableau. Si par exemple, on veut créer un tableau à une dimension contenant les chiffres 1, 2 et 3, il suffit d’utiliser la fonction array suivi d’un tuple ou d’une liste contenant ces chiffres.
+\begin{lstlisting}[language=Python]
+  >>> import numpy as np
+  >>> x = np.array([1, 2, 3])
+  >>> print(x)
+  >>> [1 2 3]
+\end{lstlisting}
+Attention à ne pas oublier de mettre ces chiffres entre [ ] ou entre ( ) pour que le tableau se crée. \\
+\\
+Si maintenant on veut rajouter une dimension contenant les chiffres 4, 5, 6, il suffit de faire la même chose en rajoutant des ( ) ou des [ ] pour délimiter les éléments d’une même dimension et une virgule entre les ( ) ou [ ] pour les séparer.
+\begin{lstlisting}[language=Python]
+  >>> import numpy as np
+  >>> x = np.array([(1, 2, 3), (4, 5, 6)])
+  >>> print(x)
+  >>> [[1 2 3]
+       [4 5 6]]
+\end{lstlisting}
+Attention, ne toujours pas oublier de mettre tout les chiffres entre [ ] ou entre ( ) pour créer le tableau. \\
+\\
+Cependant,...
 \end{document}
