@@ -6,6 +6,11 @@
               (make-list 6 :initial-element nil))
   "Le plateau de puissance 4 en lui-même.")
 
+(defun make-new-board ()
+  "Permet de créer un plateau de jeu tout neuf."
+  (setf *board* (make-array 7 :initial-element
+                            (make-list 6 :initial-element nil))))
+
 (defun playerify (board-case)
   "Permet d'afficher proprememnt chaque case."
   (case board-case
@@ -184,6 +189,7 @@ jusqu'en bas à droite."
       (> (connections 'red    board) 3)))
 
 (defun evaluation (board)
+  "Fonction permettant d'attribuer une valeur à chaque position."
   (cond 
       ((tiedp board) 0)
       (t (flet ((eval-num (a) (case a (0 0) (1 4) (2 550) (3 3500) (t 50000000))))
@@ -204,7 +210,6 @@ jusqu'en bas à droite."
   (if (> (move-eval-state mov1) (move-eval-state mov2)) mov1 mov2))
 
 (declaim (inline max-to-color))
-
 (defun max-to-color (n)
   (if (eql n 1)
       'red
@@ -213,42 +218,48 @@ jusqu'en bas à droite."
 (defun min-move (mov1 mov2)
   (if (< (move-eval-state mov1) (move-eval-state mov2)) mov1 mov2))
 
-(defmacro defmemo (fun-name args &body body)
+#|(defmacro defmemo (fun-name args &body body)
   (let ((big-hash (gensym)))
     `(let ((,big-hash (make-hash-table :test #'equalp)))
   (defun ,fun-name ,args
-    (if (gethash ,(car args) ,big-hash)
-        (gethash ,(car args) ,big-hash)
-        (setf (gethash ,(car args) ,big-hash) ,@body))))))
+    (if (gethash (list ,(nth args 0) ,(nth args 1)) ,big-hash)
+        (gethash (list ,(nth args 0) ,(nth args 1)) ,big-hash)
+        (setf (gethash (list ,(nth args 0) ,(nth args 1)) ,big-hash)
+              ,@body))))))
+|#
 
 ;; STATE PASSING-U.
-(defmemo minimax (board depth maximizing
+(defun minimax (board depth maximizing
                 &optional (last-move -1) (alpha -inf) (beta  +inf))
   (cond
     ((or (tiedp board) (eql depth 0) (winningp board))
         (make-move :column-choice last-move
                    :eval-state (evaluation board)))
     (t (let ((best-score (* -inf maximizing))
-             (best-move -1))) 
-     (loop for choice from 0 to 6
+             (best-move -1)
+             (big-move (make-move :column-choice 4))) 
+        (loop for choice from 0 to 6
            for new-state = (play choice (max-to-color maximizing)
                                 (copy-seq board))
-           for state = (minimax new-state (1- depth)
+           for state = (minimax new-state (1- depth) 
                                 (* -1 maximizing) choice alpha beta)
            when (or (and (> (move-eval-state state) best-score)
-                         (eql maximizing 1))
+                         (= maximizing 1))
                     (and (< (move-eval-state state) best-score)
-                         (eql maximizing -1)))
-             do (progn
+                         (= maximizing -1)))
+           do (progn
                     (setf best-score (move-eval-state state))
-                    (setf best-move  (move-column-choice state))
-                    (cond ((>= best-score alpha) (setf alpha best-score))
-                          ((<= best-score beta)  (setf beta  best-score))))
-           when (>= alpha beta) do (return)))
-    (format t "~A~%" (make-move :column-choice best-move :eval-state best-score))
-    (make-move :column-choice best-move
-               :eval-state best-score)))
+                    (setf best-move  (move-column-choice state)))
+                    #|(cond ((>= best-score alpha) (setf alpha best-score))
+                          ((<= best-score beta)  (setf beta  best-score))))|#
+              do (setf big-move
+                    (make-move :column-choice best-move
+                               :eval-state best-score)))
+              #|when (>= alpha beta) do (return))|#
+         big-move))))
 
+
+#|
 (defun trace-decision-tree (board depth maximizing &optional (last-move -1) (dec-tree nil))
   (cond
     ((or (tiedp board) (eql depth 0) (winningp board))
@@ -265,7 +276,7 @@ jusqu'en bas à droite."
                do (format t "~A~%" state)
                finally (return dec-tree))))))
     
-#|
+
 (defun minimax (board depth color
                         &optional (last-move -1)
                         (alpha most-negative-fixnum) (beta most-positive-fixnum))
@@ -339,7 +350,9 @@ jusqu'en bas à droite."
 (defun play-against-computer ()
   (loop while (not (or (winningp *board*)
                        (tiedp *board*)))
-        do (setf *board* (play (move-column-choice (minimax *board* 4 1)) 'red *board*))
+        do (setf *board* (play (move-column-choice
+                                (minimax *board* 5 1))
+                               'red *board*))
         do (player-repl *board* 1 play-against-computer)
         if (winningp *board*)
           do (return "Vous avez gagné!")))
