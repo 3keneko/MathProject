@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.9.18)  9 FEB 2021 21:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.9.18)  13 FEB 2021 15:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1409,7 +1409,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 708--709
 
  []
 
-<imgs/linked_list.png, id=713, 255.95625pt x 37.64063pt>
+<imgs/linked_list.png, id=728, 255.95625pt x 37.64063pt>
 File: imgs/linked_list.png Graphic file (type png)
 <use imgs/linked_list.png>
 Package pdftex.def Info: imgs/linked_list.png  used on input line 714.
@@ -1424,7 +1424,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 717--718
 
  []
 
-<imgs/my_linked_list.png, id=715, 264.23718pt x 104.64093pt>
+<imgs/my_linked_list.png, id=730, 264.23718pt x 104.64093pt>
 File: imgs/my_linked_list.png Graphic file (type png)
 <use imgs/my_linked_list.png>
 Package pdftex.def Info: imgs/my_linked_list.png  used on input line 725.
@@ -1490,7 +1490,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 865--871
  []
 
 [32] (./LispBasics/dichotomia.lisp) [33]
-<imgs/tree.png, id=861, 316.93407pt x 234.8775pt>
+<imgs/tree.png, id=876, 316.93407pt x 234.8775pt>
 File: imgs/tree.png Graphic file (type png)
 <use imgs/tree.png>
 Package pdftex.def Info: imgs/tree.png  used on input line 908.
@@ -1637,7 +1637,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1048--1051
 
  []
 
-<imgs/numbered_graph.png, id=1118, 310.91156pt x 281.55188pt>
+<imgs/numbered_graph.png, id=1133, 310.91156pt x 281.55188pt>
 File: imgs/numbered_graph.png Graphic file (type png)
 <use imgs/numbered_graph.png>
 Package pdftex.def Info: imgs/numbered_graph.png  used on input line 1056.
@@ -1647,7 +1647,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1052--1058
 
  []
 
-<imgs/second_search.png, id=1119, 310.91156pt x 281.55188pt>
+<imgs/second_search.png, id=1134, 310.91156pt x 281.55188pt>
 File: imgs/second_search.png Graphic file (type png)
 <use imgs/second_search.png>
 Package pdftex.def Info: imgs/second_search.png  used on input line 1065.
@@ -1668,7 +1668,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1067--1068
 
  []
 
-<imgs/third_search.png, id=1127, 310.91156pt x 281.55188pt>
+<imgs/third_search.png, id=1142, 310.91156pt x 281.55188pt>
 File: imgs/third_search.png Graphic file (type png)
 <use imgs/third_search.png>
 Package pdftex.def Info: imgs/third_search.png  used on input line 1076.
@@ -1683,7 +1683,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1078--1079
 
  []
 
-<imgs/fourth_search.png, id=1133, 310.91156pt x 281.55188pt>
+<imgs/fourth_search.png, id=1148, 310.91156pt x 281.55188pt>
 File: imgs/fourth_search.png Graphic file (type png)
 <use imgs/fourth_search.png>
 Package pdftex.def Info: imgs/fourth_search.png  used on input line 1088.
@@ -1699,7 +1699,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1090--1091
  []
 
 [46 <./imgs/third_search.png> <./imgs/fourth_search.png>]
-<imgs/solved.png, id=1140, 310.91156pt x 281.55188pt>
+<imgs/solved.png, id=1155, 310.91156pt x 281.55188pt>
 File: imgs/solved.png Graphic file (type png)
 <use imgs/solved.png>
 Package pdftex.def Info: imgs/solved.png  used on input line 1101.
@@ -1775,13 +1775,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 1150--1153
 
  []
 
-<imgs/minimax_start.png, id=1280, 324.80899pt x 176.20888pt>
+<imgs/minimax_start.png, id=1296, 324.80899pt x 176.20888pt>
 File: imgs/minimax_start.png Graphic file (type png)
 <use imgs/minimax_start.png>
 Package pdftex.def Info: imgs/minimax_start.png  used on input line 1158.
 (pdftex.def)             Requested size: 227.62204pt x 123.48787pt.
 [52]
-<imgs/minimax.png, id=1305, 323.59702pt x 175.82104pt>
+<imgs/minimax.png, id=1320, 323.59702pt x 175.82104pt>
 File: imgs/minimax.png Graphic file (type png)
 <use imgs/minimax.png>
 Package pdftex.def Info: imgs/minimax.png  used on input line 1169.
@@ -1824,8 +1824,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 1180--1187
 
  []
 
-[54] (./Connect4/connect4-game.lisp [55] [56] [57] [58] [59] [60] [61] [62])
-[63]
+[54] (./Connect4/connect4-game.lisp [55] [56] [57] [58] [59] [60] [61] [62]
+[63]) [64]
 Underfull \hbox (badness 10000) in paragraph at lines 1192--1193
 
  []
@@ -1835,7 +1835,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1194--1195
 
  []
 
-[64] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+[65] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/09/10 1.8c listings language file
 )
 Overfull \hbox (8.25142pt too wide) in paragraph at lines 1203--1204
@@ -1853,7 +1853,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1207--1209
 
  []
 
-[65]
+[66]
 Underfull \hbox (badness 10000) in paragraph at lines 1213--1214
 
  []
@@ -1863,7 +1863,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1225--1226
 
  []
 
-[66]
+[67]
 Underfull \hbox (badness 10000) in paragraph at lines 1231--1232
 
  []
@@ -1873,7 +1873,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1236--1238
 
  []
 
-[67] (./PythonIsh/greg_example.py) [68]
+[68] (./PythonIsh/greg_example.py) [69]
 Underfull \hbox (badness 10000) in paragraph at lines 1277--1278
 
  []
@@ -1895,32 +1895,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 1279--1280
 
  []
 
-[69]
-Underfull \hbox (badness 10000) in paragraph at lines 1297--1300
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1307--1310
-
- []
-
 [70]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1310.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1310.
+Underfull \hbox (badness 10000) in paragraph at lines 1297--1298
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1307--1313
+
+ []
+
+[71] [72] [73] [74] [75] [76] [77] [78]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1544.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1544.
  (./ia_pas_de_soucis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1310.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1310.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1544.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1544.
 
 Package rerunfilecheck Info: File `ia_pas_de_soucis.out' has not changed.
-(rerunfilecheck)             Checksum: D881EE7092FE3F926FF039A63347CE02;5052.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1310.
+(rerunfilecheck)             Checksum: 7F62D3CDD3A0340DDC45DB61500D0746;5313.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1544.
  ) 
 Here is how much of TeX's memory you used:
- 36640 strings out of 481239
- 757673 string characters out of 5920377
- 1486679 words of memory out of 5000000
- 50013 multiletter control sequences out of 15000+600000
+ 36880 strings out of 481239
+ 761226 string characters out of 5920377
+ 1478679 words of memory out of 5000000
+ 50034 multiletter control sequences out of 15000+600000
  543068 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  173i,18n,188p,1619b,2602s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1944,10 +1944,10 @@ public/amsfonts/latxfont/lcirclew.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-sup
 er/sfrm1200.pfb>
-Output written on ia_pas_de_soucis.pdf (70 pages, 667214 bytes).
+Output written on ia_pas_de_soucis.pdf (78 pages, 695515 bytes).
 PDF statistics:
- 2152 PDF objects out of 2487 (max. 8388607)
- 2019 compressed objects within 21 object streams
- 1282 named destinations out of 1440 (max. 500000)
- 551 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2458 PDF objects out of 2487 (max. 8388607)
+ 2314 compressed objects within 24 object streams
+ 1501 named destinations out of 1728 (max. 500000)
+ 575 words of extra memory for PDF output out of 10000 (max. 10000000)
 

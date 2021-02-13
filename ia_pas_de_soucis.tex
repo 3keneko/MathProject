@@ -1295,7 +1295,7 @@ Une façon assez classique est d’utiliser la fonction array avec laquelle, il 
   >>> [1 2 3]
 \end{lstlisting}
 Attention à ne pas oublier de mettre ces chiffres entre [ ] ou entre ( ) pour que le tableau se crée. \\
-\\
+
 Si maintenant on veut rajouter une dimension contenant les chiffres 4, 5, 6, il suffit de faire la même chose en rajoutant des ( ) ou des [ ] pour délimiter les éléments d’une même dimension et une virgule entre les ( ) ou [ ] pour les séparer.
 \begin{lstlisting}[language=Python]
   >>> import numpy as np
@@ -1318,7 +1318,6 @@ Par exemple, si le tableau a 3 dimensions, le tuple contient 3 chiffres avec com
        [ 0.  0.  0.]]
 \end{lstlisting}
 Dans ce code, le tableau voulu a 2 dimensions. Le chiffre 2 représente ici le nombre de 0 qu’il doit y avoir dans une colonne et le chiffre 3 représente le nombre de 0 qu’il doit y avoir dans une ligne. \\
-\\
 La fonction zeros permet de remplir de 0 tout les éléments du tableau, la fonction ones pour remplir le tableau de 1 mais on peut utiliser la fonction full pour préciser le chiffre de son choix qui remplira le tableau et ainsi utiliser d’autres chiffres. Le fonctionnement reste le même, il suffit de rajouter le chiffre choisi pour remplir le tableau après le tuple.
 \begin{lstlisting}[language=Python]
   >>> import numpy as np
@@ -1328,7 +1327,6 @@ La fonction zeros permet de remplir de 0 tout les éléments du tableau, la fonc
        [ 4.  4.]
        [ 4.  4.]]
 \end{lstlisting}
-\\
 Mais le plus souvent, l’interet sera de définir les dimensions et le nombre d’élément du tableau, sans que les chiffres dans le tableau importe et alors, la fonction empty peut être utilisée. \\
 Elle permet de remplir le tableau de nombre aléatoire tout en délimitant comme les fonctions précédentes le tableau. Le fonctionnement reste le même mais il n’y a plus besoin de s’occuper des chiffres dans le tableau.
 \begin{lstlisting}[language=Python]
@@ -1338,7 +1336,6 @@ Elle permet de remplir le tableau de nombre aléatoire tout en délimitant comme
   >>> [[ 1.76791957e-309 1.49538150e+036 6.96959571e-312]
        [ 1.33360453e+241 1.80594574e-309 2.34189024e-305]]
 \end{lstlisting}
-\\
 On peut aussi utiliser avec le module random donné par NumPy la fonction randn pour remplir son tableau de chiffre aléatoire. Cependant, les chiffres seront orientés vers 0 et il ne faut pas utiliser de tuple pour cette fonction.
 \begin{lstlisting}[language=Python]
   >>> import numpy as np
@@ -1347,7 +1344,6 @@ On peut aussi utiliser avec le module random donné par NumPy la fonction randn 
   >>> [[ 0.02589327  0.45107346  0.75404118]
        [-0.50015038 -0.14491038 -0.23552643]]
 \end{lstlisting}
-\\
 On a vu comment créer un tableau si on connaît tout les éléments, si on souhaite seulement définir ses dimensions et son nombre d’élément, mais il reste un dernier cas important, si on souhaite définir un tableau à une dimension avec un élément de départ défini, une fin défini et un écart égal entre chaque élément. \\
 Dans ce cas là, on utilisera deux autres fonctions qui permettront de ne pas devoir recopiés tout les éléments du tableau ce qui sera pratique surtout s’il s’agit d’un tableau avec un nombre d’élément élevé. \\
 La première fonction est la fonction arange qui permet de définir le premier élément, le dernier élément et l’écart qu’il y a entre chaque élément. L’écart par défaut est de 1 avec comme premier élément 0. A ce moment là, il suffit d’utiliser la fonction suivi d’un nombre défini comme la fin du tableau, attention que ce chiffre n’est pas compris dans le tableau, le dernier chiffre du tableau est le chiffre précédent. Si le chiffre choisi est 3, le dernier chiffre du tableau sera donc 2.
@@ -1357,7 +1353,6 @@ La première fonction est la fonction arange qui permet de définir le premier �
   >>> print(x)
   >>> [0 1 2]
 \end{lstlisting}
-\\
 Pour changer la fonction par défaut, il faut écrire après la fonction le premier élément, l’élément de fin et l’écart entre chaque élément.
 \begin{lstlisting}
   >>> import numpy as np
@@ -1365,7 +1360,6 @@ Pour changer la fonction par défaut, il faut écrire après la fonction le prem
   >>> print(x)
   >>> [2. 2.5 3. 3.5 4. 4.5]
 \end{lstlisting}
-\\
 La fonction ne permet par contre pas de définir le nombre d’élément dans le tableau. Si l’on préfère connaître le nombre d’élément au lieu de la valeur de l’écart entre les chiffres, on peut utiliser la fonction linspace. \\
 Tout comme arange, il faut écrire après la fonction le premier élément ainsi que l’élément de fin mais, au lieu de mettre ensuite l’écart entre les nombres, il faut écrire le nombre de chiffre que l’on souhaite avoir dans le tableau. Attention, avec linspace, il faut considérer le chiffre de fin comme le dernier élément du tableau, contrairement à arange où il ne fallait pas.
 \begin{lstlisting}
@@ -1376,7 +1370,6 @@ Tout comme arange, il faut écrire après la fonction le premier élément ainsi
 \end{lstlisting}
 \subsubsection{Les attributs et les manipulations de tableau}
 Il existe dans NumPy beaucoup d’attributs mais on va évoquer seulement les trois plus intéressants et utilisés: \\
-\\
 \textbf{ndarray.ndim:} il permet de connaître le nombre d’axes du tableau. Pour rappel, les dimensions dans NumPy sont appelés axes.
 \begin{lstlisting}[language=Python]
   >>> import numpy as np
@@ -1384,7 +1377,6 @@ Il existe dans NumPy beaucoup d’attributs mais on va évoquer seulement les tr
   >>> print(x.ndim)
   >>> 2
 \end{lstlisting}
-\\
 \textbf{ndarray.shape:} il donne la taille de chaque axe. Si le tableau a 2 axes, il donnera comme réponse (x,y) avec x qui correspond aux nombres de colonnes du tableau et y pour le nombres de lignes. Il s’agit du même principe que pour les fonctions zeros, ones, full et empty puisque il s’agit enfaîte du shape que l’on inscrit après la fonction. La taille du tuple varie en fonction du nombre d’axe du tableau.
 \begin{lstlisting}[language=Python]
   >>> import numpy as np
@@ -1392,7 +1384,6 @@ Il existe dans NumPy beaucoup d’attributs mais on va évoquer seulement les tr
   >>> print(x.shape)
   >>> (2,3)
 \end{lstlisting}
-\\
 \textbf{ndarray.size:} Il donne le nombre total d’élément dans le tableau. Cela représente tout simplement le produit de x et y dans le shape (et des autres termes dans le shape si il y plus que 2 axes au tableau).
 \begin{lstlisting}[language=Python]
   >>> import numpy as np
@@ -1400,8 +1391,7 @@ Il existe dans NumPy beaucoup d’attributs mais on va évoquer seulement les tr
   >>> print(np.size)
   >>> 6
 \end{lstlisting}
-Il y a aussi dans Numpy différentes méthodes permettant de manipuler le tableau créé.
-\\
+Il y a aussi dans Numpy différentes méthodes permettant de manipuler le tableau créé.\\
 \textbf{np.hstack et np.vstack:} Ces deux méthodes permettent d’assembler deux tableaux ensemble horizontalement (np.hstcak) ou verticalement (np.vstack) en utilisant la fonction suivi d’un tuple constitué des deux tableaux.
 \begin{lstlisting}[language=Python]
   >>> import numpy as np
@@ -1412,8 +1402,7 @@ Il y a aussi dans Numpy différentes méthodes permettant de manipuler le tablea
   >>> [[0. 0. 0. 1. 1. 1. 1. 1. 1.]
        [0. 0. 0. 1. 1. 1. 1. 1. 1.]]
 \end{lstlisting}
-Attention, pour utiliser la méthode np.hstack, il faut que les deux tableaux aient le même nombre d’élément dans une colonne (le premier terme de leur shape doit être identique) et que les deux tableaux aient le même nombre d’axe. Par contre, pour utiliser la méthode np.vstack, il faut que les deux tableaux aient le même nombre d’élément dans une ligne (le second terme dans leur shape doit être identique) et que les deux tableaux aient aussi le même nombre d’axe. Pour les deux méthodes, il est possible de fusionner autant de tableaux qu’on le souhaite ensemble, il suffit de rajouter dans le tuple les tableaux supplémentaires.
-\\
+Attention, pour utiliser la méthode np.hstack, il faut que les deux tableaux aient le même nombre d’élément dans une colonne (le premier terme de leur shape doit être identique) et que les deux tableaux aient le même nombre d’axe. Par contre, pour utiliser la méthode np.vstack, il faut que les deux tableaux aient le même nombre d’élément dans une ligne (le second terme dans leur shape doit être identique) et que les deux tableaux aient aussi le même nombre d’axe. Pour les deux méthodes, il est possible de fusionner autant de tableaux qu’on le souhaite ensemble, il suffit de rajouter dans le tuple les tableaux supplémentaires.\\
 \textbf{reshape:} Cette méthode permet de changer la forme d’un tableau pour lui donner une nouvelle forme. Cependant, on ne peut pas changer les dimensions et les nombres d’éléments qu’il y a dans le tableau. Le reshape doit donc avoir le même produit que le shape du tableau initial.
 \begin{lstlisting}
   >>> import numpy as np
@@ -1453,7 +1442,6 @@ Pour faire une opération classique comme une addition ou une multiplication ent
   >>> [[5. 2. 3.]
        [3. 1. 7.]]
 \end{lstlisting}
-\\
 Il y a moyen aussi de additionner/multiplier le tableau à une constante, ce qui fait comme résultat un nouveau tableau où chaque élément du tableau subit l’opération avec cette constante.
 \begin{lstlisting}[language=Python]
   >>> import numpy as np
@@ -1463,7 +1451,6 @@ Il y a moyen aussi de additionner/multiplier le tableau à une constante, ce qui
   >>> [[7 4 5]
        [5 3 9]]
 \end{lstlisting}
-\\
 Il est de plus possible de faire un opération sans forcément obtenir un nouveau tableau mais simplement en modifiant un tableau par une opération. Par exemple, multiplier tout les éléments du tableau par la valeur 2. Pour cela, il faut utiliser le signe *= .
 \begin{lstlisting}[language=Python]
   >>> import numpy as np
@@ -1473,7 +1460,6 @@ Il est de plus possible de faire un opération sans forcément obtenir un nouvea
   >>> [[ 8  2  4]
        [ 4  0 12]]
 \end{lstlisting}
-\\
 Il existe aussi quelques méthodes utilisable dans les opérations comme sum qui permet de calculer la somme de tout les éléments du tableau ou max et min qui permettent de définir respectivement la valeur maximale et la valeur minimale dans le tableau.
 \begin{lstlisting}[language=Python]
   >>> import numpy as np
