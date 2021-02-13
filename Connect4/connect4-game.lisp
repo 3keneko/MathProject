@@ -228,9 +228,21 @@ jusqu'en bas à droite."
               ,@body))))))
 |#
 
+(defun make-moves (moves board)
+  (let ((first-player 'red)
+        (c-board (copy-seq board)))
+    (flet ((get-opp (color)
+             (case color
+               (red 'yellow)
+               (t   'red))))
+      (loop for move in moves
+            do (setf c-board (play move first-player c-board))
+            do (setf first-player (get-opp first-player)))
+      c-board)))
+
 ;; STATE PASSING-U.
 (defun minimax (board depth maximizing
-                &optional (last-move -1) (alpha -inf) (beta  +inf))
+                &optional (last-move -1))
   (cond
     ((or (tiedp board) (eql depth 0) (winningp board))
         (make-move :column-choice last-move
@@ -242,7 +254,7 @@ jusqu'en bas à droite."
            for new-state = (play choice (max-to-color maximizing)
                                 (copy-seq board))
            for state = (minimax new-state (1- depth) 
-                                (* -1 maximizing) choice alpha beta)
+                                (* -1 maximizing) choice)
            when (or (and (> (move-eval-state state) best-score)
                          (= maximizing 1))
                     (and (< (move-eval-state state) best-score)
@@ -250,7 +262,9 @@ jusqu'en bas à droite."
            do (progn
                     (setf best-score (move-eval-state state))
                     (setf best-move  (move-column-choice state)))
-                    #|(cond ((>= best-score alpha) (setf alpha best-score))
+              cond
+              
+                    #|(end ((>= best-score alpha) (setf alpha best-score))
                           ((<= best-score beta)  (setf beta  best-score))))|#
               do (setf big-move
                     (make-move :column-choice best-move
