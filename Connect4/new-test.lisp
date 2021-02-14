@@ -6,10 +6,14 @@
               (make-list 6 :initial-element nil))
   "Le plateau de puissance 4 en lui-même.")
 
+(defparameter *moves* nil
+  "Reprend la liste des coups ayant été jouée.")
+
 (defun make-new-board ()
   "Permet de créer un plateau de jeu tout neuf."
   (setf *board* (make-array 7 :initial-element
-                            (make-list 6 :initial-element nil))))
+                            (make-list 6 :initial-element nil)))
+  (setf *moves* nil))
 
 (defun playerify (board-case)
   "Permet d'afficher proprememnt chaque case."
@@ -55,8 +59,10 @@ endroit sur le plateau."
   (notany #'null
           (map 'list #'car board)))
 
-(defun play (i color board)
+(defun play (i color board &optional (mark nil))
   "Fonction permettant de jouer un jeton sur le plateau."
+  (when mark
+    (setf *moves* (append *moves* (list i))))
   (let ((c-board (copy-seq board)))
     (labels ((push-until (lat token)
                 (cond
@@ -204,20 +210,11 @@ jusqu'en bas à droite."
             (- (reduce #'+ (mapcar #'eval-num (list vert hori l-di r-di)))
                (reduce #'+ (mapcar #'eval-num (list vero horo l-do r-do)))))))))
 
-
-(defstruct move column-choice eval-state)
-
-(defun max-move (mov1 mov2)
-  (if (> (move-eval-state mov1) (move-eval-state mov2)) mov1 mov2))
-
 (declaim (inline max-to-color))
 (defun max-to-color (n)
   (if (eql n 1)
       'red
       'yellow))
-
-(defun min-move (mov1 mov2)
-  (if (< (move-eval-state mov1) (move-eval-state mov2)) mov1 mov2))
 
 #|(defmacro defmemo (fun-name args &body body)
   (let ((big-hash (gensym)))
@@ -230,6 +227,7 @@ jusqu'en bas à droite."
 |#
 
 (defun get-max-min-seq (lst key)
+  "Donne la séquence de coups ayant la meilleure évaluation, selon la couleur."
   (let ((max-seq
           (reduce (lambda (a b)
             (if (funcall key (cdr a) (cdr b))
@@ -240,6 +238,7 @@ jusqu'en bas à droite."
           max-seq))
 
 (defun group-by (list key)
+  "Groupe les éléments d'une liste selon un certain prédicat/fonction."
   (declare (optimize (speed 3) (safety 0) (debug 0)))
   (declare (type cons list) (type function key))
   (labels ((grouper (lat the-key acc)
@@ -257,6 +256,8 @@ jusqu'en bas à droite."
     (grouper list key nil)))
 
 (defun max-len-filtr (big-list &key (fn 'identity))
+  "Retourne toutes les listes de tailles maximales,
+ainsi que la longueur de ces listes, et une liste contenant les listes de tailles inférieures."
   (let ((max-len    0)
         (acc      nil)
         (rejected nil))
@@ -272,6 +273,7 @@ jusqu'en bas à droite."
     (values acc max-len rejected)))
 
 (defun make-moves (moves)
+  "Permet de trouver une position uniquement en fonction des coups joués."
   (let ((first-player 'red)
         (board (make-array 7 :initial-element
                            (make-list 6 :initial-element nil))))
@@ -285,17 +287,20 @@ jusqu'en bas à droite."
       board)))
 
 (defun eval-sequence (moves)
+  "Permet d'évaluer une position uniquement en fonction des coups joués."
   (evaluation (make-moves moves)))
 
 (defun parity (num)
+  "Fonction retournant -1 si le nombre est pair, 1 sinon."
   (if (evenp num)
       -1
       1))
 
-(defparameter *all-possible-moves* nil)
+(defparameter *all-possible-moves* nil
+  "Variable globale reprennant tout les coups possibles retournés par notre algorithme minimax.")
 
-(defun minmax (move-seq depth
-               &optional (base nil))
+(defun minmax (move-seq depth &optional (base nil))
+  "Retourne toutes les suites de coups possibles, ainsi que l'évaluation leur étant attribuée."
   (let* ((tru-moves (append base move-seq))
          (board     (make-moves tru-moves)))
     (cond
@@ -317,10 +322,17 @@ jusqu'en bas à droite."
   *all-possible-moves*)
 
 (defun flatten (nested)
+  "Permet d'aplatir une liste."
   (reduce #'nconc nested))
 
-(defun best-play (depth)
-  (minmax nil depth)
+(defun best-play (depth moves)
+  "Retourne le meilleur coup possible en fonction de la profondeur."
+  ;; (minmax nil depth moves)
+  (mapc (lambda (lst)
+          (setf (car lst)
+            (nthcdr (length moves)
+                    (car lst))))
+                *all-possible-moves*)
   (loop (multiple-value-bind (valuable max-len rejected)
           (max-len-filtr *all-possible-moves* :fn #'car)
           (when (= max-len 1) (return))
@@ -328,8 +340,8 @@ jusqu'en bas à droite."
              (mapcar (lambda (a)
                       (get-max-min-seq a (lambda (c d)
                                              (if (evenp max-len)
-                                                (< c d)
-                                                (> c d)))))
+                                                (> c d)
+                                                (< c d)))))
                     (group-by valuable (lambda (a)
                                         (butlast (car a))))))
             (push rejected *all-possible-moves*)
@@ -340,7 +352,6 @@ jusqu'en bas à droite."
                          b))
                 *all-possible-moves*)))
 
-             #|
 (defmacro player-repl (board player-turn context-name)
   (let ((other-player (if (eql player-turn 2) 1 2))
         (color (if (eql player-turn 1) 'yellow 'red)))
@@ -358,7 +369,7 @@ jusqu'en bas à droite."
              ((fullp i ,board)
               (format t "Cette colonne est déjà remplie!~%")
               (,context-name))
-             (t (setf ,board (play i ',color ,board))))))))
+             (t (setf ,board (play i ',color ,board t))))))))
 
 (defun play-against-player ()
   "L'interface utilisateur, permettant de jouer contre un autre joueur."
@@ -370,10 +381,8 @@ jusqu'en bas à droite."
 (defun play-against-computer ()
   (loop while (not (or (winningp *board*)
                        (tiedp *board*)))
-        do (setf *board* (play (move-column-choice
-                                (minimax *board* 5 1))
-                               'red *board*))
+        do (setf *board* (play (best-play 3 *moves*) 'red *board* t))
+        do (setf *all-possible-moves* nil)
         do (player-repl *board* 1 play-against-computer)
         if (winningp *board*)
           do (return "Vous avez gagné!")))
-|#
