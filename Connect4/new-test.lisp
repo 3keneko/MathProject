@@ -283,7 +283,7 @@ ainsi que la longueur de ces listes, et une liste contenant les listes de taille
                (t   'red))))
       (loop for move in moves
             do (setf board (play move first-player board))
-            do (setf first-player (get-opp first-player)))
+               (setf first-player (get-opp first-player)))
       board)))
 
 (defun eval-sequence (moves)
@@ -299,26 +299,23 @@ ainsi que la longueur de ces listes, et une liste contenant les listes de taille
 (defparameter *all-possible-moves* nil
   "Variable globale reprennant tout les coups possibles retournés par notre algorithme minimax.")
 
-(defun minmax (move-seq depth &optional (base nil))
+(defun minmax (move-seq depth)
   "Retourne toutes les suites de coups possibles, ainsi que l'évaluation leur étant attribuée."
-  (let* ((tru-moves (append base move-seq))
-         (board     (make-moves tru-moves)))
+  (let ((board (make-moves move-seq)))
     (cond
       ((tiedp board)
-       (push (cons tru-moves 0)
+       (push (cons move-seq 0)
              *all-possible-moves*))
       ((winningp board)
-       (push (cons tru-moves
-                   (* +inf (parity (length tru-moves))))
+       (push (cons move-seq
+                   (* +inf (parity (length move-seq))))
              *all-possible-moves*))
        ((= depth 0)
-        (push (cons tru-moves (eval-sequence tru-moves))
+        (push (cons move-seq (eval-sequence move-seq))
               *all-possible-moves*))
       (t (loop for move from 0 to 6
-               do (minmax (append move-seq
-                                  (list move))
-                                  (1- depth)
-                                  nil)))))
+               do (minmax (append move-seq (list move))
+                                  (1- depth))))))
   *all-possible-moves*)
 
 (defun flatten (nested)
@@ -327,15 +324,10 @@ ainsi que la longueur de ces listes, et une liste contenant les listes de taille
 
 (defun best-play (depth moves)
   "Retourne le meilleur coup possible en fonction de la profondeur."
-  (minmax nil depth moves)
+  (minmax moves depth)
   ;(setf *all-possible-moves* '(((1 1) . 5) ((1 2) . 3)
   ;                     ((2 1) . -2) ((2 2) . 5)))
   ;(format t "Before Change: ~A~%" *all-possible-moves*)
-  (mapc (lambda (lst)
-          (setf (car lst)
-            (nthcdr (length moves)
-                    (car lst))))
-        *all-possible-moves*)
   ;(format t "After Change: ~A~%" *all-possible-moves*)
   (loop (multiple-value-bind (valuable max-len rejected)
             (max-len-filtr *all-possible-moves* :fn #'car)
@@ -344,6 +336,12 @@ ainsi que la longueur de ces listes, et une liste contenant les listes de taille
           (when (= max-len 0)
             (format t "An error Occured, caught!")
             (return))
+         (mapc (lambda (lst)
+              (setf (car lst)
+                (nthcdr (length moves)
+                        (car lst))))
+               valuable)
+          (setf moves nil)
           (when (= max-len 1) (return))
           (setf *all-possible-moves*
              (mapcar (lambda (a)
@@ -356,7 +354,6 @@ ainsi que la longueur de ces listes, et une liste contenant les listes de taille
                   (if (> (cdr a) (cdr b)) a b))
                 *all-possible-moves*)))
 
-#|
 (defmacro player-repl (board player-turn context-name)
   (let ((other-player (if (eql player-turn 2) 1 2))
         (color (if (eql player-turn 1) 'yellow 'red)))
@@ -382,10 +379,11 @@ ainsi que la longueur de ces listes, et une liste contenant les listes de taille
                        (tiedp *board*)))
         do (player-repl *board* 1 play-against-player)
         do (player-repl *board* 2 play-against-player)))
-|#
+
 (defun play-against-computer ()
-  (loop do (setf *board* (play (best-play 2 *moves*) 'red *board* t))
-           (show-board *board*)
-           (setf *all-possible-moves* nil)
-           (let ((choice (read)))
-                 (play choice 'yellow *board* t))))
+  (loop while (not (or (winningp *board*)
+                       (tiedp *board*)))
+        do (setf *board* (play (best-play 3 *moves*) 'red *board* t))
+           (player-repl *board* 1 play-against-computer)
+        when (winningp *board*)
+          do (return "Vous avez gagné!")))
