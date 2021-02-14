@@ -282,9 +282,7 @@ ainsi que la longueur de ces listes, et une liste contenant les listes de taille
 
 (defun parity (num)
   "Fonction retournant -1 si le nombre est pair, 1 sinon."
-  (if (evenp num)
-      -1
-      1))
+  (if (evenp num) -1 1))
 
 (defparameter *all-possible-moves* nil
   "Variable globale reprennant tout les coups possibles retournés par notre algorithme minimax.")
@@ -301,7 +299,7 @@ ainsi que la longueur de ces listes, et une liste contenant les listes de taille
       ((= depth 0)
        (push (cons move-seq (eval-sequence move-seq))
              *all-possible-moves*))
-      (t (loop for move from 0 to 6
+      (t (loop for move in (get-legal board)
                do (minmax (append move-seq (list move)) (1- depth))))))
   *all-possible-moves*)
 
