@@ -322,27 +322,27 @@ ainsi que la longueur de ces listes, et une liste contenant les listes de taille
   "Permet d'aplatir une liste."
   (reduce #'nconc nested))
 
-(defun best-play (depth moves)
+(defun best-play (#|depth|# moves)
   "Retourne le meilleur coup possible en fonction de la profondeur."
-  (minmax moves depth)
-  ;(setf *all-possible-moves* '(((1 1) . 5) ((1 2) . 3)
-  ;                     ((2 1) . -2) ((2 2) . 5)))
+  ;(minmax moves depth)
+  (setf *all-possible-moves* '(((1 2 1 1) . 5) ((1 2 1 2) . 3)
+                               ((1 2 2 1) . -2) ((1 2 2 2 1) . 5)
+                               ((1 2 2 2 2) . 4)))
   ;(format t "Before Change: ~A~%" *all-possible-moves*)
+  (mapc (lambda (lst)
+          (setf (car lst)
+                (nthcdr (length moves)
+            (car lst))))
+    *all-possible-moves*)
   ;(format t "After Change: ~A~%" *all-possible-moves*)
   (loop (multiple-value-bind (valuable max-len rejected)
             (max-len-filtr *all-possible-moves* :fn #'car)
-          (format t "Valuable: ~A~%Max-Len: ~A~%Rejected: ~A~%"
-                  valuable max-len rejected)
           (when (= max-len 0)
             (format t "An error Occured, caught!")
             (return))
-         (mapc (lambda (lst)
-              (setf (car lst)
-                (nthcdr (length moves)
-                        (car lst))))
-               valuable)
-          (setf moves nil)
           (when (= max-len 1) (return))
+          (format t "Valuable: ~A~%Max-Len: ~A~%Rejected: ~A~%"
+                  valuable max-len rejected)
           (setf *all-possible-moves*
              (mapcar (lambda (a)
                        (get-max-min-seq a
@@ -379,7 +379,7 @@ ainsi que la longueur de ces listes, et une liste contenant les listes de taille
                        (tiedp *board*)))
         do (player-repl *board* 1 play-against-player)
         do (player-repl *board* 2 play-against-player)))
-
+#|
 (defun play-against-computer ()
   (loop while (not (or (winningp *board*)
                        (tiedp *board*)))
@@ -387,3 +387,4 @@ ainsi que la longueur de ces listes, et une liste contenant les listes de taille
            (player-repl *board* 1 play-against-computer)
         when (winningp *board*)
           do (return "Vous avez gagné!")))
+|#
