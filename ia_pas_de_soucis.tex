@@ -1171,6 +1171,9 @@ Ainsi, nous pourrions représenter notre plateau ainsi:\\
 De cela, il devient très clair que le meilleur score que vous puissiez espérer avoir est 4.\\
 Ainsi, c'est par une alternance de cycle où l'on minimise les scores, et de cycles où on les maximise que se déroule le minimax (en effet, si je devais prédire votre coup, je dirai que vous iriez toujours vers là où la case est la plus haute.)\\
 Le défaut du minimax est quand le nombre de positions dans la partie devient énorme. C'est le cas du puissance 4, ou encore du jeu d'échecs, il faut donc pouvoir construire des heuristiques ou alors poussez l'optimisation jusqu'au bout.\\Le reste de ce chapître présente quelques méthodes d'optimisations de l'algorithme minimax.\\
+\subsection{Un programme de jeu.}
+\lstinputlisting[language=Lisp]{Connect4/ztest.lisp}
+\newpage
 \subsubsection{$\alpha\beta$-élagage.}
 L'alpha-bêta élagage est une technique d'optimisation inventée par nul autre que John MacCarthy (l'inventeur du Lisp, en personne!).\\
 Nous ne rentrerons pas dans les détails du fonctionnement de l'$\alpha\beta$-élagage. En clair, celui-ci permet de réduire grandement le nombre de recherches à faire dans l'arbre de décision sur lequel nous appliquons notre algorithme minimax.\\
@@ -1184,9 +1187,6 @@ La {\bf mémoization} est une stratégie typique en programmation fonctionnelle.
 Le principe est simple: Chaque fois que nous appelons une fonction, nous stockons le résultat associé à la valeur entrée dans une table de hachage, dès que nous rappelons la fonction, nous vérifions si le paramètre de celle-ci se trouve dans notre table de hachage.\\
 Si c'est le cas, nous retournons directement la valeur associée à la clé, n'oublions pas que cette opération est de complexité O(1), ce qui explique l'intérêt de stocker le résultat plutôt que d'avoir à le recalculer entièrement.\\
 Nous utilisons cette stratégie dans notre puissance 4 avant tout car il est possible d'atteindre une même position, à partir de suites de coups différentes, il est donc intéressant de ne pas avoir à réévaluer la position inutilement.\\
-\subsection{Un programme de jeu.}
-\lstinputlisting[language=Lisp]{Connect4/connect4-game.lisp}
-\newpage
 \section{Le Machine Learning.}
 \subsection{Définition du Machine Learning}
 Le Machine Learning, ou Apprentissage Automatique, est un type d'intelligence artificielle qui analyse et s'entraine avec des données, permetant dès lors aux ordinateurs d'apprendre par experience (sans avoir été explicitement programmé à cet effet ou par intervention humaine). Cela consiste en algorithmes d’apprentissage qui améliorent leur performance à exécuter des tâches au fil du temps grâce à de l’expérience.\\Le machine learning est présent dans la vie de tous les jours. Par exemple, nos boîtes mail sont équipées d'algorithmes capables d’apprendre avec le temps. Prenons les spams, leurs émetteurs sont capables de s'adapter, de changer leur manière d’agir, il est donc impératif que l’algorithme de défense contre les spams change lui aussi. Dans les e-mails, le machine learning se cache aussi derrière les réponses automatiques, en 2018, 6,7 milliards des mails envoyés étaient des réponses automatiques. On peut aussi trouver des IA dans les réseaux sociaux (reconnaissance faciale entre amis Facebook,...), blocage automatique des cartes de crédit volées, et bien d'autres.\\[1.0cm]
