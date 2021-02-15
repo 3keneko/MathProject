@@ -324,11 +324,11 @@ ainsi que la longueur de ces listes, et une liste contenant les listes de taille
 
 (defun best-play (#|depth|# moves)
   "Retourne le meilleur coup possible en fonction de la profondeur."
-  ;(minmax moves depth)
+  :q
+                                        ;(minmax moves depth)
   (setf *all-possible-moves* '(((1 2 1 1) . 5) ((1 2 1 2) . 3)
                                ((1 2 2 1) . -2) ((1 2 2 2 1) . 5)
                                ((1 2 2 2 2) . 4)))
-  ;(format t "Before Change: ~A~%" *all-possible-moves*)
   (mapc (lambda (lst)
           (setf (car lst)
                 (nthcdr (length moves)
