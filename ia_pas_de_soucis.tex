@@ -13,6 +13,7 @@
 \usepackage{xcolor, changepage, array, placeins, float, verbatim}
 \usepackage{qtree, forest}
 \usepackage[utf8]{inputenc}
+\usepackage{setspace}
 \usepackage{listingsutf8}
 \pagestyle{fancy}
 
@@ -110,6 +111,7 @@
 \author{Un projet de Evrard Maurice,\\ Lejeune Grégory,\\ Lejeune Lucas \\ Mathieu Louca,\\ Pluvinage Victor\\ et de Ralet Vincent.}
 
 \begin{document}
+\onehalfspacing
 \maketitle
 \newpage
 \tableofcontents
@@ -319,8 +321,8 @@ Depuis 1993, l'IA continue de faire ses preuves au travers de nombreux exploits,
   \begin{center}
     \Ovalbox{$ \neg (A \land B ) \ffi \neg A \lor \neg B$}
   \end{center}
-Pour résoudre ceci, nous allons utiliser une grande table de vérité: \newpage
-  \begin{table}[!t]
+  Pour cela nous utiliser une grande table de vérité.
+  \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|c|c|c|}
       \hline $A$ & $B$ & $A \land B$ & $\neg (A \land B)$ & $\neg A$ & $\neg B$ & $\neg A \lor \neg B$ & $\neg (A \land B) \ffi \neg A \lor \neg B$ \\
@@ -334,7 +336,7 @@ Pour résoudre ceci, nous allons utiliser une grande table de vérité: \newpage
   Ainsi, comme nous pouvons le constater, la dernière ligne est remplie de ``V'', cela veut donc dire que nous venons de prouver la relation $\neg (A \land B) \ffi \neg A \lor \neg B$ , aussi connue sous le nom de ``la loi de DeMorgan'', nous avons prouvé par la même occasion que $\neg (A \land B) \ffi \neg A \lor B$ est {\bf valide}, cela veut dire qu'elle sera toujours vraie, peu-importe les A, et les B.\\[0.5cm]
   Il existe toutefois une autre manière de faire, il s'agit d'utiliser un arbre, cette méthode requiert moins d'étapes et nous permettra de résoudre certains problèmes de manière plus simple. Toutefois, il y a quelques règles à respecter lors de l'utilisation d'un arbre, ces  règles sont répertoriées dans le tableau ci-dessous. \\
   \begin{center}
-    \begin{table}[!hbt]
+    \begin{table}[H]
       \centering
     \begin{tabular}{|M{2.5cm}|M{2.5cm}|M{2.5cm}|}
       \hline \begin{forest} [$\neg (\neg \phi)$ [$\phi$]]                                      \end{forest} &
