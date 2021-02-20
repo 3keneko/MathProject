@@ -233,9 +233,9 @@ Depuis 1993, l'IA continue de faire ses preuves au travers de nombreux exploits,
         $A \oplus B$: Je suis boulanger ou alors je sais faire des gâteaux. (Une seule de ces deux propositions doit être vraie). \\
         $A \imply B$: Je suis boulanger, donc je sais faire des gâteaux. \\
         $A \ffi B$: Je suis boulanger si et seulement si je sais faire des gâteaux. \\
-        ... \\
+        ...
     \subsubsection{Quelques tables de vérité.}
-    Après tant d'exemples ``instructifs'', il serait temps de passer aux fameuses {\bf tables de vérité}, ces tables seront d'une importance capitale lors de résolutions de problèmes, les voici donc: \\
+    Après tant d'exemples ``instructifs'', il serait temps de passer aux fameuses {\bf tables de vérité}, ces tables seront d'une importance capitale lors de résolutions de problèmes, les voici donc:
     \begin{table}[H]
       \hspace{1.0cm}
       \begin{minipage}[c]{0.1\linewidth}
@@ -489,7 +489,6 @@ Les logiciens, non contents de la seule logique propositionnelle, ont créé un 
   \item La logique modale, ayant recours à des opérateurs comme ``il est nécessaire que'' ou ``il est possible que''.
   \item Et bien d'autres...
 \end{itemize}
-\vfill
 \subsection{Introduction à Prolog et à la logique des Prédicats.}
 Dans cette nouvelle sous-section, nous allons nous intéresser à la logique des prédicats, connue également sous le nom de logique de premier ordre. \\
 
@@ -1218,7 +1217,7 @@ Il faudra donc visiter la ville H! \\
 De H, nous pouvons visiter les villes I, J et K, voici encore une fois le graph des villes visitées : \\
 \begin{figure}[H]
   \centering
-  \includegraphics[width=8.0cm, height=6.0cm]{imgs/fourth_search.png}
+  \includegraphics[width=8.0cm]{imgs/fourth_search.png}
 \end{figure}
 Nous rajoutons ainsi à notre liste des priorités ces villes avec les coûts associés : \\
 \begin{itemize}
@@ -1359,7 +1358,8 @@ La {\bf mémoization} est une stratégie typique en programmation fonctionnelle.
 Le principe est simple: Chaque fois que nous appelons une fonction, nous stockons le résultat associé à la valeur entrée dans une table de hachage, dès que nous rappelons la fonction, nous vérifions si le paramètre de celle-ci se trouve dans notre table de hachage.\\
 Si c'est le cas, nous retournons directement la valeur associée à la clé, n'oublions pas que cette opération est de complexité O(1), ce qui explique l'intérêt de stocker le résultat plutôt que d'avoir à le recalculer entièrement.\\
 
-Nous utilisons cette stratégie dans notre puissance 4 avant tout car il est possible d'atteindre une même position, à partir de suites de coups différentes, il est donc intéressant de ne pas avoir à réévaluer la position inutilement.\\
+Nous utilisons cette stratégie dans notre puissance 4 avant tout car il est possible d'atteindre une même position, à partir de suites de coups différentes, il est donc intéressant de ne pas avoir à réévaluer la position inutilement.
+\newpage
 \section{Le Machine Learning.}
 \subsection{Définition du Machine Learning}
 Le Machine Learning, ou Apprentissage Automatique, est un type d'intelligence artificielle qui analyse et s'entraine avec des données, permettant dès lors aux ordinateurs d'apprendre par expérience (sans avoir été explicitement programmé à cet effet ou par intervention humaine). Cela consiste en algorithmes d’apprentissage qui améliorent leur performance à exécuter des tâches au fil du temps grâce à de l’expérience.\\
