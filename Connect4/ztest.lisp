@@ -1,6 +1,3 @@
-(defconstant +inf most-positive-fixnum)
-(defconstant -inf (* -1 +inf))
-
 (defparameter *board*
   (make-array 7 :initial-element
               (make-list 6 :initial-element nil))
@@ -78,19 +75,6 @@
                 b))
           lat))
 
-(defun vertical-connections (color board)
-  "Donne le nombre maximal de connection verticale."
-  (labels ((number-in-vertical (column colour &optional (buffer 0))
-             (cond
-               ((null column) buffer)
-               ((not (car column)) (number-in-vertical (cdr column) colour 0))
-               ((eq (car column) colour)
-                (number-in-vertical (cdr column) colour (1+ buffer)))
-               (t buffer))))
-    (maximum (map 'list (lambda (column)
-                          (number-in-vertical column color))
-                  board))))
-
 (defun max-subseq (color seq)
   "Donne le nombre maximal d'élément se ressemblant dans une liste. 
 e.g => (max-subseq 'red '(red red yellow red red red yellow yellow)) == 2"
@@ -104,6 +88,19 @@ e.g => (max-subseq 'red '(red red yellow red red red yellow yellow)) == 2"
           else
             do (setf temp 0))
     maxi))
+
+(defun vertical-connections (color board)
+  "Donne le nombre maximal de connection verticale."
+  (labels ((number-in-vertical (column colour &optional (buffer 0))
+             (cond
+               ((null column) buffer)
+               ((not (car column)) (number-in-vertical (cdr column) colour 0))
+               ((eq (car column) colour)
+                (number-in-vertical (cdr column) colour (1+ buffer)))
+               (t buffer))))
+    (maximum (map 'list (lambda (column)
+                          (number-in-vertical column color))
+                  board))))
 
 (defun horizontal-connections (color board)
   "Donne le nombre maximal de connections horizontales."
@@ -139,12 +136,12 @@ jusqu'en bas à droite."
           for r from row to max-row
           collect (cons c r))))
 
-(defparameter *top-right-corner* '((3 . 0) (4 . 0) (5 . 0)
-                                   (6 . 0) (6 . 1) (6 . 2))
+(defconstant top-right-corner '((3 . 0) (4 . 0) (5 . 0)
+                                (6 . 0) (6 . 1) (6 . 2))
   "Coordonnées des points se trouvant en haut à droite.")
 
-(defparameter *top-left-corner* '((3 . 0) (2 . 0) (1 . 0)
-                                  (0 . 0) (0 . 1) (0 . 2))
+(defconstant top-left-corner '((3 . 0) (2 . 0) (1 . 0)
+                               (0 . 0) (0 . 1) (0 . 2))
   "Coordonnées des points se trouvant en haut à gauche.")
 
 ;; Cette macro permet d'écrire les fonctions
@@ -172,9 +169,9 @@ jusqu'en bas à droite."
 ;;; left-diagonal-connections et
 ;;; right-diagonal-connections.
 (max-in-some-diagonal left-diagonal-connections
-                      color board  make-left-diagonal *top-right-corner*)
+                      color board  make-left-diagonal top-right-corner)
 (max-in-some-diagonal right-diagonal-connections
-                      color board make-right-diagonal *top-left-corner*)
+                      color board make-right-diagonal top-left-corner)
 
 (defun connections (color board)
   "Donne le nombre maximal de connections sur le plateau."
@@ -191,7 +188,6 @@ jusqu'en bas à droite."
       (> (connections 'red    board) 3)))
 
 ;;; PARTIE MINIMAX
-
 (defun evaluation (board)
   "Fonction permettant d'attribuer une valeur à chaque position."
   (cond 
@@ -282,6 +278,13 @@ ainsi que la longueur de ces listes, et une liste contenant les listes de taille
   "Fonction retournant -1 si le nombre est pair, 1 sinon."
   (if (evenp num) -1 1))
 
+(defun flatten (nested)
+  "Permet d'aplatir une liste."
+  (reduce #'nconc nested))
+
+(defconstant +inf most-positive-fixnum)
+(defconstant -inf (* -1 +inf))
+
 (defparameter *all-possible-moves* nil
   "Variable globale reprennant tout les coups possibles retournés par notre algorithme minimax.")
 
@@ -300,10 +303,6 @@ ainsi que la longueur de ces listes, et une liste contenant les listes de taille
       (t (loop for move in (get-legal board)
                do (minmax (append move-seq (list move)) (1- depth))))))
   *all-possible-moves*)
-
-(defun flatten (nested)
-  "Permet d'aplatir une liste."
-  (reduce #'nconc nested))
 
 (defun best-play (depth moves)
   "Retourne le meilleur coup possible en fonction de la profondeur."
@@ -327,6 +326,7 @@ ainsi que la longueur de ces listes, et une liste contenant les listes de taille
        (caar (reduce (lambda (a b) (if (> (cdr a) (cdr b)) a b))
             *all-possible-moves*)))
 
+;;: PARTIE INTERFACE UTILISATEUR
 (defmacro player-repl (board player-turn context-name)
   (let ((other-player (if (eql player-turn 2) 1 2))
         (color (if (eql player-turn 1) 'yellow 'red)))
