@@ -9,11 +9,18 @@
 (defparameter *moves* nil
   "Reprend la liste des coups ayant été jouée.")
 
+;;; LOGIQUE DE JEU
 (defun make-new-board ()
   "Permet de créer un plateau de jeu tout neuf."
   (setf *board* (make-array 7 :initial-element
                             (make-list 6 :initial-element nil)))
   (setf *moves* nil))
+
+(defmacro count-to (x)
+  "Une macro similaire à iota de la bibliothèque alexandria."
+  (let ((i (gensym)))
+    `(loop for ,i from 1 to ,x
+           collect ,i)))
 
 (defun playerify (board-case)
   "Permet d'afficher proprememnt chaque case."
@@ -21,17 +28,6 @@
     (yellow 'o)
     (red    'x)
     (t      '+))) 
-
-(defmacro count-to (x)
-  "Une macro similaire à iota de la bibliothèque alexandria."
-  (let ((i (gensym)))
-    `(loop for ,i from 1 to ,x
-          collect ,i)))
-
-(defmacro get-pos (column row board)
-  "Retourne l'état de la case se trouvant à un certain
-endroit sur le plateau."
-  `(nth ,row ,(aref board column)))
 
 (defun show-board (board)
   "Permet d'afficher le plateau."
@@ -194,6 +190,8 @@ jusqu'en bas à droite."
   (or (> (connections 'yellow board) 3)
       (> (connections 'red    board) 3)))
 
+;;; PARTIE MINIMAX
+
 (defun evaluation (board)
   "Fonction permettant d'attribuer une valeur à chaque position."
   (cond 
@@ -325,10 +323,9 @@ ainsi que la longueur de ces listes, et une liste contenant les listes de taille
                        (get-max-min-seq a
                            (lambda (c d) (if (evenp max-len) (< c d) (> c d)))))
                     (group-by valuable (lambda (a) (butlast (car a))))))
-          (setf *all-possible-moves* (append rejected *all-possible-moves*))
-       (caar (reduce (lambda (a b)
-                  (if (> (cdr a) (cdr b)) a b))
-                *all-possible-moves*)))
+          (setf *all-possible-moves* (append rejected *all-possible-moves*))))
+       (caar (reduce (lambda (a b) (if (> (cdr a) (cdr b)) a b))
+            *all-possible-moves*)))
 
 (defmacro player-repl (board player-turn context-name)
   (let ((other-player (if (eql player-turn 2) 1 2))
