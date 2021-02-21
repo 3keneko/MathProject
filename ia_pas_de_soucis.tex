@@ -30,6 +30,7 @@
   filecolor=red,
   urlcolor=blue,
 }
+
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolour},
     commentstyle=\color{codecomments},
@@ -49,7 +50,7 @@
     tabsize=2,
     rulecolor=\color{black},
     frame=L
-  }
+}
 
 \lstset{
     style=mystyle,
@@ -79,7 +80,7 @@
     {await}{{{\color{keycolor}await}}}5
     {\ as\ }{{{\color{keycolor}as}}}4
     {async\ }{{{\color{keycolor}async}}}5
-  }
+}
 
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
 \renewcommand{\sectionmark}[ 1 ]{\markboth{\thesection. #1 }{ }}
@@ -96,9 +97,14 @@
 \rfoot[{\bf \thepage}]{\textbf{IA PAS DE SOUCIS}}
 \cfoot[]{}
 
+\newcommand{\connect}[1]{
+  \lstinputlisting[language=Lisp, linerange={#1}]{Connect4/ztest.lisp}
+}
+
 \newcommand{\pather}[1]{
   \lstinputlisting[language=Lisp, linerange={#1}]{PathFinders/dijkstra-path.lisp}
 }
+
 \numberwithin{equation}{subsection}
 \renewcommand{\headrulewidth}{ 0.15 mm}
 \renewcommand{\footrulewidth}{ 0.15 mm}
@@ -1305,7 +1311,7 @@ Le but de ce chapître est de présenter comment un ordi peu gagner contre un hu
 
 Nous implémenterons une IA capable de battre un humain à puissance 4.\\
 \subsubsection{L'agorithme Minimax.}
-Tout d'abord, à la base de cette section se trouve l'algorithme minimax. Pour comprendre celui-ci, nous allons jouer à un jeu!\\
+À la base de cette section se trouve l'algorithme minimax. Pour comprendre celui-ci, nous allons jouer à un jeu!\\
 Prenons comme plateau l'arbre suivant:
 \begin{figure}[H]
   \centering
@@ -1337,10 +1343,69 @@ Le défaut du minimax est quand le nombre de positions dans la partie devient é
 
 Le reste de ce chapître présente quelques méthodes d'optimisations de l'algorithme minimax.\\
 \subsection{Un programme de jeu.}
-\lstinputlisting[language=Lisp]{Connect4/ztest.lisp}
-\newpage
+Nous voici enfin au cœur du sujet, avec l'implémentation de notre algorithme Minimax en Common Lisp. Le code se sépare en trois parties:
+\begin{enumerate}
+  \item La partie Logique de Jeu
+  \item La partie Minimax
+  \item La partie interface utilisateur
+\end{enumerate}
+sans plus tergiverser, analysons de suite le code.
+\connect{1-7}
+Ici, nous utilisons deux variables globales, toujours en respectant la convention des cache-oreilles. Il est intéressant de noter qu'il est en général conseillé de limiter le nombre de variables globales se promenant dans un code au strict minimum, en effet, celles-ci empêchent une lecture linéaire, et peuvent mener à ce qui est connu sous le nom de ``code spagetthi''. Dans notre code de puissance 4, nous n'en utiliserons au total trois.
+\connect{9-14}
+Avec cette fonction permettant de construire un nouveau tableau, nous entamons notre première partie concernant la logique de jeu. \\
+
+Il est intéressant ici de noter la structure de donnée représentant le tableau de jeu. Un tableau comprenant des listes simplement chaînées. Nous avons choisi une structure de donnée si originale simplement car nous aimions la manière à laquelle celle-ci se laissait représenter en mémoire. \\
+\connect{16-39}
+{\bf count-to} et {\bf playerify} servent juste à alléger la syntaxe à certains endroits.
+Nous faisons remarquer avant tout l'utilisation de {\bf gensym} dans notre macro, {\bf gensym} a pour rôle de créer un symbole au nom unique, ainsi, les variables étant définies dans la macro ne peuvent pas être appelées en dehors de la macro ({\bf gensym} existe également en prolog). {\bf case} est l'équivalent de {\bf switch} en C. \\
+
+{\bf show-board} nous permet d'afficher notre structure de donnée à l'écran de manière convenable.
+\connect{41-53}
+Voici trois fonctions d'aide, celles-ci ont pour but d'alléger grandement le corps des fonctions plus grandes, se situant plus loin dans le code. Nous recommandons grandement la lecture de {\bf The Little Schemer} afin de comprendre pourquoi de telles fonctions sont très importantes.
+
+\connect{55-67}
+Notons ici l'utilisation de {\bf \&optional}, permettant d'utiliser des paramètres optionnels. Et {\bf labels} permettant de définir des fonctions à l'intérieur d'autres fonctions.
+
+\connect{70-90}
+Encore deux fonctions d'aides, celles-ci seront très pratiques pour vérifier le nombre de connections entre les jetons sur notre plateau de puissance 4.
+
+\connect{92-114}
+Ici, nous définissons enfin des fonctions permettant de vérifier le nombre de connections verticales et horizontales sur notre plateau. Attention au faux-amis! {\bf return} en Common Lisp n'est utile que dans les boucles, pour retourner une valeur à partir d'une fonction, il n'est nécessaire de préciser return que lorsque nous désirons faire sortir une valeur d'une boucle.\\
+
+Le code pour vérifier les connections horizontales et verticales reste relativement simple. Intéressons-nous maintenant au code permettant de vérifier les connections en diagonale.
+
+\connect{117-174}
+Ici, remarquons la définition de constantes. Les constantes sont à différencier des variables globales telles que *moves* de par le fait qu'elles sont parfaitement immutables, et ainsi, plus facilement optimisables par le compilateur et laissent au code sa lisibilité. \\
+
+L'utilisation d'une macro dans le cas de {\bf max-in-some-diagonal} aurait put être remplacé par une simple fonction d'aide. Nous aimions juste la liberté supplémentaire au niveau de la syntaxe dans la définition des fonctions du dessous que nous offrait la macro.
+
+\connect{176-188}
+Voici enfin les deux dernières fonctions composant notre partie de la logique de jeu. {\bf connections} est encore une fois une fonction d'aide, il est intéressant de noter ici l'utilisation de {\bf max} comme fonction polyvariadique.
+
+\connect{190-205}
+Notre partie Minimax commence enfin avec la fameuse fonction d'évaluation. Celle-ci marche avec la formule suivante:
+$$eval = 1R * 1 + 2R * 550 + 3R * 3500 + 4R * 50000000 - 1Y * 1 - 2Y * 550 -3Y * 3500 - 4Y * 50000000$$
+Celle-ci est bien évidemment perfectible, (lors des scéances de tests, celle-ci apporta à notre algorithme un comportement fort sadique).
+
+\connect{207-257}
+Toutes les fonctions suivantes ne sont que des fonctions d'aide, nous n'allons pas tergiverser énormément dessus. La chose importante à noter toutefois est l'utilisation de {\bf (declaim (inline f))} permettant de définir une fonction comme étant inline (il s'agit simplement d'une technique d'optimisation, les fonctions inlines étant en dehors de la portée de ce projet, nous encourageons le lecteur à se renseigner sur celles-ci de lui-même).
+
+\connect{259-275}
+Ces fonctions permettent de créer un tableau de puissance 4, uniquement en fonction d'une suite de coups. {\bf flet} a la même fonction que {\bf labels}.
+
+\connect{277-283}
+Deux fonctions d'aide, leur intérêt est assez explicite grâce aux doc-strings les accompagnants.
+
+\connect{291-327}
+Voici enfin venir la fin de notre partie minimax. \\
+
+Nous nous intéresserons ici à l'intérêt de {\bf multiple-value-bind}, en effet, en Lisp, il est possible de retourner plusieurs valeurs d'une fonction grâce à l'utilisation de {\bf values}. Il faut tout de même un moyen de récupérer toutes les valeurs sorties de la fonctions, et savoir relier ses valeurs à des variables. C'est ici qu'entre en jeu {\bf multiple-value-bind}, dont l'intérêt est justement de récupérer les valeurs sorties par {\bf values} et les rattacher à des variables locales.
+
+\connect{329-363}
+Voici en fin venir la fin du programme Lisp, avec la partie interface utilisateur, le programme permet de jouer contre un autre joueur, ou encore de jouer contre l'IA. \\
 \subsubsection{$\alpha\beta$-élagage.}
-L'alpha-bêta élagage est une technique d'optimisation inventée par nul autre que John MacCarthy (l'inventeur du Lisp, en personne!).\\
+L'alpha-bêta élagage est une technique d'optimisation inventée par nul autre que John McCarthy (l'inventeur du Lisp, en personne!).\\
 
 Nous ne rentrerons pas dans les détails du fonctionnement de l'$\alpha\beta$-élagage. En clair, celui-ci permet de réduire grandement le nombre de recherches à faire dans l'arbre de décision sur lequel nous appliquons notre algorithme minimax.\\
 
