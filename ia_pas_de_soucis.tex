@@ -363,8 +363,8 @@ Depuis 1993, l'IA continue de faire ses preuves au travers de nombreux exploits,
        \begin{forest} [$\neg (\phi \lor \psi)$ [$\begin{array}{c}\neg \phi \\ \neg \psi\end{array}$]] \end{forest} &
        \begin{forest} [$\phi \imply \psi$ [$\neg \phi$][$\psi$]]                               \end{forest} \\
       \hline \begin{forest} [$\neg (\phi \imply \psi)$ [$\begin{array}{c}\phi\\\neg \psi\end{array}$]] \end{forest} &
-       \begin{forest} [$\phi \ffi \psi$ [$\begin{array}{c}\phi \\ \psi\end{array}$] [$\begin{array}{c}\neg \phi \\ \neg \psi \end{array}$]] \end{begin} &
-       \forest{forest} [$\neg (\phi \ffi \psi)$ [$\begin{array}{c}\phi \\ \neg \psi\end{array}$] [$\begin{array}{c}\neg \phi \\ \psi\end{array}$]]  \end{forest} \\
+              \begin{forest} [$\phi \ffi \psi$ [$\begin{array}{c}\phi \\ \psi\end{array}$] [$\begin{array}{c}\neg \phi \\ \neg \psi \end{array}$]] \end{forest} &
+       \begin{forest} [$\neg (\phi \ffi \psi)$ [$\begin{array}{c}\phi \\ \neg \psi\end{array}$] [$\begin{array}{c}\neg \phi \\ \psi\end{array}$]]  \end{forest} \\
       \hline
     \end{tabular}
   \end{table}
@@ -375,23 +375,27 @@ Depuis 1993, l'IA continue de faire ses preuves au travers de nombreux exploits,
   \begin{center}
   \begin{forest}
   [$\neg (\neg (A \land B) \ffi \neg A \lor \neg B)$
-    [$\neg(A \land B)$
-    [$\neg (\neg A \lor \neg B)$
-    [$A$
-    [$B$
+  [$\begin{array}{c}
+    \neg(A \land B)\\
+    \neg (\neg A \lor \neg B)\\
+    A \\
+    B \\
+   \end{array}$
     [$\neg A$
     [$\bot$]]
     [$\neg B$
-    [$\bot$]]]]]]
-    [$\neg (\neg (A \land B))$
-    [$ \neg A \lor \neg B$
-    [$A \land B$
-    [$A$
-    [$B$
+    [$\bot$]]]
+    [$\begin{array}{c}
+        \neg (\neg (A \land B)) \\
+        \neg A \lor \neg B \\
+        A \land B \\
+        A \\
+        B \\
+      \end{array}$
     [$\neg A$
     [$\bot$]]
     [$\neg B$
-    [$\bot$]]]]]]]]
+    [$\bot$]]]]
   \end{forest}
 \end{center}
 Chaque branche de l'arbre fini bien par $\bot$, nous venons donc de prouver la loi de DeMorgan, avec l'aide de notre arbre de démonstration. \\
