@@ -1431,15 +1431,29 @@ Nous utilisons cette stratégie dans notre puissance 4 avant tout car il est pos
 \newpage
 \section{Le Machine Learning.}
 \subsection{Définition du Machine Learning}
+
 Le Machine Learning, ou Apprentissage Automatique, est un type d'intelligence artificielle qui analyse et s'entraine avec des données, permettant dès lors aux ordinateurs d'apprendre par expérience (sans avoir été explicitement programmé à cet effet ou par intervention humaine). Cela consiste en algorithmes d’apprentissage qui améliorent leur performance à exécuter des tâches au fil du temps grâce à de l’expérience.\\
 
-Le machine learning est présent dans la vie de tous les jours. Par exemple, nos boîtes mail sont équipées d'algorithmes capables d’apprendre avec le temps. Prenons les spams, leurs émetteurs sont capables de s'adapter, de changer leur manière d’agir, il est donc impératif que l’algorithme de défense contre les spams change lui aussi. Dans les e-mails, le machine learning se cache aussi derrière les réponses automatiques, en 2018, 6,7 milliards des mails envoyés étaient des réponses automatiques. On peut aussi trouver des IA dans les réseaux sociaux (reconnaissance faciale entre amis Facebook,...), blocage automatique des cartes de crédit volées, et bien d'autres.\\[1.0cm]
+Le machine learning est présent dans la vie de tous les jours. Par exemple, nos boîtes mail sont équipées d'algorithmes capables d’apprendre avec le temps. Prenons les spams, leurs émetteurs sont capables de s'adapter, de changer leur manière d’agir, il est donc impératif que l’algorithme de défense contre les spams change lui aussi. Dans les e-mails, le machine learning se cache aussi derrière les réponses automatiques, en 2018, 6,7 milliards des mails envoyés étaient des réponses automatiques. On peut aussi trouver des IA dans les réseaux sociaux (reconnaissance faciale entre amis Facebook,...), blocage automatique des cartes de crédit volées, et bien d'autres.\\
+
 \subsection{Les Maths dans le Machine Leanring.}
+
 De nombreux data scientists (chargés de la gestion, de l’analyse et de l’exploitation des données au sein d’une entreprise) considèrent le machine learning comme un apprentissage statistique car celui-ci s’appuie sur des algorithmes (principalement statistique) permettant à une machine d'apprendre grâce à des échantillons ou bases d’apprentissages.\\
 
-Dans le machine learning, il y a en grande partie des maths qui permettent à la machine de fonctionner, on retrouve surtout des algorithmes et des statistiques. D’ailleurs, de nombreux Data scientists considèrent que le machine learning n’est qu’un apprentissage statistique. De plus, ce qu’on appelle machine learning est pour certains la rencontre des statistiques avec la puissance de calcul disponible aujourd’hui (mémoire, processeurs, cartes graphiques).\\
+Ce qu’on appelle machine learning est pour certains la rencontre des statistiques avec la puissance de calcul disponible aujourd’hui (mémoire, processeurs, cartes graphiques).\\
 
-On retrouve aussi les fonctions, les variables, les équations, les graphiques, et d’autres outils mathématiques de ce genre dans le machine learning.  Pour les fonctions, elles sont utiles à l’analyse des séries temporelles (suite de valeurs numériques représentants l’évolution d’une quantité spécifique au cours du temps).\\[1.0cm]
+On retrouve aussi dans le machine learning; les fonctions, elles sont utiles à l’analyse des séries temporelles (suite de valeurs numériques représentants l’évolution d’une quantité spécifique au cours du temps), les variables, les équations, les graphiques, et d’autres outils mathématiques de ce genre.\\[1cm]
+
+Il existe beaucoup d'algorithmes diffèrents qui sont utilisés dans le machine learning. Ici, quelques exemples seront donnés mais seulement un sera expliqué.\\
+
+"L'arbre de décision", celui-ci sert à classifier une série de donné futur grâce à des données déjà connue. Petit exemple par rapport à l'acceptation d'un crédit bancaire ; 2201 clients au départ dont 1427 cibles (dont le crédit a été accepté), 774 non-cible(crédit refusé). La variable séparant le mieux les dossiers est l'âge du client. Ensuite, en observant mieux, il est possible de remarquer que chez les 18 à 42 ans, le taux d'acceptation est plus élevé, mais est surtout accepté aux personnes ayant des revenus supérieurs à 55 k euros. Pour les 43 à 62 ans, le sexe est la variable la plus explicative, les femmes ont un taux d'acceptation plus élevé que les hommes. Enfin, pour les plus de 63 ans, le taux d'acceptation de crédit est très faible et ne dépend plus d'autre variable, car l'âge pour eux est déjà la variable la plus explicative.\\
+
+\begin{figure}[h]
+\includegraphics[scale=1]{../exemple d'algorithme pour le machine learning.png} 
+\end{figure}
+
+"Les Forêt Aléatoires", le "Gradient Boosting"/"Xg Boost", "les algorithmes génétiques", les "machines à vecteurs de support", les "k plus proches voisins",... sont tous des algorithmes utilisés en Machine Learning.
+
 \subsection{Les résaux de neurones}
 Une couche de neurones d’entrées, plusieurs couches cachées, une couche de sortie suivie d’une fonction d’activation.
 Chaque neurone possède une valeur obtenue par une fonction de combinaison étant la somme des valeurs des neurones de la couche précédente, chacune multipliée par un poids spécifique
@@ -1815,5 +1829,5 @@ On notera ici que l’axis 0 = les colonnes et l’axis 1 = les lignes: shape = 
 \newpage
 \section{Remerciements.}
 
-Nous remercions avant tout Sophie Gayes qui tout au long du projet nous a soutenu et a répondu à nos questions, nous remercions aussi Mr. Joachim sans qui rien n'aurait été possible et qui nous a soutenu plus que tout pendant cette période difficile et longue à passer.
+Nous remercions avant tout Sophie Gayes qui tout au long du projet nous a soutenu et a répondu à nos questions, nous remercions aussi sa marraine qui a prit le temps de relire entièrement notre projet et de dire chaque point qui n'était pas complet ou incorrect, nous remercions enfin Mr. Joachim sans qui rien n'aurait été possible et qui nous a soutenu plus que tout pendant cette période difficile et longue à passer.
 \end{document}
