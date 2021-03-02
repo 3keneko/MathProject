@@ -1489,11 +1489,12 @@ Le nom du langage vient de la série Monty Python’s flying Circus dont Guido V
 
 Le langage python a été mis à jour de nombreuses fois et est passé d’une version 1.5 en 1999 jusqu’à 3.9 en 2020, nous nous intéresserons surtout aux versions python 2 et python 3 qui ont été ls plus marquantes.
 \subsubsection{Python 2:}
-Par exemple, des erreurs de syntaxe, des manques de ‘:’, des manques d’une lettre, et d'autres, toutes des erreurs d’analyse de code. Nous pouvons aussi trouver des exceptions qui, quand utilisées dans notre programme, nous permettent de contrer les erreurs pouvant être écrites par la suite comme les ‘ZeroDivisionError’ ou en français, erreur de division par zéro, mais aussi les ‘ValueError’ qui nous annonce une valeur incorrecte et encore bien d’autres.\\
+Ici, nous allons citer quelques erreurs d’analyse de code possible comme des erreurs de syntaxe, des manques de ‘:’, des manques d’une lettre, et d'autres. Nous pouvons aussi trouver des exceptions qui, quand utilisées dans notre programme, nous permettent de contrer les erreurs pouvant être écrite par la suite comme les ‘ZeroDivisionError’ ou en français, erreur de division par zéro, mais aussi les ‘ValueError’ qui nous annonce une valeur incorrecte et encore bien d’autres.\\
 
-Il existe des moyens de convertir du code de python 2 vers python 3 mais ce n’est pas très fiable et de toute façon, ce n’est plus trop utile non plus car de plus en plus de développeurs conseillent python 3 pour sa facilité d’utilisation, de plus le support de la version 2 a été abandonné en 2020.
-\subsubsection{Python 3:}
-Comme expliqué ci-dessus, Python 3 est plus simple d’utilisation que Python 2, la syntaxe y est plus simple et plus facilement compréhensible. Prenons un exemple simple avec le print, pour Python 2, il n’y a pas l’utilisation de la parenthèse, juste des guillemets. Ainsi, quand en Python 2 il faut écrire:\\
+	Il existe des moyens de convertir du code de python 2 vers python 3 mais ce n’est pas très fiable et de toute façon, ce n’est plus trop utile non plus car de plus en plus de développeurs conseillent python 3 pour sa facilité d’utilisation, de plus le support de la version 2 a été abandonné en 2020.\\
+
+	Comme expliqué ci-dessus, Python 3 est plus simple d’utilisation que Python 2 ,la syntaxe y est plus simple et plus facilement compréhensible. Prenons un exemple simple avec le print, pour Python 2, il n’y a pas l’utilisation de la parenthèse, juste des guillemets. Ainsi, quand en Python 2 il faut écrire:\\
+ 
 \begin{lstlisting}[language=Python]
 >>> print "Hello World!"
 Hello World!
@@ -1504,42 +1505,53 @@ Hello World!
 >>> print ("Hello World!")
 Hello World!
 \end{lstlisting}
-Le stockage est dit unicode, c'est-à-dire que l’échange de texte est fait dans différentes langues, la langue la plus utilisée est bien sûr l’anglais. Dans Python 3, la valeur des variables utilisées ne change jamais, si vous prenez x=3, la valeur reste x=3.\\
+Le stockage est dit unicode, c'est-à-dire que l’échange de texte est fait dans différentes langues, la langue la plus utilisée est bien sûr l’anglais. Dans Python 3, la valeur des variables utilisées ne change jamais, si vous prenez x=3, la valeur reste x=3. \\
 
 Certaines fonctions utilisées dans python 2 comme xrange() on été remplacées dans python 3 par range(), tous deux servent à créer une liste et aussi des itérations(répétitions). Certaines bibliothèques(ensemble logiciel de modules) de python 3 ne peuvent pas être créées avec Python 2.\\
+
+En Python 2, si nous essayons de créer un string avec des caractères spéciaux, nous obtenons ceci:\\
 \begin{enumerate}
   \item \textbf{Python 2:}
 \begin{lstlisting}[language=Python]
->>> print "Hello World"
-Hello World!
->>> print 7/3
-2
 >>> a = "éèà"
 >>> a
 '\xc3\xa9\xc3\xa9\xc3\xa0'
 
->>> i = 4
->>> my_list = [i for i in xrange(5, 1, -1)]
+Alors qu'en python 3, le problème suivant fut résolu ainsi:\\
+>>> a = "ééà"
+>>> a
+'éèà'
+\end{lstlisting}
+
+Ci-dessous, nous allons illustrer quelques exemples des différences entre python 2 et python 3 qui au fur-et-à-mesure seront expliqués. \\
+
+\begin{lstlisting}[language=Python]
+>>> print 7/3
+2
+
+alors que maintenant, si on fait la même opération sur python 3, le résultat obtenu y est beaucoup plus précis, voici la même division sur python 3;\\
+
+>>>print (7/3)
+2.3333333333333335
+\end{lstlisting}
+
+Maintenant, un exemple avec une liste, on commence par poser i = 4, puis on pose la liste ci-dessous et on regarde le résultat, on observe qu’en python 2 et en python 3, les 2 listes restent les mêmes mais quand on veut revoir la valeur de i, python deux nous a changé la valeur du quatre pour un deux. Pour expliquer ce qu’il c’est passé, en python deux quand on a posé la liste [i for i in xrange(...)], le ‘i’ est libre, il peut changé comme il le désir alors qu’en python 3, cela a justement été amélioré de sorte que le “i”, une fois posé et même dans une liste comme celle-ci, une liste-compréhension, reste le même, voici l'exemple de ce qui vient d’être expliqué;\\
+\begin{lstlisting}[language=Python]
+>>> i = 4 
+>>> my_list = [i for i in xrange(5, 1, -1)] 
 >>> my_list
 [5, 4, 3, 2]
 >>> i
 2
-\end{lstlisting}
-  \item \textbf{Python 3:}
-\begin{lstlisting}[language=Python]
->>> print ("Hello World!")
-Hello World!
->>>print (7/3)
-2.3333333333333335
->>> a = "ééà"
->>> a
-'éèà'
+
+maintenant, voici le même code en python 3;
 >>> i=4
 >>> my_list = [i for i in range(5,1,-1)]
 >>> my_list
 [5, 4, 3, 2]
 >>> i
 4
+
 \end{lstlisting}
 \end{enumerate}
 \subsubsection{Un programme d'exemple avec le second degré!}
