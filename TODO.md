@@ -28,5 +28,5 @@
 - ~~Sortir du tunnel~~ 
 
  ##### Autres commentaires 
-- Changer les "je", en "nous".
+- ~~Changer les "je", en "nous".~~
 - **Profit**
