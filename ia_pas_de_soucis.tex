@@ -449,7 +449,7 @@ Chaque branche de l'arbre fini bien par $\bot$, nous venons donc de prouver la l
 
     Ce principe est encore plus flagrant quand nous utilisons la notation suivante : $A, A \imply B \models A$, où $A, A \imply B$ n'est autre que l'ensemble S, avec une notation légèrement différente. \\
 
-    Je n'ai pas choisi cet ensemble de manière anodine, car, grâce à celui-ci, nous allons pouvoir utiliser une {\bf règle d'inférence} connue sous le nom du MP (Modus Ponens), le lecteur ne devrait toutefois pas s'inquiéter, un tableau recensant d'autres règles d'inférence sera présenté à la page suivante. \\
+    Nous n'avons pas choisi cet ensemble de manière anodine, car, grâce à celui-ci, nous allons pouvoir utiliser une {\bf règle d'inférence} connue sous le nom du MP (Modus Ponens), le lecteur ne devrait toutefois pas s'inquiéter, un tableau recensant d'autres règles d'inférence sera présenté à la page suivante. \\
 
   Une première manière de noter cette règle d'inférence serait de faire usage de la notation que nous avons vue plus haut. \\[0.5cm]
     1. A (De cet ensemble, nous savons A) \\
@@ -570,7 +570,7 @@ Ouvrons maintenant l'interprète et regardons la magie opérer :
 ?- ajouter(3, 4, Res).
 Res = 7.
 \end{lstlisting}
-Mais, si pour une obscure raison, je décidais de vouloir avoir B, juste en entrant A et C, comment faire? Regardons d'abord comment notre première version réagirait à cela:
+Mais, si pour une obscure raison, nous décidions d'obtenir la valeur de B, juste en entrant A et C, comment devrions-nous procéder? Regardons d'abord comment notre première version réagirait à cela:
 \begin{lstlisting}[language=Prolog]
 ?- ajouter(3, B, 7).
 ERROR: Arguments are not sufficiently instantiated
@@ -743,7 +743,7 @@ Passons maintenant aux {\bf tests de performances}. \\
 Afin de mesurer le temps pris par chacun de mes deux algorithmes, j'ai utilisé ``time'', une macro bien pratique pour ce genre de tests. J'utilise le compilateur SBCL pour faire mes tests. En plus de cela, dans un souci de facilité, j'utilise la macro random-sample, créée par mes soins, me permettant de créer une liste contenant des nombres aléatoires, de taille fixée. \\
 
 \begin{lstlisting}[language=Lisp]
-;;; Ma macro random-sample bien pratique.
+;;; Notre macro random-sample bien pratique.
 (defmacro random-sample (x)
    `(loop for _ below ,x collect (random 1000)))
 \end{lstlisting}
@@ -759,7 +759,7 @@ Sans plus attendre, voici le tableau montrant les résultats de notre petite exp
     \hline
   \end{tabular}
 \end{table} \smallskip
-Pour des raisons pratiques, je n'ai pas pu obtenir les résultats du Tri à Bulles pour le million d'éléments. \\
+Pour des raisons pratiques, nous n'avons pas pu obtenir les résultats du Tri à Bulles pour le million d'éléments. \\
 
 Comme nous pouvons le constater sur le tableau précédent, la complexité d'un algorithme (estimé par le Big-O) ne mesure pas le temps exact que l'algorithme prendra afin de trier une certaine liste, il s'agit simplement d'un indicateur, montrant comment évoluera le nombre de comparaisons au cours du temps, cet indicateur devenant extrêmement significatif quand n devient très grand. \\[0.5cm]
 \subsection{Présentation de structures de données de base}
@@ -769,7 +769,7 @@ Tout d'abord, qu'est-ce qu'une structure de données?
 D'après Wikipedia\footnote{https://fr.wikipedia.org/wiki/Structure\_de\_donn\%C3\%A9es}, une structure de données est une manière d'organiser les données, pour les traiter plus facilement. \\
 On conclut donc que le choix judicieux d'une structure de données est indispensable à l'optimisation de la performance de notre IA.
 
-Je présente ici trois structures de données de base.
+Nous présentons ici trois structures de données de base.
 \begin{enumerate}
   \item Les listes simplement chaînées.
   \item Les tableaux (ou arrays en anglais.)
@@ -838,7 +838,7 @@ Pour récupérer le n-ième élément d'un tableau, il nous suffit de faire:
   3
 \end{lstlisting}
 \subsubsection{Tableaux vs Listes simplement chaînées.}
-Pour en conclure avec ces deux structures de données, je me propose de faire un petit tableau comparatif final, afin que le lecteur puisse mieux comprendre les différences entre Tableau, et Liste simplement chaînée, (que je noterai SLL pour Single-linked list).
+Pour en conclure avec ces deux structures de données, nous nous proposons de faire un petit tableau comparatif final, afin que le lecteur puisse mieux comprendre les différences entre Tableau, et Liste simplement chaînée, (que nous noterons SLL pour Single-linked list).
 \begin{table}[H]
   \centering
   \begin{tabular}{|c|c|c|}
@@ -860,7 +860,7 @@ Pour ceux qui avaient oublié l'implémentation sur les tableaux, la voici:
 Le lecteur attentif remarquera l'utilisation dans ce code de ``make-array'' et de ``aref'', tout deux synonymes de l'utilisation d'un tableau. Maintenant, transformons cette implémentation en une implémentation utilisant des listes simplement chaînées. \\
 Et maintenant, voici le même algorithme, mais, sur les listes simplement chaînées cette fois-ci.
 \lstinputlisting[language=Lisp]{Sorts/bad_bubble_sort.lisp}
-Et maintenant, comparons leurs temps respectifs sur des listes de tailles différentes avec l'aide d'un nouveau tableau, (mon mode opératoire reste le même, j'utilise SBCL, et la macro time, pour créer une liste contenant des nombres aléatoires, j'utilise toujours ma macro random-sample.)
+Et maintenant, comparons leurs temps respectifs sur des listes de tailles différentes avec l'aide d'un nouveau tableau, (notre mode opératoire reste le même, nous utilisons SBCL, et la macro time, pour créer une liste contenant des nombres aléatoires, nous utilisons toujours notre macro random-sample.)
 \begin{table}[H]
   \centering
   \begin{tabular}{|c|c|c|}
@@ -879,7 +879,7 @@ Une table de hachage (ou un dictionnaire en python) est une structure de donnée
 
 Son utilisation est simple; avec une table de hachage, nous relions des clés avec des valeurs. \\
 
-Ainsi, si dans une table de hachage, je relie le mot ``bonjour'' avec le mot ``hello'', mon mot ``bonjour'' sera considéré comme étant la clé, et le mot ``hello'' comme étant la valeur. \\
+Ainsi, si dans une table de hachage, nous relions le mot ``bonjour'' avec le mot ``hello'', notre mot ``bonjour'' sera considéré comme étant la clé, et le mot ``hello'' comme étant la valeur. \\
 
 En Lisp, pour créer une telle table de hachage, il faut faire: \\
 \begin{lstlisting}[language=Lisp]
@@ -1049,7 +1049,7 @@ Comme on peut le voir, la logique reste la même pour tous les opérateurs, auss
 
 Également, l'opération de division ne remet pas directement un nombre à virgule, mais plutôt un Ratio, si l'on ne lui donne pour argument uniquement des nombres entiers. \\
 
-Pour déclarer une variable en Lisp, plusieurs choix s'offrent à nous, je présenterai uniquement ici ``defparameter''.
+Pour déclarer une variable en Lisp, plusieurs choix s'offrent à nous, nous présenterons uniquement ici ``defparameter''.
 \begin{lstlisting}[language=Lisp]
 CL-USER> (defparameter *test* 'bonjour)
 *TEST*
@@ -1060,7 +1060,7 @@ J'en profite pour attirer l'attention sur l'utilisation de ``*'' autour du nom d
 
 Maintenant, j'utiliserai la fin de cette petite introduction comme prétexte pour présenter ``la récursion''. \\
 
-Pour montrer un exemple de fonction récursive, je présenterai ici la fonction factorielle, fonction récursive par excellence. \\
+Pour montrer un exemple de fonction récursive, nous présenterons ici la fonction factorielle, fonction récursive par excellence. \\
 
 Tout d'abord, pour déclarer une fonction, nous utiliserons le mot-clé {\bf defun}.
 \begin{lstlisting}[language=Lisp]
@@ -1096,10 +1096,10 @@ La métaprogrammation, c'est l'art de faire des programmes qui manipulent le cod
 
 Passons directement aux exemples:\\
 
-En Common Lisp, il est possible de créer des variables locales avec l'aide du mot-clé {\bf let}. Par exemple, si je désire créer de manière non récursive la fonction: \\
+En Common Lisp, il est possible de créer des variables locales avec l'aide du mot-clé {\bf let}. Par exemple, si nous désirions créer de manière non récursive la fonction: \\
 
 $$f(n) = \sum_{i=0}^{n}i$$
-Je devrai faire: \\
+Nous devrions faire: \\
 \lstinputlisting[language=Lisp, linerange={1-5}]{LispBasics/sum.lisp}
 Toutefois, certains ne trouvent pas très esthétique le fait de devoir empiler des parenthèses à chaque fois qu'un très petit {\bf let} est appelé. \\
 
@@ -1152,23 +1152,23 @@ Le but de l'ordinateur sera donc de toujours se trouver en position de sécurit�
 
 Le twist que nous avons apporté est le fait que le joueur peut décider des tas avec lesquels ils va jouer, et ainsi, mettre directement l'ordinateur en position de défaite, notre IA devra donc se montrer capable de jouer des coups, même en perdant. \\
 \lstinputlisting[language=Lisp, linerange={1-2}]{Nim/nim-game-player.lisp}
-Ici, je ne fais que définir une variable globale *heaps*, celle-ci représentera les tas disponibles au travers de mon programme. \\
+Ici, nous ne faisons que définir une variable globale *heaps*, celle-ci représentera les tas disponibles au travers de notre programme. \\
 \lstinputlisting[language=Lisp, linerange={4-10, 27-32, 61-67}]{Nim/nim-game-player.lisp}
 Ces deux fonctions seront dites des ``fonctions d'aide'', elles auront surtout pour utilité de ne pas avoir à surcharger les fonctions principales. \\
 
-Le lecteur attentif remarquera que je termine le nom de ces fonctions par un ``p'', cela est dû au fait que ces fonctions sont des {\bf prédicats}, elles ne peuvent retourner que ``t'' ou ``nil'' (``vrai'' ou ``faux''), ceci n'étant également qu'une convention, si le lecteur désire écrire des prédicats sans laisser de ``p'' au bout, SBCL ne lui trouvera rien à redire.\\
+Le lecteur attentif remarquera que nous terminons le nom de ces fonctions par un ``p'', cela est dû au fait que ces fonctions sont des {\bf prédicats}, elles ne peuvent retourner que ``t'' ou ``nil'' (``vrai'' ou ``faux''), ceci n'étant également qu'une convention, si le lecteur désire écrire des prédicats sans laisser de ``p'' au bout, SBCL ne lui trouvera rien à redire.\\
 
 Aussi, on peut remarquer dans les deux premières fonctions l'utilisation de ``reduce'', il s'agit d'une fonction destinée aux {\bf catamorphismes}, cela veut dire qu'elles permettent de passer d'une structure de données comme une liste, ou un arbre, vers un scalaire, comme un entier ou encore un flottant. \\
 
 Egalement, j'utilise \# , ce symbole nous permet d'expliciter que nous utilisons une fonction, et pas une variable.\\
 \lstinputlisting[language=Lisp, linerange={12-26, 34-48}]{Nim/nim-game-player.lisp}
-Nous voici enfin au cœur du programme. Avec nos fonctions ``play-winning-move'' et ``play-random-legal-move'' qui sont nos deux fonctions où est contenu notre joueur, les commentaires explicitant déjà leurs actions, je me concentrerai surtout sur l'implémentation. \\
+Nous voici enfin au cœur du programme. Avec nos fonctions ``play-winning-move'' et ``play-random-legal-move'' qui sont nos deux fonctions où est contenu notre joueur, les commentaires explicitant déjà leurs actions, nous nous concentrerons surtout sur l'implémentation. \\
 
 Comme nous le remarquons, j'utilise {\bf let} et {\bf loop}, {\bf let} me permet de déclarer des variables dites ``locales'', cela me permet d'avoir un code propre, où chaque chose reste à sa place. \\
 
-{\bf loop} est une macro, qui permet d'itérer, ou de répéter un nombre certain de fois une même action, je l'utilise ici en raison de la lisibilité de celle-ci, certains préfèrent la macro ``do'', je trouve cette dernière illisible, mais j'encourage le lecteur à se renseigner sur cette dernière si le coeur le lui en dit.\\
+{\bf loop} est une macro, qui permet d'itérer, ou de répéter un nombre certain de fois une même action, nous l'utilisons ici en raison de la lisibilité de celle-ci, certains préfèrent la macro ``do'', nou trouvons cette dernière illisible, mais nous encourageons le lecteur à se renseigner sur cette dernière si le coeur lui en dit.\\
 \lstinputlisting[language=Lisp, linerange={50-60}]{Nim/nim-game-player.lisp}
-Je ne ferai remarquer ici que l'utilisation de la macro {\bf cond}, une autre manière d'écrire des conditions en Lisp.
+Nous ne ferons remarquer ici que l'utilisation de la macro {\bf cond}, une autre manière d'écrire des conditions en Lisp.
 \lstinputlisting[language=Lisp, linerange={69-95}]{Nim/nim-game-player.lisp}
 Cette très longue fonction fait office d'interface utilisateur. Nous avons déjà fait remarqué au lecteur en commentaires l'utilisation de la récursion. \\
 
@@ -1322,16 +1322,16 @@ Prenons comme plateau l'arbre suivant:
 \end{figure}
 Le but du jeu est simple: \\
 
-À chaque case bleue sur laquelle nous nous trouvons, vous avez le droit de déplacer le joueur où vous le voulez, dès que nous sommes sur une case rouge, c'est à mon tour de déplacer le joueur!\\
+À chaque case bleue sur laquelle nous nous trouvons, vous avez le droit de déplacer le joueur où vous le voulez, dès que nous sommes sur une case rouge, c'est à notre tour de déplacer le joueur!\\
 
 Votre but est d'atterrir sur la case la plus grosse possible, le mien est de vous faire atterrir sur la case détenant la plus petite valeur possible.\\
 
 Comme première stratégie, vous pourriez être alléché par le 9, et vous déplacer directement vers la case rouge permettant d'y accéder. \\
 
-Le défaut de cette stratégie est que si vous désiriez appliquer cette stratégie, alors, je déplacerai simplement le joueur vers le 1, et vous vous retrouveriez avec le pire résultat possible.\\
+Le défaut de cette stratégie est que si vous désiriez appliquer cette stratégie, alors, nous déplacerions simplement le joueur vers le 1, et vous vous retrouveriez avec le pire résultat possible.\\
 Il va donc falloir innover.\\
 
-La stratégie du minimax consiste à dire que je jouerai à chaque fois le coup le plus minimisant, et ainsi, il est possible de remplacer chacun de mes choix par la valeur de la case la plus petite qui me serait accessible depuis la case où nous nous trouvons.\\
+La stratégie du minimax consiste à dire que nous jouerons à chaque fois le coup le plus minimisant, et ainsi, il est possible de remplacer chacun de mes choix par la valeur de la case la plus petite qui me serait accessible depuis la case où nous nous trouvons.\\
 
 Ainsi, nous pourrions représenter notre plateau ainsi:\\
 \begin{figure}[H]
@@ -1340,7 +1340,7 @@ Ainsi, nous pourrions représenter notre plateau ainsi:\\
 \end{figure}
 De cela, il devient très clair que le meilleur score que vous puissiez espérer avoir est 4.\\
 
-Ainsi, c'est par une alternance de cycle où l'on minimise les scores, et de cycles où on les maximise que se déroule le minimax (en effet, si je devais prédire votre coup, je dirais que vous iriez toujours vers là où la case est la plus haute.)\\
+Ainsi, c'est par une alternance de cycle où l'on minimise les scores, et de cycles où on les maximise que se déroule le minimax (en effet, si nous devions prédire votre coup, nous dirions que vous iriez toujours vers là où la case est la plus haute.)\\
 
 Le défaut du minimax est quand le nombre de positions dans la partie devient énorme. C'est le cas du puissance 4, ou encore du jeu d'échecs, il faut donc pouvoir construire des heuristiques ou alors poussez l'optimisation jusqu'au bout.\\
 
