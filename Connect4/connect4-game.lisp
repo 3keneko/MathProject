@@ -12,7 +12,7 @@
                             (make-list 6 :initial-element nil))))
 
 (defun playerify (board-case)
-  "Permet d'afficher proprememnt chaque case."
+  "Permet d'afficher propremement chaque case."
   (case board-case
     (yellow 'o)
     (red    'x)
@@ -77,7 +77,7 @@ endroit sur le plateau."
           lat))
 
 (defun vertical-connections (color board)
-  "Donne le nombre maximal de connection verticale."
+  "Donne le nombre maximal de connexions verticales."
   (labels ((number-in-vertical (column colour &optional (buffer 0))
              (cond
                ((null column) buffer)
@@ -104,7 +104,7 @@ e.g => (max-subseq 'red '(red red yellow red red red yellow yellow)) == 2"
     maxi))
 
 (defun horizontal-connections (color board)
-  "Donne le nombre maximal de connections horizontales."
+  "Donne le nombre maximal de connexions horizontales."
   (labels ((row-finder (the-board)
              (loop for row from 0 to 5
                    collect (map 'list #'car the-board) into rows
@@ -146,7 +146,7 @@ jusqu'en bas à droite."
   "Coordonnées des points se trouvant en haut à gauche.")
 
 ;; Cette macro permet d'écrire les fonctions
-;; vérifiant le nombre de connections diagonales
+;; vérifiant le nombre de connexions diagonales
 ;; de manière bien plus simple et concise.
 (defmacro max-in-some-diagonal
     (function-name color board helping-function starting-corner)
@@ -183,7 +183,7 @@ jusqu'en bas à droite."
    (right-diagonal-connections color board)))
 
 (defun winningp (board)
-  "Si le nombre maximal de connection sur le plateau est supérieur
+  "Si le nombre maximal de connexions sur le plateau est supérieur
 à trois, un joueur a gagné."
   (or (> (connections 'yellow board) 3)
       (> (connections 'red    board) 3)))
