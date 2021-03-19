@@ -13,7 +13,7 @@
 - Donner les solutions des problèmes en annexe.
 
 ### 4. Approche Algorithmique
-- Donner des précisions sur les listes simplement chaînées. 
+- ~~Donner des précisions sur les listes simplement chaînées.~~ 
 - Créer des liens avec la première partie.
 - Ajouter des illustrations.
 - ~~Ajouter le programme de puissance 4 en annexe :sob:.~~
