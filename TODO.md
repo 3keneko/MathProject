@@ -16,8 +16,8 @@
 - Donner des précisions sur les listes simplement chaînées. 
 - Créer des liens avec la première partie.
 - Ajouter des illustrations.
-- Ajouter le programme de puissance 4 en annexe :sob:.
-- Illustrer les différentes étapes d'un jeu de Nim. 
+- ~~Ajouter le programme de puissance 4 en annexe :sob:.~~
+- Illustrer les différentes étapes d'un jeu de Nim. (Je m'en occuperai pendant les vacances.) 
 
 ### 5. Machine Learning
 - Faire attention aux répétitions lors de l'introduction au machine learning. 
