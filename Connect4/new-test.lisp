@@ -16,7 +16,7 @@
   (setf *moves* nil))
 
 (defun playerify (board-case)
-  "Permet d'afficher proprememnt chaque case."
+  "Permet d'afficher propremement chaque case."
   (case board-case
     (yellow 'o)
     (red    'x)
