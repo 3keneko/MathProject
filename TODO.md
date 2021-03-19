@@ -1,8 +1,8 @@
 # TO-DO LIST du Projet de Mathématiques
 
-### 1. Introduction
-- Faire parvenir le but réel du projet au lecteur
-- Insister sur le fait qu'il ne s'agit pas d'un introduction à différents langages de programmations, mais bien à l'intelligence artificielle en générale.
+### 1. ~~Introduction~~
+- ~~Faire parvenir le but réel du projet au lecteur~~
+- ~~Insister sur le fait qu'il ne s'agit pas d'un introduction à différents langages de programmations, mais bien à l'intelligence artificielle en générale.~~
 
 ### 2. Histoire
 - *OPTIONNEL* Ajouter une touche de personnalisation à la partie histoire.
