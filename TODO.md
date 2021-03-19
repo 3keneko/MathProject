@@ -27,6 +27,7 @@
 - ~~Ajouter une image de cerveau~~
 - ~~Sortir du tunnel~~ 
 
- ##### Autres commentaires 
+##### Autres commentaires
+- ~~Ajouter un lien vers le github au projet </shameless_plug>.~~ 
 - ~~Changer les "je", en "nous".~~
 - **Profit**
