@@ -14,6 +14,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{setspace}
 \usepackage{listingsutf8}
+\usepackage{verbatim}
 \pagestyle{fancy}
 
 \definecolor{codecomments}{HTML}{FFA700}
@@ -467,15 +468,17 @@ Chaque branche de l'arbre fini bien par $\bot$, nous venons donc de prouver la l
 \end{adjustwidth}
 \FloatBarrier
 Le lecteur pourra s'exercer à démontrer la validité des tautologies présentées dans le tableau-ci. \\
-\subsubsection{Le besoin d'algorithme, présentation de l'algorithme de Quine.}
+\begin{comment}
+\subsubsection{Présentation de l'algorithme de Quine.}
 
 Un ensemble de formules, tout comme une formule peut-être inconsistante, cela signifie que notre ensemble est équivalent à F,et comme nous l'avons vu dans le tableau ci-dessus, on peut déduire absolument n'importe quoi d'un ensemble inconsistant.\\
 
 Le problème des tableaux de vérités, c'est qu'ils prennent de la place, et même, beaucoup de place. C'est pour cela qu'est venue la nécessité de créer des algorithmes de résolution d'ensembles de formules, afin de faciliter le travail des logiciens, et ainsi, de réduire le temps de calcul nécessaire à un ordinateur. \\
 
-L'algorithme de Quine se déroule en plusieurs étapes, tout d'abord, nous allons simplifier, si possible, les formules logiques contenues dans notre ensemble de formules, par exemple, au lieu d'écrire $A \lor V$, nous pourrons écrire simplement $ V $, et ainsi, supprimer ce $V$ de notre ensemble, comme $B, V \models B$, il y a bien d'autres simplifications possibles, nous laisserons au lecteur le soin d'en trouver.\\
+L'algorithme de Quine se déroule en deux étapes, tout d'abord, nous allons simplifier, si possible, les formules logiques contenues dans notre ensemble de formules, par exemple, au lieu d'écrire $A \lor V$, nous pourrons écrire simplement $ V $, et ainsi, supprimer ce $V$ de notre ensemble, comme $B, V \models B$, il y a bien d'autres simplifications possibles, nous laisserons au lecteur le soin d'en trouver.\\
 
 Une fois cette première étape passée, il suffit d'utiliser un arbre logique (ou éventuellement une table de vérité) et enfin, nous avons pu prouver des formules logiques avec l'aide de l'algorithme de Quine.
+\end{comment}
 \subsection{Une logique? Des logiques!}
 Les logiciens, non contents de la seule logique propositionnelle, ont créé un très grand nombre de logiques, j'en liste quelques unes ci-dessous.
 \begin{itemize}
