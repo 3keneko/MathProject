@@ -26,6 +26,7 @@
 - Changer le programme Python donné à titre d'exemple pour être un algorithme *glouton*.
 - Commencer le programme avec Keras.
 - Réecrire la partie sur les réseaux neuronaux. 
+- Faire attention aux **répétitions** dans la partie 5.2.
 - Ajouter manuel installation Python.
 - ~~Ajouter une image de cerveau~~
 - ~~Sortir du tunnel~~ 
