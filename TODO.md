@@ -33,4 +33,5 @@
 ##### Autres commentaires
 - ~~Ajouter un lien vers le github au projet </shameless_plug>.~~ 
 - ~~Changer les "je", en "nous".~~
+- Ajouter une introudction à chaque sous-partie.
 - **Profit**
