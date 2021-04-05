@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.9.18)  4 APR 2021 21:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.9.18)  5 APR 2021 17:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1858,278 +1858,308 @@ Underfull \hbox (badness 10000) in paragraph at lines 1020--1021
 
  []
 
+<imgs/Lisplogo_alien_256.png, id=919, 256.96pt x 150.5625pt>
+File: imgs/Lisplogo_alien_256.png Graphic file (type png)
+<use imgs/Lisplogo_alien_256.png>
+Package pdftex.def Info: imgs/Lisplogo_alien_256.png  used on input line 1024.
+(pdftex.def)             Requested size: 128.47968pt x 75.28105pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1022--1023
+Overfull \hbox (11.47849pt too wide) in paragraph at lines 1024--1025
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1025--1025
+[]\OT1/cmr/m/sc/12 Figure \OT1/cmr/m/n/12 5 { []Logo
+ []
+
+
+Underfull \hbox (badness 1199) in paragraph at lines 1025--1025
+\OT1/cmr/m/n/12 of-fi-cieux de Com-mon
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1022--1027
 
  []
 
-<imgs/lisp.jpeg, id=920, 89.133pt x 26.499pt>
+
+Overfull \hbox (4.44147pt too wide) in paragraph at lines 1032--1033
+\OT1/cmr/m/n/12 tous ceux d^^Sesirant confi-gu-rer l'^^Sediteur de texte
+ []
+
+
+Overfull \hbox (11.68854pt too wide) in paragraph at lines 1034--1035
+\OT1/cmr/m/n/12 se-rons ici, ce dia-lecte a tou-jours eu la r^^Seputation
+ []
+
+
+Overfull \hbox (14.79361pt too wide) in paragraph at lines 1034--1035
+\OT1/cmr/m/n/12 acad^^Semiques. Com-mon Lisp a tou-te-fois le m^^Serite
+ []
+
+
+Overfull \hbox (22.52454pt too wide) in paragraph at lines 1034--1035
+\OT1/cmr/m/n/12 d'avoir ^^Set^^Se stan-dar-dis^^Se, de b^^Sen^^Seficier d'un sy
+st^^Reme
+ []
+
+<imgs/lisp.jpeg, id=921, 89.133pt x 26.499pt>
 File: imgs/lisp.jpeg Graphic file (type jpg)
 <use imgs/lisp.jpeg>
-Package pdftex.def Info: imgs/lisp.jpeg  used on input line 1034.
+Package pdftex.def Info: imgs/lisp.jpeg  used on input line 1039.
 (pdftex.def)             Requested size: 356.53107pt x 105.99567pt.
-[38]
-Underfull \hbox (badness 10000) in paragraph at lines 1038--1039
+[38pdfTeX warning (ext4): destination with the same identifier (name{figure.5})
+ has been already used, duplicate ignored
 
- []
-
-
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1040 \end{figure}
+                    <./imgs/Lisplogo_alien_256.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 1043--1044
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1045--1046
+Underfull \hbox (badness 10000) in paragraph at lines 1048--1049
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1056--1057
+Underfull \hbox (badness 10000) in paragraph at lines 1050--1051
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1058--1059
+Underfull \hbox (badness 10000) in paragraph at lines 1061--1062
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1063--1064
 
  []
 
 [39 <./imgs/lisp.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 1067--1068
+Underfull \hbox (badness 10000) in paragraph at lines 1072--1073
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1069--1070
+Underfull \hbox (badness 10000) in paragraph at lines 1074--1075
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1071--1072
+Underfull \hbox (badness 10000) in paragraph at lines 1076--1077
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1077--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1082--1083
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1079--1080
+Underfull \hbox (badness 10000) in paragraph at lines 1084--1085
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1085--1086
+Underfull \hbox (badness 10000) in paragraph at lines 1090--1091
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1086--1088
+Underfull \hbox (badness 10000) in paragraph at lines 1091--1093
 
  []
 
 [40]
-Underfull \hbox (badness 10000) in paragraph at lines 1095--1096
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1097--1098
-
- []
-
-(./Sorts/quick_sort.lisp)
 Underfull \hbox (badness 10000) in paragraph at lines 1100--1101
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1102--1104
+Underfull \hbox (badness 10000) in paragraph at lines 1102--1103
 
  []
 
-
+(./Sorts/quick_sort.lisp)
 Underfull \hbox (badness 10000) in paragraph at lines 1105--1106
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1107--1108
+Underfull \hbox (badness 10000) in paragraph at lines 1107--1109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1109--1111
+Underfull \hbox (badness 10000) in paragraph at lines 1110--1111
 
  []
 
-[41] (./LispBasics/sum.lisp)
+
 Underfull \hbox (badness 10000) in paragraph at lines 1112--1113
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1114--1115
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1116--1117
+[41]
+Underfull \hbox (badness 10000) in paragraph at lines 1114--1116
 
  []
 
 (./LispBasics/sum.lisp)
-Underfull \hbox (badness 10000) in paragraph at lines 1118--1119
+Underfull \hbox (badness 10000) in paragraph at lines 1117--1118
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1119--1120
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1121--1122
 
  []
 
 (./LispBasics/sum.lisp)
-Underfull \hbox (badness 10000) in paragraph at lines 1120--1121
+Underfull \hbox (badness 10000) in paragraph at lines 1123--1124
+
+ []
+
+(./LispBasics/sum.lisp)
+Underfull \hbox (badness 10000) in paragraph at lines 1125--1126
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1128--1129
+Underfull \hbox (badness 10000) in paragraph at lines 1133--1134
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1130--1131
+Underfull \hbox (badness 10000) in paragraph at lines 1135--1136
+
+ []
+
+[42]
+Underfull \hbox (badness 10000) in paragraph at lines 1137--1138
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1132--1133
+Underfull \hbox (badness 10000) in paragraph at lines 1139--1140
+
+ []
+
+(./LispBasics/reader.lisp)
+Underfull \hbox (badness 10000) in paragraph at lines 1141--1142
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1134--1135
-
- []
-
-[42] (./LispBasics/reader.lisp)
-Underfull \hbox (badness 10000) in paragraph at lines 1136--1137
+Underfull \hbox (badness 10000) in paragraph at lines 1149--1150
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1144--1145
+Underfull \hbox (badness 10000) in paragraph at lines 1151--1152
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1146--1147
+Underfull \hbox (badness 10000) in paragraph at lines 1153--1154
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1148--1149
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1150--1151
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1152--1153
+Underfull \hbox (badness 10000) in paragraph at lines 1155--1156
 
  []
 
 [43]
-Underfull \hbox (badness 10000) in paragraph at lines 1159--1160
+Underfull \hbox (badness 10000) in paragraph at lines 1157--1158
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1161--1162
+Underfull \hbox (badness 10000) in paragraph at lines 1164--1165
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1166--1167
 
  []
 
 (./Nim/nim-game-player.lisp)
-Overfull \hbox (10.14708pt too wide) in paragraph at lines 1163--1164
+Overfull \hbox (10.14708pt too wide) in paragraph at lines 1168--1169
 \OT1/cmr/m/n/12 Ici, nous ne fai-sons que d^^Sefinir une va-riable glo-bale *he
 aps*, celle-ci repr^^Sesentera
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1163--1164
+Underfull \hbox (badness 10000) in paragraph at lines 1168--1169
 
  []
 
-(./Nim/nim-game-player.lisp)
-Underfull \hbox (badness 10000) in paragraph at lines 1165--1166
-
- []
-
-[44]
-Underfull \hbox (badness 10000) in paragraph at lines 1167--1168
+(./Nim/nim-game-player.lisp [44])
+Underfull \hbox (badness 10000) in paragraph at lines 1170--1171
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1169--1170
+Underfull \hbox (badness 10000) in paragraph at lines 1172--1173
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1171--1172
+Underfull \hbox (badness 10000) in paragraph at lines 1174--1175
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1176--1177
 
  []
 
 (./Nim/nim-game-player.lisp [45])
-Overfull \hbox (3.88202pt too wide) in paragraph at lines 1173--1174
+Overfull \hbox (3.88202pt too wide) in paragraph at lines 1178--1179
 \OT1/cmr/m/n/12 move'' et ``play-random-legal-move'' qui sont nos deux fonc-tio
 ns o^^Ru est contenu
  []
 
 
-Overfull \hbox (6.2999pt too wide) in paragraph at lines 1173--1174
+Overfull \hbox (6.2999pt too wide) in paragraph at lines 1178--1179
 \OT1/cmr/m/n/12 notre joueur, les com-men-taires ex-pli-ci-tant d^^Sej^^Ra leur
 s ac-tions, nous nous concen-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1173--1174
+Underfull \hbox (badness 10000) in paragraph at lines 1178--1179
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1175--1176
+Underfull \hbox (badness 10000) in paragraph at lines 1180--1181
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1177--1178
+Underfull \hbox (badness 10000) in paragraph at lines 1182--1183
 
  []
 
 (./Nim/nim-game-player.lisp) (./Nim/nim-game-player.lisp [46])
-Underfull \hbox (badness 10000) in paragraph at lines 1181--1182
+Underfull \hbox (badness 10000) in paragraph at lines 1186--1187
 
  []
 
-(./Nim/nim-game-player.lisp) [47]
-Underfull \hbox (badness 10000) in paragraph at lines 1187--1188
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1189--1190
-
- []
-
-
-Overfull \hbox (87.47179pt too wide) in paragraph at lines 1191--1193
-\OT1/cmr/m/n/12 CSV pr^^Sesent ^^Ra l'adresse sui-vante : [][]$\OT1/cmtt/m/n/12
- https : / / github . com / spatie / belgian-[]cities-[]geocoded$[][]\OT1/cmr/m
-/n/12 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1193
+(./Nim/nim-game-player.lisp [47])
+Underfull \hbox (badness 10000) in paragraph at lines 1192--1193
 
  []
 
@@ -2138,134 +2168,141 @@ Underfull \hbox (badness 10000) in paragraph at lines 1194--1195
 
  []
 
-<imgs/numbered_graph.png, id=1157, 310.91156pt x 281.55188pt>
+
+Overfull \hbox (87.47179pt too wide) in paragraph at lines 1196--1198
+\OT1/cmr/m/n/12 CSV pr^^Sesent ^^Ra l'adresse sui-vante : [][]$\OT1/cmtt/m/n/12
+ https : / / github . com / spatie / belgian-[]cities-[]geocoded$[][]\OT1/cmr/m
+/n/12 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1196--1198
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1199--1200
+
+ []
+
+<imgs/numbered_graph.png, id=1158, 310.91156pt x 281.55188pt>
 File: imgs/numbered_graph.png Graphic file (type png)
 <use imgs/numbered_graph.png>
-Package pdftex.def Info: imgs/numbered_graph.png  used on input line 1199.
+Package pdftex.def Info: imgs/numbered_graph.png  used on input line 1204.
 (pdftex.def)             Requested size: 227.62204pt x 206.12831pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1196--1201
+Underfull \hbox (badness 10000) in paragraph at lines 1201--1206
 
  []
 
 [48]
-Underfull \hbox (badness 10000) in paragraph at lines 1202--1203
+Underfull \hbox (badness 10000) in paragraph at lines 1207--1208
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1204--1205
+Underfull \hbox (badness 10000) in paragraph at lines 1209--1210
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1206--1207
+Underfull \hbox (badness 10000) in paragraph at lines 1211--1212
 
  []
 
-<imgs/second_search.png, id=1163, 310.91156pt x 281.55188pt>
+<imgs/second_search.png, id=1166, 310.91156pt x 281.55188pt>
 File: imgs/second_search.png Graphic file (type png)
 <use imgs/second_search.png>
-Package pdftex.def Info: imgs/second_search.png  used on input line 1211.
+Package pdftex.def Info: imgs/second_search.png  used on input line 1216.
 (pdftex.def)             Requested size: 227.62204pt x 206.12831pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1208--1212
+Underfull \hbox (badness 10000) in paragraph at lines 1213--1217
 
  []
 
-[49pdfTeX warning (ext4): destination with the same identifier (name{figure.5})
+[49pdfTeX warning (ext4): destination with the same identifier (name{figure.6})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1213 A
+l.1218 A
         insi, nous pouvons créer une file des priorités, reprenant les vil...
  <./imgs/numbered_graph.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1213--1214
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 1218--1219
 
  []
 
-<imgs/third_search.png, id=1171, 310.91156pt x 281.55188pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1223--1224
+
+ []
+
+<imgs/third_search.png, id=1174, 310.91156pt x 281.55188pt>
 File: imgs/third_search.png Graphic file (type png)
 <use imgs/third_search.png>
-Package pdftex.def Info: imgs/third_search.png  used on input line 1223.
+Package pdftex.def Info: imgs/third_search.png  used on input line 1228.
 (pdftex.def)             Requested size: 227.62204pt x 206.12831pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1220--1224
+Underfull \hbox (badness 10000) in paragraph at lines 1225--1229
 
  []
 
 [50 <./imgs/second_search.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1225--1226
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 1230--1231
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1232--1233
+Underfull \hbox (badness 10000) in paragraph at lines 1235--1236
 
  []
 
-<imgs/fourth_search.png, id=1177, 310.91156pt x 281.55188pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1237--1238
+
+ []
+
+<imgs/fourth_search.png, id=1180, 310.91156pt x 281.55188pt>
 File: imgs/fourth_search.png Graphic file (type png)
 <use imgs/fourth_search.png>
-Package pdftex.def Info: imgs/fourth_search.png  used on input line 1237.
+Package pdftex.def Info: imgs/fourth_search.png  used on input line 1242.
 (pdftex.def)             Requested size: 227.62204pt x 206.12831pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1234--1238
+Underfull \hbox (badness 10000) in paragraph at lines 1239--1243
 
  []
 
 [51 <./imgs/third_search.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1239--1240
+Underfull \hbox (badness 10000) in paragraph at lines 1244--1245
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1245--1246
+Underfull \hbox (badness 10000) in paragraph at lines 1250--1251
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1247--1248
+Underfull \hbox (badness 10000) in paragraph at lines 1252--1253
 
  []
 
-<imgs/solved.png, id=1183, 310.91156pt x 281.55188pt>
+<imgs/solved.png, id=1186, 310.91156pt x 281.55188pt>
 File: imgs/solved.png Graphic file (type png)
 <use imgs/solved.png>
-Package pdftex.def Info: imgs/solved.png  used on input line 1252.
+Package pdftex.def Info: imgs/solved.png  used on input line 1257.
 (pdftex.def)             Requested size: 227.62204pt x 206.12831pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1249--1256
+Underfull \hbox (badness 10000) in paragraph at lines 1254--1261
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1257--1258
+Underfull \hbox (badness 10000) in paragraph at lines 1262--1263
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1259--1260
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1261--1262
-
- []
-
-[52 <./imgs/fourth_search.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 1264--1265
 
  []
@@ -2275,32 +2312,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 1266--1267
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1268--1269
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1270--1271
+[52 <./imgs/fourth_search.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1269--1270
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1272--1274
+Underfull \hbox (badness 10000) in paragraph at lines 1271--1272
 
  []
 
-[53pdfTeX warning (ext4): destination with the same identifier (name{figure.6})
- has been already used, duplicate ignored
 
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.1274 \subsubsection
-                     {Dijkstra avec de l'heuristique: A*!} <./imgs/solved.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1273--1274
 
-Overfull \hbox (29.72343pt too wide) in paragraph at lines 1275--1276
-[]\OT1/cmr/m/n/12 L'algorithme A* est un al-go-rithme de Dijks-tra avec une heu
--ris-tique int^^Seressante. 
  []
 
 
@@ -2308,106 +2332,113 @@ Underfull \hbox (badness 10000) in paragraph at lines 1275--1276
 
  []
 
-(./PathFinders/dijkstra-path.lisp)
+
+Underfull \hbox (badness 10000) in paragraph at lines 1277--1279
+
+ []
+
+[53pdfTeX warning (ext4): destination with the same identifier (name{figure.7})
+ has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.1279 \subsubsection
+                     {Dijkstra avec de l'heuristique: A*!} <./imgs/solved.png>]
+
+Overfull \hbox (29.72343pt too wide) in paragraph at lines 1280--1281
+[]\OT1/cmr/m/n/12 L'algorithme A* est un al-go-rithme de Dijks-tra avec une heu
+-ris-tique int^^Seressante. 
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 1280--1281
 
  []
 
+(./PathFinders/dijkstra-path.lisp)
+Underfull \hbox (badness 10000) in paragraph at lines 1285--1286
+
+ []
+
 (./PathFinders/dijkstra-path.lisp) [54]
-Overfull \hbox (1.39317pt too wide) in paragraph at lines 1284--1285
+Overfull \hbox (1.39317pt too wide) in paragraph at lines 1289--1290
 \OT1/cmr/m/n/12 Ici, nous re-pre-nons sim-ple-ment les donn^^Sees du CSV de bel
 gian-cities-geocoded
  []
 
 (./PathFinders/dijkstra-path.lisp) (./PathFinders/dijkstra-path.lisp)
 (./PathFinders/dijkstra-path.lisp [55])
-Underfull \hbox (badness 10000) in paragraph at lines 1290--1291
+Underfull \hbox (badness 10000) in paragraph at lines 1295--1296
 
  []
 
 (./PathFinders/dijkstra-path.lisp)
-Underfull \hbox (badness 10000) in paragraph at lines 1294--1295
+Underfull \hbox (badness 10000) in paragraph at lines 1299--1300
 
  []
 
 (./PathFinders/dijkstra-path.lisp)
-Underfull \hbox (badness 10000) in paragraph at lines 1304--1306
+Underfull \hbox (badness 10000) in paragraph at lines 1309--1311
 
  []
 
 [56]
-Underfull \hbox (badness 10000) in paragraph at lines 1307--1308
+Underfull \hbox (badness 10000) in paragraph at lines 1312--1313
 
  []
 
 (./PathFinders/dijkstra-path.lisp [57])
-Underfull \hbox (badness 10000) in paragraph at lines 1311--1312
+Underfull \hbox (badness 10000) in paragraph at lines 1316--1317
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1313--1314
+Underfull \hbox (badness 10000) in paragraph at lines 1318--1319
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1315--1316
+Underfull \hbox (badness 10000) in paragraph at lines 1320--1321
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1317--1318
+Underfull \hbox (badness 10000) in paragraph at lines 1322--1323
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1319--1320
+Underfull \hbox (badness 10000) in paragraph at lines 1324--1325
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1321--1322
+Underfull \hbox (badness 10000) in paragraph at lines 1326--1327
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1323--1324
+Underfull \hbox (badness 10000) in paragraph at lines 1328--1329
 
  []
 
-<imgs/minimax_start.png, id=1340, 324.80899pt x 176.20888pt>
+<imgs/minimax_start.png, id=1343, 324.80899pt x 176.20888pt>
 File: imgs/minimax_start.png Graphic file (type png)
 <use imgs/minimax_start.png>
-Package pdftex.def Info: imgs/minimax_start.png  used on input line 1329.
+Package pdftex.def Info: imgs/minimax_start.png  used on input line 1334.
 (pdftex.def)             Requested size: 227.62204pt x 123.48787pt.
 [58]
-Underfull \hbox (badness 10000) in paragraph at lines 1331--1332
+Underfull \hbox (badness 10000) in paragraph at lines 1336--1337
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1333--1334
+Underfull \hbox (badness 10000) in paragraph at lines 1338--1339
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1335--1336
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1337--1338
-
- []
-
-
-Overfull \hbox (5.15285pt too wide) in paragraph at lines 1339--1341
-[]\OT1/cmr/m/n/12 Le d^^Sefaut de cette strat^^Segie est que si vous d^^Sesirie
-z ap-pli-quer cette strat^^Segie,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1339--1341
+Underfull \hbox (badness 10000) in paragraph at lines 1340--1341
 
  []
 
@@ -2416,65 +2447,81 @@ Underfull \hbox (badness 10000) in paragraph at lines 1342--1343
 
  []
 
-<imgs/minimax.png, id=1353, 323.59702pt x 175.82104pt>
+
+Overfull \hbox (5.15285pt too wide) in paragraph at lines 1344--1346
+[]\OT1/cmr/m/n/12 Le d^^Sefaut de cette strat^^Segie est que si vous d^^Sesirie
+z ap-pli-quer cette strat^^Segie,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1344--1346
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1347--1348
+
+ []
+
+<imgs/minimax.png, id=1356, 323.59702pt x 175.82104pt>
 File: imgs/minimax.png Graphic file (type png)
 <use imgs/minimax.png>
-Package pdftex.def Info: imgs/minimax.png  used on input line 1347.
+Package pdftex.def Info: imgs/minimax.png  used on input line 1352.
 (pdftex.def)             Requested size: 227.62204pt x 123.67482pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1344--1348
+Underfull \hbox (badness 10000) in paragraph at lines 1349--1353
 
  []
 
 [59 <./imgs/minimax_start.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1349--1350
+Underfull \hbox (badness 10000) in paragraph at lines 1354--1355
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1351--1352
+Underfull \hbox (badness 10000) in paragraph at lines 1356--1357
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1353--1354
+Underfull \hbox (badness 10000) in paragraph at lines 1358--1359
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1355--1356
+Underfull \hbox (badness 10000) in paragraph at lines 1360--1361
 
  []
 
 (./Connect4/connect4-game.lisp) [60 <./imgs/minimax.png>]
 (./Connect4/connect4-game.lisp)
-Underfull \hbox (badness 10000) in paragraph at lines 1367--1368
+Underfull \hbox (badness 10000) in paragraph at lines 1372--1373
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1369--1370
+Underfull \hbox (badness 10000) in paragraph at lines 1374--1375
 
  []
 
 (./Connect4/connect4-game.lisp [61])
-Underfull \hbox (badness 10000) in paragraph at lines 1371--1373
+Underfull \hbox (badness 10000) in paragraph at lines 1376--1378
 
  []
 
 (./Connect4/connect4-game.lisp) (./Connect4/connect4-game.lisp) [62]
 (./Connect4/connect4-game.lisp) (./Connect4/connect4-game.lisp [63])
-Underfull \hbox (badness 10000) in paragraph at lines 1385--1386
-
- []
-
-(./Connect4/connect4-game.lisp [64])
 Underfull \hbox (badness 10000) in paragraph at lines 1390--1391
 
  []
 
+(./Connect4/connect4-game.lisp [64])
+Underfull \hbox (badness 10000) in paragraph at lines 1395--1396
+
+ []
+
 (./Connect4/connect4-game.lisp [65]) (./Connect4/connect4-game.lisp)
-Overfull \hbox (68.92422pt too wide) detected at line 1399
+Overfull \hbox (68.92422pt too wide) detected at line 1404
 \OML/cmm/m/it/12 eval \OT1/cmr/m/n/12 = 1\OML/cmm/m/it/12 R \OMS/cmsy/m/n/12 ^^
 C \OT1/cmr/m/n/12 1 + 2\OML/cmm/m/it/12 R \OMS/cmsy/m/n/12 ^^C \OT1/cmr/m/n/12 
 550 + 3\OML/cmm/m/it/12 R \OMS/cmsy/m/n/12 ^^C \OT1/cmr/m/n/12 3500 + 4\OML/cmm
@@ -2488,227 +2535,217 @@ m/m/it/12 Y \OMS/cmsy/m/n/12 ^^C \OT1/cmr/m/n/12 50000000
 
 [66] (./Connect4/connect4-game.lisp [67]) (./Connect4/connect4-game.lisp)
 (./Connect4/connect4-game.lisp [68]) (./Connect4/connect4-game.lisp [69])
-Underfull \hbox (badness 10000) in paragraph at lines 1412--1413
-
- []
-
-(./Connect4/connect4-game.lisp [70])
 Underfull \hbox (badness 10000) in paragraph at lines 1417--1418
 
  []
 
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1418.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\alpha' on input line 1418.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\beta' on input line 1418.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1418.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1419--1420
+(./Connect4/connect4-game.lisp [70])
+Underfull \hbox (badness 10000) in paragraph at lines 1422--1423
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1421--1422
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1423.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\alpha' on input line 1423.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\beta' on input line 1423.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1423.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1424--1425
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1423--1424
+Underfull \hbox (badness 10000) in paragraph at lines 1426--1427
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1427--1428
+Underfull \hbox (badness 10000) in paragraph at lines 1428--1429
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1429--1430
+Underfull \hbox (badness 10000) in paragraph at lines 1432--1433
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1434--1435
 
  []
 
 [71]
-Underfull \hbox (badness 10000) in paragraph at lines 1431--1433
+Underfull \hbox (badness 10000) in paragraph at lines 1436--1438
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1434--1436
+Underfull \hbox (badness 10000) in paragraph at lines 1439--1441
 
  []
 
 [72]
-Underfull \hbox (badness 10000) in paragraph at lines 1442--1443
+Underfull \hbox (badness 10000) in paragraph at lines 1447--1448
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1444--1445
+Underfull \hbox (badness 10000) in paragraph at lines 1449--1450
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1448--1449
+Underfull \hbox (badness 10000) in paragraph at lines 1453--1454
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1450--1451
+Underfull \hbox (badness 10000) in paragraph at lines 1455--1456
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1452--1453
+Underfull \hbox (badness 10000) in paragraph at lines 1457--1458
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1454--1455
+Underfull \hbox (badness 10000) in paragraph at lines 1459--1460
 
  []
 
 [73]
-Underfull \hbox (badness 10000) in paragraph at lines 1456--1457
+Underfull \hbox (badness 10000) in paragraph at lines 1461--1462
 
  []
 
-<imgs/algo_ml.png, id=1782, 374.5995pt x 190.311pt>
+<imgs/algo_ml.png, id=1785, 374.5995pt x 190.311pt>
 File: imgs/algo_ml.png Graphic file (type png)
 <use imgs/algo_ml.png>
-Package pdftex.def Info: imgs/algo_ml.png  used on input line 1460.
+Package pdftex.def Info: imgs/algo_ml.png  used on input line 1465.
 (pdftex.def)             Requested size: 374.59859pt x 190.31052pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1466--1469
+Underfull \hbox (badness 10000) in paragraph at lines 1471--1474
 
  []
 
 [74 <./imgs/algo_ml.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1470--1472
+Underfull \hbox (badness 10000) in paragraph at lines 1475--1477
 
  []
 
 
-Overfull \hbox (23.26515pt too wide) in paragraph at lines 1475--1476
+Overfull \hbox (23.26515pt too wide) in paragraph at lines 1480--1481
 \OT1/cmr/m/n/12 au Stich-ting Ma-the-ma-tisch Cen-trum en 1994 (fon-da-tion du 
 centre math^^Sematique),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1475--1476
+Underfull \hbox (badness 10000) in paragraph at lines 1480--1481
 
  []
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/09/10 1.8c listings language file
 )
-Underfull \hbox (badness 10000) in paragraph at lines 1477--1478
+Underfull \hbox (badness 10000) in paragraph at lines 1482--1483
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1481--1482
+Underfull \hbox (badness 10000) in paragraph at lines 1486--1487
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1483--1484
-
- []
-
-[75]
 Underfull \hbox (badness 10000) in paragraph at lines 1488--1489
 
  []
 
-
+[75]
 Underfull \hbox (badness 10000) in paragraph at lines 1493--1494
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1495--1496
+Underfull \hbox (badness 10000) in paragraph at lines 1498--1499
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1499--1500
+Underfull \hbox (badness 10000) in paragraph at lines 1500--1501
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1501--1502
+Underfull \hbox (badness 10000) in paragraph at lines 1504--1505
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1503--1504
+Underfull \hbox (badness 10000) in paragraph at lines 1506--1507
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1510--1511
+Underfull \hbox (badness 10000) in paragraph at lines 1508--1509
 
  []
 
-[76]
+
 Underfull \hbox (badness 10000) in paragraph at lines 1515--1516
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1517--1518
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1519--1520
+[76]
+Underfull \hbox (badness 10000) in paragraph at lines 1520--1521
 
  []
 
 
-Overfull \hbox (1.33752pt too wide) in paragraph at lines 1533--1534
+Underfull \hbox (badness 10000) in paragraph at lines 1522--1523
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1524--1525
+
+ []
+
+
+Overfull \hbox (1.33752pt too wide) in paragraph at lines 1538--1539
 []\OT1/cmr/m/n/12 Ci-dessous, nous al-lons illus-trer quelques exemples des dif
 f^^Serences entre
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1533--1534
+Underfull \hbox (badness 10000) in paragraph at lines 1538--1539
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1545--1546
+Underfull \hbox (badness 10000) in paragraph at lines 1550--1551
 
  []
 
 [77] (./PythonIsh/greg_example.py) [78]
-Underfull \hbox (badness 10000) in paragraph at lines 1568--1569
+Underfull \hbox (badness 10000) in paragraph at lines 1573--1574
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1570--1571
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1572--1573
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1574--1575
+Underfull \hbox (badness 10000) in paragraph at lines 1575--1576
 
  []
 
@@ -2718,126 +2755,136 @@ Underfull \hbox (badness 10000) in paragraph at lines 1577--1578
  []
 
 
-Overfull \hbox (1.5704pt too wide) in paragraph at lines 1579--1580
+Underfull \hbox (badness 10000) in paragraph at lines 1579--1580
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1582--1583
+
+ []
+
+
+Overfull \hbox (1.5704pt too wide) in paragraph at lines 1584--1585
 \OT1/cmr/m/n/12 riable ex-pliqu^^See (uti-lis^^See pour d^^Secrire les va-riabl
 es d^^Sependantes). La r^^Segression
  []
 
 
-Overfull \hbox (0.75003pt too wide) in paragraph at lines 1579--1580
+Overfull \hbox (0.75003pt too wide) in paragraph at lines 1584--1585
 \OT1/cmr/m/n/12 ma-tion d'une voi-ture en fonc-tion de sa vi-tesse, la consom-m
 a-tion est consid^^Ser^^See
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1579--1580
-
- []
-
-[79]
 Underfull \hbox (badness 10000) in paragraph at lines 1584--1585
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1586--1587
+[79]
+Underfull \hbox (badness 10000) in paragraph at lines 1589--1590
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1590--1591
+Underfull \hbox (badness 10000) in paragraph at lines 1591--1592
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1595--1596
 
  []
 
 [80]
-Underfull \hbox (badness 10000) in paragraph at lines 1599--1600
+Underfull \hbox (badness 10000) in paragraph at lines 1604--1605
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1609--1610
+Underfull \hbox (badness 10000) in paragraph at lines 1614--1615
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1611--1612
+Underfull \hbox (badness 10000) in paragraph at lines 1616--1617
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1613--1614
+Underfull \hbox (badness 10000) in paragraph at lines 1618--1619
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1615--1616
+Underfull \hbox (badness 10000) in paragraph at lines 1620--1621
 
  []
 
 [81]
-Underfull \hbox (badness 10000) in paragraph at lines 1625--1626
+Underfull \hbox (badness 10000) in paragraph at lines 1630--1631
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1636--1637
+Underfull \hbox (badness 10000) in paragraph at lines 1641--1642
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1654--1655
+Underfull \hbox (badness 10000) in paragraph at lines 1659--1660
 
  []
 
 [82]
-Underfull \hbox (badness 10000) in paragraph at lines 1656--1657
+Underfull \hbox (badness 10000) in paragraph at lines 1661--1662
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1672--1673
+Underfull \hbox (badness 10000) in paragraph at lines 1677--1678
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1682--1683
+Underfull \hbox (badness 10000) in paragraph at lines 1687--1688
 
  []
 
 [83]
-Underfull \hbox (badness 10000) in paragraph at lines 1705--1706
+Underfull \hbox (badness 10000) in paragraph at lines 1710--1711
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1717--1718
+Underfull \hbox (badness 10000) in paragraph at lines 1722--1723
 
  []
 
 [84]
-Underfull \hbox (badness 10000) in paragraph at lines 1734--1736
+Underfull \hbox (badness 10000) in paragraph at lines 1739--1741
 
  []
 
 [85] [86] [87] [88] [89]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1862.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1862.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1867.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1867.
  (./ia_pas_de_soucis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1862.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1862.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1867.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1867.
 
 Package rerunfilecheck Info: File `ia_pas_de_soucis.out' has not changed.
 (rerunfilecheck)             Checksum: 8336B939FE2A5E5594CEBDB4D3E28AFD;5221.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1862.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1867.
  ) 
 Here is how much of TeX's memory you used:
- 35734 strings out of 481239
- 741216 string characters out of 5920377
- 1489805 words of memory out of 5000000
- 48850 multiletter control sequences out of 15000+600000
+ 35741 strings out of 481239
+ 741400 string characters out of 5920377
+ 1489856 words of memory out of 5000000
+ 48855 multiletter control sequences out of 15000+600000
  543376 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 133i,19n,160p,1619b,2058s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 133i,19n,160p,1619b,2060s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.10} has been referenced but does not ex
 ist, replaced by a fixed one
 
@@ -2889,10 +2936,10 @@ msfonts/latxfont/lcirclew.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1
 200.pfb>
-Output written on ia_pas_de_soucis.pdf (89 pages, 887394 bytes).
+Output written on ia_pas_de_soucis.pdf (89 pages, 907212 bytes).
 PDF statistics:
- 2493 PDF objects out of 2984 (max. 8388607)
- 2331 compressed objects within 24 object streams
- 1493 named destinations out of 1728 (max. 500000)
- 595 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2496 PDF objects out of 2984 (max. 8388607)
+ 2332 compressed objects within 24 object streams
+ 1494 named destinations out of 1728 (max. 500000)
+ 600 words of extra memory for PDF output out of 10000 (max. 10000000)
 
