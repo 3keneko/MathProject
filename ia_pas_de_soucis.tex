@@ -15,7 +15,9 @@
 \usepackage{setspace}
 \usepackage{listingsutf8}
 \usepackage{wrapfig, floatflt}
+\usepackage[firstpage=true]{background}
 \pagestyle{fancy}
+
 
 \definecolor{codecomments}{HTML}{FFA700}
 \definecolor{codenumbers}{HTML}{D62D20}
@@ -24,6 +26,14 @@
 \definecolor{keycolor}{HTML}{3B5998}%{0057E7}
 \definecolor{backcolour}{HTML}{FFFFFF}
 
+\backgroundsetup{
+  pages=some,
+  firstpage=true,
+  scale=1,
+  angle=0,
+  opacity=1,
+  contents={\includegraphics[width=\paperwidth, height=\paperheight]{imgs/entre_guillemets.png}}
+}
 \hypersetup{
   colorlinks=true,
   linkcolor=black,
@@ -113,14 +123,19 @@
 
 \newcolumntype{M}[ 1 ]{>{\centering\arraybackslash}m{#1}}
 
-\title{IA Pas de Soucis !}
-\author{Un projet de \\Evrard Maurice,\\ Lejeune Grégory,\\ Lejeune Lucas \\ et de Mathieu Louca.}
+\title{}
+\date{}
+\pagestyle{empty}
 
 \begin{document}
 \maketitle
+\thispagestyle{empty}
 \newpage
+\pagestyle{fancy}
+\pagenumbering{roman}
 \tableofcontents
 \newpage
+\pagenumbering{arabic}
 \section{Introduction.}
 Ce projet a été créé dans le cadre du cours de PESU maths, par des élèves de la classe de 6F, et a pour objectif de présenter les différentes méthodes utilisées dans la création d'intelligences artificielles au cours de ces dernières décennies. Il ne s'agit pas ici de présenter brièvement plusieurs langages de programmation, mais bien de montrer au lecteur l'évolution de l'IA au cours du temps en utilisant les différents langages comme les outils aidant à la conception de petits programmes simples.\\
 
