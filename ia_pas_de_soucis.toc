@@ -19,9 +19,9 @@
 \contentsline {subsubsection}{\numberline {3.1.5}Résolution de problèmes en logique propositionnelle.}{8}{subsubsection.3.1.5}%
 \contentsline {subsection}{\numberline {3.2}Les ensembles de propositions.}{11}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Une logique? Des logiques!}{13}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Introduction à Prolog et à la logique des Prédicats.}{14}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.4}Introduction à Prolog et à la logique des Prédicats.}{13}{subsection.3.4}%
 \contentsline {subsubsection}{\numberline {3.4.1}Exemples.}{14}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Qu'est-ce que PROLOG?}{15}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.2}Qu'est-ce que PROLOG?}{14}{subsubsection.3.4.2}%
 \contentsline {subsubsection}{\numberline {3.4.3}Introduction à la syntaxe de Prolog}{15}{subsubsection.3.4.3}%
 \contentsline {subsubsection}{\numberline {3.4.4}Mon arbre familial, avec Prolog!}{17}{subsubsection.3.4.4}%
 \contentsline {section}{\numberline {4}L'approche algorithmique.}{23}{section.4}%
