@@ -352,8 +352,7 @@ Depuis 1993, l'IA continue de faire ses preuves au travers de nombreux exploits,
       \hline
     \end{tabular}
   \end{table}
-  Ainsi, comme nous pouvons le constater, la dernière ligne est remplie de ``V'', cela veut donc dire que nous venons de prouver la relation $\neg (A \land B) \ffi \neg A \lor \neg B$ , aussi connue sous le nom de ``la loi de DeMorgan'', nous avons prouvé par la même occasion que $\neg (A \land B) \ffi \neg A \lor B$ est {\bf valide}, cela veut dire qu'elle sera toujours vraie, peu-importe les A, et les B.\\
-
+  Ainsi, comme nous pouvons le constater, la dernière ligne est remplie de ``V'', cela veut donc dire que nous venons de prouver la relation $\neg (A \land B) \ffi \neg A \lor \neg B$ , aussi connue sous le nom de ``la loi de DeMorgan'', nous avons prouvé par la même occasion que $\neg (A \land B) \ffi \neg A \lor B$ est {\bf valide}, cela veut dire qu'elle sera toujours vraie, peu-importe les A, et les B.\\s
   Il existe toutefois une autre manière de faire, il s'agit d'utiliser un arbre, cette méthode requiert moins d'étapes et nous permettra de résoudre certains problèmes de manière plus simple. Toutefois, il y a quelques règles à respecter lors de l'utilisation d'un arbre, ces  règles sont répertoriées dans le tableau ci-dessous. \\
   \begin{center}
     \begin{table}[H]
@@ -429,15 +428,13 @@ Chaque branche de l'arbre fini bien par $\bot$, nous venons donc de prouver la l
   \begin{itemize}
   \item {\bf consistantes}, signifiant qu'il est possible d'en tirer du Vrai, par exemple $A \land B$ ou encore $\neg \neg A \imply A$.
   \item {\bf inconsistances}, signifiant que l'on ne peut en tirer que du Faux, par exemple $A \land \neg A$, ces formules peuvent être notées $\bot$.
-  \item {\bf valides}, signifiant qu'elles ne peuvent être que Vraies, comme $A \lor \neg A$ (principe du tiers exclu), une formule {\bf valide} est par définition toujours {\bf consistante}, on appelle bien souvent ces formules valides des {\bf tautologies}, ces formules pourront être notées $\top$. \\
+  \item {\bf valides}, signifiant qu'elles ne peuvent être que Vraies, comme $A \lor \neg A$ (principe du tiers exclu), une formule {\bf valide} est par définition toujours {\bf consistante}, on appelle bien souvent ces formules valides des {\bf tautologies}, ces formules pourront être notées $\top$.
   \item {\bf contingentes}, impliquant que l'on peut tirer de la formule du faux, tout comme du vrai, une {\bf tautologie} ne peut pas être formule contingente,
   un exemple de formule contingente serait $A \lor B$.
   \end{itemize}
 
   Les ensembles aussi ont leur propre terminologie, ainsi, si l'on prend l'ensemble noté $S$, il pourra être qualifié également de {\bf consistant}, si il n'y a pas de contradictions au sein de $S$ et qu'il n'y a aucune formule inconsistante contenue dans $S$, autrement $S$ sera défini comme étant {\bf inconsistant}. \\[0.5cm]
-  Il y a plusieurs manières d'{\bf inférer} quelque chose d'un ensemble logique. \\
-
-  Une première manière est de prendre les {\bf prémisses} qui nous intéressent, et d'écrire \\[0.5cm]
+  Il y a plusieurs manières d'{\bf inférer} quelque chose d'un ensemble logique, une première manière est de prendre les {\bf prémisses} qui nous intéressent, et d'écrire \\[0.5cm]
     1. {\bf Premisse\_A} \\
     2. {\bf Premisse\_B} \\
     \hspace{0.2cm}$\vdots$ \\
