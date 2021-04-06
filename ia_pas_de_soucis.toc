@@ -45,21 +45,28 @@
 \contentsline {subsubsection}{\numberline {4.4.4}Dijkstra avec de l'heuristique: A*!}{50}{subsubsection.4.4.4}%
 \contentsline {subsection}{\numberline {4.5}Des programmes et des jeux!}{54}{subsection.4.5}%
 \contentsline {subsubsection}{\numberline {4.5.1}L'algorithme Minimax.}{55}{subsubsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.6}Un programme de jeu.}{56}{subsection.4.6}%
-\contentsline {subsubsection}{\numberline {4.6.1}$\alpha \beta $-élagage.}{67}{subsubsection.4.6.1}%
-\contentsline {subsubsection}{\numberline {4.6.2}Du dynamisme bon sang !}{67}{subsubsection.4.6.2}%
-\contentsline {section}{\numberline {5}Le Machine Learning.}{69}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Définition du Machine Learning}{69}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Les Maths dans le Machine Leanring.}{69}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Les réseaux de neurones}{70}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Intro au langage Python}{71}{subsection.5.4}%
-\contentsline {subsubsection}{\numberline {5.4.1}Python 2:}{72}{subsubsection.5.4.1}%
-\contentsline {subsubsection}{\numberline {5.4.2}Un programme d'exemple avec le second degré!}{74}{subsubsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.5}le Data Science}{75}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}La bibliothèque NumPy}{76}{subsection.5.6}%
-\contentsline {subsubsection}{\numberline {5.6.1}NumPy: Qu'est-ce que c'est et pourquoi c'est génial ?}{76}{subsubsection.5.6.1}%
-\contentsline {subsubsection}{\numberline {5.6.2}Création d'un tableau}{76}{subsubsection.5.6.2}%
-\contentsline {subsubsection}{\numberline {5.6.3}Les attributs et les manipulations de tableau}{80}{subsubsection.5.6.3}%
-\contentsline {subsubsection}{\numberline {5.6.4}Opérations de base}{81}{subsubsection.5.6.4}%
-\contentsline {subsubsection}{\numberline {5.6.5}Récapitulatif}{83}{subsubsection.5.6.5}%
-\contentsline {section}{\numberline {6}Remerciements.}{85}{section.6}%
+\contentsline {subsubsection}{\numberline {4.5.2}$\alpha \beta $-élagage.}{56}{subsubsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.3}Du dynamisme bon sang !}{57}{subsubsection.4.5.3}%
+\contentsline {section}{\numberline {5}Le Machine Learning.}{58}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Définition du Machine Learning}{58}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Les Maths dans le Machine Leanring.}{58}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Les réseaux de neurones}{59}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Intro au langage Python}{60}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Python 2:}{61}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}Un programme d'exemple avec le second degré!}{63}{subsubsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.5}le Data Science}{64}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}La bibliothèque NumPy}{65}{subsection.5.6}%
+\contentsline {subsubsection}{\numberline {5.6.1}NumPy: Qu'est-ce que c'est et pourquoi c'est génial ?}{65}{subsubsection.5.6.1}%
+\contentsline {subsubsection}{\numberline {5.6.2}Création d'un tableau}{65}{subsubsection.5.6.2}%
+\contentsline {subsubsection}{\numberline {5.6.3}Les attributs et les manipulations de tableau}{69}{subsubsection.5.6.3}%
+\contentsline {subsubsection}{\numberline {5.6.4}Opérations de base}{70}{subsubsection.5.6.4}%
+\contentsline {subsubsection}{\numberline {5.6.5}Récapitulatif}{72}{subsubsection.5.6.5}%
+\contentsline {section}{\numberline {6}Appendices}{74}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Manuels d'installations des langages et librairies.}{74}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Pour PROLOG}{74}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Pour Common Lisp}{74}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}Pour Python}{74}{subsubsection.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.1.4}Installation de numpy}{74}{subsubsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.2}Orienté-Objet et Programmation Fonctionnelle}{74}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Un programme de jeu.}{75}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Remerciements.}{86}{section.7}%
