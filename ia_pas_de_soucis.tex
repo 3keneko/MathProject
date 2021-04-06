@@ -528,7 +528,7 @@ Cette petite introduction passée, concentrons-nous maintenant sur le coeur du s
 Prolog a été inventé en 1972 par les informaticiens français Alain Colmerauer et Philippe Roussel. Son logo est celui ci-contre.\\
 \begin{wrapfigure}[13]{R}{0.3\textwidth}
   \includegraphics[scale=0.5]{imgs/AlainColmerauer.jpeg}
-  \caption{Alain Colmerauer}
+  \caption{{\em Alain Colmerauer}}
 \end{wrapfigure}
 
 C'est un langage de programmation {\bf logique} et son nom est un acronyme pour PROgrammation LOGique. \\
@@ -808,7 +808,7 @@ Il est possible de représenter une liste simplement chaînée ainsi: \\
 \begin{figure}[H]
   \centering
   \includegraphics[width=9.0cm]{imgs/linked_list.png}
-  \caption{Liste simplement chaînée.}
+  \caption{{\em Liste simplement chaînée.}}
 \end{figure}
 En Lisp, une liste simplement chaînée peut être crée de la manière suivante. \\
 
@@ -820,7 +820,7 @@ Ainsi, si nous reprenions le dessin que nous avions utilisé ci-dessus,
 \begin{figure}[H]
   \centering
   \includegraphics[width=9.0cm, height=2.5cm]{imgs/my_linked_list.png}
-  \caption{*my-linked-list*}
+  \caption{{\em *my-linked-list*}}
 \end{figure}
 D'ailleurs, pour pouvoir travailler avec des listes chaînées, deux opérateurs bien pratiques s'offrent à nous: ``car'' et ``cdr''. \\[0.2cm]
 \begin{lstlisting}[language=LISP]
@@ -1044,7 +1044,7 @@ Lisp est une famille de langages de programmation fonctionnels, inventés en 195
 Ceux-ci sont reconnaissables facilement grâce au très grand nombre de parenthèses présentes dans chacun des dialectes de Lisp. \\
 \begin{wrapfigure}[10]{R}{0.3\textwidth}
   \includegraphics[scale=0.5]{imgs/Lisplogo_alien_256.png}
-  \caption{Logo officieux de Common Lisp.}
+  \caption{{\em Logo officieux de Common Lisp.}}
 \end{wrapfigure}
 
 Aujourd'hui, le dialecte Lisp le plus utilisé reste {\bf Clojure}, toutefois, il en reste d'autres gardant toujours leur cote de popularité, pour n'en citer que quelques-uns, nous avons
@@ -1224,7 +1224,7 @@ Tout d'abord, pour représenter l'espace dans lequel notre algorithme doit cherc
 \begin{figure}[H]
   \centering
   \includegraphics[width=8.0cm]{imgs/numbered_graph.png}
-  \caption{Graphe avec poids.}
+  \caption{{\em Graphe avec poids.}}
 \end{figure}
 Ainsi, imaginons que nous cherchons le chemin optimal entre la ville A et la ville G. Nous allons entreprendre les recherches avec l'aide de l'algorithme de Dijkstra. \\
 
@@ -1244,7 +1244,7 @@ Ainsi, nous pouvons créer une file des priorités, reprenant les villes visité
 \end{itemize}
 Il faut donc visiter en priorité la ville B! \\
 
-À partir de B, nous pouvons visiter les villes D et C, voici les chemins empruntés: \\
+À partir de B, nous pouvons visiter les villes D et C:
 \begin{figure}[H]
   \centering
   \includegraphics[width=8.0cm]{imgs/third_search.png}
@@ -1277,7 +1277,7 @@ Le lecteur pourra s'essayer à trouver le chemin optimal entre A et G, en appliq
 \begin{figure}[!hbt]
   \centering
   \includegraphics[width=8.0cm]{imgs/solved.png}
-  \caption{Le chemin optimal!}
+  \caption{{\em Le chemin optimal!}}
 \end{figure}
 Toutefois, on remarque vite un problème avec cet algorithme: toutes les villes ont dû être visitées afin de pouvoir résoudre correctement notre problème! \\
 
@@ -1447,9 +1447,7 @@ L'alpha-bêta élagage est une technique d'optimisation inventée par nul autre 
 
 Nous ne rentrerons pas dans les détails du fonctionnement de l'$\alpha\beta$-élagage. En clair, celui-ci permet de réduire grandement le nombre de recherches à faire dans l'arbre de décision sur lequel nous appliquons notre algorithme minimax.\\
 
-En effet, il n'est pas nécessaire de visiter les positions où l'évaluation n'est pas assez favorable.\\
-
-L'arbre de jeu étant tellement énorme, il est extrêmement pratique de ne pas avoir à tout visiter.
+En effet, il n'est pas nécessaire de visiter les positions où l'évaluation n'est pas assez favorable. L'arbre de jeu étant tellement énorme, il est extrêmement pratique de ne pas avoir à tout visiter, cette technique est donc très importante à l'optimisation d'un bon programme de puissance 4, en ne visitant pas les nœuds superflus, l'ordinateur peut gagner un temps considérable et ainsi aller plus en profondeur dans les coups nécessaires.
 \subsubsection{Du dynamisme bon sang !}
 Le principe de la programmation fondateur dynamique est assez simple: Il est plus facile de mémoriser que de calculer.\\
 
@@ -1885,5 +1883,5 @@ On notera ici que l’axis 0 = les colonnes et l’axis 1 = les lignes: shape = 
 \newpage
 \section{Remerciements.}
 
-Nous remercions avant tout Sophie Gayes qui tout au long du projet nous a soutenu et a répondu à nos questions, nous remercions aussi sa marraine qui a pris le temps de relire entièrement notre projet et de dire chaque point qui n'était pas complet ou incorrect, nous remercions enfin Mr. Joachim sans qui rien n'aurait été possible et qui nous a soutenu plus que tout pendant cette période difficile et longue à passer.
+Nous remercions avant tout Sophie Gayes pour son aide considérable à la réalisation de ce projet de maths, qui nous a permis d'éviter au mieux les fautes de français assez nombreuses ayant été commises, et sans qui nous ne pourrions nous targuer d'avoir une si belle page de garde. Nous remercions également sa marraine qui a pris le temps de relire entièrement notre projet et de dire chaque point qui n'était pas complet ou incorrect, nous remercions enfin Mr. Joachim sans qui rien n'aurait été possible et qui nous a soutenu plus que tout pendant cette période difficile et longue à passer.
 \end{document}
