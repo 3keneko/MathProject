@@ -718,7 +718,7 @@ Voici comment celui-ci fonctionne: \\[0.2cm]
 \begin{itemize}
   \item Tout d'abord, nous prenons deux nombres a et b.
   \item Si b = 0 alors, nous retournons a comme étant le pgcd.
-  \item Sinon, nous écrivons que {\bf pgcd}(a, b) = {\bf pgcd}(b, a {\bf mod} b)\\[0.2cm]
+  \item Sinon, nous écrivons que {\bf pgcd}(a, b) = {\bf pgcd}(b, a {\bf mod}\footnote{Le modulo, c'est simplement le reste de la division entière.} b)\\[0.2cm]
 \end{itemize}
 Et en voici sa traduction en Common Lisp, le langage de programmation que nous utiliserons dans cette partie du dossier.
 \lstinputlisting[language=Lisp]{LispBasics/gcd.lisp}

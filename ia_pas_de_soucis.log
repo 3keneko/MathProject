@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.9.18)  6 APR 2021 12:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.9.18)  6 APR 2021 12:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1622,7 +1622,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 779--780
 
  []
 
-<imgs/big-o.jpg, id=726, 1204.5pt x 839.135pt>
+<imgs/big-o.jpg, id=725, 1204.5pt x 839.135pt>
 File: imgs/big-o.jpg Graphic file (type jpg)
 <use imgs/big-o.jpg>
 Package pdftex.def Info: imgs/big-o.jpg  used on input line 784.
@@ -1642,7 +1642,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 804--805
 
  []
 
-<imgs/linked_list.png, id=750, 255.95625pt x 37.64063pt>
+<imgs/linked_list.png, id=752, 255.95625pt x 37.64063pt>
 File: imgs/linked_list.png Graphic file (type png)
 <use imgs/linked_list.png>
 Package pdftex.def Info: imgs/linked_list.png  used on input line 810.
@@ -1657,7 +1657,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 813--814
 
  []
 
-<imgs/my_linked_list.png, id=751, 264.23718pt x 104.64093pt>
+<imgs/my_linked_list.png, id=753, 264.23718pt x 104.64093pt>
 File: imgs/my_linked_list.png Graphic file (type png)
 <use imgs/my_linked_list.png>
 Package pdftex.def Info: imgs/my_linked_list.png  used on input line 822.
@@ -1820,7 +1820,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1020--1021
 
  []
 
-<imgs/tree.png, id=888, 316.93407pt x 234.8775pt>
+<imgs/tree.png, id=890, 316.93407pt x 234.8775pt>
 File: imgs/tree.png Graphic file (type png)
 <use imgs/tree.png>
 Package pdftex.def Info: imgs/tree.png  used on input line 1029.
@@ -1861,7 +1861,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1042--1043
 
  []
 
-<imgs/Lisplogo_alien_256.png, id=920, 256.96pt x 150.5625pt>
+<imgs/Lisplogo_alien_256.png, id=922, 256.96pt x 150.5625pt>
 File: imgs/Lisplogo_alien_256.png Graphic file (type png)
 <use imgs/Lisplogo_alien_256.png>
 Package pdftex.def Info: imgs/Lisplogo_alien_256.png  used on input line 1046.
@@ -1887,7 +1887,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1044--1049
  []
 
 [35 <./imgs/tree.png>]
-<imgs/lisp.jpeg, id=927, 89.133pt x 26.499pt>
+<imgs/lisp.jpeg, id=929, 89.133pt x 26.499pt>
 File: imgs/lisp.jpeg Graphic file (type jpg)
 <use imgs/lisp.jpeg>
 Package pdftex.def Info: imgs/lisp.jpeg  used on input line 1061.
@@ -2227,7 +2227,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1221--1222
  []
 
 [45]
-<imgs/numbered_graph.png, id=1167, 310.91156pt x 281.55188pt>
+<imgs/numbered_graph.png, id=1169, 310.91156pt x 281.55188pt>
 File: imgs/numbered_graph.png Graphic file (type png)
 <use imgs/numbered_graph.png>
 Package pdftex.def Info: imgs/numbered_graph.png  used on input line 1226.
@@ -2252,7 +2252,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1233--1234
 
  []
 
-<imgs/second_search.png, id=1168, 310.91156pt x 281.55188pt>
+<imgs/second_search.png, id=1170, 310.91156pt x 281.55188pt>
 File: imgs/second_search.png Graphic file (type png)
 <use imgs/second_search.png>
 Package pdftex.def Info: imgs/second_search.png  used on input line 1238.
@@ -2279,7 +2279,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1245--1246
 
  []
 
-<imgs/third_search.png, id=1176, 310.91156pt x 281.55188pt>
+<imgs/third_search.png, id=1178, 310.91156pt x 281.55188pt>
 File: imgs/third_search.png Graphic file (type png)
 <use imgs/third_search.png>
 Package pdftex.def Info: imgs/third_search.png  used on input line 1250.
@@ -2299,7 +2299,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1259--1260
 
  []
 
-<imgs/fourth_search.png, id=1183, 310.91156pt x 281.55188pt>
+<imgs/fourth_search.png, id=1185, 310.91156pt x 281.55188pt>
 File: imgs/fourth_search.png Graphic file (type png)
 <use imgs/fourth_search.png>
 Package pdftex.def Info: imgs/fourth_search.png  used on input line 1264.
@@ -2324,7 +2324,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1274--1275
 
  []
 
-<imgs/solved.png, id=1184, 310.91156pt x 281.55188pt>
+<imgs/solved.png, id=1186, 310.91156pt x 281.55188pt>
 File: imgs/solved.png Graphic file (type png)
 <use imgs/solved.png>
 Package pdftex.def Info: imgs/solved.png  used on input line 1279.
@@ -2459,7 +2459,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1350--1351
  []
 
 [54]
-<imgs/minimax_start.png, id=1353, 324.80899pt x 176.20888pt>
+<imgs/minimax_start.png, id=1355, 324.80899pt x 176.20888pt>
 File: imgs/minimax_start.png Graphic file (type png)
 <use imgs/minimax_start.png>
 Package pdftex.def Info: imgs/minimax_start.png  used on input line 1356.
@@ -2500,7 +2500,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1369--1370
 
  []
 
-<imgs/minimax.png, id=1354, 323.59702pt x 175.82104pt>
+<imgs/minimax.png, id=1356, 323.59702pt x 175.82104pt>
 File: imgs/minimax.png Graphic file (type png)
 <use imgs/minimax.png>
 Package pdftex.def Info: imgs/minimax.png  used on input line 1374.
@@ -2662,7 +2662,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1481--1482
 
  []
 
-<imgs/algo_ml.png, id=1782, 374.5995pt x 190.311pt>
+<imgs/algo_ml.png, id=1784, 374.5995pt x 190.311pt>
 File: imgs/algo_ml.png Graphic file (type png)
 <use imgs/algo_ml.png>
 Package pdftex.def Info: imgs/algo_ml.png  used on input line 1485.
@@ -2910,15 +2910,18 @@ Package rerunfilecheck Info: File `ia_pas_de_soucis.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1887.
  ) 
 Here is how much of TeX's memory you used:
- 36106 strings out of 481239
- 747495 string characters out of 5920377
+ 36107 strings out of 481239
+ 747507 string characters out of 5920377
  1461093 words of memory out of 5000000
  49197 multiletter control sequences out of 15000+600000
  543376 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  133i,19n,160p,1619b,2199s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.10} has been referenced but does not ex
+pdfTeX warning (dest): name{Hfootnote.11} has been referenced but does not ex
 ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.10} has been referenced but does not exis
+t, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.9} has been referenced but does not exist
 , replaced by a fixed one
@@ -2967,10 +2970,10 @@ ublic/amsfonts/latxfont/lcirclew.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-supe
 r/sfrm1200.pfb>
-Output written on ia_pas_de_soucis.pdf (88 pages, 1493797 bytes).
+Output written on ia_pas_de_soucis.pdf (88 pages, 1494186 bytes).
 PDF statistics:
- 2491 PDF objects out of 2984 (max. 8388607)
- 2324 compressed objects within 24 object streams
- 1491 named destinations out of 1728 (max. 500000)
+ 2493 PDF objects out of 2984 (max. 8388607)
+ 2326 compressed objects within 24 object streams
+ 1492 named destinations out of 1728 (max. 500000)
  620 words of extra memory for PDF output out of 10000 (max. 10000000)
 
