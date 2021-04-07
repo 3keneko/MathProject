@@ -10,63 +10,62 @@
 \contentsline {subsection}{\numberline {2.6}Le retour en force (1980-1987).}{4}{subsection.2.6}%
 \contentsline {subsection}{\numberline {2.7}Le nouvel hiver (1987-1993).}{4}{subsection.2.7}%
 \contentsline {subsection}{\numberline {2.8}Depuis 1993.}{4}{subsection.2.8}%
-\contentsline {section}{\numberline {3}L'Approche Logique.}{6}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Les bases de la logique}{6}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Introduction à la logique propositionnelle.}{6}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Un peu de vocabulaire!}{6}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}Pour quelques exemples de plus...}{7}{subsubsection.3.1.3}%
-\contentsline {subsubsection}{\numberline {3.1.4}Quelques tables de vérité.}{8}{subsubsection.3.1.4}%
-\contentsline {subsubsection}{\numberline {3.1.5}Résolution de problèmes en logique propositionnelle.}{8}{subsubsection.3.1.5}%
-\contentsline {subsection}{\numberline {3.2}Les ensembles de propositions.}{11}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Une logique? Des logiques!}{13}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Introduction à Prolog et à la logique des Prédicats.}{13}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Exemples.}{14}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Qu'est-ce que PROLOG?}{14}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Introduction à la syntaxe de Prolog}{15}{subsubsection.3.4.3}%
-\contentsline {subsubsection}{\numberline {3.4.4}Mon arbre familial, avec Prolog!}{17}{subsubsection.3.4.4}%
-\contentsline {section}{\numberline {4}L'approche algorithmique.}{23}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Qu'est-ce qu'un algorithme?}{23}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}La complexité des algorithmes}{23}{subsubsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.2}Présentation de structures de données de base}{26}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Les listes simplement chaînées.}{26}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Les tableaux.}{28}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Tableaux vs Listes simplement chaînées.}{28}{subsubsection.4.2.3}%
-\contentsline {subsubsection}{\numberline {4.2.4}Les tables de hachages.}{30}{subsubsection.4.2.4}%
-\contentsline {subsubsection}{\numberline {4.2.5}Promenons-nous dans les bois.}{33}{subsubsection.4.2.5}%
-\contentsline {subsubsection}{\numberline {4.2.6}Les tas}{35}{subsubsection.4.2.6}%
-\contentsline {subsection}{\numberline {4.3}Qu'est-ce que Lisp?}{35}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Les bases de Lisp.}{36}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Métaprogrammons!}{39}{subsubsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.3}Programme Lisp pour résoudre parfaitement le jeu de Nim.}{41}{subsubsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.4}Le pathfinding.}{45}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}Présentation du problème.}{45}{subsubsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.2}L'algorithme de Dijkstra.}{46}{subsubsection.4.4.2}%
-\contentsline {subsubsection}{\numberline {4.4.3}Le besoin d'heuristiques.}{49}{subsubsection.4.4.3}%
-\contentsline {subsubsection}{\numberline {4.4.4}Dijkstra avec de l'heuristique: A*!}{50}{subsubsection.4.4.4}%
-\contentsline {subsection}{\numberline {4.5}Des programmes et des jeux!}{54}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}L'algorithme Minimax.}{55}{subsubsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {4.5.2}$\alpha \beta $-élagage.}{56}{subsubsection.4.5.2}%
-\contentsline {subsubsection}{\numberline {4.5.3}Du dynamisme bon sang !}{57}{subsubsection.4.5.3}%
-\contentsline {section}{\numberline {5}Le Machine Learning.}{58}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Définition du Machine Learning}{58}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Les Maths dans le Machine Leanring.}{58}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Les réseaux de neurones}{59}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Intro au langage Python}{60}{subsection.5.4}%
-\contentsline {subsubsection}{\numberline {5.4.1}Python 2:}{61}{subsubsection.5.4.1}%
-\contentsline {subsubsection}{\numberline {5.4.2}Un programme d'exemple avec le second degré!}{63}{subsubsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.5}le Data Science}{64}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}La bibliothèque NumPy}{65}{subsection.5.6}%
-\contentsline {subsubsection}{\numberline {5.6.1}NumPy: Qu'est-ce que c'est et pourquoi c'est génial ?}{65}{subsubsection.5.6.1}%
-\contentsline {subsubsection}{\numberline {5.6.2}Création d'un tableau}{65}{subsubsection.5.6.2}%
-\contentsline {subsubsection}{\numberline {5.6.3}Les attributs et les manipulations de tableau}{69}{subsubsection.5.6.3}%
-\contentsline {subsubsection}{\numberline {5.6.4}Opérations de base}{70}{subsubsection.5.6.4}%
-\contentsline {subsubsection}{\numberline {5.6.5}Récapitulatif}{72}{subsubsection.5.6.5}%
-\contentsline {section}{\numberline {6}Appendices}{74}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Manuels d'installations des langages et librairies.}{74}{subsection.6.1}%
-\contentsline {subsubsection}{\numberline {6.1.1}Pour PROLOG}{74}{subsubsection.6.1.1}%
-\contentsline {subsubsection}{\numberline {6.1.2}Pour Common Lisp}{74}{subsubsection.6.1.2}%
-\contentsline {subsubsection}{\numberline {6.1.3}Pour Python}{74}{subsubsection.6.1.3}%
-\contentsline {subsubsection}{\numberline {6.1.4}Installation de numpy}{74}{subsubsection.6.1.4}%
-\contentsline {subsection}{\numberline {6.2}Orienté-Objet et Programmation Fonctionnelle}{74}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Un programme de jeu.}{75}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Remerciements.}{86}{section.7}%
+\contentsline {section}{\numberline {3}L'Approche Logique.}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Les bases de la logique}{5}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Introduction à la logique propositionnelle.}{5}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Un peu de vocabulaire!}{5}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Pour quelques exemples de plus...}{6}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}Quelques tables de vérité.}{7}{subsubsection.3.1.4}%
+\contentsline {subsubsection}{\numberline {3.1.5}Résolution de problèmes en logique propositionnelle.}{7}{subsubsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.2}Les ensembles de propositions.}{10}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Une logique? Des logiques!}{12}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Introduction à Prolog et à la logique des Prédicats.}{12}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Exemples.}{13}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Qu'est-ce que PROLOG?}{13}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Introduction à la syntaxe de Prolog}{14}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}Mon arbre familial, avec Prolog!}{16}{subsubsection.3.4.4}%
+\contentsline {section}{\numberline {4}L'approche algorithmique.}{22}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Qu'est-ce qu'un algorithme?}{22}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}La complexité des algorithmes}{22}{subsubsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.2}Présentation de structures de données de base}{25}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Les listes simplement chaînées.}{25}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Les tableaux.}{27}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Tableaux vs Listes simplement chaînées.}{27}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Les tables de hachages.}{29}{subsubsection.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.5}Promenons-nous dans les bois.}{32}{subsubsection.4.2.5}%
+\contentsline {subsubsection}{\numberline {4.2.6}Les tas}{34}{subsubsection.4.2.6}%
+\contentsline {subsection}{\numberline {4.3}Qu'est-ce que Lisp?}{34}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Les bases de Lisp.}{35}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Métaprogrammons!}{38}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Programme Lisp pour résoudre parfaitement le jeu de Nim.}{40}{subsubsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.4}Le pathfinding.}{44}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Présentation du problème.}{44}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}L'algorithme de Dijkstra.}{45}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Le besoin d'heuristiques.}{48}{subsubsection.4.4.3}%
+\contentsline {subsubsection}{\numberline {4.4.4}Dijkstra avec de l'heuristique: A*!}{49}{subsubsection.4.4.4}%
+\contentsline {subsection}{\numberline {4.5}Des programmes et des jeux!}{53}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}L'algorithme Minimax.}{54}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}$\alpha \beta $-élagage.}{55}{subsubsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.3}Du dynamisme bon sang !}{56}{subsubsection.4.5.3}%
+\contentsline {section}{\numberline {5}Le Machine Learning.}{57}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Définition du Machine Learning}{57}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Les Maths dans le Machine Leanring.}{57}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Intro au langage Python}{58}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Python 2:}{59}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Un programme d'exemple avec le second degré!}{61}{subsubsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.4}le Data Science}{63}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}La bibliothèque NumPy}{64}{subsection.5.5}%
+\contentsline {subsubsection}{\numberline {5.5.1}NumPy: Qu'est-ce que c'est et pourquoi c'est génial ?}{64}{subsubsection.5.5.1}%
+\contentsline {subsubsection}{\numberline {5.5.2}Création d'un tableau}{64}{subsubsection.5.5.2}%
+\contentsline {subsubsection}{\numberline {5.5.3}Les attributs et les manipulations de tableau}{68}{subsubsection.5.5.3}%
+\contentsline {subsubsection}{\numberline {5.5.4}Opérations de base}{69}{subsubsection.5.5.4}%
+\contentsline {subsubsection}{\numberline {5.5.5}Récapitulatif}{71}{subsubsection.5.5.5}%
+\contentsline {section}{\numberline {6}Appendices}{73}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Manuels d'installations des langages et librairies.}{73}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Pour PROLOG}{73}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Pour Common Lisp}{73}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}Pour Python}{73}{subsubsection.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.1.4}Installation de numpy}{73}{subsubsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.2}Orienté-Objet et Programmation Fonctionnelle}{73}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Un programme de jeu.}{74}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Remerciements.}{85}{section.7}%

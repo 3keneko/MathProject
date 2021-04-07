@@ -179,14 +179,14 @@ Cette période marque malgré tout l'introduction de la logique dans l'IA, notam
 \subsection{Le retour en force (1980-1987).}
 Cette période voit apparaître un nouveau genre de programmes d'IA appelé ``Systèmes experts'', ces programmes ont pour particularité d'être limités à des domaines très restreints. En effet, ce type de programme utilise un ensemble de règles logiques directement inspirées des connaissances des experts du domaine. Cette limite volontaire imposée à ces programmes les rendent plus facile à concevoir et à améliorer une fois déployés. Ces programmes sont les premiers à réellement se rendre utiles pour la société.\\
 
-Le gouvernement japonais va permettre à l'IA de se relancer économiquement en investissant 850 millions de Dollars dans le but de développer des programmes de communication (Traduction, interprétation d'images, ...). Le Royaume-Uni lance un projet similaire qu'il finance à hauteur de 350 millions de livres.
+Le gouvernement japonais va permettre à l'IA de se relancer économiquement en investissant 850 millions de Dollars dans le but de développer des programmes de communication. Le Royaume-Uni lance un projet similaire qu'il finance à hauteur de 350 millions de livres.
 \subsection{Le nouvel hiver (1987-1993).}
 L'engouement qu'avait réussi à créer l'IA au début des années 80 grâce aux systèmes experts a en fait créé une bulle économique qui a fini par exploser à la fin de la décennie.\\
 Cette période marquera tout de même l'apparition d'une nouvelle approche de l'IA, une approche dans laquelle les intelligences artificielles devraient avoir conscience de``leur corps" et de l'environnement qui les entoure.
 \subsection{Depuis 1993.}
 Grâce à un niveau technologique et donc une puissance de calcul qui augmente de manière exponentielle (c.f. Loi de Moore), de nombreux objectifs de l'IA sont atteints. Les investissements n'affluent toujours pas, car on ne s'est pas encore approché du tout du rêve des années 60, c'est-à-dire une IA aussi intelligente qu'un humain.\\
 
-Depuis 1993, l'IA continue de faire ses preuves au travers de nombreux exploits, on peut noter la victoire historique de l'IA Deep Blue aux échecs contre le champion du monde en titre d'échecs Garry Kasparov. On peut aussi parler des nombreux robots anthropomorphes comme le Asimo de Honda ou les robots militaires de Boston Dynamics dont les capacités ne cessent d'impressionner le grand public. Mais au-delà de ces prouesses, l'intelligence artificielle a aujourd'hui surtout gagné une place proéminente dans notre quotidien: applis de traduction, publicités ciblées, GPS, recommandations d'amis sur les réseaux sociaux, ... .
+Depuis 1993, l'IA continue de faire ses preuves au travers de nombreux exploits, on peut noter la victoire historique de l'IA Deep Blue aux échecs contre le champion du monde en titre d'échecs Garry Kasparov. On peut aussi parler des nombreux robots anthropomorphes comme le Asimo de Honda ou les robots militaires de Boston Dynamics dont les capacités ne cessent d'impressionner le grand public. Mais au-delà de ces prouesses, l'intelligence artificielle a aujourd'hui surtout gagné une place proéminente dans notre quotidien.
 \newpage
 \section{L'Approche Logique.}
 \subsection{Les bases de la logique}
@@ -1425,15 +1425,6 @@ Il existe beaucoup d'algorithmes différents qui sont utilisés dans le machine 
 
 "Les Forêts Aléatoires", le "Gradient Boosting"/"Xg Boost", "les algorithmes génétiques", les "machines à vecteurs de support", les "k plus proches voisins",... sont tous des algorithmes utilisés en Machine Learning.
 
-\subsection{Les réseaux de neurones}
-Une couche de neurones d’entrées, plusieurs couches cachées, une couche de sortie suivie d’une fonction d’activation.
-Chaque neurone possède une valeur obtenue par une fonction de combinaison étant la somme des valeurs des neurones de la couche précédente, chacune multipliée par un poids spécifique
-$ z = x_1 \cdot p_1 + x_2 \cdot p_2 + \cdots + x_n \cdot p_n $ \\
-
-Une fois la (ou les) valeur(s) de la couche de sortie obtenue(s), on applique à celle-ci une fonction d’activation qui transforme la valeur en fonction d’un seuil. Si en dessous du seuil, inactif (0/-1), aux environs du seuil, phase de transition, et au-dessus du seuil, actif (1/$>$1). Le type de fonction varie d’un cas à l’autre, mais les plus récurrentes sont la fonction sigmoïde $ \frac{1}{1 + e^{-x}} $ la fonction tangente hyperbolique $ \frac{2} {1 + e^{-2x}} -1 $
-ou encore la fonction ReLU $ \begin{cases} 0 & x < 0 \\ x & x >= 0 \end{cases} $ \\
-
-Durant l’apprentissage, les poids sont des valeurs prises au hasard. Il faut donc les ajuster pour fournir une réponse qui se rapproche au mieux de la réalité. Comme on entraîne notre réseau, on connaît la vraie valeur finale. On va donc appliquer une fonction de coût afin de calculer le gradient d’erreur entre la valeur réelle et la valeur prédite $ \frac{1}{2}(y_r - y_p)^2 $, et ainsi mettre à jour les poids par rétropropagation (! il y a des maths plus compliquées derrière). A chaque nouvelle donnée injectée lors de l’apprentissage, le réseau est plus performant.
 \subsection{Intro au langage Python}
 Python est un langage de programmation créé par Guido van Rossum dont la première version est parue en 1991 mais est exposée au grand public au Stichting Mathematisch Centrum en 1994 (fondation du centre mathématique), en Hollande. Ce langage est dit open source, c'est-à-dire qu’il est gratuit et libre d’utilisation.\\
 
