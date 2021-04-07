@@ -10,7 +10,6 @@
 ### 3. Approche Logique 
 - ~~Réécrire la partie sur l'algorithme de Quine.~~(Cette partie a finalement été retirée, manque d'intérêt pratique à celle-ci.) 
 -  ~~Ajouter des illustrations.~~ 
-- Donner les solutions des problèmes en annexe.
 - ~~Ajouter manuel d'installation Prolog en annexe.~~ 
 
 ### 4. Approche Algorithmique :check_mark:
