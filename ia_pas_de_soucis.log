@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.9.18)  7 APR 2021 11:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.9.18)  7 APR 2021 13:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2924,29 +2924,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 1911--1912
 
  []
 
-[85]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1916.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1916.
+(./ia_pas_de_soucis.bbl) [85]
+Overfull \hbox (0.85483pt too wide) in paragraph at lines 1922--1923
+[]\OT1/cmr/m/it/12 A* (A Star) Search Al-go-rithm - Com-pu-ter-phile\OT1/cmr/m/
+n/12 , consult^^See en D^^Secembre
+ []
+
+[86]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1928.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1928.
  (./ia_pas_de_soucis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1916.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1916.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1928.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1928.
 
-
-
-Package rerunfilecheck Warning: File `ia_pas_de_soucis.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `ia_pas_de_soucis.out':
-(rerunfilecheck)             Before: DC6B06BA6E16160BC5132BEA5E360FD6;5764
-(rerunfilecheck)             After:  E96BB59D910A9BC61DE9D590538AF9BE;5688.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1916.
+Package rerunfilecheck Info: File `ia_pas_de_soucis.out' has not changed.
+(rerunfilecheck)             Checksum: 70E31A64B7EF3FF655BA3C2B2018FEE7;5738.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1928.
  ) 
 Here is how much of TeX's memory you used:
- 36225 strings out of 481239
- 749332 string characters out of 5920377
- 1462172 words of memory out of 5000000
- 49289 multiletter control sequences out of 15000+600000
+ 36250 strings out of 481239
+ 749503 string characters out of 5920377
+ 1462468 words of memory out of 5000000
+ 49305 multiletter control sequences out of 15000+600000
  543376 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  133i,19n,160p,1619b,2199s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2983,30 +2982,6 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
 
-pdfTeX warning (dest): name{subsubsection.5.6.5} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.5.6.4} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.5.6.3} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.5.6.2} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.5.6.1} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.6} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.5.4.2} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.5.4.1} has been referenced but does n
-ot exist, replaced by a fixed one
-
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/
@@ -3024,10 +2999,10 @@ xmf-dist/fonts/type1/public/amsfonts/latxfont/lcirclew.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/font
 s/type1/public/cm-super/sfrm1200.pfb>
-Output written on ia_pas_de_soucis.pdf (88 pages, 1475283 bytes).
+Output written on ia_pas_de_soucis.pdf (89 pages, 1484149 bytes).
 PDF statistics:
- 2541 PDF objects out of 2984 (max. 8388607)
- 2377 compressed objects within 24 object streams
- 1514 named destinations out of 1728 (max. 500000)
+ 2558 PDF objects out of 2984 (max. 8388607)
+ 2393 compressed objects within 24 object streams
+ 1520 named destinations out of 1728 (max. 500000)
  676 words of extra memory for PDF output out of 10000 (max. 10000000)
 

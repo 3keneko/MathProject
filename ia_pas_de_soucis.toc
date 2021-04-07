@@ -68,4 +68,5 @@
 \contentsline {subsubsection}{\numberline {6.1.4}Installation de numpy}{73}{subsubsection.6.1.4}%
 \contentsline {subsection}{\numberline {6.2}Orienté-Objet et Programmation Fonctionnelle}{73}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Un programme de jeu.}{74}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Remerciements.}{85}{section.7}%
+\contentsline {section}{\numberline {7}Bibliographie.}{85}{section.7}%
+\contentsline {section}{\numberline {8}Remerciements.}{86}{section.8}%

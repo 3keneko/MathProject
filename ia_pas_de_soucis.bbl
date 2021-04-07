@@ -1,0 +1,49 @@
+\begin{thebibliography}{10}
+
+\bibitem{PCL}
+P.~Seibel, {\em Practical Common Lisp}.
+\newblock Apress, 2005.
+
+\bibitem{cookbook}
+Collective, {\em Common Lisp Cookbook}.
+\newblock O RLY?
+
+\bibitem{PAIP}
+P.~Norvig, {\em Paradigms of Artificial Intelligence Programming}.
+\newblock Morgan Kaufmann Publishers, 1992.
+
+\bibitem{SICP}
+J.~S. Harold~Abelson, Gerald Jay~Sussman, {\em Structure and Interpretation of
+  Computer Programs}.
+\newblock MIT Press, 1996.
+
+\bibitem{AIML}
+X.~J. Richard E.~Neapolitan, {\em Artificial intelligence with an Introduction
+  to Machine Learning}.
+\newblock CRC Press, 2018.
+
+\bibitem{Swiswi}
+G.~Swinnen, {\em Apprendre à Programmer avec Python3.}
+\newblock Eyrolles, 2012.
+
+\bibitem{Grok1}
+R.~Hurbans, {\em Grokking Artificial Intelligence Algorithms}.
+\newblock Manning Publications, 2020.
+
+\bibitem{Grok2}
+A.~Y. Bhargava, {\em Grokking Algorithms}.
+\newblock Manning Publications, 2016.
+
+\bibitem{IALud}
+T.~Cazenave, {\em Intelligence Artificielle Une approche Ludique}.
+\newblock Ellipses, 2011.
+
+\bibitem{spp}
+C.~S. William~F.Clocksin, {\em Programming in Prolog}.
+\newblock Springer, 2003.
+
+\bibitem{Appro}
+A.~Thayse, {\em Approche Logique de l'intelligence Artificielle}.
+\newblock Dunod, 1990.
+
+\end{thebibliography}
