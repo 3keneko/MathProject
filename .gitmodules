@@ -1,0 +1,3 @@
+[submodule "PathFinders/belgian-cities-geocoded"]
+	path = PathFinders/belgian-cities-geocoded
+	url = https://github.com/spatie/belgian-cities-geocoded

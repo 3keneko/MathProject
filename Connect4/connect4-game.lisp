@@ -1,33 +1,30 @@
-(defconstant +inf most-positive-fixnum)
-(defconstant -inf (* -1 +inf))
-
 (defparameter *board*
   (make-array 7 :initial-element
               (make-list 6 :initial-element nil))
   "Le plateau de puissance 4 en lui-même.")
 
+(defparameter *moves* nil
+  "Reprend la liste des coups ayant été jouée.")
+
+;;; LOGIQUE DE JEU
 (defun make-new-board ()
   "Permet de créer un plateau de jeu tout neuf."
   (setf *board* (make-array 7 :initial-element
-                            (make-list 6 :initial-element nil))))
-
-(defun playerify (board-case)
-  "Permet d'afficher propremement chaque case."
-  (case board-case
-    (yellow 'o)
-    (red    'x)
-    (t      '+))) 
+                            (make-list 6 :initial-element nil)))
+  (setf *moves* nil))
 
 (defmacro count-to (x)
   "Une macro similaire à iota de la bibliothèque alexandria."
   (let ((i (gensym)))
     `(loop for ,i from 1 to ,x
-          collect ,i)))
+           collect ,i)))
 
-(defmacro get-pos (column row board)
-  "Retourne l'état de la case se trouvant à un certain
-endroit sur le plateau."
-  `(nth ,row ,(aref board column)))
+(defun playerify (board-case)
+  "Permet d'afficher proprememnt chaque case."
+  (case board-case
+    (yellow 'o)
+    (red    'x)
+    (t      '+))) 
 
 (defun show-board (board)
   "Permet d'afficher le plateau."
@@ -55,8 +52,10 @@ endroit sur le plateau."
   (notany #'null
           (map 'list #'car board)))
 
-(defun play (i color board)
+(defun play (i color board &optional (mark nil))
   "Fonction permettant de jouer un jeton sur le plateau."
+  (when mark
+    (setf *moves* (append *moves* (list i))))
   (let ((c-board (copy-seq board)))
     (labels ((push-until (lat token)
                 (cond
@@ -76,19 +75,6 @@ endroit sur le plateau."
                 b))
           lat))
 
-(defun vertical-connections (color board)
-  "Donne le nombre maximal de connexions verticales."
-  (labels ((number-in-vertical (column colour &optional (buffer 0))
-             (cond
-               ((null column) buffer)
-               ((not (car column)) (number-in-vertical (cdr column) colour 0))
-               ((eq (car column) colour)
-                (number-in-vertical (cdr column) colour (1+ buffer)))
-               (t buffer))))
-    (maximum (map 'list (lambda (column)
-                          (number-in-vertical column color))
-                  board))))
-
 (defun max-subseq (color seq)
   "Donne le nombre maximal d'élément se ressemblant dans une liste. 
 e.g => (max-subseq 'red '(red red yellow red red red yellow yellow)) == 2"
@@ -103,8 +89,21 @@ e.g => (max-subseq 'red '(red red yellow red red red yellow yellow)) == 2"
             do (setf temp 0))
     maxi))
 
+(defun vertical-connections (color board)
+  "Donne le nombre maximal de connection verticale."
+  (labels ((number-in-vertical (column colour &optional (buffer 0))
+             (cond
+               ((null column) buffer)
+               ((not (car column)) (number-in-vertical (cdr column) colour 0))
+               ((eq (car column) colour)
+                (number-in-vertical (cdr column) colour (1+ buffer)))
+               (t buffer))))
+    (maximum (map 'list (lambda (column)
+                          (number-in-vertical column color))
+                  board))))
+
 (defun horizontal-connections (color board)
-  "Donne le nombre maximal de connexions horizontales."
+  "Donne le nombre maximal de connections horizontales."
   (labels ((row-finder (the-board)
              (loop for row from 0 to 5
                    collect (map 'list #'car the-board) into rows
@@ -137,16 +136,16 @@ jusqu'en bas à droite."
           for r from row to max-row
           collect (cons c r))))
 
-(defparameter *top-right-corner* '((3 . 0) (4 . 0) (5 . 0)
-                                   (6 . 0) (6 . 1) (6 . 2))
+(defconstant top-right-corner '((3 . 0) (4 . 0) (5 . 0)
+                                (6 . 0) (6 . 1) (6 . 2))
   "Coordonnées des points se trouvant en haut à droite.")
 
-(defparameter *top-left-corner* '((3 . 0) (2 . 0) (1 . 0)
-                                  (0 . 0) (0 . 1) (0 . 2))
+(defconstant top-left-corner '((3 . 0) (2 . 0) (1 . 0)
+                               (0 . 0) (0 . 1) (0 . 2))
   "Coordonnées des points se trouvant en haut à gauche.")
 
 ;; Cette macro permet d'écrire les fonctions
-;; vérifiant le nombre de connexions diagonales
+;; vérifiant le nombre de connections diagonales
 ;; de manière bien plus simple et concise.
 (defmacro max-in-some-diagonal
     (function-name color board helping-function starting-corner)
@@ -170,9 +169,9 @@ jusqu'en bas à droite."
 ;;; left-diagonal-connections et
 ;;; right-diagonal-connections.
 (max-in-some-diagonal left-diagonal-connections
-                      color board  make-left-diagonal *top-right-corner*)
+                      color board  make-left-diagonal top-right-corner)
 (max-in-some-diagonal right-diagonal-connections
-                      color board make-right-diagonal *top-left-corner*)
+                      color board make-right-diagonal top-left-corner)
 
 (defun connections (color board)
   "Donne le nombre maximal de connections sur le plateau."
@@ -183,11 +182,12 @@ jusqu'en bas à droite."
    (right-diagonal-connections color board)))
 
 (defun winningp (board)
-  "Si le nombre maximal de connexions sur le plateau est supérieur
+  "Si le nombre maximal de connection sur le plateau est supérieur
 à trois, un joueur a gagné."
   (or (> (connections 'yellow board) 3)
       (> (connections 'red    board) 3)))
 
+;;; PARTIE MINIMAX
 (defun evaluation (board)
   "Fonction permettant d'attribuer une valeur à chaque position."
   (cond 
@@ -204,137 +204,129 @@ jusqu'en bas à droite."
             (- (reduce #'+ (mapcar #'eval-num (list vert hori l-di r-di)))
                (reduce #'+ (mapcar #'eval-num (list vero horo l-do r-do)))))))))
 
-(defstruct move column-choice eval-state)
-
-(defun max-move (mov1 mov2)
-  (if (> (move-eval-state mov1) (move-eval-state mov2)) mov1 mov2))
-
 (declaim (inline max-to-color))
 (defun max-to-color (n)
   (if (eql n 1)
       'red
       'yellow))
 
-(defun min-move (mov1 mov2)
-  (if (< (move-eval-state mov1) (move-eval-state mov2)) mov1 mov2))
+(defun get-max-min-seq (lst key)
+  "Donne la séquence de coups ayant la meilleure évaluation, selon la couleur."
+  (let ((max-seq
+          (reduce (lambda (a b)
+            (if (funcall key (cdr a) (cdr b))
+                a
+                b))
+            lst)))
+          (nbutlast (car max-seq))
+          max-seq))
 
-#|(defmacro defmemo (fun-name args &body body)
-  (let ((big-hash (gensym)))
-    `(let ((,big-hash (make-hash-table :test #'equalp)))
-  (defun ,fun-name ,args
-    (if (gethash (list ,(nth args 0) ,(nth args 1)) ,big-hash)
-        (gethash (list ,(nth args 0) ,(nth args 1)) ,big-hash)
-        (setf (gethash (list ,(nth args 0) ,(nth args 1)) ,big-hash)
-              ,@body))))))
-|#
+(defun group-by (list key)
+  "Groupe les éléments d'une liste selon un certain prédicat/fonction."
+  (declare (optimize (speed 3) (safety 0) (debug 0)))
+  (declare (type cons list) (type function key))
+  (labels ((grouper (lat the-key acc)
+           (if (null lat)
+               acc
+               (let ((test-val (funcall the-key (car lat))))
+                 (grouper (remove-if (lambda (a)
+                                       (equal (funcall the-key a) test-val))
+                                lat)
+                          the-key
+                          (cons (remove-if-not (lambda (a)
+                                                 (equal (funcall the-key a) test-val))
+                                               lat)
+                                acc))))))
+    (grouper list key nil)))
 
-(defun make-moves (moves board)
+(defun max-len-filtr (big-list &key (fn 'identity))
+  "Retourne toutes les listes de tailles maximales,
+ainsi que la longueur de ces listes, et une liste contenant les listes de tailles inférieures."
+  (let ((max-len    0)
+        (acc      nil)
+        (rejected nil))
+    (loop for list in big-list
+          do (cond ((> (length (funcall fn list)) max-len)
+                    (setf max-len (length (funcall fn list)))
+                    (loop for list in acc
+                          do (push list rejected))
+                    (setf acc (make-list 1 :initial-element list)))
+                   ((= (length (funcall fn list)) max-len)
+                    (push list acc))
+                   (t (push list rejected))))
+    (values acc max-len rejected)))
+
+(defun make-moves (moves)
+  "Permet de trouver une position uniquement en fonction des coups joués."
   (let ((first-player 'red)
-        (c-board (copy-seq board)))
+        (board (make-array 7 :initial-element
+                           (make-list 6 :initial-element nil))))
     (flet ((get-opp (color)
              (case color
                (red 'yellow)
                (t   'red))))
       (loop for move in moves
-            do (setf c-board (play move first-player c-board))
-            do (setf first-player (get-opp first-player)))
-      c-board)))
+            do (setf board (play move first-player board))
+               (setf first-player (get-opp first-player)))
+      board)))
 
-;; STATE PASSING-U.
-(defun minimax (board depth maximizing
-                &optional (last-move -1))
-  (cond
-    ((or (tiedp board) (eql depth 0) (winningp board))
-        (make-move :column-choice last-move
-                   :eval-state (evaluation board)))
-    (t (let ((best-score (* -inf maximizing))
-             (best-move -1)
-             (big-move (make-move :column-choice 4))) 
-        (loop for choice from 0 to 6
-           for new-state = (play choice (max-to-color maximizing)
-                                (copy-seq board))
-           for state = (minimax new-state (1- depth) 
-                                (* -1 maximizing) choice)
-           when (or (and (> (move-eval-state state) best-score)
-                         (= maximizing 1))
-                    (and (< (move-eval-state state) best-score)
-                         (= maximizing -1)))
-           do (progn
-                    (setf best-score (move-eval-state state))
-                    (setf best-move  (move-column-choice state)))
-              cond
-              
-                    #|(end ((>= best-score alpha) (setf alpha best-score))
-                          ((<= best-score beta)  (setf beta  best-score))))|#
-              do (setf big-move
-                    (make-move :column-choice best-move
-                               :eval-state best-score)))
-              #|when (>= alpha beta) do (return))|#
-         big-move))))
+(defun eval-sequence (moves)
+  "Permet d'évaluer une position uniquement en fonction des coups joués."
+  (evaluation (make-moves moves)))
 
+(defun parity (num)
+  "Fonction retournant -1 si le nombre est pair, 1 sinon."
+  (if (evenp num) -1 1))
 
-#|
-(defun trace-decision-tree (board depth maximizing &optional (last-move -1) (dec-tree nil))
-  (cond
-    ((or (tiedp board) (eql depth 0) (winningp board))
-     (make-move :column-choice last-move
-                :eval-state (evaluation board)))
-    (t (let ((best-score (* -inf maximizing))
-             (best-move -1))
-         (loop for choice from 0 to 6
-               for new-state = (play choice (max-to-color maximizing)
-                                     (copy-seq board))
-               for state = (trace-decision-tree new-state (1- depth)
-                                            (* -1 maximizing) choice
-                                            (cons state dec-tree))
-               do (format t "~A~%" state)
-               finally (return dec-tree))))))
-    
+(defun flatten (nested)
+  "Permet d'aplatir une liste."
+  (reduce #'nconc nested))
 
-(defun minimax (board depth color
-                        &optional (last-move -1)
-                        (alpha most-negative-fixnum) (beta most-positive-fixnum))
-  (let ((c-board (copy-seq board))
-        (curr (evaluation color board)))
+(defconstant +inf most-positive-fixnum)
+(defconstant -inf (* -1 +inf))
+
+(defparameter *all-possible-moves* nil
+  "Variable globale reprennant tout les coups possibles retournés par notre algorithme minimax.")
+
+(defun minmax (move-seq depth)
+  "Retourne toutes les suites de coups possibles, ainsi que l'évaluation leur étant attribuée."
+  (let ((board (make-moves move-seq)))
     (cond
-      ((eql depth 0) 
-       (progn
-         (format t "~A~%" (make-move :column-choice last-move
-                                     :eval-state curr))
-         (make-move :column-choice last-move
-                    :eval-state curr)))
-      ((eql color 'red)
-       (let ((best-move (make-move :column-choice 0
-                                   :eval-state most-negative-fixnum)))
-         (loop for i in (get-legal *board*)
-               for new-board = (play i 'red c-board)
-               do (progn
-                    ;;(show-board new-board)
-                    ;;(format t "Evaluation: ~D~%" (evaluation 'red new-board))
-                    (setf best-move
-                        (max-move best-move
-                                  (minimax new-board (1- depth) 'yellow i alpha beta)))
-                    (setf alpha (max alpha (move-eval-state best-move)))
-                    (when (>= alpha beta)
-                        (return))))
-         best-move))
-      (t
-       (let ((best-move (make-move :column-choice 0
-                                   :eval-state most-positive-fixnum)))
-          (loop for i in (get-legal *board*)
-                for new-board = (play i 'yellow c-board)
-                do (progn
-                    ;;(show-board new-board)
-                    ;;(format t "Evaluation: ~D~%" (evaluation 'red new-board))
-                     (setf best-move
-                           (min-move best-move
-                                     (minimax new-board (1- depth) 'red i alpha beta)))
-                     (setf beta (min beta (move-eval-state best-move)))
-                     (if (<= beta alpha)
-                         (return))))
-         best-move)))))
-|#
+      ((tiedp board)
+       (push (cons move-seq 0) *all-possible-moves*))
+      ((winningp board)
+       (push (cons move-seq (* +inf (parity (length move-seq))))
+             *all-possible-moves*))
+      ((= depth 0)
+       (push (cons move-seq (eval-sequence move-seq))
+             *all-possible-moves*))
+      (t (loop for move in (get-legal board)
+               do (minmax (append move-seq (list move)) (1- depth))))))
+  *all-possible-moves*)
 
+(defun best-play (depth moves)
+  "Retourne le meilleur coup possible en fonction de la profondeur."
+  (minmax moves depth)
+  (mapc (lambda (lst)
+          (setf (car lst)
+                (nthcdr (length moves)
+            (car lst))))
+    *all-possible-moves*)
+  (loop (multiple-value-bind (valuable max-len rejected)
+            (max-len-filtr *all-possible-moves* :fn #'car)
+          (when (= max-len 0)
+            (format t "An error Occured, caught!") (return))
+          (when (= max-len 1) (return))
+          (setf *all-possible-moves*
+             (mapcar (lambda (a)
+                       (get-max-min-seq a
+                           (lambda (c d) (if (evenp max-len) (< c d) (> c d)))))
+                    (group-by valuable (lambda (a) (butlast (car a))))))
+          (setf *all-possible-moves* (append rejected *all-possible-moves*))))
+       (caar (reduce (lambda (a b) (if (> (cdr a) (cdr b)) a b))
+            *all-possible-moves*)))
+
+;;: PARTIE INTERFACE UTILISATEUR
 (defmacro player-repl (board player-turn context-name)
   (let ((other-player (if (eql player-turn 2) 1 2))
         (color (if (eql player-turn 1) 'yellow 'red)))
@@ -352,7 +344,7 @@ jusqu'en bas à droite."
              ((fullp i ,board)
               (format t "Cette colonne est déjà remplie!~%")
               (,context-name))
-             (t (setf ,board (play i ',color ,board))))))))
+             (t (setf ,board (play i ',color ,board t))))))))
 
 (defun play-against-player ()
   "L'interface utilisateur, permettant de jouer contre un autre joueur."
@@ -364,9 +356,8 @@ jusqu'en bas à droite."
 (defun play-against-computer ()
   (loop while (not (or (winningp *board*)
                        (tiedp *board*)))
-        do (setf *board* (play (move-column-choice
-                                (minimax *board* 5 1))
-                               'red *board*))
-        do (player-repl *board* 1 play-against-computer)
-        if (winningp *board*)
+        do (setf *board* (play (best-play 4 *moves*) 'red *board* t))
+           (setf *all-possible-moves* nil)
+           (player-repl *board* 1 play-against-computer)
+        when (winningp *board*)
           do (return "Vous avez gagné!")))
