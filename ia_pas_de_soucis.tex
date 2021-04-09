@@ -146,7 +146,7 @@ La suite se compose de la partie algorithmique, qui abordera les thèmes de la r
 Pour finir, nous expliquerons le fonctionnement du machine learning, nous définirons également la Data-Science et illustrerons son utilité via quelques utilisations de cette science dans la vie courante,
 nous donnerons également des exemples d'utilisation du langage Python, et présenterons les bibliothèques Numpy et Keras.\\
 
-Tout les programmes créés dans ce projet sont disponible à l'adresse suivante: \begin{center}
+Tous les programmes créés dans ce projet sont disponibles à l'adresse suivante: \begin{center}
   https://github.com/Egocentered/MathProject
 \end{center}
 
@@ -588,7 +588,7 @@ Heureusement pour nous, Prolog possède un module basé sur la logique par contr
 \begin{lstlisting}[language=Prolog]
 :- use_module(library(clpfd)).
 \end{lstlisting}
-au dessus de votre fichier Prolog, maintenant, modifions légèrement notre prédicat:
+au-dessus de votre fichier Prolog, maintenant, modifions légèrement notre prédicat:
 \begin{lstlisting}[language=Prolog]
 ajouter_clp(A, B, C) :-
     C #= A + B.
@@ -841,7 +841,7 @@ Il existe également la fonction ``nth'', permettant de récupérer le n-ième �
 CL-USER> (nth 2 *my-linked-list*)
 3
 \end{lstlisting}
-Il faut toutefois prendre en compte le fait que les listes simplements chaînées ne sont pas des structures de données très utilisées dans tout les langages de programmation. Par exemple, en Python, il faut importer la libraire llist afin de pouvoir les utiliser. \\
+Il faut toutefois prendre en compte le fait que les listes simplement chaînées ne sont pas des structures de données très utilisées dans tout les langages de programmation. Par exemple, en Python, il faut importer la libraire llist afin de pouvoir les utiliser. \\
 
 Les listes simplement chaînées connaissent surtout leur heure de gloire dans les langage de programmation plus fonctionnels tel que Haskell, Erlang, Prolog ou encore OCaml.
 
@@ -981,7 +981,7 @@ La première stratégie évidente serait de commencer par 1; ensuite, si mon nom
 
 Cette première stratégie pourrait faire penser à la manière à laquelle il faut chercher un élément dans une liste simplement chaînée, en effet, si je pense au nombre 629, il va falloir passer par les 628-ièmes éléments se trouvant avant. Dans ce cas-ci, comme pour lire un élément dans une liste simplement chaînée, nous dirons que la complexité de cet algorithme sera de O(n). \\
 
-Une deuxième manière de faire serait de faire ce que l'on appelle une recherche dite ``par dichotomie''. Tout d'abord, prenons un nombre au milieu entre 1 et 1000, ici, ce sera 500, si je dis ``au dessus'', alors, il suffira de prendre le milieu entre 500 et 1000, ici, ce sera 750, désormais, si je dis ``en dessous'', il faudra alors faire $\frac{500 + 750}{2} = 625$, ainsi, en appliquant cet algorithme jusqu'au bout, vous trouverez le nombre auquel je pense en utilisant un algorithme de complexité O(log n)! \\
+Une deuxième manière de faire serait de faire ce que l'on appelle une recherche dite ``par dichotomie''. Tout d'abord, prenons un nombre au milieu entre 1 et 1000, ici, ce sera 500, si je dis ``au-dessus'', alors, il suffira de prendre le milieu entre 500 et 1000, ici, ce sera 750, désormais, si je dis ``en dessous'', il faudra alors faire $\frac{500 + 750}{2} = 625$, ainsi, en appliquant cet algorithme jusqu'au bout, vous trouverez le nombre auquel je pense en utilisant un algorithme de complexité O(log n)! \\
 
 Ainsi, vous trouverez grâce à cette technique le nombre auquel je pense en maximum $\log_{2}{n}$ essais (où n est le nombre maximum, qui est ici 1000). \\
 
@@ -1080,7 +1080,7 @@ CL-USER> (/ 5 6)
 CL-USER> (/ 5 6.0)
 0.8333333
 \end{lstlisting}
-Comme on peut le voir, la logique reste la même pour tous les opérateurs, aussi, cette syntaxe nous permet également de mettre à ces opérateurs autant d'arguments que l'on le souhaite, (l'exemple est donné ci-dessus avec l'opérateur de multiplication.). \\
+Comme on peut le voir, la logique reste la même pour tous les opérateurs, aussi, cette syntaxe nous permet également de mettre à ces opérateurs autant d'arguments qu'on le souhaite, (l'exemple est donné ci-dessus avec l'opérateur de multiplication.). \\
 
 Également, l'opération de division ne remet pas directement un nombre à virgule, mais plutôt un Ratio, si l'on ne lui donne pour argument uniquement des nombres entiers. \\
 
@@ -1195,7 +1195,7 @@ Le lecteur attentif remarquera que nous terminons le nom de ces fonctions par un
 
 Aussi, on peut remarquer dans les deux premières fonctions l'utilisation de ``reduce'', il s'agit d'une fonction destinée aux {\bf catamorphismes}, cela veut dire qu'elles permettent de passer d'une structure de données comme une liste, ou un arbre, vers un scalaire, comme un entier ou encore un flottant. \\
 
-Egalement, j'utilise \# , ce symbole nous permet d'expliciter que nous utilisons une fonction, et pas une variable.\\
+Également, j'utilise \# , ce symbole nous permet d'expliciter que nous utilisons une fonction, et pas une variable.\\
 \lstinputlisting[language=Lisp, linerange={12-26, 34-48}]{Nim/nim-game-player.lisp}
 Nous voici enfin au cœur du programme. Avec nos fonctions ``play-winning-move'' et ``play-random-legal-move'' qui sont nos deux fonctions où est contenu notre joueur, les commentaires explicitant déjà leurs actions, nous nous concentrerons surtout sur l'implémentation. \\
 
@@ -1339,7 +1339,7 @@ Et enfin, voici l'algorithme A* en lui même! \\
 
 Remarquons l'utilisation assez forte de ``loop'', donnant un style assez impératif à cette implémentation. \\
 
-Il s'agti d'ailleurs d'un avantage de Lisp, le langage est multiparadigme, et permet de coder de la manière à laquelle l'utilisateur le souhaite! \\
+Il s'agit d'ailleurs d'un avantage de Lisp, le langage est multiparadigme, et permet de coder de la manière à laquelle l'utilisateur le souhaite! \\
 \subsection{Des programmes et des jeux!}
 Dès les débuts de l'intelligence artificielle, une envie de battre des humains avec des ordinateurs à des jeux de société s'est fait sentir. \\
 
@@ -1397,7 +1397,7 @@ La {\bf mémoization} est une stratégie typique en programmation fonctionnelle.
 Le principe est simple: Chaque fois que nous appelons une fonction, nous stockons le résultat associé à la valeur entrée dans une table de hachage, dès que nous rappelons la fonction, nous vérifions si le paramètre de celle-ci se trouve dans notre table de hachage.\\
 Si c'est le cas, nous retournons directement la valeur associée à la clé, n'oublions pas que cette opération est de complexité O(1), ce qui explique l'intérêt de stocker le résultat plutôt que d'avoir à le recalculer entièrement.\\
 
-Nous utilisons cette stratégie dans notre puissance 4 avant tout car il est possible d'atteindre une même position, à partir de suites de coups différentes, il est donc intéressant de ne pas avoir à réévaluer la position inutilement.
+Nous utilisons cette stratégie dans notre puissance 4 avant tout, car il est possible d'atteindre une même position, à partir de suites de coups différentes, il est donc intéressant de ne pas avoir à réévaluer la position inutilement.
 \newpage
 \section{Le Machine Learning.}
 \subsection{Définition du Machine Learning}
@@ -1408,7 +1408,7 @@ Le machine learning est présent dans la vie de tous les jours. Par exemple, nos
 
 \subsection{Les Maths dans le Machine Leanring.}
 
-De nombreux data scientists (chargés de la gestion, de l’analyse et de l’exploitation des données au sein d’une entreprise) considèrent le machine learning comme un apprentissage statistique car celui-ci s’appuie sur des algorithmes (principalement statistique) permettant à une machine d'apprendre grâce à des échantillons ou bases d’apprentissages.\\
+De nombreux data scientists (chargés de la gestion, de l’analyse et de l’exploitation des données au sein d’une entreprise) considèrent le machine learning comme un apprentissage statistique, car celui-ci s’appuie sur des algorithmes (principalement statistique) permettant à une machine d'apprendre grâce à des échantillons ou bases d’apprentissages.\\
 
 Ce qu’on appelle machine learning est pour certains la rencontre des statistiques avec la puissance de calcul disponible aujourd’hui (mémoire, processeurs, cartes graphiques).\\
 
@@ -1448,7 +1448,7 @@ Sont ainsi deux manières tout à fait correctes de déclarer une variable en py
 
 Le nom du langage vient de la série Monty Python’s flying Circus dont Guido Van Rossum était fan. Mais l’image du serpent paraissant plus évidente pour tout le monde, il a décidé d'utiliser celle-ci comme symbole du langage.\\
 
-Le langage python a été mis à jour de nombreuses fois et est passé d’une version 1.5 en 1999 jusqu’à 3.9 en 2020, nous nous intéresserons surtout aux versions python 2 et python 3 qui ont été ls plus marquantes.
+Le langage python a été mis à jour de nombreuses fois et est passé d’une version 1.5 en 1999 jusqu’à 3.9 en 2020, nous nous intéresserons surtout aux versions python 2 et python 3 qui ont été les plus marquantes.
 \subsubsection{Python 2:}
 Ici, nous allons citer quelques erreurs d’analyse de code possible comme des erreurs de syntaxe, des manques de ‘:’, des manques d’une lettre, et d'autres. Nous pouvons aussi trouver des exceptions qui, quand utilisées dans notre programme, nous permettent de contrer les erreurs pouvant être écrites par la suite comme les ‘ZeroDivisionError’ ou en français, erreur de division par zéro, mais aussi les ‘ValueError’ qui nous annonce une valeur incorrecte et encore bien d’autres.\\
 
@@ -1525,12 +1525,12 @@ Tout d'abord, j'insère : "from math import sqrt", sqrt c'est-à-dire la fonctio
 
 Après cela, j'apporte toutes les données nécessaire et utile à la résolution de l'équation telle que le déterminant de l'équation : $p=b^2-4.a.c$. Ou les valeurs de x en fonction de si le $p$ ci-dessus est positif, égal à zéro ou négatif. Tout ceci est placé dans une condition (le if juste après le $p=$...) qui si le $p$ est positif me donne des valeurs pour $x_1 et x_2$, si le $p$ est égal à zéro me rend une valeur pour $x$ et si le $p$ est négatif me dit tout simplement qu'il n'y a pas de valeurs pour x. \\
 
-Pour finir, un $input$ est ajouté, celui-ci n'est pas obligatoire, surtout dans cette fonction ou le a, b, c'est déjà définis, mais il permet quand même de demander à l'utilisateur du programme d'insérer une valeur de ces trois lettres. Même avec l'utilisation du $input$, un $print(second_degre(a, b, c))$ est ajouté, sans lui, on ne serait pas montré la fonction créée à l'écran. \\
+Pour finir, un $input$ est ajouté, celui-ci n'est pas obligatoire, surtout dans cette fonction ou le a, b, sont déjà définis, mais il permet quand même de demander à l'utilisateur du programme d'insérer une valeur de ces trois lettres. Même avec l'utilisation du $input$, un $print(second_degre(a, b, c))$ est ajouté, sans lui, on ne serait pas montré la fonction créée à l'écran. \\
 
-\subsection{le Data Science}
+\subsection{La Data Science}
 La Data science (sciences des données) est un domaine scientifique qui regroupe et relie toutes les disciplines relatives à l'utilisation de données. Son but à terme est de récolter et transformer des données brutes (Ex: Âge et classement des participants à une compétition) en informations concrètes et utilisables (Ex: Influence estimée de l'âge d'une personne sur ses résultats à cette compétition). Cette transformation commence par leur tri, pour garder uniquement ce qu'on peut utiliser, ensuite, on structure ces données selon certains modèles qui rendent leur exploitation possible, on commence donc à exploiter ces données à l'aide d'un logiciel ou d'un algorithme, et il ne reste plus qu'à rendre les informations obtenues communicables avec, par exemple, un graphique.\\
 
-Comme mentionné ci-dessus, la data science utilise différents algorithmes. Par exemple, la régression linéaire, qui sert à établir la relation entre une variable explicative (aussi appelée variable à expliquer) et une ou plusieurs variable expliquée (utilisée pour décrire les variables dépendantes). La régression linéaire permet par exemple de calculer des phénomènes économiques mais aussi d'autres genres de phénomènes. Par exemple, si l'on mesure la consommation d'une voiture en fonction de sa vitesse, la consommation est considérée comme la variable expliquée, tandis que la vitesse est considérée comme la variable explicative, à chaque valeur de la vitesse correspond une et une seule valeur de la consommation. Exactement comme dans une fonction où, à chaque valeur de x (qui pourrait ici, être la vitesse) correspond une seule valeur de Y (pouvant ici être la consommation).\\
+Comme mentionné ci-dessus, la data science utilise différents algorithmes. Par exemple, la régression linéaire, qui sert à établir la relation entre une variable explicative (aussi appelée variable à expliquer) et une ou plusieurs variables expliquées (utilisées pour décrire les variables dépendantes). La régression linéaire permet par exemple de calculer des phénomènes économiques mais aussi d'autres genres de phénomènes. Par exemple, si l'on mesure la consommation d'une voiture en fonction de sa vitesse, la consommation est considérée comme la variable expliquée, tandis que la vitesse est considérée comme la variable explicative, à chaque valeur de la vitesse correspond une et une seule valeur de la consommation. Exactement comme dans une fonction où, à chaque valeur de x (qui pourrait ici, être la vitesse) correspond une seule valeur de Y (pouvant ici être la consommation).\\
 
 L'intelligence artificielle est une des disciplines qui demande la plus grande connaissance en data science étant donné que les données en sont le carburant, ce dont toute intelligence a besoin pour se structurer. Cependant, la data science étant un domaine extrêmement large, elle est utile dans bien d'autres domaines que la conception d'IA.
 \subsection{La bibliothèque NumPy}
@@ -1552,7 +1552,7 @@ Une façon assez classique est d’utiliser la fonction array avec laquelle, il 
 \end{lstlisting}
 Attention à ne pas oublier de mettre ces chiffres entre [ ] ou entre ( ) pour que le tableau se crée. \\
 
-Si maintenant on veut rajouter une dimension contenant les chiffres 4, 5, 6, il suffit de faire la même chose en rajoutant des ( ) ou des [ ] pour délimiter les éléments d’une même dimension et une virgule entre les ( ) ou [ ] pour les séparer.
+Si maintenant, on veut rajouter une dimension contenant les chiffres 4, 5, 6, il suffit de faire la même chose en rajoutant des ( ) ou des [ ] pour délimiter les éléments d’une même dimension et une virgule entre les ( ) ou [ ] pour les séparer.
 \begin{lstlisting}[language=Python]
 >>> import numpy as np
 >>> x = np.array([(1, 2, 3), (4, 5, 6)])
@@ -1560,7 +1560,7 @@ Si maintenant on veut rajouter une dimension contenant les chiffres 4, 5, 6, il 
 [[1 2 3]
  [4 5 6]]
 \end{lstlisting}
-Attention, ne toujours pas oublier de mettre tout les chiffres entre [ ] ou entre ( ) pour créer le tableau. \\
+Attention, ne toujours pas oublier de mettre tous les chiffres entre [ ] ou entre ( ) pour créer le tableau. \\
 
 Cependant, il est possible que dans certains cas, les éléments dans le tableau ne soient pas connus ou qu’on ait besoin de créer un tableau avec x éléments mais sans forcément le remplir de chiffres précis. \\
 
@@ -1908,7 +1908,7 @@ Voici enfin venir la fin de notre partie minimax. \\
 Nous nous intéresserons ici à l'intérêt de {\bf multiple-value-bind}, en effet, en Lisp, il est possible de retourner plusieurs valeurs d'une fonction grâce à l'utilisation de {\bf values}. Il faut tout de même un moyen de récupérer toutes les valeurs sorties de la fonction, et savoir relier ses valeurs à des variables. C'est ici qu'entre en jeu {\bf multiple-value-bind}, dont l'intérêt est justement de récupérer les valeurs sorties par {\bf values} et les rattacher à des variables locales.
 
 \connect{329-363}
-Voici en fin venir la fin du programme Lisp, avec la partie interface utilisateur, le programme permet de jouer contre un autre joueur, ou encore de jouer contre l'IA. \\
+Voici enfin la fin du programme Lisp, avec la partie interface utilisateur, le programme permet de jouer contre un autre joueur, ou encore de jouer contre l'IA. \\
 
 \section{Bibliographie.}
 \bibliography{ia_pas_de_soucis.bib}
