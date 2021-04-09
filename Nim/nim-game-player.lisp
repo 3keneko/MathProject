@@ -32,7 +32,7 @@ d'allumettes sur le premier tas à disposition."
     (unsafep safe-copy)))
 
 (defun play-winning-move (heaps)
-  "Si l'adversaire n'est pas en poistion gagnante, nous jouons alors le meilleur
+  "Si l'adversaire n'est pas en position gagnante, nous jouons alors le meilleur
 coup disponible."
   (let ((unchanged t))
     (loop for heap in heaps

@@ -76,7 +76,7 @@
           lat))
 
 (defun max-subseq (color seq)
-  "Donne le nombre maximal d'élément se ressemblant dans une liste. 
+  "Donne le nombre maximal d'éléments se ressemblant dans une liste. 
 e.g => (max-subseq 'red '(red red yellow red red red yellow yellow)) == 2"
   (let ((maxi 0)
         (temp 0))
@@ -90,7 +90,7 @@ e.g => (max-subseq 'red '(red red yellow red red red yellow yellow)) == 2"
     maxi))
 
 (defun vertical-connections (color board)
-  "Donne le nombre maximal de connection verticale."
+  "Donne le nombre maximal de connections verticale."
   (labels ((number-in-vertical (column colour &optional (buffer 0))
              (cond
                ((null column) buffer)
@@ -182,7 +182,7 @@ jusqu'en bas à droite."
    (right-diagonal-connections color board)))
 
 (defun winningp (board)
-  "Si le nombre maximal de connection sur le plateau est supérieur
+  "Si le nombre maximal de connections sur le plateau est supérieur
 à trois, un joueur a gagné."
   (or (> (connections 'yellow board) 3)
       (> (connections 'red    board) 3)))
